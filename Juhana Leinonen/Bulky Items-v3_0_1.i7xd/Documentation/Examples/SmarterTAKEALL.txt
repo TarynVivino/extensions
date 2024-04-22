@@ -1,0 +1,17 @@
+Example: ** Smarter TAKE ALL
+Description: Excluding bulky items from TAKE ALL and informing the player about it.
+
+	{*}"Smarter TAKE ALL"
+
+	Include Bulky Items by Juhana Leinonen.
+
+	Living room is a room. A television is in the living room. It is bulky. A remote control is in the living room.
+
+	Rule for deciding whether all includes bulky things:
+		it does not.
+
+	Every turn when multiple taking:
+		if a bulky handled thing is in the location and the current action is taking:
+			say "(bulky items, i.e. [the list of bulky handled things in the location], were ignored)[line break]";
+
+	Test me with "take all/take television/drop all/take all".

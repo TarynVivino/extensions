@@ -1,0 +1,25 @@
+Example: * Poisons
+Description: A drink that has a strong effect on the drinker.
+
+The main thing to note about this is that we want to make the poison count as potable, so that the player will be able to drink it -- and then intervene after the foolish swallow, to make something interesting happen next.
+
+	{*}"Poisons"
+	
+	Include Measured Liquid by Emily Short.
+
+	Room of Doom is a room.
+
+	The vial is a fluid container. The fluid capacity of the vial is 1.0 fl oz. The fluid content of the vial is 1.0 fl oz. The liquid of the vial is poison. The vial is carried by the player.
+
+	Table of Liquids (continued)
+	liquid	potable	flavor
+	poison	true	"It makes you ill."
+
+	After drinking something:
+		if the liquid drunk is poison:
+			end the story saying "You have died in agony";
+		otherwise:
+			make no decision.
+
+	Test me with "drink vial".
+

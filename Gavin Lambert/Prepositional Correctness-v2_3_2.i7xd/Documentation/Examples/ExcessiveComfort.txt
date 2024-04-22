@@ -1,0 +1,44 @@
+Example: * Excessive Comfort
+Description: Hiding in a closet, draping on a sofa, and lying on a bed.
+
+	{*}"Excessive Comfort"
+	
+	Include Prepositional Correctness by Gavin Lambert.
+	
+	Small Apartment is a room.  "An opulently decorated small apartment room, to a nearly ridiculous level for its size.  And yet, nothing actually appears out of place."
+	
+	A closet is an enterable openable lit container in the apartment.
+	The description is "[if the player is inside the closet]It was a tight squeeze through some expensive leather coats, but you've found a space within.[otherwise]Mahogany.  Mmmmm-ahogany.[end if]  [closet state]".
+	Understand "closet door" as the closet.  Understand "door" as the closet when the player is inside the closet.
+	To say closet state:
+		if the player is inside the closet:
+			if the closet is open, say "The closet door is still open.";
+			otherwise say "The closet is closed, but sufficient light still filters through to the inside.";
+		otherwise:
+			if the closet is open, say "The closet is invitingly open.";
+			otherwise say "The closet is closed."
+	
+	A sofa is an enterable supporter in the apartment.
+	The description is "You're not entirely sure what kind of upholstery this sofa is decked out in, but [if the player is on the sofa]it is the softest thing ever[otherwise]it looks invitingly soft[end if]."
+	The preposition is "draped on".
+	A plush cushion is on the sofa.
+	
+	A large bed is an enterable supporter in the apartment.
+	The description is "[if the player is on the bed]It's like sleeping on a cloud.[otherwise]The sheets and spreads are entirely white, but not starkly so.  Somehow, airy.  Tempting."
+	The preposition is "lying on".
+	Understand "lie down/-- on [bed]" as entering.
+	A fluffy pillow is on the bed.
+
+	Rule for room heading describing the open closet: say "awkwardly standing inside [the closet]".
+	Rule for room heading describing the sofa: say "lounging about on [the sofa]".
+	Rule for room heading describing the bed: say "floating amongst the clouds".
+	
+	The verb to squeeze into means the reversed containment relation.
+	The verb to pop out of means the reversed containment relation.
+	The entering preposition of the closet is the verb squeeze into.
+	The exiting preposition of the closet is the verb pop out of.
+
+	Rule for printing the locale description for the closet: try examining the closet.
+
+	Test me with "enter closet / l / close closet / l / open closet / sit on sofa / l / sit on bed / l".
+

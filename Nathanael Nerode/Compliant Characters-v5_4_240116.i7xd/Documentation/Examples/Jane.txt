@@ -1,0 +1,22 @@
+Example: *** Jane
+Description: Regression test
+
+	{*}"Jane"
+
+	Include Neutral Standard Responses by Nathanael Nerode.
+	Include Compliant Characters by Nathanael Nerode.
+
+	Jane's house is a room. "It's Jane's house."
+	Jane is a person in the house. The description of Jane is "It's Jane!"
+	Persuasion rule for asking Jane to try doing something:
+		persuasion succeeds.
+
+	The furniture is a plural-named scenery thing in the house. The description of the furniture is "The furniture is not meant to be used."
+	The decorations is a plural-named scenery thing in the house. The description of the decorations is "Decorative."
+
+	A banana is a thing.
+	A red dress is a thing in the house.
+
+	test scenery with "jane, take furniture/jane, take furniture and decorations".
+	test cantsee with "jane, take banana/jane, take asdf/jane, take dress".
+

@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Scope Caching",
+        "author": "Mike Ciul",
+        "version": "2.0.230726"
+    }
+}

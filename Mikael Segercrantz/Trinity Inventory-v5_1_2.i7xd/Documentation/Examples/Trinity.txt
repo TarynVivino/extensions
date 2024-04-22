@@ -1,0 +1,34 @@
+Example: ** Trinity
+Description: Demonstrating the use of items not listed in the inventory and containers listed even if empty.
+
+	{*}"Trinity"
+	
+	Include Trinity Inventory by Mikael Segercrantz.
+	
+	Palace Gate is a room. "A tide of perambulators surges north along the crowded Broad Walk. Shaded glades stretch away to the northeast, and a hint of color marks the western edge of the Flower Walk."
+	
+	The player wears a vacation outfit. The vacation outfit is unlisted when worn.
+	The player wears a wristwatch. Understand "watch" as the wristwatch.
+	A container called your pocket is part of the vacation outfit. Your pocket is empty-listed.
+	A credit card is in your pocket.
+	A seven-sided coin is in your pocket. Understand "seven" and "sided" as the seven-sided coin.
+	
+	The seconds count is a number which varies. The seconds count is 0.
+	
+	The realistic time rule is listed instead of the advance time rule in the turn sequence rulebook.
+	
+	This is the realistic time rule:
+		now the seconds count is the seconds count + 15;
+		while the seconds count is at least 60:
+			now the seconds count is the seconds count - 60;
+			now the time of day is the time of day + 1 minute.
+	
+	The description of the wristwatch is "[if the hours part of the time of day is greater than 12][the hours part of the time of day - 12][otherwise][the hours part of the time of day][end if]:[if the minutes part of the time of day is less than 10]0[end if][the minutes part of the time of day]:[if seconds count is less than 10]0[end if][seconds count] [if the hours part of the time of day is at most 11]am[otherwise]pm[end if]."
+
+	When play begins:
+		say "Sharp words between the superpowers. Tanks in East Berlin. And now, reports the BBC, rumors of a satellite blackout. It's enough to spoil your continental breakfast.
+	
+	But the world will have to wait. This is the last day of your $599 London Getaway Package, and you're determined to soak up as much of that authentic English ambience as you can. So you've left the tour bus behind, ditched the camera and escaped to Hyde Park for a contemplative stroll through the Kensington Gardens."
+	
+	Test me with "i / x watch / take coin / i / x watch / take card / i".
+

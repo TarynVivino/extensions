@@ -1,0 +1,23 @@
+Example: ** It for All
+Description: Some authors have requested that "it" apply to anything, plural or singular, of any gender, for the convenience of their players.
+
+	{*}"It for All"
+	
+	Include Gender Options by Nathanael Nerode.
+	
+	A person is neuter. A man is neuter.  A woman is neuter.  [Overrides "usually not neuter", makes people respond to IT]
+	A plural-named thing is ambiguously plural. [Makes all plural-named objects respond to IT]
+	Prefer neuter gender is false. [Printed text shouldn't refer to characters as "it" if they're male or female.]
+	
+	Marching Grounds is a room.  "The place for marching!"
+	
+	to march is a verb. to watch is a verb.
+	
+	The soldiers are plural-named men in Marching Grounds.
+	The description of the soldiers is "[Regarding the soldiers][They] [march] up and down."
+	
+	An observer is a improper-named woman in Marching Grounds.
+	The description of the observer is "[Regarding the observer][They] [watch] the soldiers."
+	
+	test pronouns with "x soldiers / pronouns / x observer / pronouns".
+

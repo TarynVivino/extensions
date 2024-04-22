@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Dice",
+        "author": "David A Wheeler",
+        "version": "1.3.1"
+    }
+}

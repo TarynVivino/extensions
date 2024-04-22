@@ -1,0 +1,18 @@
+Example: * Examine Room
+Description: putting the room in scope
+
+If you're in a room called "Main Street", you probably want "look at main street" to work.  By default, it doesn't.
+
+	{*}"Examine Room"
+
+	Main Street is a room.
+	"This is the center of the city, where it all happens!"
+
+	After deciding the scope of an object (called character) (this is the put room in scope rule):
+		Place the location of the character in scope, but not its contents.
+
+	Rule for deciding whether all includes rooms:
+		it does not.
+
+	test me with "examine street/examine main street/take all".
+

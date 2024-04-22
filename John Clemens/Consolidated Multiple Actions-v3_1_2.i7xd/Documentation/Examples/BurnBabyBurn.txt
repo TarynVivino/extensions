@@ -1,0 +1,50 @@
+Example: *** Burn, Baby, Burn
+Description: Adding a new action which allows multiple nouns.
+
+We can add a new action which allows multiple nouns (or extend an already existing action) using the "[things]" token. In addition to the usual check, carry out, and report rules, we also need to add a rule for reporting consolidated actions for the new action (and a rule for reporting actions by others, if NPCs can be commanded to perform the action). Here we add a "burning it with" action.
+
+Note that we would not want to use the strict action consolidation checking option here because of a possible "(first taking the lighter)" message.
+
+Since the action only fails in one way, we can also add a new consolidated multiple actions rule to consolidate the failed action reports as well.
+
+And just for fun, we vary the printing of the consolidated objects list a bit.
+
+	{*}"Burn, Baby, Burn"
+	
+	Include Consolidated Multiple Actions by John Clemens.
+	
+	The Abandoned Warehouse is a room.
+	
+	The player carries a lighter.
+	
+	A thing can be flammable. A thing is usually not flammable.
+	
+	A book, a newspaper, and a bra are flammable things in the warehouse.
+	A safe, a bottle of water, and a fire-resistant flag are here.
+	
+	Understand the command "burn" as something new.
+	
+	Understand "burn [things] with [something]" or "burn [things]" as burning it with. Burning it with is an action applying to one thing and one carried thing.
+	Rule for supplying a missing second noun while burning with: now the second noun is the lighter.
+	Check burning it with: if the second noun is not the lighter, instead say "[The second noun] is not a suitable fire-starter."
+	Check burning it with: if the noun is not flammable, instead say "[The noun] refuses to catch fire."
+	Carry out burning it with: remove the noun from play.
+	Report burning it with: say "[The noun] bursts into flames and is soon gone."
+	
+	Rule for reporting consolidated actions when burning with: say "[The capitalized grouped consolidated objects list] burst[if the number of entries in the consolidated objects list is 1]s[end if] into flames and [if the number of entries in the consolidated objects list is 1]is[otherwise]are[end if] soon gone."
+		
+	A consolidated multiple actions rule for burning with (this is the consolidate inflammables rule):
+		let L be the multiple object list;
+		if the number of entries of L is at least 1:
+			say "[The capitalized grouped L] refuse[if the number of entries in L is 1]s[end if] to catch fire.";
+			truncate L to 0 entries;
+			alter the multiple object list to L.
+	
+	The consolidate inflammables rule is listed after the consolidate multiple actions rule in the consolidated multiple actions rulebook.
+	
+	Rule for printing consolidated objects when not burning with:
+		if the number of entries of the consolidated objects list is at least 3, say "a bunch of things[if the lighter is listed in the consolidated objects list], including [the lighter]";
+		otherwise say the grouped consolidated objects list.
+	
+	Test me with "take all / i / drop all / burn everything!".
+

@@ -1,0 +1,39 @@
+Example: ** Christmas Morning
+Description: A simple example of distance, and how to overcome it.
+
+	{*}"Christmas Morning"
+
+	Include Far Away by Jon Ingold.
+
+	[ The living room contains a tree, and some decorations. Only the very top of the tree is distant. ]
+
+	The Living Room is a room. The description is "The room is dominated by the top half of a Norwegian spruce. One side is almost bare as a result of Dad dragging it home along the snowless pavement."
+
+	The christmas tree is a supporter in the Living Room. "The tree is still only half-decorated.".  Understand "bauble", "baubles" as the christmas tree. Instead of examining or searching the tree, say "The tree is decorated in a smattering of baubles, [list of things on the tree]. [if the star is on the top of the tree]A star takes pride of place at the top.[end if][if the star is on the tree]The star looks a bit out of place though.[end if]"
+
+	The top of the tree is part of the tree. It is a supporter.
+
+	The top of the tree is distant.
+
+	A decoration is a kind of thing. Report putting a decoration on the christmas tree: say "You hang [the noun] artfully on the tree." instead. Some tinsel strands, a snowman and the star are decorations carried by the player. The description of the tinsel is "Shiny." The description of the snowman is "Cheery." The description of the star is "Bright[if the star is on the tree], but looks a bit out of place halfway up the tree[end if][if the star is on the top of the tree]. It takes pride of place[end if].".
+
+	Report taking the star when the star was on the tree: say "You take the star back down again."
+
+	Instead of taking a decoration when the noun is on the tree and the noun is not the star, say "If you start being picky about it you'll never get it done."
+
+	Every turn: if all the decorations are enclosed by the tree and the star is on the top of tree, end the story saying "The festivites may commence!".
+
+	[ At present, the player cannot hope to complete his task. So we give him a stepladder, and a rule to make is overcome the distant stuff problem. ]
+
+	The wonky stepladder is in the Living Room. It is an enterable supporter. Instead of climbing the stepladder, try entering the stepladder. Report entering the stepladder: say "You clamber up the wonky stepladder." instead. Understand "ladder" as the stepladder.
+
+	A distant stuff rule for the top of the tree when the player is on the stepladder: rule succeeds.
+	A distant stuff rule for something enclosed by the top of the tree when the player is on the stepladder: rule succeeds.
+
+	[ Finally, we should stop the player putting the wrong decoration at the top. This needs to be an Instead rule rather than a Before, however, so that it the distance check happens first. ]
+
+	Instead of putting a decoration on the top of the tree when the noun is not the star, say "That'd look all wrong."
+	
+	Test me with "put tinsel on tree / x top of tree / put star on top of tree / climb stepladder / put star on top of tree / get off / take star / put snowman on tree".
+
+

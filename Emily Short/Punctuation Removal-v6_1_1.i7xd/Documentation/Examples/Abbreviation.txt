@@ -1,0 +1,25 @@
+Example: * Abbreviation
+Description: In which titles such as Mr. and Dr. are correctly parsed.
+
+	{*}"Abbreviation"
+	
+	Include Punctuation Removal by Emily Short.
+
+	Test me with "x me / x me. x mr. Sinister. / x rev. carl / x mrs. grey / x st. thomas / x prof. green / rev. carl, hello / rev., hello / specialist, hello / x specialist. x st. Aquinas. / x Ms. Marvel / x st. x me"
+
+	The Ecumenical Rod & Gun Club of Seventh Saint is a room. Mr Sinister is a man in Club. The printed name of Mr Sinister is "Mr. Sinister".
+
+	Reverend Carl is a man in Club. The printed name of Reverend Carl is "Rev. Carl". Understand "rev" as Reverend Carl.
+
+	St Thomas Aquinas is a man in Club. Understand "saint" as Thomas. The printed name of Aquinas is "St. Thomas Aquinas".
+
+	Mrs Grey is a woman in Club. The printed name of Grey is "Mrs. Grey".
+
+	Professor Green is a man in Club. The printed name of Green is "Prof. Green". Understand "prof" as professor.
+
+	Ms Marvel is a woman in the Club. The printed name of Ms Marvel is "Ms. Marvel".
+
+	Specialist Joan is a woman in the Club.
+
+	After reading a command: resolve punctuated titles.
+

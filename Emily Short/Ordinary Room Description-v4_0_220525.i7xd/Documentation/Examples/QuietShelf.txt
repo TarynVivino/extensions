@@ -1,0 +1,14 @@
+Example: * Quiet Shelf
+Description: A scenery supporter which does not list its contents in the room description.
+
+	{*}"Quiet Shelf"
+
+	Include Ordinary Room Description by Emily Short.
+
+	Sample Chamber is a room. The shelf is scenery in Sample Chamber. On the shelf is a gold coin.
+
+	A description-concealing rule:
+		now every thing on the shelf is not marked for listing.
+
+	Test me with "look / get coin / look / drop coin / look".
+

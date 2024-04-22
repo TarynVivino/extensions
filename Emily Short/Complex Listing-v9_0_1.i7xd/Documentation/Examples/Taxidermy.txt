@@ -1,0 +1,21 @@
+Example: * Taxidermy
+Description: Arranging a list so that the items in the list are presented in order from shortest name to longest name, and separated by commas with no "and".
+
+	{*}"Taxidermy"
+
+	Include Complex Listing by Emily Short.
+
+	The Stuffed Room is a room. "Your father's study, a taxidermist's retreat, in which he could withdraw from the noisy, tumultuous presence of the living. Sometimes you would catch him in here walking from object to object, gently rubbing more fur off the balding heads, even once kissing the nose of a formaldehyded moose; which made you doubt whether you could ever compete for his attention, even when standing very very very still." An aardvark, a capybara, a dingo, an iguana, a joey are in the Stuffed Room.
+
+	Use the serial comma.
+
+	Rule for writing a paragraph about something in the Stuffed Room:
+		say "Your eye is drawn inexplicably to [a random other thing in the Stuffed Room], about which there hovers, however briefly, a kind of holy significance, a spiritual spotlight. ";
+		prepare a list of the unmentioned other things in the Stuffed Room;
+		order list by length;
+		say "What here can compare: [the prepared list delimited in comma style]?"
+		
+	Definition: a thing is other if it is not the player.
+	
+	Test me with "look / get joey / look / drop all".
+

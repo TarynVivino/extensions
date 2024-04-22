@@ -1,0 +1,28 @@
+Example: * Reading Email
+Description: A laptop set up with a password-lock program that gives way to email we can read, and a new message that is delivered while we wait.
+
+	{*}"Reading Email"
+	
+	Include Computers by Emily Short.
+
+	Conference room is a room.
+
+	The conference table is a thing in the Conference Room. The small laptop is a laptop on the conference table.
+
+	The small laptop runs a password-lock program called laptop security. Laptop security is privately-named. The password of laptop security is "mulderxox".
+
+	The small laptop runs an email program called laptop email. Laptop email is privately-named.
+
+	The message table of laptop email is Table of Laptop Messages.
+
+	Table of Laptop Messages
+	topic	message	arrival time	read	answered	description
+	"memo"	"Memo"	9:00 AM	false	false	"Your boss would like to see you in his office right away."
+	"SPAM"	"SPAM"	--	false	false	"Money for you from Nigeria!"
+	with 10 blank rows.
+
+	At 9:10 AM:
+		deliver "SPAM" to laptop email.
+
+	Test me with "turn on laptop / read memo / x laptop / x screen / read memo / type wrongpassword / type mulderxox / read memo / read spam / z / z / z / z / z / x screen / read spam / reply to spam".
+

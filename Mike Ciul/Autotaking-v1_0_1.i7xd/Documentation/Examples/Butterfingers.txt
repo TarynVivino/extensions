@@ -1,0 +1,38 @@
+Example: * Butterfingers
+Description: Making sure the "attacking it with" action always uses a held weapon.
+
+	{*}"Butterfingers"
+
+	Include Autotaking by Mike Ciul.
+
+	Attacking it with is an action applying to two things.
+
+	Understand "attack [something] with [something]" as attacking it with.
+
+	The must hold the second noun rule is listed first in the check attacking it with rulebook.
+
+	Check attacking something with something:
+		If the noun is not a person:
+			say "You do very little damage to [the noun].";
+			stop the action.
+
+	Check attacking the player with something:
+		say "You wound yourself slightly, but the pain causes you to stop.";
+		stop the action.
+
+	Carry out attacking something with something:
+		Now the second noun is in the location.
+
+	Report attacking something with something:
+		say "With a mighty yell, you swing [the second noun] at [the noun]. Unfortunately, it slips from your sweaty fingers and falls to the ground."
+
+	Arena is a room.
+
+	The gladiator is a man in Arena.
+
+	There is a sword in Arena. There is a big rock in Arena.
+
+	Instead of taking the big rock, say "You strain to lift the rock, but it's too heavy for you."
+
+	test me with "i/attack rock with sword/i/attack me with sword/attack gladiator with sword/g/attack gladiator with rock"
+

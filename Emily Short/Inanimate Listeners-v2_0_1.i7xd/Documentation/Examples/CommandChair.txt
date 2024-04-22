@@ -1,0 +1,22 @@
+Example: * Command Chair
+Description: A computer that answers questions and responds to comments.
+
+	{*}"Command Chair"
+
+	Include Inanimate Listeners by Emily Short.
+	
+	Bridge is a room. "Beeping and blinking, the computer awaits your instructions and requests."
+
+	The computer is an addressable scenery thing in the Bridge.
+
+	Instead of asking the computer about "coordinates": say "'Our coordinates are 3,4,5.'"
+
+	Instead of telling the computer about "coordinates": say "'Space is surprisingly small,' you tell the computer. [paragraph break]'Parse not found,' the computer complains."
+
+	The command chair is an enterable supporter in the Bridge. The player is on the command chair.
+
+	Test me with "ask computer about coordinates / tell computer about coordinates / computer, n / ask chair about coordinates".
+
+
+
+

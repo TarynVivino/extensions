@@ -1,0 +1,12 @@
+Example: * Potatoe Farm
+
+Note that since at least the first three letters must be correct for a match, the last command fails to be recognized -- perhaps a blessing in disguise in this case.
+
+	{*}"Potatoe Farm"
+
+	Include Poor Man's Mistype by Aaron Reed.
+
+	There is a room called On The Ol' Potato Farm. "Efforts to turn this place into a trendy retreat for artists have not been fruitful." A vegetable garden and a cemetery are fixed in place in Farm. A minuscule potato, a squash daiquiri, and an exhilarating questionnaire are in Farm. A maintenance worker named Katelynn and a committed playwright are people in Farm.
+
+	Test me with "x potatoe / x potatos / x cemetary / tkae questionare / give potatoe to playright / hug katelyn / drop teh questionnaire / lok / drink daquiri".
+

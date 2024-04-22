@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Commonly Unimplemented",
+        "author": "Aaron Reed",
+        "version": "2.0.1"
+    }
+}

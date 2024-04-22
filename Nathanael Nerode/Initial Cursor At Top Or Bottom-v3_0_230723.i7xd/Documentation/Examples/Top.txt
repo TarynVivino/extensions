@@ -1,0 +1,10 @@
+Example: * Top
+Description: Cursor at top of screen
+
+	{*}"Top"
+	
+	Include Initial Cursor at Top or Bottom by Nathanael Nerode.
+	
+	Information is a room.  "screen height [semi-cooked screen height]; error [interpreter screen height error]; start line [interpreter start line]".
+
+

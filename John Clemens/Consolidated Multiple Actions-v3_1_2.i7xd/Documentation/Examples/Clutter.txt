@@ -1,0 +1,41 @@
+Example: * Clutter
+Description: Illustrating the basic functionality, grouping of objects, and some nicer output for non-standard results.
+
+We can use the grouping together activity when printing consolidated objects just as we can when listing contents, as illustrated with the Scrabble pieces below. We can also add a new rule for announcing a multiple occurrence to vary the reporting of failed and noteworthy results.
+
+	{*}"Clutter"
+	
+	Include Consolidated Multiple Actions by John Clemens.
+	
+	The Cluttered Office is a room.
+	
+	The trash can is an open fixed in place container in the cluttered office.
+	A desk is here. It is fixed in place. A glass and a plate are on the desk.
+	Report taking the glass: say "You carefully pick up the glass."; rule succeeds.
+	A cat is here. After taking the cat, say "The cat struggles, but you manage to pick it up."
+	The hot potato is here. Instead of taking the hot potato: indicate noteworthy consolidation; say "You burn your hand on the potato, and let go immediately."
+	
+	Some flowers are here.
+	
+	Bob is a man in the cluttered office. Persuasion rule: persuasion succeeds.
+	
+	A book is a kind of thing. 5 books are in the cluttered office.
+	
+	A Scrabble piece is a kind of thing. The X, the Y and the Z are Scrabble pieces in the cluttered office.
+	Before printing consolidated objects: group Scrabble pieces together.
+	Before listing contents: group Scrabble pieces together.
+	Before printing the name of a Scrabble piece while not grouping together, say "tile ". After printing the name of a Scrabble piece while not grouping together, say " from a Scrabble set".
+	Before grouping together Scrabble pieces, say "the tiles ". After grouping together Scrabble pieces while not printing consolidated objects, say " from a Scrabble set".
+	
+	Rule for announcing a multiple occurrence of something (called object in question) when taking or removing:
+		if the number of multiple actions so far this turn is greater than 1, say conditional paragraph break;
+		if the object in question is not listed in the noteworthy objects list:
+			if number of multiple actions so far this turn is:
+				-- 1: say "You are unable to take";
+				-- 2: say "Nor can you take";
+				-- 3: say "You also fail to obtain";
+				-- otherwise: say "And";
+			say " [the object in question]: [run paragraph on]".
+	
+	Test me with "take all / drop all / Bob, take glass and plate / Bob, put them on the desk / remove all from desk/ put them in trash can / take glass / drop glass / take glass and plate / drop them / take flowers / drop them".
+

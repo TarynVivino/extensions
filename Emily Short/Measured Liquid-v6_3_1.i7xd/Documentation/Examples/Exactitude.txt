@@ -1,0 +1,104 @@
+Example: *** Exactitude
+Description: Requiring the player to use precise quantities of liquids to attain mixture results. Mixtures that are not included in the recipe book are rejected, so that the player can't make arbitrary combinations. Demonstrates using the liquid-mixture rulebook.
+
+We want to let the player specify exact amounts of liquid, so we build on "Chemist's Lakeshore", above, to include precise measurements with graduated containers. We also add to the liquid-mixture rulebook to supply a more demanding set of criteria for how recipes are matched.
+
+WARNING: Please note that this example works only under Glulx. It should not be compiled for the Z-machine, or it will produce a programming error on the startup of the game.
+
+	{*}"Exactitude"
+
+	Section 1 - Parsing POUR 1.0 FL OZ OF JUICE INTO JIGGER
+	
+	Include Measured Liquid by Emily Short.
+	
+	The set volume is a volume that varies.
+	
+	After reading a command:
+		now the set volume is null volume;
+		if the player's command includes "pour [a volume] of " or the player's command	 includes "pour [a volume] from ":
+			now the set volume is the volume understood;
+			replace the matched text with "pour".
+				
+	Check an actor pouring something into something when the set volume is not null volume:
+		if the second noun is ungraduated:
+			if the player is the actor:
+				say "[We] [have] no way to measure precisely [set volume] of anything	 while pouring into an ungraduated receptacle.";
+			now the set volume is the null volume;
+			rule fails;
+		if the set volume is greater than the fluid capacity of the second noun:
+			if the player is the actor:
+				say "[The second noun] [don't] measure that high.";
+			now the set volume is the null volume;
+			rule fails;
+		if the set volume is greater than the fluid content of the noun:
+			if the player is the actor:
+				say "There [aren't] that much liquid in [the noun].";
+			now the set volume is the null volume;
+			rule fails.
+	
+	Carry out an actor pouring something into something when the set volume is not null	 volume:
+		increase the fluid content of the second noun by set volume;
+		decrease the fluid content of the noun by set volume;
+		if the noun is empty and the no trace amounts option is active:
+			now the liquid of the noun is nonliquid;
+		now the set volume is null volume;
+		rule succeeds.
+	
+	Use mixed liquids.
+	
+	Section 2 - Restricting recipe matching
+	
+	The liquid-mixing rulebook has a list of volumes called the recipe quantities.
+	
+	The assign amounts rule is listed after the assign quantities while mixing rule in the liquid-mixing rules.
+	
+	A liquid-mixing rule for a volume (called the poured volume) (this is the assign amounts rule):
+		repeat with item running through the recipe contents:
+			if the item is the liquid of the noun:
+				add the poured volume to the recipe quantities;
+			otherwise:
+				add the fluid content of the second noun to the recipe quantities.
+	
+	The picky drink rule is listed before the keep the same recipe as before rule in the liquid-mixing rules.
+	
+	This is the picky drink rule:
+		repeat through the Table of Fussy Mixtures:
+			if the recipe contents is the mix-list entry:
+				if the recipe quantities is the quantity-list entry:
+					rule succeeds with result result entry;
+						
+	Check pouring something into something when the liquid of the noun is not the liquid of the second noun and the second noun is non-empty:
+		if the resulting liquid is not a result listed in the Table of Fussy Mixtures:
+			say "[regarding the noun]That recipe [aren't] in [our] bartending book." instead.
+	
+	Section 3 - Scenario
+	
+	The Verandah is a room. The table is a supporter in the verandah. The table supports a cocktail glass, a bottle, and a pitcher. The cocktail glass, the bottle, and the pitcher are fluid containers.
+	
+	The cocktail glass is preferred for drinking.
+	
+	The fluid capacity of the cocktail glass is 4.0 fl oz.
+	The fluid capacity of the bottle is 33.8 fl oz. The fluid content of the bottle is 33.8 fl oz. The liquid of the bottle is vodka.
+	The fluid capacity of the pitcher is 28.0 fl oz. The fluid content of the pitcher is 10.0 fl oz. The liquid of the pitcher is cranberry juice.
+	
+	The jigger is a graduated fluid container. The fluid capacity of the jigger is 2.0 fl oz. The player carries the jigger.
+		
+	When play begins:
+		now the sip size is 0.5 fl oz.
+	
+	Table of Liquids (continued)
+	liquid	potable	flavor
+	cranberry juice	true	"[regarding the noun][They] [taste] deliciously tangy."
+	vodka	true	"[regarding the noun][They] [don't] taste like much except alcohol."
+	correct crantini	true	"[regarding the noun][They're] a feisty cranberry beverage."
+	watery crantini	true	"[regarding the noun][They're] a bland cranberry beverage."
+		
+	Understand "crantini" as correct crantini. Understand "crantini" as watery crantini.
+	
+	Table of Fussy Mixtures
+	mix-list	quantity-list	result
+	{ cranberry juice, vodka }	{ 1.0 fl oz, 1.2 fl oz}	correct crantini
+	{ cranberry juice, vodka }	{ 1.2 fl oz, 1.0 fl oz}	watery crantini
+	
+	Test me with "pour 1.0 fl oz of vodka into jigger / pour jigger into glass / pour 1.2 fl oz of cranberry juice into jigger / pour jigger into glass / drink watery crantini / g / g / g / g / g / pour 1.2 fl oz of vodka into jigger / pour jigger into glass / pour 1.0 fl oz of cranberry juice into jigger / pour jigger into glass / drink glass / pour vodka in glass".
+

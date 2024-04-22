@@ -1,0 +1,23 @@
+Example: * Patience
+Description: In which question and exclamation marks are pulled from the player's input.
+
+	{*}"Patience"
+	
+	Include Punctuation Removal by Emily Short.
+	
+	The Overpunctuation Arena is a room. "It's madness in here!! Fortunately, you have a lot of patience, right???"
+	
+	Understand "who is/are [text]" as inquiring about. Inquiring about is an action applying to one topic. Carry out inquiring about a topic listed in the Table of Answers: say "[reply entry][paragraph break]". Understand the command "what" as "who".
+	
+	Table of Answers
+	topic	reply
+	"patience"	"A virtue."
+	"virtue" or "a virtue"	"A grace."
+	"Grace" or "a grace"	"A little girl who doesn't wash her face."
+	
+	After reading a command:
+		remove stray punctuation;
+		if the player's command includes "&", replace the matched text with "and".
+	
+	Test me with "what is patience? / what is a virtue?! / what is grace???"
+	

@@ -1,0 +1,25 @@
+Example: * The Ringer
+Description: An array of different types of messages, both from the parser and the narrator. (From Neutral Library Messages)
+
+	{*}"The Ringer"
+
+	Include Neutral Standard Responses by Nathanael Nerode.
+
+	To say as the parser -- beginning say_as_the_parser: say "<<".
+	To say as normal -- ending say_as_the_parser: say ">>".
+
+	Stage is a room. A big cat and a small cat and a bat are in Stage. A platform is an enterable supporter in Stage. A box is a closed openable container on platform. In the box is an apple. The player wears an ascot.
+	
+	To sing is a verb.
+	Singing is an action applying to nothing.
+	Understand "sing" as singing.
+
+	Check singing when player does not hold platform: instead say "[as the parser]You can't sing in this extension demo![no line break][as normal][line break]".
+	Before jumping when player is on platform: say "Before jumping, you stop and think about something.".
+	Instead of sleeping when player is on platform: say "You can't.  [as the parser]You might try MOVE or TILT.[no line break][as normal][line break]".
+	Before listening when player is on platform: say "[as the parser]That's totally impossible.[no line break][as normal]  But you do it anyway."
+
+	test me with "get bat / jump / get cat / big / wait / oops / listen to platform now / get on platform / look / remove all from cat / eat platform / open box / eat apple / g / take / bat / drop all but rat / drop all but bat / drop all but / sing / jump / sleep / listen / examine cat and rat / drop ascot / score".
+
+	[NB - The one which gives the wrong error with version 4 of Neutral Library Messages is 'get all but rat'... a project for version 5.  The rest work.  This is a bug in drop, since take all but xxxx works right.]
+

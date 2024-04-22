@@ -1,0 +1,44 @@
+Example: ** When Injokes Collide
+Description: Mixing conversation with reactions, and matching on complete phrases or complex topics.
+
+	{*}"When Injokes Collide"
+
+	Include Reactable Quips by Michael Martin.
+
+	Use American dialect, the serial comma, no deprecated features, and no scoring.
+
+	Horace's House is a room.  A man called Horace is here.  "Your eccentric neighbor Horace is here, with a T-shirt that says 'TELL ME ABOUT YOURSELF.'"
+
+	Table of Quip Texts (continued)
+	quip			quiptext
+	suggest monkeys		"'That's nice, I suppose.  But have I told you how awesome monkeys are?  You should ask me about monkeys!'"
+	yay monkeys		"'Monkeys are awesome!  Anyone with [italic type]any[roman type] sense loves monkeys.  Did you know?  It was humans who unleashed Zero Wing on an unsuspecting universe.'"
+	hate aybabtu		"Horace unleashes an unearthly howl.  'AIIIEEEEE!  NO!  Speak of it not!  Never again!  Hate you forever!  Die die die!!!!'[paragraph break]He leaps for your throat, wrestles you to the ground, and pummels the consciousness out of you. Death will follow soon enough..."
+	apes ok			"'They're OK, I guess, but they're not nearly as great as monkeys.'"
+	humans lousy		"'Humans in general are vastly inferior to monkeys.'"
+	kindred spirit		"'Finally!  A kindred spirit!  My quest is finally over.  Take this briefcase as a token of my appreciation.'[paragraph break]He hands you a briefcase full of solid gold Krugerrands."
+	speciesist		"'Oh, you're just speciesist like the rest of them.'"
+
+	Table of Quip Followups (continued)
+	quip			option			result
+	humans lousy		"Fervently agree"		kindred spirit
+	humans lousy		"Shrug indifferently"	speciesist
+
+	Table of Ask Results (continued)
+	NPC		topic						result
+	Horace		"monkeys"					yay monkeys
+	Horace		"lemurs/apes/gibbons/orangutans/bonobos/gorillas"	apes ok
+	Horace		"humans/people/me/you/myself/yourself/himself/self"	humans lousy
+	Horace		"All his/her/your base" or "All his/her/your base are belong to us/you/me" or "AYBABTU"	hate aybabtu
+
+	Table of Tell Results (continued)
+	NPC		topic		result
+	Horace		"self/me/myself"	suggest monkeys
+
+	After quipping when the current quip is hate aybabtu: end the story saying "You have no chance to survive make your time".
+	After quipping when the current quip is kindred spirit: end the story finally saying "You have won".
+
+	test winning with "ask horace about people / 3 / 1".
+
+	test me with "tell horace about myself / ask horace about how awesome monkeys are / ask horace about humans / go east / repeat / 2 / ask horace about gibbons / ask horace about all his base".
+

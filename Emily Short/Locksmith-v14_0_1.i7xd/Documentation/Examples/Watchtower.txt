@@ -1,0 +1,45 @@
+Example: *** Watchtower
+Description: Using sequential actions to make the player's activities more equal with those of another character.
+
+Suppose that instead of the "(first unlocking...)" text, we would like to offer some more interesting flavor text. We might accomplish this by sequential action option is active and then supplying new report rules for specific actions. (Notice that we do not make them After... rules, on the grounds that those would stop the action process. We want to report these actions and allow them to succeed normally.)
+
+	{*}"Watchtower"
+
+	Use sequential action. Include Locksmith by Emily Short.
+	
+	Bridge is a room. "Beneath this long, narrow bridge is a gully full of ice-water from the mountains above. It runs milky at this time of year, and is not fit to drink. The air off it is bitterly cold. Just north of here is the Roman watchtower, built square and still defensible despite several centuries of neglect."
+	
+	North of Bridge is the tower door. The tower door is a lockable locked door. It is scenery. Understand "watchtower" as the tower door. The tower door is south of the Watchtower. The large iron key unlocks the tower door. The player carries the large iron key.
+	
+	The description of the Watchtower is "The wooden floor has mostly rotted away, exposing the square pit in which the paymaster used to keep the soldiers['] coin. It is possible to move around the perimeter of the room without falling in, however."
+	
+	Report unlocking something with something when the player is in Bridge:
+		say "Shivering and fumbling, you manage to unlock [the noun] with [the second noun]. Your fingers are very nearly numb." instead.
+	
+	Report unlocking something with something when the player is in Bridge:
+		say "Shivering and fumbling, you manage to unlock [the noun] with [the second noun]. Your fingers are very nearly numb." instead.
+		
+	Report opening the tower door:
+		say "The tower door resists your first shove or two, but then falls open." instead.
+		
+	Leif is a man in the Bridge.
+	
+	A persuasion rule: persuasion succeeds.
+	
+	Report someone trying unlocking a door with something:
+		say "[The person asked] rattles the handle of [the noun] a few times, then thinks to try [the second noun] on it. 'Bit stiff, this.'" instead.
+		
+	Report someone trying opening the tower door:
+		say "[The person asked] gives [the tower door] several [if the person asked is in the Bridge]shoves[otherwise]firm tugs[end if] before managing to open it." instead.
+		
+	Test me with "drop key / open door / get key / n / s / lock door / drop key / Leif, get key / Leif, n".
+		
+Leif will also follow the rules about unlocking and opening doors, and have a few special reports of his own -- though in fact we could also arrange matters so that he is unable to do so, by including the following:
+
+	{*}The intelligently opening doors rule is not listed in any rulebook.
+	The intelligently closing doors rule is not listed in any rulebook.
+	The intelligently closing keyless doors rule is not listed in any rulebook.
+	The intelligently opening containers rule is not listed in any rulebook.
+
+...and now he will be too dim to handle the keys himself.
+

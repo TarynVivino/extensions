@@ -1,0 +1,16 @@
+Example: * Explicitly Licensed
+Description: Adding some explicit license text as well.
+
+You can also change the rights you are claiming by changing the story rights string (this is only printed if you specify the story copyright string):
+
+	{*}"Explicitly Licensed" by Gavin Lambert.
+	
+	Include Extended Banner by Gavin Lambert.
+
+	The story copyright string is "2022".
+	The story rights statement is "Released under the Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License".
+	
+	There is a room.
+
+By default the story rights statement is "All rights reserved".
+

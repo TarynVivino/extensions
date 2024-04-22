@@ -1,0 +1,45 @@
+Example: ** Purgatory
+Description: Illustrates how to suspend and reinstate the saving of undo states. The player is presented with a bottle of poison. If she drinks it, she will die within a certain number of turns. We suspend saving of the undo state on the drinking of the bottle, though, so that the player need type UNDO only once to return to the turn before drinking the poison, no matter how many turns have passed since.
+
+Note that we warn the player before allowing her to save during this purgatorial period--restoring the game would discard the saved undo state and effectively doom the PC to death.
+
+	{*}"Purgatory"
+
+	The story author is "Erik Temple".
+	The release number is 5.
+
+	Include Undo Output Control by Nathanael Nerode.
+	
+	Black Room is a room. There is a bottle of poison in Black Room.
+	
+	Instead of drinking the bottle of poison:
+		now the printed name of the bottle is "empty bottle";
+		say "You drink down the poison in a single draught! That probably wasn't very smart.";
+		disable saving of undo state.
+	
+	Every turn when the printed name of the bottle is "empty bottle":
+		say "[one of]Your cheeks burn[or]Your teeth hurt[or]Your belly twists[or]Your vision fades[the end][stopping]."
+	
+	To say the end:
+		end the story saying "You have died".
+	
+	Before undoing an action when save undo state is false:
+		say "[bracket]Attempting to undo to the moment just before you drank the poison.[close bracket][paragraph break]";
+		rule succeeds.
+	
+	Report undoing an action:
+		say "[bold type]";
+		say "[Location]" in upper case;
+		say "[roman type]";
+		say "[line break]";
+		say "[bracket]Undone.[close bracket][line break]";
+		enable saving of undo state;
+		rule succeeds.
+		
+	Check saving the game when save undo state is false:
+		say "Maybe it would be best to UNDO your terrible mistake before saving. Are you sure you want to save now, while you're dying? ";
+		if the player consents:
+			continue the action;
+		otherwise:
+			rule fails.
+			

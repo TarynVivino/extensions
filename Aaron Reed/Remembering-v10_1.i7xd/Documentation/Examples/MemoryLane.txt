@@ -1,0 +1,13 @@
+Example: * Memory Lane
+Description: A simple example.
+
+	{*}"Memory Lane"
+
+	Include Remembering by Aaron Reed.
+
+	l964 is a room. A 7-inch reel of tape is in l964. The Ghost of Audio Mediums Future is a man in l964. "A hooded figure, the Ghost of Audio Mediums Future, beckons forward into a cellophane-shrouded future." Understand "forward" or "future" as north. Understand "back" or "past" as south.
+
+	North of l964 is l975. Some eight-track tapes are in l975. l980 is north of l975. A double album is in l980. l986 is north of l980. Some cassette tapes are in l986. l991 is north of l986. A compact disc is in l991. l999 is north of l991. Some Napstered MP3s are in l999. Circa 2006 is north of l999. The printed name of Circa 2006 is "2006". An iPod Nano is in Circa 2006.
+
+	Test me with "future / x reel / future / x tapes / x ghost / future / future / x tapes".
+

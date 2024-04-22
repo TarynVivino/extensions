@@ -1,0 +1,51 @@
+Example: ** Kill Doctor Pearson
+Description: A slightly more complex example where NPCs are scattered around at the beginning of play. Demonstrates how to handle introductions of objects that start on supporters, which might not otherwise get their own paragraphs.
+
+In this scenario, we are going to randomize where the characters start at the beginning of play in order to demonstrate a slightly more complex treatment of introductions. We'll also have one character who starts out on a supporter, rather than in a room: this needs special treatment because, under normal circumstances, the paragraph would be written about the supporter rather than about the supported object.
+
+	{*}"Kill Doctor Pearson"
+
+	Include Introductions by Emily Short.
+
+	When play begins:
+		repeat with pawn running through people who are not the player
+		begin;
+			move pawn to a random room;
+		end repeat;
+		move Doctor Pearson to a random enterable supporter.
+
+	Doctor Pearson is a man.
+		The introduction is "Doctor Pearson is resting in [the holder of Pearson]. He winks at you as you walk in: the man has never mastered the concept of discretion, and at 65 he apparently thinks you still cherish hopes of reliving the affair you had twenty years ago, when you were a vulnerable seventeen."
+
+	Fred is a man.
+		The introduction is "[initial appearance of Fred] He's an old friend of yours, but lately you've found him more and more difficult to take: all his little tics -- impatience, rudeness, tendency to interrupt -- have grown more pronounced since Lisa left. Some of your social circle now act as though he weren't there at all, as though his stammered, tactless commentary were no more than background noise from a radio."
+		The initial appearance is "Fred is prowling near [the random scenery thing which is in the location], looking morose. "
+	
+	Annie is a woman.
+		The introduction is "It's a relief to see Annie: solid and dependable, Annie keeps secrets and acts sensible."
+		The initial appearance is "Annie stands nearby. Only someone well-acquainted with her would be able to see how tense she feels."
+
+	Rule for writing a paragraph about a supporter which supports Pearson when Pearson is not mentioned:
+		carry out the writing a paragraph about activity with Pearson instead.
+
+	[And to prevent mention of those supporters when someone is not sitting in them:]
+
+	Rule for writing a paragraph about an enterable supporter (called target):
+		now the target is mentioned;
+		rule succeeds.
+
+	The Library is a room. The fireplace is scenery in the Library. The leather recliner is an enterable supporter in the Library.
+
+	North of the Library is the Home Theater. The comfy chair is an enterable supporter in the Home Theater. The screen is scenery in the Home Theater.
+
+	Table of Segues (continued)
+	first   	 second   	 segue
+	Fred   	 Doctor Pearson   	 "[paragraph break][override intro for Pearson]Fred is no favorite with Doctor Pearson, either, which is why you're surprised to see the old man sitting serenely in [the holder of Pearson], sipping a vodka gimlet. "
+	Fred	Annie	"[paragraph break][override intro for Annie]Annie gives you a kind of wry look: solid, sensible Annie, she is kinder to Fred than most others, but that's because she practices a disciplined sort of kindness, not because she doesn't find him irritating."
+	Annie	Fred	"She will have had plenty of chance to practice, too: "
+
+	Test me with "look / north / look".
+
+The "rule for writing a paragraph about an enterable supporter" is designed to keep Inform from mentioning the chairs unless someone is sitting in them. Note that this rule won't work with Tailored Room Description because there are already other, more complex rules about supporters that will take priority through normal rule-ordering.
+
+On the other hand, with TRD we could use a description-concealing rule to omit any mention of those supporters anyway.

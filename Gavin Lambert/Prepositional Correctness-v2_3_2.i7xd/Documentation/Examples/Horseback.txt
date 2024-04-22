@@ -1,0 +1,17 @@
+Example: * Horseback
+Description: Riding a horse with Rideable Vehicles.
+
+	{*}"Horseback"
+	
+	Include Rideable Vehicles by Graham Nelson.
+	Include Prepositional Correctness by Gavin Lambert.
+	
+	Grasslands is a room.  "Wide open grasslands stretch as far as the eye can see."
+
+	A horse is a kind of rideable animal.  Understand "horse" as a horse.
+
+	Spirit is a horse in Grasslands.  "Spirit grazes aimlessly nearby."
+	The description is "This is your horse, of course, of course."
+
+	Test me with "mount horse / l".
+

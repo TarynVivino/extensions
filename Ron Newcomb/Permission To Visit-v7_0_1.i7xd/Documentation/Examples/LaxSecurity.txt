@@ -1,0 +1,52 @@
+Example: * Lax Security
+Description: Forget the keycards.  Just ask a coworker to let you in.
+
+	{*}"Lax Security"
+
+	Include Permission to Visit by Ron Newcomb.
+	
+	section 1 -  people and places
+	
+	HR, sales, purchasing, R&D, and the basement are regions. After printing the name  of a room, say ", a part of [the map region of the item described]".
+	
+	H wing is a room in HR.
+	R wing is a room in R&D. The gatekeeper of R&D is Charlie.
+	P wing is a room in Purchasing. The gatekeeper of Purchasing is Bob.
+	S wing is a room in Sales. The gatekeeper of Sales is Bob.
+	The stairwell is a room in the basement. The gatekeeper of the basement is the wrench.
+	
+	The break room is a room. "North is HR in H wing, managed by no one.  [line break]East is R&D in R wing, managed by Charlie.  [line break]South is Sales in S wing, managed by Bob.  [line break]West is Purchasing in P wing, managed by Bob.  [line break]Southwest is the stairwell with the broken door."
+	H wing is north of break room. "The break room is south of here.".
+	R wing is east of break room. "The break room is west of here.".
+	P wing is west of break room. "The break room is east of here.".
+	S wing is south of break room. "The break room is north of here.".
+	The stairwell is southwest of break room. "The breakroom is northeast.".
+	
+	The player is in H wing. Bob, Charlie, and Stan are men in H wing. The wrench is in H wing.  Persuasion rule: persuasion succeeds. The soft hiatus rule is not listed in any rulebook.
+	
+	
+	section 2 - expand our notions of Inventory
+		
+	First carry out taking inventory:
+		repeat through the table of Invitations begin;
+			if the temporary entry is false, say "[The invitor entry] has granted [invitee entry] permission to visit [if there is a place entry][place entry][otherwise][regions owned by invitor entry]and anywhere else he holds authority[end if].";
+			otherwise say "[The invitor entry] has invited [invitee entry] to [if there is a place entry][place entry][otherwise][regions owned by invitor entry]anywhere you'd like to see[end if].";
+		end repeat.
+	
+		
+	section 3 - handy stuff
+	
+	To say regions owned by (character - a person):
+		repeat with R running through regions begin;
+			if the gatekeeper of R is the character, say "[R], ";
+		end repeat.
+	
+	Test me with "TEST denied/TEST expired-invite/TEST permit/TEST forbid/TEST fixit".
+	Test denied with "stan, invite me / stan, invite me to sales".
+	Test expired-invite with "i/bob, invite me to sales/visit p/i/visit s/i/visit h/i".
+	Test permit with "i/bob, permit me/i/visit p/visit s/i/visit r".
+	Test forbid with "i/visit bob/bob, forbid me/i/visit p/visit s/i".
+	Test fixit with "go to break room/sw/find wrench/take wrench/go to break room/sw".
+
+
+

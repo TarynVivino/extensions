@@ -1,0 +1,30 @@
+Example: * Boatman
+Description: A sample involving modified descriptions for items in an enterable container with the player.
+
+	{*}"Boatman"
+
+	Include Tailored Room Description by Emily Short.
+
+	The Salt Lake is a room.
+
+	The rowboat is an enterable container in the Salt Lake. Understand "boat" as the rowboat. It contains a boatman, a pole, and a bottle of fresh water. The boatman is a man.
+
+	The Salt Lake contains a single flipper.
+
+	A ranking rule for the boatman: increase the description-rank of the boatman by 10.
+
+	Rule for writing a paragraph about the boatman when the boatman is in the rowboat:
+		if entering the rowboat, say "[The boatman] leans to one side to provide balance as you scramble in. [paragraph break]";
+		otherwise say "[The boatman] sits in [the rowboat], looking grim. [paragraph break]"
+
+	Rule for writing a paragraph about something while entering a container (called special-target):
+		say "In [the special-target] with you, you see [the list of mentionable things in the special-target]."
+
+	Rule for writing a paragraph about a deeply dull thing which is in the rowboat when the player is in the rowboat:
+		say "In the bottom of the boat, you see [a list of deeply dull mentionable things which are in the rowboat]. [paragraph break]".
+
+	Rule for writing a paragraph about a deeply dull thing which is in the Salt Lake:
+		say "Floating on the impossibly buoyant water: [a list of deeply dull mentionable things which are in the Salt Lake]. [paragraph break]".
+
+	Test me with "get flipper / put flipper in rowboat / look / enter rowboat / get pole / look / get water / look / out / look / drop all / look / get in boat / look".
+

@@ -1,0 +1,103 @@
+Example: ** And I Want to Paint It
+Description: Easy Doors in action, hopefully demonstrating the entire range of use, including debug messages.
+	
+	{*}"And I Want to Paint It"
+
+	Include Easy Doors by Hanon Ondricek.
+
+	Hub is a room.
+	Room1 is a room.
+	Room2 is a room.
+	Room3 is a room.
+	
+	Alice is a woman in Hub.  "Alice is here, looking rather lost."
+	
+	Before Alice entering an easydoor:
+		say "'Aha!' Alice exclaims."
+	
+	A persuasion rule: persuasion succeeds.
+
+	An easydoor called the first door is an easydoor in Hub.  It leads to room1.
+
+	A green door is a lockable, locked easydoor in Hub.  It leads to room2.
+
+	A blue door is a lockable, locked easydoor in Hub.  It leads to room3.
+
+	The player carries a green key.  Green key unlocks green door.
+	
+	A blue key is in Room2.  It unlocks blue door.
+
+	An incorrectly-made door is an easydoor in Hub.
+
+	a return door is a kind of easydoor.
+	One return door is in room1.  It leads to Hub.  It portals first door.
+	One return door is in room2.  It leads to Hub.  It is lockable and locked.  It portals green door.
+	One return door is in room3.  It leads to Hub.  It is lockable and locked.  It portals blue door.
+
+	A false door is an easydoor in Hub.
+
+	After opening false door:
+	say "Hunh.  This door opens onto a solid brick wall.  You're not going anywhere through this."
+	
+	Yourself can be injured.
+
+	The dooraction of false door is "Ow.  Bricks meet nose."
+	
+	Carry out entering false door:
+		now the player is injured.
+	
+	A red herring door is an easydoor in hub.  It is lockable and locked.
+
+	a time machine is an open, unopenable easydoor in Room3. "A humming time machine sits in the corner, the passage into it glowing expectantly."  It leads to Swirly Void.  The dooraction of time machine is "All right.  Here goes."
+
+	Swirly Void is a room.  "How temporally disorienting!".
+
+	A rapidly approaching light is an open, unopenable easydoor in Swirly Void.  The description is "It's approaching fast."  It leads to Drawing Room.  The dooraction of rapidly approaching light is "You fall for a long time, afraid of meeting the ground at rapid pace.  Luckily the next time you blink, you find yourself somewhere else...and there seems to be no way back."
+
+	Drawing Room is a room.  "You've arrived in Victorian London, it seems, from the look of this place."
+
+	The parlour door is an easydoor in Drawing Room.  "The Parlour is west."  It leads to The Parlor.
+
+	Instead of going west in Drawing Room: try entering parlour door.
+
+	The Parlor is a room.  "The Parlour.  How boring.".  The printed name of parlor is "The Parlour"
+
+	The drawing room door is an easydoor in Parlor. "The drawing room door leads back to the east.".  It leads to Drawing Room.  It portals parlour door.
+
+	Instead of going east in parlor: try entering the drawing room door.
+
+	A magic mushroom is an edible thing in Drawing Room.
+
+	Carry out eating magic mushroom:
+		say "The parlour door seems to ripple strangely.";
+		now the parlour door leads to Wonderland;
+		now the dooraction of parlour door is "As you cross the threshold of the parlour door, there is a liquid ripple and your surroundings melt away, leading you somewhere else...".
+	
+	Wonderland is a room.  "Oh no.  Not this again.  Your croquet skills are rusty.  You feel like jumping in frustration."
+
+	some very damp clothing is a wearable thing.
+
+	The pool of tears is a fixed in place, enterable, transparent container in wonderland.
+
+	Carry out entering pool of tears:
+		now the player wears damp clothing.
+
+	hundreds of gallons of tears is a fixed in place thing in pool of tears.
+
+	Yourself can be wet.
+
+	A whirlpool is an open, unopenable easydoor.  It leads to Hub.  The dooraction is "Down...down...down...whirling...you hold your breath until finally you end up in... Well, foo.  That was all for naught."
+	
+	Carry out entering whirlpool:
+		now the player wears damp clothing.
+
+	Instead of jumping:
+		say "You stamp your foot angrily.";
+		if the location is Wonderland:
+			say "[line break]The rumbling of your frustration seems to have caused a crack in the earth to open up, and the pool of tears begins to circle, draining away.";
+			now whirlpool is in pool of tears;
+		rule succeeds.
+		
+	test me with "open green door/alice, open blue door/alice, enter red herring door/enter false door/unlock green door with green key/alice, go through green door/enter green door/alice, take blue key/alice, go return door/return/alice, unlock blue door/alice, open blue door/enter blue door/get in time machine/enter light/take mushroom/w/e/eat mushroom/w/x pool/jump/enter pool/enter whirlpool"
+
+		

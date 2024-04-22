@@ -1,0 +1,46 @@
+Example: ** Orderly Announcement
+Description: Another way of naming collections of objects when reporting actions, to allow naming them in input as well.
+
+We can use the "grouping together" activity to rename a collection when reporting consolidated actions, but we may also want to recognize the collection names in input. For this we can use a somewhat more complicated approach; the technique used here is not very sophisticated and will only recognize the exact name of the collection.
+
+	{*}"Orderly Announcement"
+	
+	Include Consolidated Multiple Actions by John Clemens.
+	
+	The Kitchen is a room.
+	
+	The knife, the fork, and the spoon are in the kitchen.
+	
+	A glove is a kind of thing. A glove is always wearable. Understand "glove" as a glove. The left glove and the right glove are gloves in the kitchen.
+	
+	A collection is a kind of thing. A collection has a list of objects called components.
+	
+	The pair of gloves is a collection. The components of the pair of gloves is {left glove, right glove}.
+	
+	The place setting is a collection. The components of the place setting is { knife, fork, spoon }.
+	
+	To decide if (L1 - list of objects) is a subset of (L2 - list of objects):
+		repeat with x running through L1:
+			if x is not	listed in L2, no;
+		yes.
+	
+	Before printing consolidated objects:
+		repeat with group running through collections:
+			let L be the components of group;
+			if L is a subset of the consolidated objects list:
+				repeat with x running through L:
+					remove x from the consolidated objects list, if present;
+				add group to the consolidated objects list.
+	
+	After reading a command:
+		repeat with group running through collections:
+			let N be indexed text;
+			let N be the player's command;
+			let Y be indexed text;
+			let Y be "[components of group]";
+			while N matches the regular expression "[group]":
+				replace the regular expression "(.*)[group](.*)" in N with "\1[Y]\2";
+			change the text of the player's command to N.
+	
+	Test me with "take all / drop place setting / take knife and fork / drop all".
+

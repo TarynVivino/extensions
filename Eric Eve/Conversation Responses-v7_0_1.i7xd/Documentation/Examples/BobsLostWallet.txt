@@ -1,0 +1,46 @@
+Example: * Bob's Lost Wallet
+Description: A brief conversation illustrating the use of response rules.
+
+	{*}"Bob's Lost Wallet"
+
+	Include Conversation Responses by Eric Eve.
+
+	The Hall is a Room. "As befits a grand old manor house, the hall is imposingly large, with acres of polished wooden floorboards and scores of ancient family portraits hung about the walls."
+
+	Some ancient family portraits are scenery in the Hall.
+	Understand "ancestors" as the ancient family portraits.
+
+	Bob is a man in the Hall. "Bob is standing in the middle of the hall, looking rather worried."
+
+	After saying hello to Bob:
+	say "'Hello there, Bob!'[paragraph break]'Good morning,' he replies."
+
+	Response of Bob when asked about Bob:
+	say "'[one of]How are you today? You look worried!' you remark.[paragraph break]'I've lost my wallet,' he tells you[make lost wallet known][or]Are you okay - apart from your wallet?' you ask.[paragraph break]'Fine, but I'm so worried about my wallet!' he replies[stopping]."
+
+	Response of Bob when asked about the lost wallet:
+	say "'Where did you last see your wallet?' you ask.[paragraph break]'I can't remember,' he replies."
+
+	Response of Bob when asked-or-told about "[theft]" and the lost wallet is known:
+	say "'[one of]Could your wallet have been stolen, do you think?' you ask.[paragraph break]'I don't know,' he answers miserably[or]Have you tried telling the police?' you suggest.[paragraph break]'No, I'd feel such a fool if it just turned up,' he replies[stopping]."
+
+	Response of Bob when saying sorry and the lost wallet is known:
+	say "'Well, I'm sorry you can't find your wallet,' you say.[paragraph break]'So am I,' he tells you."
+
+	Response of Bob when asked-or-told about the ancient family portraits:
+	say "'[one of]Who are all those people in the portraits?' you ask.[paragraph break]'Oh, just my ancestors. I expect half of them were hung for sheep-stealing,' he replies[or]I don't think your ancestors look that disreputable,' you remark.[paragraph break][make lost wallet known]'Never mind my ancestors - it's my wallet I'm worried about!' he replies[stopping]."
+
+	Response of Bob when shown the silver dollar:
+	say "'Is this any good to you?' you ask.[paragraph break]'One dollar?' he asks, 'Thanks, but no thanks. It's not the cash I'm so worried about, it's the credit cards!'"
+
+	The silver dollar is carried by the player.
+
+	The lost wallet is a thing.
+
+	Understand "bob's" or "his" as the lost wallet.
+	
+	Understand "theft" or "thief" or "stolen" or "police" as "[theft]".
+	
+	Test me with "Ask bob about himself/a bob/a wallet/a portraits/a ancestors/a theft/t police/show dollar"
+
+

@@ -1,0 +1,28 @@
+Example: * Hide and Seek
+Description: Hiding under beds, tables, or chairs.
+
+	{*}"Hide and Seek"
+	
+	Include Enterable Underside by Gavin Lambert.
+	
+	Bedroom is a room.  It contains a small bed, a table, and a chair.
+	The bed is an enterable fixed in place supporter.
+	The table is an enterable fixed in place supporter.
+	The chair is an enterable fixed in place supporter.
+	Rule for room heading describing the bed: say "lying on a comfortable bed".
+
+	A fluffy pillow is on the bed.  The bulk is 2.
+
+	An enterable underside called under#bed is part of the bed.
+	The bulk capacity of under#bed is 5.  The bulk of the player is 4.
+	
+	An enterable underside called under#table is part of the table.
+	The bulk capacity of under#table is 3.
+	
+	A large blanket is in under#bed.  The bulk is 3.
+	A small stuffed bear is in under#bed.
+
+	Understand "hide under/beneath [something]" as entering underneath.
+
+	Test me with "hide under bed / look under bed / get blanket / hide under bed / l / exit".
+

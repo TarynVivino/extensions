@@ -1,0 +1,28 @@
+Example: * Miscellaneous Inquiries
+
+	{*}"Miscellaneous Inquiries"
+	
+	Include Inquiry by Zed Lopez.
+	
+	Lab is a room. "Experiment still not alive."
+	
+	Name-question is an inquiry. "What is your name?"
+	
+	survey is a line-input multiple-choice inquiry. "What's your favorite beverage?"
+	
+	The multiple-choice-list of survey is { "Tea", "Coffee", "OJ", "water", "zima", "Dr. Pepper", "root beer", "vanilla cream soda", "beer", "wine" }.
+	
+	Self-reported-luck is a y/n inquiry. "Are you feeling lucky?"
+	
+	jump-passion is an answered y/n inquiry. "Do you love jumping?"
+	
+	blank-q is an answered optional inquiry. "Do you have an answer?"
+	
+	instead of jumping:
+	now blank-q is unanswered;
+	now jump-passion is unanswered;
+	now survey is unanswered;
+	now survey is key-input;
+	
+	test me with "inquiries / jump". [ say inquiries again manually after answering! ]
+

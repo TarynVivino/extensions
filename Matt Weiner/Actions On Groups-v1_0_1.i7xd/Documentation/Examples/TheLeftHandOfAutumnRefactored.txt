@@ -1,0 +1,89 @@
+Example: ** The Left Hand of Autumn, Refactored
+Description: The example "The Left Hand of Autumn" from the Inform documentation, refactored so as to use the Actions on Groups extension.
+
+	{*}"The Left Hand of Autumn, Refactored" by Emily Short with modifications from Matt Weiner
+
+	Include Actions on Groups by Matt Weiner.
+	
+	Section 1 - General Code from "The Left Hand of Autumn"
+	
+	[Most of this section of the original example was the code for multiple examining, which we have refactored using this extension. But some bits remain.]
+	
+	[This allows the player to use the collective names for things in their commands.]
+	After reading a command:
+		repeat through the Table of Collective Names:
+			let N be "[the player's command]";
+			let Y be relevant list entry;
+			while N matches the regular expression "[name-text entry]":
+				replace the regular expression "(.*)[name-text entry](.*)" in N with "\1[Y]\2";
+			change the text of the player's command to N.
+	
+	Report taking something:
+		say "You pick up [the noun]." instead.
+	
+	Section 2 - Scenario
+	
+	Eight-Walled Chamber is a room. "A perfectly octagonal room whose walls are tinted in various hues."
+	
+	The display table is a supporter in the Chamber. A twig of rowan wood is on the table.
+	
+	The player carries an apple and a pear.
+	
+	A glove is a kind of thing. A glove is always wearable. Understand "glove" as a glove. The player carries a left glove and a right glove. The left glove and the right glove are gloves.
+	
+	[Now we define a few actual lists of items:]
+	
+	Fruit list is a list of things which varies. Fruit list is { apple, pear }.
+	Glove list is a list of things which varies. Glove list is { right glove, left glove }.
+	Arcane list is a list of things which varies. Arcane list is { left glove, twig, pear }.
+	
+	Table of Collective Names
+	name-text	relevant list
+	"left hand of autumn"	"[arcane list]"
+	"gloves"	"[glove list]"
+	"pair of gloves"	"[glove list]"
+	
+	Test me with "x apple and pear / x left and right / put pear on table / put left glove on table / x all on table / put all on table / examine all on table / get apple, twig, pear / x all on table / search table".
+	
+	Section 3 - Handling the Scenario with Action on Groups
+	
+	Understand "examine [things]" as examining.
+	
+	Examining it from is an action applying to two things.
+	
+	Understand "examine [things inside] in/on [something]" or "look at [things inside] in/on [something]" as examining it from. [As in the original example, we can use this to capture "look at everything on the table"; but now we can redirect it to simple examining, and use the action on groups rules to take care of the case where the things on the table form a special group.]
+	
+	Examining is groupable action. Examining something from something is groupable action.
+	
+	An action on groups rule for examining something from something:
+		try examining the noun. [This will trigger the action on groups rules for examining; and since the rule for examining it from fires before the announce items rule, examining it from will not trigger announcments from the multiple object lists]
+	
+	Carry out examining it from: try examining the noun instead. [This will be invoked when there is only a single item involved.]
+	
+	An action on groups rule for examining when dealing with the fruit list:
+		say "Just a couple of fruits."
+		
+	An action on groups rule for examining when dealing with the glove list:
+		say "It's a matched pair of fuzzy blue gloves."
+		
+	An action on groups rule for examining when dealing with the arcane list:
+		say "To anyone else it might look like a random collection of objects, but these three things -- [multiple object list with definite articles] -- constitute a mystic key known as the Left Hand of Autumn. They practically hum with power."
+		
+	Last action on groups rule for examining:
+		say "You see [multiple object list with indefinite articles]."
+		
+	Understand "look on [something]" as searching.
+	
+	[The original example had a phrase for describing a list, which was invoked both by multiple examining and by searching a container/supporter that contained/supported multiple things. We can accomplish the same thing by hand-changing the multiple object list to the list of things in/on the container/supporter, and then examining the first one--which will behave just as if the player had typed "EXAMINE ALL ON TABLE."]
+	
+	Instead of searching something which supports at least two things:
+		let L be the list of things supported by the noun;
+		alter the multiple object list to L;
+		try examining entry 1 of L.
+		
+	Instead of searching something which contains at least two things:
+		let L be the list of things contained by the noun;
+		alter the multiple object list to L;
+		try examining entry 1 of L.
+
+

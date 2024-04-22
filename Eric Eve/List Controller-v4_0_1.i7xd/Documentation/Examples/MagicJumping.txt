@@ -1,0 +1,37 @@
+Example: * Magic Jumping
+Description: Mixing Events and responses in a list controller table
+
+	{*}"Magic Jumping"
+
+	Include List Controller by Eric Eve.
+	
+	The Magic Chamber is a Room.
+	"The chamber is quite bare, but you've heard it pays to jump here. "
+	
+	Instead of Jumping:
+		say "You jump vigorously.";
+		show the next response in the jump list, with newlines.
+	
+	The jump list is a stopping list controller.
+	The associated list is the Table of Jumps.
+	
+	Table of Jumps
+	event		response
+	magic rule 	--
+	boring rule	--
+	--		"Nothing else happens."
+		
+	This is the magic rule:
+	move the gold bar to the Magic Chamber;
+	say "A gold bar suddenly appears!"
+	
+	This is the boring rule:
+	move the wooden spoon to the Magic Chamber;
+	say "A wooden spoon appears."
+	
+	The gold bar is a thing.
+	The wooden spoon is a thing.
+	
+	Test me with "jump/look/jump/look/jump/look"
+
+

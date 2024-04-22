@@ -1,0 +1,28 @@
+Example: * Cereal Bar Revisited
+Description: Demonstrating compatibility with Locksmith.
+
+	{*}"Cereal Bar Revisited"
+
+	Include Locksmith by Emily Short. Include Skeleton Keys by Emily Short.
+
+	
+
+	The player carries a passkey called the tin key. The tin key unlocks the tin box. The tin box is closed, openable, lockable, and locked. In the box is a single Cheerio.
+
+	
+
+	Cereality is a room. "The newly-opened 'cereal bar' allows you to mix and match cereal types at will." The box is in Cereality.
+
+	
+
+	The passkey description rule is not listed in any rulebook.
+
+
+
+	The description of a passkey is usually "[if the item described unbolts something][The item described] unlocks [the list of things unbolted by the item described][otherwise]You have yet to discover what [the item described] unlocks[end if]."
+
+	The player carries a skeleton key. Every thing is unlocked by the skeleton key.
+
+
+
+	Test me with "i / x key / unlock box / i / x key".

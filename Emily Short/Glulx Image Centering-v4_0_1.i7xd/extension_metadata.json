@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Glulx Image Centering",
+        "author": "Emily Short",
+        "version": "4.0.1"
+    }
+}

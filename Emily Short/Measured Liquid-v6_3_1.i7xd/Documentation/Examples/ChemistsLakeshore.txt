@@ -1,0 +1,53 @@
+Example: ** Chemist's Lakeshore
+Description: Now we let the player type POUR 1.0 FL OZ OF LAKE WATER INTO FLASK, using measurements whenever the target vessel is graduated.
+
+In a more deluxe simulation, we might want to let the player specify quantities less than the total volume of the recipient vessel when pouring into a graduated container than can measure amounts.
+
+This feature isn't built into the body of the extension because it's likely to be counterproductive in the majority of cases, as it would actually oversimplify puzzles that deal in working out how to transfer the right amount of liquid. All the same, it may be useful for some.
+
+While the example uses a slightly fiddly parsing trick to handle the three-variable input line (as in "POUR [some volume] OF [some liquid] INTO [some container]"), the trick does work even in commands to other characters, as in "CLARK, POUR 1.3 FL OZ OF LAKE WATER INTO FLASK."
+
+	{*}"Chemist's Lakeshore"
+
+	Include Measured Liquid by Emily Short.
+
+	The set volume is a volume that varies.
+	
+	After reading a command:
+		if the player's command includes "pour [a volume] of " or the player's command	 includes "pour [a volume] from ":
+			now the set volume is the volume understood;
+			replace the matched text with "pour".
+			
+	Check an actor pouring something into something when the set volume is not null volume:
+		if the second noun is ungraduated:
+			if the player is the actor:
+				say "[We] [have] no way to measure precisely [set volume] of anything	 while pouring into an ungraduated receptacle.";
+			now the set volume is the null volume;
+			rule fails;
+		if the set volume is greater than the fluid capacity of the second noun:
+			if the player is the actor:
+				say "[The second noun] [don't] measure that high.";
+			now the set volume is the null volume;
+			rule fails;
+		if the set volume is greater than the fluid content of the noun:
+			if the player is the actor:
+				say "[There's] not that much liquid in [the noun].";
+			now the set volume is the null volume;
+			rule fails.
+	
+	Carry out an actor pouring something into something when the set volume is not null volume:
+		increase the fluid content of the second noun by set volume;
+		decrease the fluid content of the noun by set volume;
+		if the noun is empty and the no trace amounts option is active:
+			now the liquid of the noun is nonliquid;
+		now the set volume is null volume;
+		rule succeeds.
+	
+	Lakeside is a room. Inside from Lakeside is a Shack.
+	
+	The lake is a liquid lake in Lakeside. The liquid of the lake is water.
+	
+	The player carries a graduated closed openable fluid container called a flask. The fluid capacity of the flask is 3.0 fl oz. The pitcher is a fluid container carried by the player. The fluid capacity of the pitcher is 20.0 fl oz.
+	
+	Test me with "pour 1.0 fl oz of lake into pitcher / pour 1.0 fl oz from lake into flask / x flask / pour 2.0 fl oz of lake into flask / x flask / pour 0.3 fl oz of lake into flask / pour flask into lake / pour 1.0 fl oz of lake water into flask / pour flask into pitcher / pour 2.5 fl oz of pitcher into flask".
+

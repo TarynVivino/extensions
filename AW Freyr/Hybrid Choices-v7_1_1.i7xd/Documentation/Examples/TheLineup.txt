@@ -1,0 +1,195 @@
+Example: **** The Lineup
+Description: An advanced implementation of object choices, demonstrating how Hybrid CYOA can be used to make a very powerful interface.
+
+This example doesn't include parser mode, but it does something that would be very cumbersome and laborious using just pages. The lineup has five people, and through those people the game state is tracked.
+
+Normally, you'd use pages for every single option. For each person, you'd need to include an examine page, step-forward, step-back, say-line and accuse, and then check and toggle rules for each one of those. Object choices simplifies this by allowing us to directly insert characters as choices. We can then apply rules to each of them directly. This saves us a lot of horribly boring work. It also makes it very easy to add additional characters; we don't need to add any new pages at all, we can just define a new person, their sayline rule, their accuse rule, and be done with it. You might see how this is useful in large projects.
+
+
+	{*}"The Lineup"
+	
+	Include Hybrid Choices by AW Freyr.
+	
+	The lineup room is a room.
+	
+	Dirty Mosley is a man in the lineup room.
+		The description is "A sour-eyed man in a big black overcoat, draping him like a blanket. His skin is filthy, flies buzz around his collar."
+	Yellow Manny is a man in the lineup room.
+		The description is "A twitchy-looking figure with a threadbare t-shirt and jaundiced extremities, constantly scratching himself to ward off the invisible crawling insects."
+	Greedy Macky is a man in the lineup room.
+		The description is "A hideously ugly man prone to gold-toothed smiles. His head is too small on his broad shoulders, but his mink fur robe is laden by jewelry."
+	Psychic May is a woman in the lineup room.
+		The description is "A wizened crone swathed in lilac scarves, her long-lashed lids are shut pensively and her long fingers levitate a crystal orb from the tips of her fingers."
+	Racist Marty is a man in the lineup room.
+		The description is "A grossly fat man whose lips quiver with suppressed slurs. He wears a grease-stained shirt over his stretched belly that reads: 'I Hate Fijians.'".
+	
+	A person can be stepped-forward or stepped-back. A person is usually stepped-back.
+	
+	Instead of looking for the first time:
+		say "One of the people in this room committed a terrible crime against you, and now it's time to point the finger at them. Who will you accuse?";
+		switch to cyoa at pmenu.
+	
+	pmenu is a page.
+		The cdesc is "Choose something else."
+	
+	Choice-priority for pmenu:
+		rule succeeds with result 200.
+	
+	section - examining
+	
+	The lineupex rules is an object based rulebook.
+	
+	exp is a page. It is turned to by pmenu. It turns to pmenu.
+	The cdesc is "Examine suspects."
+	
+	A page-toggle rule for exp:
+		populate choice list with visible people who are not yourself;
+		now the object-choice-handler is the lineupex rules.
+	
+	Lineupex for people (called the individual):
+		say "[The description of the individual][paragraph break]";
+		populate choice list with visible people who are not yourself;
+		now the current page is exp.
+	
+	section - step forward
+	
+	The stepforward rules is an object based rulebook.
+	
+	pstepforward is a page. It is turned to by pmenu. It turns to pmenu.
+	The cdesc is "Ask someone to step forward."
+	
+	A choice-switch rule for pstepforward:
+		repeat with X running through visible people:
+			if X is yourself:
+				next;
+			if X is stepped-back:
+				rule succeeds;
+		rule fails.
+	
+	A page-toggle rule for pstepforward:
+		repeat with X running through visible people:
+			if X is yourself:
+				next;
+			if X is stepped-back:
+				populate choice list with X;
+		now the object-choice-handler is stepforward rules.
+	
+	stepforward for people (called the individual):
+		say "[The individual] steps forward.";
+		now the individual is stepped-forward;
+		repeat with X running through visible people:
+			if X is yourself:
+				next;
+			if X is stepped-back:
+				populate choice list with X;
+		now the current page is pstepforward.
+	
+	section - step back
+	
+	The stepback rules is an object based rulebook.
+	
+	pstepback is a page. It is turned to by pmenu. It turns to pmenu.
+	The cdesc is "Ask someone to step back."
+	
+	A choice-switch rule for pstepback:
+		repeat with X running through visible people:
+			if X is yourself:
+				next;
+			if X is stepped-forward:
+				rule succeeds;
+		rule fails.
+	
+	A page-toggle rule for pstepback:
+		repeat with X running through visible people:
+			if X is yourself:
+				next;
+			if X is stepped-forward:
+				populate choice list with X;
+		now the object-choice-handler is stepback rules.
+	
+	stepback for people (called the individual):
+		say "[The individual] steps back.";
+		now the individual is stepped-back;
+		repeat with X running through visible people:
+			if X is yourself:
+				next;
+			if X is stepped-forward:
+				populate choice list with X;
+		now the current page is pstepback.
+	
+	section - say a line
+	
+	The sayline rulebook is an object based rulebook.
+	
+	psayline is a page. It is turned to by pmenu. It turns to pmenu.
+	The cdesc is "Ask someone to say a line."
+	
+	A page-toggle rule for psayline:
+		populate choice list with visible people who are not yourself;
+		now the object-choice-handler is the sayline rules.
+	
+	sayline for Dirty Mosley:
+		say "Dirty Mosley gives you a once-over with bugged-out eyes. '[italic type]Wanna hug?[roman type]'[paragraph break]".
+	
+	sayline for Yellow Manny:
+		say "Yellow Manny scratches himself desperately. 'You have any yeller M&Ms? I gots to get that fine yeller!'".
+	
+	sayline for Greedy Macky:
+		say "Greedy Macky wiggles an eyebrow at you. 'Want to refinance your mortgage at low, low interest rates?'".
+	
+	sayline for Psychic May:
+		say "She intones prophetically: '[italic type]Give me your wallet, or I'll cut you!![roman type]'[paragraph break]".
+	
+	sayline for Racist Marty:
+		say "He drawls, 'You look like one of dose Feejuns. Why don't you take you and your coconut bras somewhere else?'".
+	
+	sayline rule:
+		populate choice list with visible people who are not yourself;
+		now the current page is psayline.
+	
+	
+	
+	section - accuse
+	
+	The accuse rules are an object based rulebook.
+	
+	paccuse is a page. It is turned to by pmenu. It turns to pmenu.
+	The cdesc is "Accuse someone."
+	
+	A page-toggle rule for paccuse:
+		populate choice list with visible people who are not yourself;
+		now the object-choice-handler is the accuse rulebook.
+	
+	accuse Dirty Mosley:
+		say "'What? No! I had so much to not live for!'
+	
+		He is executed the next day. Method of execution: devoured by rabid bedbugs.".
+	
+	accuse Yellow Manny:
+		say "'I demand my last meal! I want a olympic swimmin['] pool of yeller M&Ms!'
+	
+		He is executed the next day. Method of execution: clinically induced liver failure.".
+	
+	accuse Greedy Macky:
+		say "'Tell my bank statements I loved them.'
+	
+		He is executed the next day. Method of execution: bones ground into cement.".
+	
+	accuse Psychic May:
+		say "'I [italic type]KNEW[roman type] you would accuse me!'
+	
+		She is executed the next day. Method of execution: week-long Twilight marathon.".
+	
+	accuse Racist Marty:
+		say "'As long as I don't have to share this cruel world with those horrible Feejuns!'
+	
+		He is executed the next day. Method of execution: buried alive in Samoa.".
+	
+	Last accuse rule:
+		now the current page is pend;
+		end the story.
+	
+	
+	pend is a page.
+	
+

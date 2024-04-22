@@ -1,0 +1,34 @@
+Example: * Becoming Aware
+Description: Demonstrates how knowledge is gained by scope awareness of objects
+
+	{*}"Become Aware"
+	
+	Include World Knowledge by Jeff Nyman.
+	
+	The Laboratory is a room.
+
+	A rosewood bench is a supporter in the Laboratory.
+
+	An iron crucible is an open container on the rosewood bench.
+
+	A cupboard is a closed openable container in the Laboratory.
+
+	A wicker basket is an open container in the cupboard.
+
+	A silver key is in the wicker basket.
+
+	A Chinese puzzle box is a thing.
+
+	The player is carrying a note.
+
+	Instead of examining the note:
+		say "It says: 'Silver Key in Basket'.";
+		now the silver key is familiar.
+	
+	After searching the cupboard for the second time:
+		now the Chinese puzzle box is in the cupboard;
+		familiarize the Chinese puzzle box;
+		say "Digging deeper, you find a Chinese puzzle box."
+
+	Test me with "kstate note / kstate silver key / examine note / kstate silver key / kstate bench / kstate crucible / kstate cupboard / kstate basket / open cupboard / kstate basket / examine basket / kstate basket / search cupboard / kstate Chinese puzzle box / search cupboard / kstate Chinese puzzle box".
+

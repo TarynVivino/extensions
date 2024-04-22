@@ -1,0 +1,69 @@
+Example: * Contemplation
+Description: Thinking about things that are known
+
+	{*}"Contemplation"
+
+	Include Epistemology by Eric Eve.
+
+	Part  1 - Thought Mechanics
+
+	Thinking about is an action applying to one visible thing.
+
+	Understand "think about [any thing]" as thinking about.
+	Understand "think about [any known thing]" as thinking about.
+
+	Report thinking about something unknown:
+	say "[no thoughts]"
+
+	Report thinking about something known:
+	say "[the thought of the noun][paragraph break]"
+
+	A thing has a text called thought.
+	
+	Pondering is an action applying to one topic.
+
+	Understand "think about [text]" as pondering. [otherwise we get an ugly response to THINK ABOUT FOO etc.]
+
+	Report pondering:
+	say "[no thoughts]"
+
+	To say no thoughts:
+	say "You have no thoughts on that subject right now."
+
+	Part  2 - Scenario
+
+	The Study is a Room. "You deliberately keep this room as bare as possible, to prevent material objects distracting you from your thoughts. The two essential objects that remain are a comfortable armchair and the door out into the hall to the west."
+
+	The comfortable armchair is an enterable scenery supporter in the Study. The description is "It's nothing special, but it looks comfortable enough." The thought is "You think it's a good place to sit and think."
+	Understand "arm" or "chair" as the comfortable armchair.
+
+	The hall door is an open openable scenery door. The hall door is west of the Study and east of the Main Hall. The thought is "Useful things, doors, you muse: without them it would be so much harder to get from room to room."
+
+	The Main Hall is a Room. "This place is almost as sparsely furnished as the Study which lies to the east."
+
+	The large oak table is a supporter in the Main Hall. "A large oak table abuts one wall." The thought is "You've never given this table much thought, to be honest -- it's just a table, after all."
+
+	A note is on the large oak table. The description of the note is "The note reads: 'To find fame, love, and everlasting happiness, you need to go on the quest of the Great Golden Golf Ball of Destiny.'"
+	The thought of the note is "You [if we have examined the note]think it contains an interesting proposition[otherwise]wonder what it says[end if]. "
+
+	Carry out examining the note: now the Great Golden Golf Ball of Destiny is familiar.
+
+	Life is a subject. The thought is "You think [if the golden golf ball is familiar]it has just become a whole lot more interesting[otherwise]it's preferable to the alternative[end if]. "
+
+	Liberty is a subject. The thought is "It's a fine word -- but a slippery concept."
+	Understand "freedom" as liberty.
+
+	Love is a subject. The thought is "You [if we have examined the note]think it might be worth questing to find it[otherwise]wonder where it is to be found[end if]. "
+
+	Understand "fame" or "everlasting" or "happiness" as love.
+
+	The Great Golden Golf Ball of Destiny is a thing. The thought is "You wonder what kind of object it can be to offer so much."
+
+	There is an open container called the red box on the large oak table.
+	The red ball is in the red box.
+
+	There is a closed openable container called the green box on the large oak table.
+	The green ball is in the green box.
+
+	Test me with "think about love/think about door/think about golden ball/think about note/think about table/think about life/epistat red ball/epistat green ball/w/think about table/think about note/read note/think about note/think about love/think about golden ball/think about life/epistat golden ball/epistat red ball/epistat green ball/open green box/epistat green ball".
+

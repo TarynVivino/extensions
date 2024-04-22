@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Unit Tests",
+        "author": "Zed Lopez",
+        "version": "7.0.2"
+    }
+}

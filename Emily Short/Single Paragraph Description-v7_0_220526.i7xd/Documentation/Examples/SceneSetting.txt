@@ -1,0 +1,20 @@
+Example: * Scene Setting
+Description: The Amphitheater in full
+
+	{*}"Scene Setting"
+
+	Include Single Paragraph Description by Emily Short.
+
+	Amphitheater is a room. "The amphitheater [regarding nothing][are] currently empty of spectators, though [we] [can] see a magnificent view of the valley beyond the orchestra."
+
+	A play script and a ball of wax are here.
+
+	A mask is here. "On the floor [regarding the mask][are] a mask."
+
+	The valley is scenery in Amphitheater.  Understand "view" as the valley.
+	The description of the valley is "The valley spreads out, green and lush, into the far distance."
+
+	The reporting items rule response (I) is "[We] can also [see] [a list of mentionable things] here. ";
+
+	Test me with "look / get all / look / drop all / look".
+

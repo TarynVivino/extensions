@@ -1,0 +1,15 @@
+Example: * Curio Shop
+Description: A setting littered with opportunities for confused input.
+
+	{*}"Curio Shop"
+
+	Include Numbered Disambiguation Choices by Aaron Reed.
+
+	The Curio Shop is a room.
+
+	A dog is an animal in Curio Shop. A cast iron hot dog, a hot plate, a hot iron, a dog collar, a copy of Dog Fancier magazine, and a 16mm film are in Curio Shop. A 16mm film canister is in Curio Shop.
+
+	Test me with "x dog / 1 / x hot / x dog / 2 / x 3 / take film / 1) 16mm film".
+
+Normally, players would never be able to refer to the dog or the 16mm film, since no adjectives are defined that could distinguish them from the dog collar or the 16mm film canister. Though a somewhat contrived example here, this situation is all too easy for authors to accidentally create.
+

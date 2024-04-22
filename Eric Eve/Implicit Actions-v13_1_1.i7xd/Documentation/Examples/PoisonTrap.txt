@@ -1,0 +1,88 @@
+Example: *** Poison Trap
+Description: Preventing implicit actions in specific cases
+
+	{*}"Poison Traps"
+
+	Include Implicit Actions by Eric Eve.
+
+	Part 1 - Scenario
+
+	Use scoring.
+	The maximum score is 5.
+
+	The Study is a room.
+	"An oak door leads north, and there is a table here."
+
+	The cabinet is a closed openable transparent container.
+	The description is "The cabinet [if dangerous]seems to be full of green gas[otherwise]is glass-fronted."
+
+	The cabinet can be safe or dangerous. The cabinet is dangerous.
+
+	Understand "green" or "gas" as the cabinet when the cabinet is dangerous.
+	Understand "glass-fronted" or "glass" or "fronted" as the cabinet.
+
+	The cabinet is on the plain wooden table.
+
+	After opening the dangerous cabinet:
+	if the gas mask is worn begin;
+	say "The green gas escapes into the room, but is soon extracted by the ventillator.";
+	now the cabinet is safe;
+	otherwise;
+	say "The green gas escapes into the room, killing you in seconds.";
+	end the story saying "You have died.";
+	end if;
+		
+	The brass key is a key. The brass key is in the cabinet.
+
+	A plain wooden table is a scenery supporter in the Study.
+
+	Instead of looking under the plain wooden table when the gas mask is not handled:
+	if the gas mask is off-stage begin;
+		move the gas mask to the Study;
+		say "You find a gas mask under the table.";
+		increase the score by 2;
+	otherwise;
+	say "There's a gas mask under the table.";
+	end if.
+
+	A scorpion is in the Study. "A scorpion is crawling about on the floor."
+
+	The gas mask is a wearable thing. "A gas mask lies under the table."
+
+	After taking the scorpion:
+	say "The scorpion gives you a nasty bite.";
+	end the story saying "You have died".
+
+	The oak door is a closed openable lockable locked scenery door.
+	The matching key of the oak door is the brass key.
+	The known-key of the oak door is the brass key.
+
+	The oak door is north of the Study and south of the Hall.
+
+	The Hall is a room. "An oak door leads south."
+
+	After going to the Hall:
+	try looking;
+	say "You have escaped the trap!";
+	increase the score by 3;
+	end the story finally saying "You have won".
+
+	Part 2 - Overridden Implicit Actions
+
+	Rule for implicitly taking the scorpion:
+		abort the implicit action.
+
+	Rule for implicitly opening the cabinet:
+	abort the implicit action with message  "The cabinet should only be opened with caution."
+
+	Rule for implicitly opening the cabinet while implicitly unlocking the oak door:
+	say "You need the brass key to unlock the door, but the cabinet is closed."
+
+	Part 3 - Testing
+
+	Test gas with "n/take key/open cabinet"
+
+	Test scorpion with "put scorpion on table/take scorpion"
+
+	Test me with "n/x cabinet/take key/put key on table/put scorpion on table/look under table/wear gas mask/open cabinet/x cabinet/north"
+

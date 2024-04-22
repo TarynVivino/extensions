@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Glulx Text Styles",
+        "author": "Daniel Stelzer",
+        "version": "1.0.1"
+    }
+}

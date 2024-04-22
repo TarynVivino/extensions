@@ -1,0 +1,34 @@
+Example: * Caverns and Kobolds
+Description: A tiny scenario to test misunderstood input with.
+
+	{*}"Caverns and Kobolds"
+
+	Include Smarter Parser by Aaron Reed.
+
+	Spooky Cave is a room. A glowing sword is in Spooky Cave. Dark Tunnel is north of Spooky Cave. A dusty skull is in Dark Tunnel. The kobold is a man in Tunnel. The kobold holds a spear.
+
+	A smarter parser rule (this is the no leet speak allowed rule):
+		if input contains "\w\d+\w":
+			identify error as no leet speak allowed rule;
+			reject the command.
+
+	A smarter parser rule (this is the stripping formal address rule):
+		if stripping "(sir|maam)" is fruitful:
+			identify error as stripping formal address rule;
+			reparse the command.
+			
+	A smarter parser rule (this is the signs of frustration rule):
+		if input contains "(stupid|damn|idiot|hate)":
+			identify error as signs of frustration rule;
+			reject the command.
+
+	The stripping formal address rule is listed first in the smarter parser rules.
+
+	Table of Smarter Parser Messages (continued)
+	rule name			message
+	no leet speak allowed rule		"This story requires you to use proper spelling and grammar."
+	stripping formal address rule		"Oh please, we don't stand on titles here."
+	signs of frustration rule		"If you're feeling frustrated, you can always SAVE and come back later."
+	
+	Test me with "ub4r l33t / novice off / who am i? / novice on / who am i??? / sword / i'll look at the sword / which way should I go / what do I do then?? / i'm so confused / walk over to the sword / try looking / please take the sword sir / drop the freaking sword / the hell / who are you / look around the area / I want to take the sword / why is the sky blue / go somewhere / carefully go north / anyway look around / you're very tall / hello / get kobold's spear / touch ceiling / touch skull with my foot / wait for a while / well it looks like i'm starting to figure it out".
+

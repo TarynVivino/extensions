@@ -1,0 +1,102 @@
+Example: ** Bunnies
+Description: Grouping activity reports.
+
+	{*}"Bunnies"
+
+	Include Scheduled Activities by John Clemens.
+
+	When play begins, say "You have snuck into the castle to steal the King's scepter. You have heard tales of the fierce rabbits guarding the palace, but are armed with a supply of holy hand grenades."
+
+	A mood is a kind of value. The moods are asleep, suspicious, vicious, and mutilated.
+
+	Definition: a rabbit is living if it is not mutilated.
+
+	To say long mood of (bugs - a rabbit):
+		if bugs is asleep, say "sleeping peacefully";
+		if bugs is suspicious, say "eyeing you suspiciously";
+		if bugs is vicious, say "snarling viciously";
+		if bugs is mutilated, say "splattered on the walls".
+
+	A rabbit is a kind of animal. A rabbit has a mood. A rabbit is usually asleep. Understand the mood property as describing a rabbit. The printed name of a rabbit is usually "[mood] rabbit". The printed plural name of a rabbit is usually "[mood] rabbits".
+	Rule for printing the name of a rabbit (called bugs) while listing contents of a room: say "rabbit [long mood of item described]". Rule for printing the plural name of a rabbit while listing contents of a room: say "rabbits [long mood of item described]".
+
+	Instead of doing something to a mutilated rabbit, say "There's really not much left of it."
+
+	After going to somewhere:
+		repeat with bugs running through rabbits in location begin;
+			if bugs is asleep, schedule rousing for bugs now;
+			if bugs is suspicious, schedule angering for bugs now;
+		end repeat;
+		continue the action.
+
+	Every turn when a vicious rabbit is in location:
+		end the story saying "You are suddenly beset by sharp pointy teeth as [if the number of vicious rabbits in location > 1][the number of vicious rabbits in location in words] vicious rabbits lunge[otherwise]a vicious rabbit lunges[end if] for your throat.";
+
+	Rousing something is an activity.
+	Rule for rousing an asleep rabbit (called bugs):
+		now bugs is suspicious;
+		schedule angering for bugs in 1 turn;
+		if first similar activity and a visible rabbit is pending rousing, say "Hearing you, the sleeping rabbit[if the number of visible rabbits pending rousing is 1] begins[otherwise]s begin[end if] to stir."
+
+	Angering something is an activity.
+	Rule for angering a suspicious rabbit (called bugs):
+		now bugs is vicious;
+		if first similar activity and a visible rabbit is pending angering, say "The suspicious rabbit[if the number of visible rabbits pending angering is 1] bares its[otherwise]s bare their[end if] teeth at you."
+
+	A holy hand grenade is a kind of thing. The player carries five holy hand grenades.
+
+	Understand "throw [holy hand grenade] [direction]" as lobbing it toward. Understand the commands "lob" and "lobbeth" as "throw". Instead of dropping a holy hand grenade, try lobbing the noun toward down.
+
+	Lobbing it toward is an action applying to one carried thing and one visible thing.
+
+	Check lobbing it toward: abide by the can't drop what's not held rule.
+
+	The target room is a room that varies.
+
+	Carry out lobbing it toward:
+		if there is exploding scheduled for the noun begin;
+			say "You throw the grenade";
+		otherwise;
+			say "You pull the pin and throw the grenade";
+			schedule exploding for the noun in 2 turns;
+		end if;
+		now the target room is the room second noun from location;
+		if the second noun is down, now the target room is location;
+		if target room is not a room begin;
+			say " [second noun], where it bounces off [if second noun is up]the ceiling[otherwise]the wall[end if] and lands at your feet.";
+			move noun to location;
+		otherwise;
+			if target room is location, say " on the ground.";
+			otherwise say " into [the target room].";
+			move noun to target room;
+		end if.
+	
+	Exploding something is an activity.
+	Rule for exploding a holy hand grenade (called bomb):
+		if bomb is in the location begin;
+			cancel all scheduled events;
+			end the story saying "[bold type]Boom! [roman type]The grenade explodes, killing you instantly.";
+		otherwise;
+			let destroyed be the location of bomb;
+			if destroyed is a room begin;
+				say "You hear an explosion from [the best route from location to destroyed][if a living rabbit is in destroyed], followed by the unmistakable sound of rabbit screams[end if].";
+				now every rabbit in destroyed is mutilated;
+				[we do not need to cancel activities for the rabbits since the activity rules don't apply to mutilated rabbits]
+				repeat with item running through holy hand grenades in destroyed begin;
+					cancel all scheduled events for item;
+					remove item from play;
+				end repeat;
+			end if;
+		end if.
+
+	The Entrance is a room. "A Hall stretches to the east, and the exit is back west."
+	The Hall is east of the entrance. "The entrance is west, and the banquet room is south." In the Hall are five rabbits.
+	The Banquet Room is south of the hall. "The hall is north, and the throne room is west." In the Banquet Room are 3 rabbits and 1 suspicious rabbit.
+	The Throne room is west of the banquet room. "The treasure is stored here." In the throne room are two vicious rabbits.
+	The scepter is in the throne room. The description of the scepter is "Covered with jewels, and worth the risk."
+	Instead of going west in the Entrance: say "Not without the scepter."
+	Instead of going west in the Entrance when the player carries the scepter: end the story saying "You escape with the scepter, ensuring your fortune.";
+
+	Test me with "e / lobbeth holy hand grenade / w / z / e / throw grenade s / z / z / s / throw grenade w / z / z / w / take scepter / e / n / w / w".
+
+	Test death with "e / s / n".

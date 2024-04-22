@@ -1,0 +1,13 @@
+Example: * Copyright
+Description: Adding some copyright text to the banner.
+
+To add a copyright line to the banner, you don't have to write a rule like the one above. Instead, you can define the story copyright string with the year or years for which you're claming copyright:
+
+	{*}"Copyright" by Gavin Lambert
+	
+	Include Extended Banner by Gavin Lambert.
+	
+	The story copyright string is "2022".
+
+	There is a room.
+

@@ -1,0 +1,28 @@
+Example: ** Group Chat
+Description: Talking to everyone.
+
+	{*}"Group Chat"
+	
+	Include Clues and Conversation by Brian Rushton.
+
+	Classroom is a room.
+
+	Noether is a woman in Classroom. Hypatia is a woman in Classroom. Gauss is a man in Classroom. Euler is a man in Classroom.
+	
+	When play begins:
+		deliver Roll Call;
+		
+	Roll Call is a quip. The preview of Roll Call is "You need to take roll.".
+
+	TargetResponse of a Roll Call is "[if CurrentTarget is Noether]You say, 'Noether?'
+
+	'Present!' she says.[otherwise if CurrentTarget is Hypatia]You say, 'Hypatia?'
+
+	'I'm here!' she says.[otherwise if CurrentTarget is Gauss]You say, 'Gauss?'
+
+	'Yup,' he says.[otherwise if CurrentTarget is Euler]You say, 'Euler?'
+
+	'That's what they call me,' he says.[end if]"
+
+	Test me with "recall roll call / say roll call to noether / recall roll call / say roll call to hypatia / recall roll call / say roll call to gauss / say roll call to euler / recall roll call / say roll call to noether / recall roll call"
+	

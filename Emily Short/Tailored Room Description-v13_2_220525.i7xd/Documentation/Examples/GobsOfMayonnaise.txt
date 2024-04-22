@@ -1,0 +1,70 @@
+Example: ** Gobs of Mayonnaise
+Description: A scenario with various objects competing for our attention.
+
+	{*}"Gobs of Mayonnaise"
+
+	Include Tailored Room Description by Emily Short.
+
+	The Farmhouse Kitchen is a room. "This place bears testament to its owners[apostrophe] patriotism, or possibly their devotion to Women's Day magazine. Pseudo-colonial decor abounds, including a multitude of tiny 13-star flags painted just under the ceiling. A heavy pedestal is located immediately opposite the door." The tiny 13-star flags are scenery in the Farmhouse Kitchen. "Stencilled all around the ceiling."
+
+	The chair is an enterable supporter in the Farmhouse Kitchen. It is pushable between rooms.
+
+	[And speaking of the possibility that there are people around:]
+
+	Jones is a man on the chair. Persuasion rule: persuasion succeeds. [For the sake of this example, we'll make Jones an obedient type.]
+
+	[Now, supposing we want people (all else being equal) to get prominent mention:]
+
+	A ranking rule for a person (called special-target):
+		increase the description-rank of the special-target by 10.
+
+	[But not as prominent as any treasures or special articles:]
+
+	A treasure is a kind of thing. A ranking rule for a treasure (called special-target): increase the description-rank of the special-target by 75.
+
+	The pedestal is a supporter in Farmhouse Kitchen. It is scenery. On the pedestal is a bust of Washington. The bust is a treasure. The flexible appearance of the bust is "A bust of Washington glares proudly over the room[if the holder of the bust is not a room] from [the holder of the bust][otherwise]... from about knee height[end if]. "
+
+	The table is in the Farmhouse Kitchen. "A rough-hewn table uses up an entire corner of the room."
+
+	[Grouping items together is permitted:]
+
+	A utensil is a kind of thing. A knife is a utensil. A fork is a utensil. The knife and the fork are on the table.
+
+	Before listing contents: group utensils together.
+	Before grouping together utensils: say "a place setting (consisting of ".
+	After grouping together utensils: say ")".
+
+	[We might also want to override the way contents of items are described in particular cases:]
+
+	On the table is a vase. In the vase is a flower.
+
+	Rule for disclosing contents of the vase when at least two things are in the vase:
+		if something in the vase is mentioned, say "Besides [the list of mentioned things in the vase] you can see in the vase [a list of mentionable things in the vase]. ";
+		otherwise say "[The list of things which are in the vase] are crammed together into [if the vase is mentioned][the vase][otherwise][a vase][end if]. "
+
+	On the table is a glass. In the glass is a treasure called a diamond. The flexible appearance of the diamond is "A sparkling, winking diamond commands your attention!"
+
+	[But let's say that when the diamond is in the glass, we don't notice it -- it's just so much more transparent stuff.]
+
+	A description-concealing rule:
+		if the diamond is in the glass, now the diamond is not marked for listing.
+
+	The Closet is west of the Farmhouse Kitchen. The Closet contains a plastic box. The plastic box is closed and openable and transparent. In it are a rubber chicken and a light bulb.
+
+	[Since our current scheme doesn't print things like (open) or (closed), we'll provide our own substitute for the plastic box:]
+
+	Before printing the name of an openable container (called special-target) while writing a paragraph about something:
+		if special-target is open, say "open "; otherwise say "closed ".
+
+	The high shelf is a thing in the Closet. On the high shelf is a jug of mayonnaise.  The flexible appearance of the jug is "The thing that draws your eye right off is an utterly enormous jug of mayonnaise."
+
+	[Now, supposing we don't want anything on the shelf to be visible when the player isn't on the chair:]
+
+	A description-concealing rule when the player is not on the chair:
+		now every thing enclosed by the high shelf is not marked for listing.
+
+	[But we do want the jug to stand out when we're in sight of it:]
+
+	A ranking rule for the jug:
+		increase  description-rank of the jug by 100.
+

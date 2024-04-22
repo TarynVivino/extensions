@@ -1,0 +1,29 @@
+Example: * Memorabilia
+Description: Some objects the player can write in.
+
+	{*}"Memorabilia"
+
+	Include Notepad by Jim Aikin.
+
+	The Lab is a room.
+
+	The player carries a fish. The description of the fish is "The fish [are] remarkably scaly."
+
+	The player carries a pencil and a piece of chalk.
+
+	The player carries a slate. The slate is a notepad. The description of the slate is "Black." The allowed-pens of the slate is {chalk}.
+
+	The player carries a notebook. The notebook is a notepad. The description of the notebook is "Dog-eared." The allowed-pens of the notebook is {pencil}.
+
+	The foggy mirror is in the Lab. The description is "The mirror [are] thickly coated with condensed steam." The foggy mirror is a notepad. The pen-needed of the foggy mirror is false. The memo of the foggy mirror is "Beware! Ghouls!"
+
+	Test writing with "write message on fish / write message on slate / read slate / drop chalk / add another message to slate / take chalk / add another message to slate".
+
+	Test reading with "read slate / read fish / read mirror / x mirror".
+
+	Test erasing with "erase me from slate / read slate / erase slate / read slate".
+
+	Test copying with "copy mirror to mirror / copy mirror to notebook / drop chalk / copy notebook to slate".
+
+	Test me with "test writing / test reading / test erasing /test copying".
+

@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Bulk Limiter",
+        "author": "Eric Eve",
+        "version": "9.1.1"
+    }
+}

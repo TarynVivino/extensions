@@ -1,0 +1,42 @@
+Example: * Security Consultant
+Description: Extracting useful information from an NPC.
+
+	{*}"Security Consultant"
+
+	Include Reactable Quips by Michael Martin.
+
+	The Vault is a room. A guard is a man in the Vault. Some treasure is in the vault. The default tell quip of the guard is t_badpassword.
+
+	Instead of taking the treasure, say "The guard holds up a hand. 'I can't let you touch that unless you tell me the password.'"
+
+	Table of Ask Results (continued)
+	NPC	topic	result
+	guard	"name"	a_name
+	guard	"treasure"	a_treasure
+	guard	"password"	a_password
+	guard	"job/guard"	a_job
+	guard	"anglerfish"	a_fish
+
+	Table of Tell Results (continued)
+	NPC	topic	result
+	guard	"password"	t_password
+	guard	"anglerfish"	t_fish
+	guard	"treasure"	a_treasure
+
+	Table of Quip Texts (continued)
+	quip	quiptext
+	a_name	"'My name's Gordon.'"
+	a_treasure	"'Pretty fantastic, isn't it?'"
+	a_password	"'The password is [']anglerfish['].'"
+	a_job	"'I'm a guard. I guard things.'"
+	a_fish	"'That's kind of above my pay grade. I guess it's some kind of fish?'"
+	t_fish	"'That's the password! Sure, you can have the treasure.'"
+	t_password	"'No, no, you have to tell me the password, not tell me [']the password['].'"
+	t_badpassword	"'Sorry, that's not the password.'"
+
+	After quipping when the current quip is t_fish: end the story finally saying "You have discovered a fatal security flaw".
+
+	Test me with "ask guard about name / take treasure / ask guard about guard / guard, sesame / guard, password / tell guard about treasure / ask guard about treasure / ask guard about password / say anglerfish to guard".
+
+Note that most traditional syntaxes for talking to NPCs will translate to TELL actions. Also note that a single line of dialogue may be recycled across ASK and TELL or even across NPCs by referring to the same quip multiple times.
+

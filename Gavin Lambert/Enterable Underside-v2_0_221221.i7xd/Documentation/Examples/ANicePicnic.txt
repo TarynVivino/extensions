@@ -1,0 +1,20 @@
+Example: * A Nice Picnic
+Description: Spreading out a picnic blanket underneath a tree.
+
+Undersides are not really intended to model large spaces like this, since they deliberately conceal what lies underneath unless you're actively looking under.  But they can -- and until version 2 this sort of thing didn't work due to some quirks in how Inform handles entering and exiting things with component parts, so this serves as a demonstration that this has been worked around successfully.
+
+	{*}"A Nice Picnic"
+	
+	Include Enterable Underside by Gavin Lambert.
+	
+	Picnic Area is a room.  "A bright open area close to a large tree.  [if the blanket is carried]You can either set up your picnic out in the open or under the tree.[end if]".
+	A large tree is scenery in Picnic Area.  The description is "An oak, you think."
+	An underside called under#tree is part of the tree.  It is enterable and transparent.  The preposition is "beneath".
+	The verb to go beneath means the reversed containment relation.  The entering preposition of under#tree is verb go beneath.
+	
+	The player carries a large checkered blanket and a small picnic basket.  The blanket is an enterable supporter.  The basket is a locked container.
+	
+	Understand "sit under/beneath [tree]" as entering underneath.
+
+	Test me with "put blanket under tree / sit on blanket / drop basket / l / exit / exit".
+

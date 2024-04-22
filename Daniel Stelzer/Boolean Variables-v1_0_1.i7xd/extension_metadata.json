@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Boolean Variables",
+        "author": "Daniel Stelzer",
+        "version": "1.0.1"
+    }
+}

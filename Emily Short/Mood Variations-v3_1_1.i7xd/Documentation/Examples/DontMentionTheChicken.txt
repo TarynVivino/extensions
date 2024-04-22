@@ -1,0 +1,40 @@
+Example: * Don't Mention The Chicken
+Description: A character who has moody reactions to certain conversation triggers, and displays her mood changes in her speech and behavior.
+
+	{*}"Don't Mention The Chicken"
+	
+	Include Mood Variations by Emily Short.
+	
+	The current interlocutor is an object that varies. The current interlocutor is Pam.
+
+	The moods are friendly, neutral, and hostile.  The current mood of a person is usually neutral.
+	
+	The House is a room. Pam is a woman in the House.  The current mood of Pam is friendly.
+
+	Instead of asking Pam about "love":
+		say "'It's all right for some,' says Pam[when friendly], winking[or hostile], with a bit of a snarl in her voice. Clearly you've gotten on her bad side[at other times] blandly[end when]."
+
+	Instead of asking Pam about "chicken":
+		say "Pam sighs heavily[set hostile]. 'I hate poultry!'".
+	
+	Carry out waiting:
+		set neutral.
+	
+	Every turn (this is the show mood-shifts rule):
+		if the current mood of Pam is not the previous mood of Pam:
+			repeat through the Table of Mood Changes:
+				if the last entry is the previous mood of Pam and the new entry is the current mood of Pam:
+					say "[description entry][paragraph break]";
+					break.
+
+	Table of Mood Changes
+	last	new	description
+	neutral	hostile	"Pam is looking a lot less friendly now."
+	neutral	friendly	"Pam seems to have relaxed a bit and is warming towards you."
+	hostile	friendly	"You've completely turned around Pam's attitude."
+	friendly	hostile	"Whoa, you clearly said the wrong thing there!"
+	hostile	neutral	"Pam doesn't look really friendly, but she's no longer red with anger."
+	friendly	neutral	"Pam crosses her arms, looking more guarded."
+
+	Test me with "ask pam about love / wait / ask pam about love / ask pam about chicken / ask pam about love / wait / ask pam about love".
+

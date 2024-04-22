@@ -1,0 +1,15 @@
+Example: * Farmyard Chase
+Description: In which we amass a small procession.
+
+	{*}"Farmyard Chase"
+	
+	Include Simple Followers by Emily Short.
+
+	Persuasion rule for asking people to try following something: persuasion succeeds. Persuasion rule for asking people to try ceasing to follow something: persuasion succeeds.
+
+	The Farmhouse is a room. The Attic is above the Farmhouse. The Kitchen is north of the Farmhouse. The Yard is north of the Kitchen. The Chicken Coop is west of the Yard. The Barn is north of the Yard.
+
+	The cow is an animal in the Barn. The cat is an animal in the Yard. The mouse is an animal in the Attic. The yellow chicken is an animal in the Chicken Coop. Farmer John is a man in the Farmhouse.
+
+	Test me with "John, follow me / up / mouse, follow john / d / n / n / cat, follow mouse / s / cat, stop following mouse".
+

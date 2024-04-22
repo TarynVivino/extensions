@@ -1,0 +1,29 @@
+Example: * Reincarnation
+Description: We have a vial of poison that the player recognizes only on the second playthrough.
+
+	{*}"Reincarnation"
+	
+	Include Recorded Endings by Emily Short.
+
+	The File of Conclusions is called "examplecon".
+
+	The Cloudy Chamber is a room. It contains a wooden table. On the wooden table is a vial.
+
+	The description of the vial is "It is full of a delicious-looking golden liquid."
+
+	Instead of smelling the vial:
+		say "It smells like honey wine."
+
+	Rule for printing the name of the vial when "Death by poison" is a used ending:
+		say "vial of poison".
+		
+	Understand "poison" or "of poison" as the vial when "Death by poison" is a used ending.
+
+	Instead of drinking the vial:
+		if "Death by poison" is a used ending:
+			say "A chill comes over you as you consider it, as though you were being warned by a previous incarnation from another lifetime: this is foul poison.";
+		otherwise:
+			say "You lift the vial to your lips and throw it back. The flavor is sweet on your tongue, but the effects are nearly instant...";
+			record "Death by poison" as an ending;
+			end the story saying "You have died by poison".
+

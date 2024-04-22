@@ -1,0 +1,43 @@
+Example: * Sisko's Briefing
+Description: A brief conversation with defaults.
+
+	{*}"Sisko's Briefing"
+
+	Include Conversational Defaults by Eric Eve.
+
+	Captain Sisko's Office is a Room.
+	"Behind the desk a pair of large windows overlook the stars that seem to surround the wormhole."
+
+	The large desk is a scenery supporter in Captain Sisko's Office.
+		
+	Benjamin Sisko is a man in Captain Sisko's Office. "Captain Sisko is seated behind his desk."
+	Understand "ben" or "captain" as Benjamin Sisko.
+
+	After quizzing Sisko about the dominion war:
+	say "'It's not going as well as I'd like; we're taking far too many casualties,' he tells you."
+
+	After quizzing Sisko about Gul Dukat:
+	say "'He's a very evil man,' Sisko opines."
+
+	After quizzing Sisko about Sisko:
+	say "'I am quite well, thank you,' he assures you."
+
+	After informing Sisko about Quark:
+	say "'Up to his usual tricks, no doubt,' he nods."
+
+	default ask-tell response for Sisko:
+	say "'Let's talk about that some other time,' he suggests."
+
+	default ask-for response for Sisko:
+	say "'I'm afraid I can't help you with that just now,' he tells you."
+
+	default yes-no response for Sisko:
+	say "'I wasn't aware I had just asked you something,' Sisko remarks."
+	
+	The dominion war is a familiar thing.
+	Gul Dukat is a familiar man.
+	Quark is a familiar man.
+	
+	Test me with "a sisko/a war/a quark/t quark/ask for promotion/a dukat/a bashir/t dax"
+
+

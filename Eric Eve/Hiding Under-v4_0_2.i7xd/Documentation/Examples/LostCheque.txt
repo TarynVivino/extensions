@@ -1,0 +1,38 @@
+Example: * Lost Cheque
+Description: A simple example of one thing hidden under another.
+
+This example illustrates most of the principal features of the extension when used by itself (i.e. without Underside). Note how we provide our own definition of "To say find-hidden-under" to make the player automatically pick up anything found under the mat.
+
+	{*}"Lost Cheque" by Eric Eve
+
+	Include Hiding Under by Eric Eve.
+
+	The Hall is a room.
+	"[if unvisited]You know you dropped a cheque here somewhere; the question is where[otherwise]There's not much of interest here, really, apart from that cheque[end if]."
+
+	The doormat is a portable enterable supporter in the Hall.
+	"A brown doormat lies by the front door."
+
+	Understand "brown" or "mat" as the doormat.
+
+	The valuable cheque is hidden under the doormat.
+	The description is "It's a cheque for ten thousand [if the American dialect option is active]dollars[otherwise]pounds[end if]."
+
+	Understand "check" as the valuable cheque when the American dialect option is active.
+
+	Rule for printing the name of the valuable cheque when the American dialect option is active: say "valuable check".
+
+	Instead of looking under something when the player is on the noun:
+	say "You'll have to get off [the noun] first."
+
+	Instead of placing the valuable cheque under the doormat:
+	hide the valuable cheque under the doormat;
+	say "You slip the cheque back under the doormat."
+
+	To say find-hidden-under (the doormat - a thing):
+	now everything hidden under the doormat is carried by the player;
+	say "Under the mat you find [a list of things hidden under the doormat], which you eagerly snatch up."
+
+	Test me with "look under mat/i/x cheque/put cheque under mat/take mat"
+
+

@@ -1,0 +1,61 @@
+Example: * Sisko's Extended Briefing
+Description: A longer version of the first example, using the Conversation Responses extension as well.
+
+	{*}"Sisko's Extended Briefing"
+
+	Include Conversation Responses by Eric Eve.
+	Include Conversational Defaults by Eric Eve.
+
+	Captain Sisko's Office is a Room.
+	"Behind the desk a pair of large windows overlook the stars that seem to surround the wormhole."
+
+	The large desk is a scenery supporter in Captain Sisko's Office.
+	A ball is on the large desk.
+		
+	Benjamin Sisko is a man in Captain Sisko's Office. "Captain Sisko is seated behind his desk."
+	Understand "ben" or "captain" as Benjamin Sisko.
+
+	response of Sisko when asked about the dominion war:
+	say "'It's not going as well as I'd like; we're taking far too many casualties,' he tells you."
+
+	response of Sisko when asked about Gul Dukat:
+	say "'He's a very evil man,' Sisko opines."
+
+	response of Sisko when asked about Sisko:
+	say "'I am quite well, thank you,' he assures you."
+
+	response of Sisko when asked-or-told about Quark:
+	say "'Up to his usual tricks, no doubt,' he nods."
+
+	response of Sisko when asked for "advice":
+	say "'I think you should make up your own mind,' he tells you."
+
+	response of Sisko when asked about "bajor":
+	say "'I think it's a fascinating planet,' he beams."
+
+	default ask response for Sisko:
+	say "'[one of]Let's talk about that some other time,' he suggests[or]I don't think I want to tell you about that right now,' he replies[or]'It would take too long to explain,' he tells you[in random order]."
+
+	default tell response for Sisko:
+	say "'[one of]That's very interesting, I'm sure,' he remarks[or]Perhaps you should tell me more about that on another occasion,' he suggests[or]I don't think I want to hear about that right now,' he complains[in random order]."
+
+	default ask-for response for Sisko:
+	say "'I'm afraid I can't help you with that just now,' he tells you."
+
+	default yes-no response for Sisko:
+	say "'I wasn't aware I had just asked you something,' Sisko remarks."
+
+	default give-show response for Sisko:
+	now the noun is on the large desk;
+	say "'I'll take that, thank you very much,' he says, putting [the noun] [if the noun is the ball]back [end if]on the desk."
+
+	The player is carrying a status report.
+	
+	The dominion war is a familiar thing.
+	Gul Dukat is a familiar man.
+	Quark is a familiar man.
+	
+	Test me with "a sisko/a war/a quark/t quark/ask for advice/ask for money/a dukat/a bashir/t dax/a bajor/t emissary/no/show Sisko the ball/show report"
+
+
+

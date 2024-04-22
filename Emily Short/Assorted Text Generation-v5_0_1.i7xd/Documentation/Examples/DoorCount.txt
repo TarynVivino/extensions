@@ -1,0 +1,36 @@
+Example: * Door Count
+Description: A dynamic description of doors
+
+Here we use the selection feature to describe which doors are open out of a group. Different rooms have different numbers of doors that could be open or closed, and we want our description to be as succinct as possible.
+
+	{*}"Door Count" by Emily Short
+	
+	Include Assorted Text Generation by Emily Short.
+	
+	The Reading Room is a room.
+	
+	The arched door is a door. It is west of the Reading Room and east of the Rare Book Room.
+	
+	The solid door is a door. It is south of the Reading Room and north of the Circulation Desk.
+	
+	The flimsy door is a door. It is north of the Reading Room and south of the Supply Closet. The flimsy door is locked.
+	
+	The green door is a door. It is east of the Reading Room and west of the Library Garden.
+	
+	The felt covered door is a door. It is north of the Rare Book Room and south of the Restoration Room.
+	
+	The flimsy key unlocks the flimsy door. The player carries the flimsy key.
+	
+	To lead is a verb.
+	
+	Rule for writing a paragraph about a door:
+		say "[A list of visible doors] [lead] out of this room. ";
+		describe which visible doors are open visible doors rather than closed visible doors with members being "[one of]standing open[or]ajar[or]open[at random]" and nonmembers being "[one of]shut[or]closed[or]firmly shut[at random]";
+		describe which visible doors are locked visible doors with members being "locked", when necessary;
+		say paragraph break.
+		
+	Test me with "open arched door / look / open green door / look / open solid door / look / unlock flimsy door with flimsy key / look / close green door / look / open flimsy door / look / open green door / look / go through the arched door / open the felt door / look / close felt door / close arched door / look / open felt / go through felt / look / close felt / look".
+	
+
+
+

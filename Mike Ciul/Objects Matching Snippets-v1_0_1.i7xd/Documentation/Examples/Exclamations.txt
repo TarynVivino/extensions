@@ -1,0 +1,25 @@
+Example: * Exclamations
+Description: Creates a new action that can be parsed from the command "[someone], [something]"
+
+	{*}"Exclamations"
+
+	Include Objects Matching Snippets by Mike Ciul.
+
+	Exclaiming it to is an action applying to two visible things.
+	Report exclaiming it to: say "You say '[noun]' to [the second noun]."
+
+	An exclamation is a kind of thing. Hello is an exclamation.
+
+	Check answering someone that:
+		Let item be the most likely thing identified with the topic understood;
+		If item is a thing:
+			instead try exclaiming item to the noun;
+		Let item be the most likely thing named in the topic understood;
+		if something matched:
+			say "Your command did not exactly match anything you can say, but [the list of likeliest things named in the topic understood] matched part[if item is nothing]s[end if] of it.";
+			stop the action.
+
+	Test is a room. Bob is a man in Test.
+
+	Test me with "say hello to bob/bob, hello how are you Bob"
+

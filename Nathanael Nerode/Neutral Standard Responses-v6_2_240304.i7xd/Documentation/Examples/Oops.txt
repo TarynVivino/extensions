@@ -1,0 +1,14 @@
+Example: ** Oops
+Description: Regression test for interaction between don't know that word rule and parser oops (from Unknown Word Error)
+
+	{*}"Oops"
+
+	Include Neutral Standard Responses by Nathanael Nerode.
+
+	The Conference Chamber is a room. In the Conference Chamber is a table. On the table is a treaty.
+
+	Understand "put [something preferably held] on top of [something]" as putting it on.
+
+	[ Without "restore the oops target" above, this oops would result in "put table on tabl" and get the same error message a second time because of some parsing weirdness. ]
+	Test me with "put treaty on tabl / oops table".
+

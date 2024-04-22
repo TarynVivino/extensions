@@ -1,0 +1,73 @@
+Example: * Beethoven
+Description: A deaf NPC who responds only to commands written in the conversation book.
+
+	{*}"Beethoven"
+
+	Include Notepad by Jim Aikin.
+
+	Section 1 - The Room & Objects
+
+	The Messy Front Parlor is a room. "A handsome Broadwood piano dominates this small, cluttered room. Stuff is scattered everywhere. There's even a half-eaten sandwich under the piano."
+
+	A musical instrument is a kind of thing.
+
+	The Broadwood piano is scenery in the Messy Front Parlor. The description is "The piano is handsomely inlaid with fleur-de-lis." Understand "handsome", "inlay", and "fleur-de-lis" as the Broadwood piano. The Broadwood piano is a musical instrument.
+
+	The player carries a conversation book and a quill pen. The conversation book is a notepad. The allowed-pens of the conversation book is {quill pen}. The description of the conversation book is "The deaf composer often used a book of this sort to hold conversations with his friends. They would write whatever they wanted to say to him in the book and then show him the book."
+
+	Section 2 - Beethoven
+
+	Beethoven is a man in the Messy Front Parlor. "Beethoven is standing here, scowling at you." The description is "His hair hasn't been combed in days, and his waistcoat is mis-buttoned." Beethoven has some text called the non-response. The non-response of Beethoven is "Beethoven doesn't seem to have heard you."
+
+	Beethoven-willing is a truth state that varies. Beethoven-willing is false.
+
+	Instead of asking Beethoven to try playing the piano:
+		if Beethoven-willing is false:
+			say "[non-response of Beethoven][paragraph break]";
+		otherwise:
+			say "Beethoven says, 'Oh, perhaps.' He sits down at the piano and plays a rapid flurry of notes. Unfortunately, the piano hasn't been tuned in years, and some of the strings seem to be broken. Beethoven seems blissfully unaware of the awful racket."
+
+	Instead of asking Beethoven to try doing something:
+		if Beethoven-willing is true:
+			say "Beethoven frowns and shakes his head. Perhaps he can't understand what '[memo of the conversation book]' means.";
+		otherwise:
+			say "[non-response of Beethoven][paragraph break]".
+
+	Persuasion rule for asking Beethoven to try doing something:
+		if Beethoven-willing is true:
+			persuasion succeeds;
+		otherwise:
+			persuasion fails.
+
+	Section 3 - Letting Beethoven Respond to Written Commands
+
+	The queued command is a text that varies.
+
+	Rule for reading a command:
+		if the queued command is empty:
+			now Beethoven-willing is false;
+			make no decision;
+		otherwise:
+			now Beethoven-willing is true;
+			change the text of the player's command to the queued command;
+			now the queued command is "".
+
+	Instead of showing the conversation book to Beethoven:
+		if the memo of the conversation book is empty, say "Beethoven frowns at the empty page. 'You have an odd sense of humor,' he says gruffly.";
+		otherwise now the queued command is "beethoven, [memo of the conversation book]".
+	
+	Section 4 - The Playing Action
+
+	Playing is an action applying to one thing. Understand "play [something]" as playing.
+
+	Check playing:
+		if the noun is not a musical instrument:
+			say "You can't make music on [the noun]!" instead.
+
+	Carry out playing:
+		say "You try a few tentative notes on [the noun], but it's in such poor condition that you desist almost before you start."
+
+	Test me with "show book to beethoven / write play the piano in the book / show book to beethoven / beethoven, play the piano / write go north in conversation book / show book to beethoven".
+	
+		
+

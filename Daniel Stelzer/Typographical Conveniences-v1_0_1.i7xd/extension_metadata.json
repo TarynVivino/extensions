@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Typographical Conveniences",
+        "author": "Daniel Stelzer",
+        "version": "1.0.1"
+    }
+}

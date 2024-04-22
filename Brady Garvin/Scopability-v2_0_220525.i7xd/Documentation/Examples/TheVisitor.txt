@@ -1,0 +1,27 @@
+Example: * The Visitor
+Description: An object that is present but unrevealed.
+
+	{*}"The Visitor"
+
+	Include Scopability by Brady Garvin.
+
+	Cavern is a room.
+	The rocky debris is scenery.
+	The alien artifact is an unscopable thing in the cavern.
+	"It's embedded in the rock!"
+	The description of the alien artifact is "It looks alien."
+
+	Every turn when the alien artifact is in the location:
+		say "There's a faint humming coming from above."
+
+	Instead of listening when the alien artifact is in the location:
+		say "Hmmmm hmmmm hmmmm.  Hm hm hm hm.  Hmmmm hm hm.  Hm.  Hm hmmmm.  Hm hmmmm hm."
+
+	Instead of jumping when the alien artifact is in the location and the alien artifact is not scopable:
+		say "The jolt shakes [rocky debris] loose from the ceiling, revealing [an alien artifact]!";
+		now the rocky debris is in the location;
+		now the alien artifact is scopable;
+		now the alien artifact is not scenery.
+
+	Test me with "z / listen / x artifact / jump / x artifact".
+

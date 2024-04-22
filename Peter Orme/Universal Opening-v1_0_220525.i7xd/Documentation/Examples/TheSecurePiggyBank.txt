@@ -1,0 +1,24 @@
+Example: * The secure piggy bank
+Description: A piggy bank that you can put things inside, even it it's closed and locked. Including the key! In the test, you put the key in the locked piggy bank and use "openall bank" to make it open.
+
+	{*}"The Secure Piggy Bank"
+
+	Include Universal Opening by Peter Orme.
+
+	Nursery is a room.
+
+	The piggy bank is a closed openable lockable container in the nursery. It is locked.
+
+	The pink key unlocks the piggy bank. The player is carrying the pink key.
+
+	instead of inserting something into the piggy bank:
+		say "You slip [the noun] through the slot on the piggy's back.";
+		now the noun is in the piggy bank.
+	
+	test me with "put key in bank / take key / open bank / openall bank / take key / close bank / open bank";
+
+
+
+
+
+

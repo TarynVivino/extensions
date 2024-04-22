@@ -1,0 +1,122 @@
+Version 3.0.240123 of Tab Removal by Nathanael Nerode begins here.
+
+"For commands with tabs in them, replaces tabs with spaces before passing them on to the game.  Prevents all kinds of confusing weirdness when the player types tabs."
+
+[
+Many interpreters unfortunately pass tabs through into the command.
+Tabs are treated as *letters* which are part of a word, unhelpfully, which leads to confusing error responses with embedded tabs.
+Worse, when Glulxe goes to print the error message with the embedded tab,
+it issues a runtime error saying that it can't print character 9* (the tab character)
+-- in the middle of this "word"!  This is a pretty cryptic error message.
+
+By contrast, Glulxe will, hilariously, print "[unicode 9]" with no complaints... it prints a tab! :-)
+
+The implementation for the Z-machine is straightforwardly done with "after reading a command".
+
+But while the straightforward implementation works for the Z-machine, *it fails for Glulx*.
+In both glulxe and git, the "\t" regular expression does not match the tab as it should.
+It matches tabs inserted into your code using [unicode 9], but not tabs typed at the command line.
+
+This is actually a combination of two problems:
+(1) weirdness (arguably a bug) in the Glk specification, which disallows printing tabs.
+(2) weirdness where Inform 7 uses the print routines to convert snippets to text.
+(3) weirdness (definitely a bug) in Inform 7's Glk input routines, which blindly pass tabs through to the snippet.
+These also pass through other control characters, but none of those have a history of being passed through by the interpreter.
+
+This is still breaking with Inform 10.2.
+So for Glulx we replace the tokenizer.  
+(We can't replace the tokenizer with the Z-machine because on the Z-machine the tokenizer is on the interpreter-side.)
+
+In Inform v10.2, the tokenizer is in the Architecture32Kit in the "Input Output.i6t" file, for reference.
+]
+
+Section - The Easy Way (for Z-machine only)
+
+The tab removal rule is listed first in the after reading a command rulebook.
+After reading a command (this is the tab removal rule):
+	let cmdln be text;
+	let cmdln be the substituted form of "[the player's command]"; [Yes it has to be in quotes and brackets]
+    [The preceding line is the one which breaks under Glulxe.  The Inform 6 veneer code puts an error message into cmdln!]
+	if cmdln matches the regular expression "\t": [a literal tab]
+		replace the regular expression "\t" in cmdln with " ";
+		change the text of the player's command to cmdln;
+
+Section - The Hard Way (for Glulx only)
+
+Include (-
+[ VM_Tokenise buf tab
+    cx numwords len bx ix wx wpos wlen val res dictlen ch bytesperword uninormavail;
+    len = buf-->0;
+    buf = buf+WORDSIZE;
+    
+    ! The following was added by the Tab Removal extension.
+    ! Tab removal is done here since it can't be matched in I7 due to issues in Glk implementations.
+    cx = 0;
+    while (cx < len) {
+        if (buf-->cx == 9) {  ! it's a tab character
+            buf-->cx = ' '; ! now it's a space character
+        }
+        cx++;
+    }
+    ! This ends the changes made by the Tab Removal extension.
+
+    ! First, split the buffer up into words. We use the standard Infocom
+    ! list of word separators (comma, period, double-quote).
+
+    cx = 0;
+    numwords = 0;
+    while (cx < len) {
+        while (cx < len && buf-->cx == ' ') cx++;
+        if (cx >= len) break;
+        bx = cx;
+        if (buf-->cx == '.' or ',' or '"') cx++;
+        else {
+            while (cx < len && buf-->cx ~= ' ' or '.' or ',' or '"') cx++;
+        }
+        tab-->(numwords*3+2) = (cx-bx);
+        tab-->(numwords*3+3) = 1+bx;
+        numwords++;
+        if (numwords >= MAX_BUFFER_WORDS) break;
+    }
+    tab-->0 = numwords;
+
+    ! Now we look each word up in the dictionary.
+
+    dictlen = #dictionary_table-->0;
+    bytesperword = DICT_WORD_SIZE * WORDSIZE;
+    uninormavail = glk_gestalt(16, 0);
+
+    for (wx=0 : wx<numwords : wx++) {
+        wlen = tab-->(wx*3+2);
+        wpos = tab-->(wx*3+3);
+
+        ! Copy the word into the gg_tokenbuf array, clipping to DICT_WORD_SIZE
+        ! characters and lower case. We'll do this in two steps, because
+        ! lowercasing might (theoretically) condense characters and allow more
+        ! to fit into gg_tokenbuf.
+        if (wlen > LOWERCASE_BUF_SIZE) wlen = LOWERCASE_BUF_SIZE;
+        cx = wpos - 1;
+        for (ix=0 : ix<wlen : ix++) {
+            ch = buf-->(cx+ix);
+            gg_lowercasebuf-->ix = ch;
+        }
+        wlen = glk_buffer_to_lower_case_uni(gg_lowercasebuf, LOWERCASE_BUF_SIZE, wlen);
+        if (uninormavail) {
+            ! Also normalize the Unicode -- combine accent marks with letters
+            ! where possible.
+            wlen = glk_buffer_canon_normalize_uni(gg_lowercasebuf, LOWERCASE_BUF_SIZE, wlen); ! buffer_canon_normalize_uni
+        }
+        if (wlen > DICT_WORD_SIZE) wlen = DICT_WORD_SIZE;
+        for (ix=0: ix<wlen : ix++) {
+            gg_tokenbuf-->ix = gg_lowercasebuf-->ix;
+        }
+        for (: ix<DICT_WORD_SIZE : ix++) gg_tokenbuf-->ix = 0;
+        
+        val = #dictionary_table + WORDSIZE;
+        @binarysearch gg_tokenbuf bytesperword val DICT_ENTRY_BYTES dictlen 4 1 res;
+        tab-->(wx*3+1) = res;
+    }
+];
+-) replacing "VM_Tokenise".
+
+Tab Removal ends here.

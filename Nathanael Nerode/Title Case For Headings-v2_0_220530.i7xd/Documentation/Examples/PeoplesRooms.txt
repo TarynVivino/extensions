@@ -1,0 +1,95 @@
+Example: **** People's Rooms
+Description: Rooms with possessive names
+
+This example lets you play the game as John or Alice, using an initial Pick Identity scene.  After picking an identity at the start of the game, the default "yourself" object is removed.  The text substitutions adjust the printed names and titles of the dorm rooms to match (so one of them is "Your Dorm Room" and the other is "Alice's Dorm Room" or "John's Dorm Room".
+
+There is one really tricky bit.  The Standard Rules will not list an item in the room description if it believes the item has been mentioned already.  Using the possessive form of John in the title of the room causes it to be marked as mentioned, so it must be unmentioned before the room description is printed -- or else John will turn invisible when in his own room.
+
+In the Pick Identity scene, it is necessary to run the scene checking rules manually to trigger the scene change at the right time.  The initial room description must be deferred until after the identity is chosen, as well.
+
+Note the careful attention to capitalization in the descriptions.  The title case in the headings, however, happens automatically.
+
+Test this by looking at all the rooms as John, and then by looking at all the rooms as Alice.
+
+	{*}"People's Rooms"
+
+	The story author is "Nathanael Nerode".
+	The release number is 2.
+	Include Undo Output Control by Nathanael Nerode.
+	Include Title Case for Headings by Nathanael Nerode.
+
+	[This is critically important -- otherwise Alice will disappear from the listing in Alice's room]
+	To say unmention (item - a thing):
+		now item is not mentioned;
+
+	Pick Identity is a scene.
+	Pick Identity begins when play begins.
+	Pick Identity ends when the player is not yourself.
+
+	When Pick Identity begins:
+		now the command prompt is "Would you like to play as John or Alice? >".
+	
+	[Don't print the room description until we know who we are.]
+	The initial room description rule is not listed in the startup rulebook.
+
+	[The player starts as "yourself"; we delete this after picking identity.]
+	After reading a command when Pick Identity is happening:
+		if the player's command matches "Alice":
+			now the player is Alice;
+			[If the player's command is rejected the scene will not change automatically.]
+			follow the scene changing rules;
+		otherwise if the player's command matches "John":
+			now the player is John;
+			[If the player's command is rejected the scene will not change automatically.]
+			follow the scene changing rules;
+		otherwise:
+			say "I didn't understand that.  Please type 'Alice' or 'John'.";
+		reject the player's command. [Don't run command through normal parser]
+	
+	When Pick Identity ends:
+		now the command prompt is ">";
+		now yourself is nowhere;
+		say line break;
+		try looking.
+	
+	To say (T - a text) capitalized/capitalised:
+		let temp be T;
+		replace the regular expression "^(\w)" in T with "\u1";
+		say T;
+	
+	To say (O - an object) capitalized/capitalised:
+		let temp be "[O]";
+		say temp capitalized;
+	
+	Dormitory Hallway is a room.  "This is the hallway of the dormitory.  [Dorm room 1 capitalized] is to the west and [dorm room 2] is to the east."
+	
+	A dorm room is a kind of room.
+	Occupancy relates various dorm rooms to one person (called the occupant).
+	The verb to be occupied by means the occupancy relation.
+	The verb to occupy means the reversed occupancy relation.
+	Dorm room 1 is occupied by John.
+	Dorm room 2 is occupied by Alice.
+
+	Rule for printing the name of a dorm room (called item) while printing a heading:
+		say "[regarding the occupant of item][Possessive] Dorm Room[unmention the occupant]".
+	Rule for printing the name of a dorm room (called item):
+		say "[regarding the occupant of item][possessive] dorm room[unmention the occupant]".
+
+	Dorm room 1 is a dorm room.
+	Dorm room 1 is west of hallway.
+	The description of dorm room 1 is "[We]['re] in [dorm room 1].  [We] [can] leave to the east."
+	
+	Dorm room 2 is a dorm room.
+	Dorm room 2 is east of hallway.
+	The description of dorm room 2 is "[We]['re] in [dorm room 2]. [We] [can] leave to the west."
+
+	John is a man.
+	The description of John is "[John] [look] no different from last time you saw [them]."
+	John is in dorm room 1.
+	Persuasion rule for asking John to try going: persuasion succeeds.
+
+	Alice is a woman.
+	The description of Alice is "[Alice] [look] no different from last time you saw [them]."
+	Alice is in dorm room 2.
+	Persuasion rule for asking Alice to try going: persuasion succeeds.
+

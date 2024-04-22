@@ -1,0 +1,50 @@
+Example: * The Prisoner of La-Z-enda
+Description: A simple demonstration of an appearing door.
+
+	{*}"The Prisoner of La-Z-enda"
+
+	Include Disappearing Doors by Andrew Plotkin.
+
+	The Prison Cell is a room. "These four stone walls are all you have seen of the world for thirty-five interminable minutes. [if the steel door is absent]There is no way in or out. Except for the[else]There's an[end if] escape tunnel to the northeast[if the Tunnel is not visited], but that looks terribly uncomfortable, so you've never tried it[end if]."
+
+	Instead of going nowhere in the Prison Cell:
+		say "The walls are obdurate."
+
+	The steel door is a door. The steel door is north of the Prison Cell. "A door beckons in the [direction of steel door from location] wall!"
+
+	The Tunnel is a room. "The tunnel is less uncomfortable than you'd been led to believe. Your cell is southwest, and sweet freedom is northwest."
+	The Tunnel is southeast of the Hallway.
+	The Tunnel is northeast of the Prison Cell.
+
+	The Hallway is north of the steel door. "Many's the time you've imagined this corridor. It lives up to your expectations. The rest of your life is to the west."
+
+	Instead of going west in the Hallway:
+		end the story finally saying "Freedom".
+
+	When play begins:
+		now the steel door is absent.
+
+	The doorbell is carried by the player.
+	Understand "button", "bell", "device" as the doorbell.
+
+	The doorbell can be ever-tried.
+
+	The description of the doorbell is "It's a little bell-shaped device with a button on it. You once heard that pushing the button would make a door appear or disappear. [if the doorbell is not ever-tried]You've never bothered to try it.[else]Guess it works.[end if]"
+
+	Instead of pushing the doorbell:
+		now the doorbell is ever-tried;
+		if the steel door is present:
+			if the steel door is in the location:
+				say "The steel door disappears.";
+			else:
+				say "Click. Nothing seems to happen.";
+			now the steel door is absent;
+		else:
+			now the steel door is present;
+			if the steel door is in the location:
+				say "A steel door appears!";
+			else:
+				say "Click. Nothing seems to happen."
+
+	Test me with "north / push button / look / north / examine door / push button / look / examine door / west".
+

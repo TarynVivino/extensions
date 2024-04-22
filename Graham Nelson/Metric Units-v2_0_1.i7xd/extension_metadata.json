@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Metric Units",
+        "author": "Graham Nelson",
+        "version": "2.0.1"
+    }
+}

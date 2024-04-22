@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Modified Timekeeping",
+        "author": "Daniel Stelzer",
+        "version": "1.0.1"
+    }
+}

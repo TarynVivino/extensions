@@ -1,0 +1,30 @@
+Example: * Amtrak
+Description: An Amtrak train running a long northeastern route, showing off absolutely-scheduled train-cars.
+
+For the sake of example, I have given the train an impossibly fast schedule, so that we can see it arriving and departing on time without waiting through too many turns.
+
+	{*}"Amtrak"
+
+	Include Transit System by Emily Short.
+
+	Chicago is west of Pittsburgh. Pittsburgh is west of Philadelphia. Philadelphia is south of New York. New York is southwest of Boston.
+
+	The player is in New York.
+
+	The Amtrak is an absolutely-scheduled train-car in Boston. The waiting duration of the Amtrak is 1 minute. The t-schedule of the Amtrak is the Table of Train Schedule.
+
+	Table of Train Schedule
+	transit time	destination
+	9:01 AM	Boston
+	9:07 AM	New York
+	9:10 AM	Philadelphia
+	9:25 AM	Pittsburgh
+	9:45 AM	Chicago
+	
+	When play begins, now the right hand status line is "[time of day]".
+	
+	Test me with "z / z / z / z /z / z / z / enter amtrak / z / z / z / z / z".
+
+
+
+

@@ -1,0 +1,48 @@
+Example: * The Den
+Description: just describing some things
+
+This example just sets up some random objects, and there's a "when play begins" rule that iterates over all the things and list the properties. This is just to give you and idea of how this works.
+It also illustrates how to add a new rule for a specific kind.
+
+*: "The Den"
+
+	Include Object Descriptors by Peter Orme.
+
+	The Den is a room.
+
+	The wooden chest is a container in the den. It is closed, openable.
+
+	Mrs Benson is a woman in the den.
+
+	the marble bench is a supporter in the den. It is fixed in place.
+
+	the portal is a door. It is outside from the den.
+
+	the rat king is an animal in the den. The indefinite article is "a". it is plural-named.
+
+	The laser slicer is a switched off, unlit device in the den.
+
+	after switching on the laser slicer:
+		now the laser slicer is lit;
+		continue the action.
+
+	after switching off the laser slicer:
+		now the laser slicer is unlit;
+		continue the action.
+
+	[Let's also introduce a new Kind of Thing. Custom properties won't break anything, but they won't be described unless we add an object descriptor rule for it]
+
+	a wooz is a kind of thing. a wooz can be floppy or stiff.
+
+	an Object Descriptor rule for a wooz (called item):
+		if the item is floppy, add "floppy" to the descriptor list;
+		if the item is stiff, add "stiff" to the descriptor list;
+
+	There is a floppy edible wooz called a spongy cake in the lab.
+
+	when play begins:
+		repeat with item running through things:
+			say "[item] - [the object descriptors of the item].";
+
+
+

@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Punctuation Removal",
+        "author": "Emily Short",
+        "version": "6.1.1"
+    }
+}

@@ -1,0 +1,15 @@
+Example: * "You Beta Not Pout"
+
+	{*}"You Beta Not Pout"
+
+	Include Beta Test by Zed Lopez.
+
+	Last when play begins:
+	let dashes be "-------------------------------------------------------------------------[line break]";
+	say dashes;
+	say "*** Enter comments at the command prompt by starting them with [']*['], e.g.,[line break][line break]";
+	say ">* I think you meant 'xyzzy'[line break]";
+	say dashes;
+
+	Lab is a room.
+

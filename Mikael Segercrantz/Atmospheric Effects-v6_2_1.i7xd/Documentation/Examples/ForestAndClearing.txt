@@ -1,0 +1,35 @@
+Example: * Forest and Clearing
+Description: A simple example of regional and room effects, and ignoring messages.
+
+	{*}"Forest and Clearing"
+
+	Include Version 6 of Atmospheric Effects by Mikael Segercrantz.
+
+	Western Edge of the Forest is a room. East of the western edge of the forest is a room called A Forest Clearing. East of a forest clearing is a room called Eastern Edge of the Forest.
+
+	The Forest Region is a region. Western edge of the forest, a forest clearing and eastern edge of the forest are in the forest region.
+
+	Table of Atmospheric Definition (continued)
+	loci			ignoring		subtable
+	A Forest Clearing		ignore		Table of Clearing Definition
+	Forest Region		do not ignore	Table of Forest Definition
+
+	Table of Clearing Definition
+	during		initch	latch		aftcnt		curcnt		sctype		runtype		frtype		igtype		subtable
+	a scene		50	a number	a number	a number	fully random	a running type	a further type	an ignoring type	Table of Clearing Atmosphere
+
+	Table of Clearing Atmosphere
+	used		message
+	a number	"The sound of a small river running nearby reaches your ear."
+	--		"A cuckoo can be heard not far away."
+
+	Table of Forest Definition
+	during		initch	latch	aftcnt	curcnt		sctype	runtype		frtype		igtype		subtable
+	a scene		75	33	5	a number	random	a running type	a further type	an ignoring type	Table of Forest Region Atmosphere
+
+	Table of Forest Region Atmosphere
+	used		message
+	a number	"A fox runs across the path."
+	--		"Birds chirp off in the distance."
+	--		"A rabbit bounces off with sudden haste."
+

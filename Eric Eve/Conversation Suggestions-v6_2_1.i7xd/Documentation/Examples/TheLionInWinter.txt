@@ -1,0 +1,81 @@
+Example: * The Lion in Winter
+Description: Suggestions for a conversation fit for a king.
+
+	{*}"The Lion in Winter"
+
+	Part 1 - Setup and Topics
+
+	Include Conversation Suggestions by Eric Eve.
+
+	Richard is a familiar man.
+
+	Eleanor of Aquitaine is a familiar woman.
+	Understand "queen" as Eleanor.
+
+	Bertrand de Born is a man.
+
+	Thomas Becket is a familiar man.
+
+	Alice of Berangaria is a woman.
+
+	England is a familiar thing.
+	France is a familiar thing.
+	Prince John is a familiar man.
+	doggerel is a familiar thing.
+
+	The player carries a sword.
+	Understand "weapon" or "your" as the sword.
+
+	sword-suggestion is a misc-suggestion. The printed name is "show him your sword".
+
+	Part 2 - The King
+
+	The Solar is a Room. "Dimly lit by the pale winter sun, the Solar overlooks the snow-covered bailey."
+
+	King Henry is a man in the Solar. "King Henry is pacing up and down the Solar like a caged lion."
+	The description is "He looks full of energy, as if anxious to get on with building the Angevin Empire instead of being cooped up in a wintry castle."
+
+	The ask-suggestions are { France, Alice, Richard,  Eleanor,  Bertrand,  Thomas  }.
+	The tell-suggestions are { England, Prince John }.
+	The other-suggestions are { sword-suggestion }.
+
+	Understand "plantagenet" or "II" or "the second" as King Henry.
+
+	Part 3 - Conversation
+
+	After quizzing King Henry about France:
+	say "'[remove france ask suggestion]'I rule more of it than the King of France does!' he boasts."
+
+	After quizzing King Henry about Thomas:
+	say "[remove thomas ask suggestion]'Don't talk to me about that meddlesome priest!' the king growls."
+
+	After quizzing King Henry about Eleanor:
+	say "[make bertrand known][remove eleanor ask suggestion]'She'll be joining me here shortly, and I'm looking forward to it. But I do wish that scoundrel Bertrand de Born would stop singing songs about her!' the king exclaims."
+
+	After quizzing King Henry about Bertrand:
+	say "[remove bertrand ask suggestion][add doggerel ask suggestion]'That wretched minstrel stirs up more trouble with his doggerel than a score of knights with their swords!' the king complains."
+
+	After quizzing King Henry about doggerel:
+	say "[remove doggerel ask suggestion]''Bertrand's latest ditty goes something like this,' scowls the king: 'Alas poor prisoner, poor prisoner return, to thy people, Eleanor, who weep and mourn;  my tears are my bread both night and day, alas how long is my exile!'"
+
+	After quizzing King Henry about Richard:
+	say "[remove richard ask suggestion][make alice known]'I just don't know: he's a good enough warrior, but I do wish he'd marry, I sometimes worry about him. Alice is comely enough, after all!' the king remarks."
+
+	After quizzing King Henry about Alice:
+	say "[remove alice ask suggestion]'Well, Richard should have shown more interest in her. If he wouldn't take her himself he's only himself to blame if I decorate his head with antlers!' Henry yells."
+
+	After informing King Henry about England:
+	say "[remove England tell suggestion]'I'm sure England can manage without me until the spring,' Henry replies."
+
+	After informing King Henry about Prince John:
+	say "[remove Prince John tell suggestion]'I'm glad to hear John will be here soon. He's the only one who's really loyal to me, you know!' King Henry declares."
+
+	Instead of showing the sword to King Henry:
+	say "[remove sword-suggestion other suggestion]'That's a fine weapon you have there,' the king approves."
+
+	Part 4 - Testing
+
+	test me with "talk to the king/a thomas/t england/topics/a france/t john/topics/a richard/a eleanor/topics/a alice/a bertrand/topics/a doggerel/show sword/topics"
+
+
+

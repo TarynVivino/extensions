@@ -1,0 +1,47 @@
+Example: ** Tidy Bowl
+Description: Adding a toilet bowl to every toilet, which will contain undrinkable toilet water.
+
+	{*}"Tidy Bowl"
+
+	Include Measured Liquid by Emily Short.
+
+	Include Modern Conveniences by Emily Short.
+
+	The Home Kitchen is a kitchen. The Little Bathroom is a bathroom. It is west of the Home Kitchen.
+
+	The cup is a fluid container. It is preferred for drinking.
+
+	When play begins:
+		let target be a random cabinet in the Home Kitchen;
+		move the cup to the target.
+	
+	A toilet bowl is a kind of fluid container. A toilet bowl is part of every toilet. The liquid of a toilet bowl is toilet water. The fluid content of a toilet bowl is 163.0 fl oz. The fluid capacity of a toilet bowl is 163.0 fl oz.
+
+	Setting action variables for pouring a toilet into something:
+		now the noun is a random toilet bowl which is part of the noun.
+	
+	Setting action variables for filling something with a toilet:
+		now the second noun is a random toilet bowl which is part of the second noun.
+	
+	Setting action variables for filling a toilet with something:
+		now the noun is a random toilet bowl which is part of the noun.
+	
+	Setting action variables for pouring something into a toilet:
+		now the second noun is a random toilet bowl which is part of the second noun.
+	
+	Setting action variables for drinking a toilet:
+		now the noun is a random toilet bowl which is part of the noun.
+
+	Rule for clarifying the parser's choice of a toilet:
+		do nothing.
+	
+	Rule for clarifying the parser's choice of a toilet bowl:
+		do nothing.
+	
+	Table of Liquids (continued)
+	liquid	potable	flavor
+	toilet water	false	--
+	
+	Test me with "open cabinet / get cup / w / fill cup from toilet / x toilet bowl / pour cup into toilet / drink from toilet / fill cup with toilet water / empty toilet water into bath".
+
+

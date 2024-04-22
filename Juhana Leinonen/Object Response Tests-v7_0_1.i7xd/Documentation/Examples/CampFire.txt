@@ -1,0 +1,21 @@
+Example: * Camp Fire
+Description: An example of basic use of the extension
+
+	{*}"Camp Fire"
+
+	Include Object Response Tests by Juhana Leinonen.
+
+	The Camp is a room.
+
+	The bonfire is in the Camp. It is fixed in place. The description is "The bonfire is blazing hot."
+
+	Alice is a woman in the Camp.
+
+	Instead of touching the bonfire:
+		say "Ow! You almost burn your fingers."
+
+	Test me with "analyze bonfire/try touching/analyze nounless/actor is Alice/analyze bonfire".
+
+When we run the test, we notice that at least the response to "taste bonfire" should be changed to something more appropriate.
+
+

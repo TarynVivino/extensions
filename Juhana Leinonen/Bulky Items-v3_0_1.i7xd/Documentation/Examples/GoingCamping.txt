@@ -1,0 +1,64 @@
+Example: * Going Camping
+Description: A small game where you have to carry all the items in the room in order to win.
+
+
+The example includes three bulky items (a tent, a sleeping bag and an inflated raft), some matches that are so small they are not dropped when a bulky item is picked up and a backpack that can be worn so it won't be dropped. Bulky items can't be inserted into the backpack. Note that the inflated raft is a container that can hold bulky things, so the player can pick up the raft regardless of how many bulky items it holds.
+
+
+	{*}"Going Camping"
+
+	Include Bulky Items by Juhana Leinonen
+
+	Garage is a room. "This is the garage where you keep your wandering gear."
+
+	The tent is in the garage. It is bulky.
+	The sleeping bag is in the garage. It is bulky.
+	The map is in the garage.
+	The compass is in the garage.
+	The matches are in the garage. They are plural-named and insubstantial.
+
+	Report taking the matches:
+		say "You put the matches in your pocket." instead.
+
+	A backpack is in the garage. It is a wearable container.
+
+	After taking the backpack: try wearing the backpack.
+	After taking off the backpack: try dropping the backpack.
+
+	Instead of inserting something bulky into the backpack:
+		say "[The noun] is just too big to fit inside the backpack."
+
+
+	An deflated raft is in the garage. The description is "It's a self-inflating raft: Just push the button on its side to fill it with air."
+
+	The button is a part of the deflated raft. The description is "It's a button reading 'push to inflate'".
+
+	Instead of pushing the button:
+		if the deflated raft is in the backpack:
+			say "The backpack would probably explode if you inflated the raft inside it.";
+		otherwise:
+			say "The mechanism starts to emit a hissing sound and the raft is soon fully inflated.";
+			remove the deflated raft from play;
+			now the inflated raft is in the garage.
+			
+	The inflated raft is a bulky container.
+
+	When play begins:
+		say "Almost ready to go camping - all you need to do now is to pick up your gear from the garage."
+
+	Before going or exiting:
+		say "You can't leave until you are carrying with you everything you need!";
+		stop the action.
+
+	Every turn when the number of portable things in the garage is 1: [the player counts as one]
+		say "Having everything you need for the camping trip with you, you're ready to set off!";
+		end the story finally.
+	
+	Before inserting something into when the player is not carrying the noun:
+		say "(first taking [the noun])[command clarification break]";
+		silently try taking the noun.
+
+
+	Test me with "get all/i/get tent/i/put map in backpack/push button/put tent in raft/put sleeping bag in raft/put compass in backpack/get backpack/get raft".
+
+

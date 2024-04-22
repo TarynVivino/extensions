@@ -1,0 +1,35 @@
+Example: * The Sweet Life
+Description: Also hiding under a bed, but with more drama.
+
+	{*}"The Sweet Life" by Eric Conrad
+
+	Include Enterable Underside by Gavin Lambert.
+
+	Understand "hide under/underneath [something]" as entering underneath.
+
+	Bedroom is a room.
+
+	The bed is an enterable supporter.  It is in the bedroom.  The player is on the bed.  Angelina is a woman on the bed.
+
+	The under#bed is an underside.  It is part of the bed.  It is enterable and transparent.
+
+	The shoebox is a container.  It is in the under#bed.  Roberto is a man.  He is in the under#bed.
+
+	After looking under the bed for the first time:
+		say "'Angelina?  How could you -- with Roberto?'".
+
+	[ Two normal people can just fit under the bed provided there is nothing else there. ]
+	The bulk of a person is usually 5.
+
+	When play begins:
+		now the story viewpoint is first person singular;
+		say "[italic type](Dedicated to those dubbed Italian comedies from the early 1970s)[roman type][paragraph break]The door to the apartment slams shut.  From the hallway, the voice calls out 'Mi amore, I'm home.'  Panic-stricken, Angelina looks at me and whispers 'It's Giovanni.  Quickly, you must hide!'  Giovanni's steps grow softer as he walks toward the kitchen.  She breathes a sigh of relief as we hear the refrigerator open.  'Now hide.'  She points down, under the bed.".
+
+	Arrival is a scene.  Arrival begins when the player is in the under#bed.
+
+	When arrival begins:
+		say "As Giovanni enters the bedroom, he says, 'Mia cara!  It's so fine to be home.'  Angelina answers, 'O Giovanni, I missed you so.  Please buy some wine to celebrate!'[paragraph break]As her husband leaves for the store, she says, 'Both of you, out!'";
+		try Roberto exiting.
+
+	Test me with "exit / look under bed / hide under bed / take shoebox / hide under bed / exit".
+	

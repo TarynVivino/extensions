@@ -1,0 +1,28 @@
+Example: * True Search
+Description: A desktop computer running a search engine that has slow search activated so that it will match any string against the searched data.
+
+Here we're activating the "slow search" feature. The results run reasonably smoothly if there is little data, but will likely become sluggish if there is a great deal.
+
+	{*}"True Search"
+	
+	Include Computers by Emily Short.
+	
+	Conference room is a room.
+	
+	The conference table is a thing in the Conference Room. The old PC is a desktop computer on the conference table.
+	
+	The PC runs a search engine called Goggle. The data table of Goggle is the Table of Goggle Data.
+	
+	Table of Goggle Data
+	topic	title	data
+	--	"OnlineRecipes.org"	"A delicious recipe for yellow cake."
+	--	"PartyPlanning.com"	"How to order yellow and blue balloons online."
+	--	"Repainting.com"	"Suggested blue, cerise, and purple shades to use in repainting your living room."
+	--	"Livingwithsciatica.com"	"An assortment of resources for living with sciatica."
+	
+	When play begins:
+		now slow searching is true.
+		
+	Test me with "turn on PC / type living / type sciatica / type blue / type yellow / type cake".
+
+

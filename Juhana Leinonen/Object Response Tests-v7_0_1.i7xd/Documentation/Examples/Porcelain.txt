@@ -1,0 +1,42 @@
+Example: ** Porcelain
+Description: Skipping tests that have destructive side effects
+
+Ignoring a verb in certain cases involves removing the existing rules and writing new ones that take special cases into account.
+
+	{*}"Porcelain"
+
+	Include Object Response Tests by Juhana Leinonen.
+
+	The Porcelain shop is a room.
+
+	The Ming dynasty vase is in the porcelain shop. The description is "It looks very delicate and fragile."
+
+	Instead of taking the Ming dynasty vase:
+		say "You're afraid that you might drop it."
+
+	After pushing or touching the Ming dynasty vase:
+		say "Whoops! The vase falls off its pedestal and shatters into thousand pieces.";
+		remove the Ming dynasty vase from play.
+
+	Chapter Tests - Not for release
+
+	When play begins:
+		remove the test pushing rule;
+		remove the test touching rule.
+
+	This is the test pushing non-fragile things in rule:
+		if the noun is not the Ming dynasty vase:
+			announce tests for "pushing [the noun]";
+			try pushing the noun.
+
+	This is the test touching non-fragile things in rule:
+		if the noun is not the Ming dynasty vase:
+			announce tests for "touching [the noun]";
+			try touching the noun.
+
+	Table of analyzing actions (continued)
+	topic	testing rule
+	"pushing"	test pushing rule
+	"touching"	test touching rule
+
+	Test me with "analyze vase/push vase".

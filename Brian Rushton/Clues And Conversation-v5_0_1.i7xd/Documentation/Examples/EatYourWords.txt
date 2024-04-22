@@ -1,0 +1,24 @@
+Example: * Eat Your Words
+Description: Trying out responses.
+
+	{*}"Eat Your Words"
+	
+	Include Clues and Conversation by Brian Rushton.
+
+	Restaurant is a room.
+
+	Noether is a woman in Restaurant.
+
+	The table is scenery in Restaurant.
+
+	When play begins:
+		deliver Dinner;
+		
+	Dinner is a quip. The preview of Dinner is "Your meal was excellent.".
+
+	The Target of Dinner is Noether. The TargetResponse of Dinner is "You say, 'Ahh, such an excellent meal.'
+
+	'It was lovely, wasn't it?' says Noether. 'Let's get dessert'."
+
+	Test me with "T / I / x dinner / x table / talk to me / talk to table / say dinner to table / say table to noether / eat dinner / burn dinner / give dinner to noether / say dinner / say dinner"
+	

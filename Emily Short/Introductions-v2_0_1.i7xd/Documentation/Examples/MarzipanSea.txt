@@ -1,0 +1,32 @@
+Example: * Marzipan Sea
+Description: Several objects with introductions and segues flowing together.
+
+	{*}"Marzipan Sea"
+
+	Include Introductions by Emily Short. Include Ordinary Room Description by Emily Short.
+
+	Pipe Crossing is a room.  "This is a meeting of several pipes: one leads abruptly down and to the north, while gently upward-sloping pipes lead southeast and southwest. A cold and murky white liquid flows from both southern pipes into the northern one."
+
+	The introduction of Pipe Crossing is "There is a strange smell of almonds here."
+
+	Instead of smelling Pipe Crossing:
+		say "Definitely almonds, sweet and bitter at once."
+
+	The licorice gum drop is in Pipe Crossing.
+		The introduction is "[A licorice gum drop] has been caught by one of the seams of metal, doubtless the only reason it has not been swept away by the current." [This will be printed on first viewing.]
+		The initial appearance is "The licorice gum drop is still lodged in place." [This will be printed on subsequent viewings, until the player moves the gum drop.]
+	
+	The walnut shell boat is a vehicle in Pipe Crossing.
+		The introduction is "A hollowed walnut shell, just large enough for you to ride inside, spins in an eddy of the current."
+		The initial appearance is "The walnut shell bobs on the surface of the water, ready for you to ride."
+	
+	The paper is in Pipe Crossing. "A bit of paper bobs on the waves." [this is also an initial appearance, to be printed after the introduction.]
+		The introduction is "Some paper bobs on the surface of the water, reminding you of a small boat." [this is the introduction of the paper, but it will not actually appear, because we have a segue (below) from the walnut boat which completely overrides this introduction.]
+
+	Table of Segues (continued)
+	first	second	segue
+	licorice gum drop	walnut boat	"The gum drop is not the only bit of detritus from above, either. "
+	walnut boat	paper	"[override intro for paper]Swirling into the same vortex is a small bit of paper. "
+
+	Test me with "look".
+

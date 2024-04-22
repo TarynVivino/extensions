@@ -1,0 +1,19 @@
+Example: * Highscores Example
+
+	{*}"Highscores Example"
+	
+	The Records Room is a room.
+
+	Include Highscores by Dannii Willis.
+
+	After printing the banner text:
+		say "Checksum [the game checksum][line break]";
+
+	The File of Highscores is called "testscores".
+
+	Recording a score is an action applying to one number.
+	Understand "record [a number]" as recording a score.
+
+	Carry out recording a score:
+		record score of the number understood and review highscores from The File of Highscores;
+

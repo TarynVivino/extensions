@@ -1,0 +1,65 @@
+Example: ** Galileo, Galileo
+Description: Dropping a cannonball or a feather from a variety of heights.
+
+This experiment was first proposed in Pisa in the 1630s, but more definitively carried out by the crew of Apollo 15 in 1971, using a geological hammer and the feather of a falcon. Galileo's point was that heavy objects and light objects fall at the same speed because of gravity, and that only air resistance makes us think feathers fall more slowly than cannonballs. (Of course, heavy objects do land harder; the hammer kicked up a lot more lunar dust than the feather did.)
+
+	{*}"Galileo, Galileo"
+	
+	Include Approximate Metric Units by Graham Nelson.
+	
+	The acceleration due to gravity is an acceleration that varies.
+	
+	Laboratory is a room. "An elegant Pisan room, with fine Renaissance panels, except for the teleport corridor to the east." A cannon ball and a feather are in the Laboratory.
+	
+	Martian Outpost is east of the Laboratory. "A reddish-lit room with steel walls, whose only exit is the teleport corridor to west."
+	
+	A room has an acceleration called gravitational field. The gravitational field of a room is usually 9.807 m/ss. The gravitational field of the Martian Outpost is 3.69 m/ss.
+	
+	A thing has a mass. The mass of a thing is usually 10g. The mass of the cannon ball is 2kg.
+	
+	Dropping it from is an action applying to one thing and one length.
+	
+	Understand "drop [thing] from [length]" as dropping it from.
+	
+	Check dropping it from:
+		if the player is not holding the noun:
+			say "You would need to be holding that first." instead.
+	
+	Check dropping it from:
+		if the length understood is greater than 3m:
+			say "Just how tall are you, exactly?" instead.
+	
+	Check dropping it from:
+		if the length understood is 0m:
+			try dropping the noun instead.
+	
+	Equation - Newton's Second Law
+			F=ma
+	where F is a force, m is a mass, a is an acceleration.
+	
+	Equation - Principle of Conservation of Energy
+			mgh = mv^2/2
+	where m is a mass, h is a length, v is a velocity, and g is the acceleration due to gravity.
+	
+	Equation - Galilean Equation for a Falling Body
+			v = gt
+	where g is the acceleration due to gravity, v is a velocity, and t is an elapsed time.
+	
+	Carry out dropping something (called the falling body) from:
+		now the acceleration due to gravity is the gravitational field of the location;
+		let m be the mass of the falling body;
+		let h be the length understood;
+		let F be given by Newton's Second Law where a is the acceleration due to gravity;
+		say "You let go [the falling body] from a height of [the length understood], and, subject to a downward force of [F], it falls. ";
+		now the noun is in the location;
+		let v be given by the Principle of Conservation of Energy;
+		let t be given by the Galilean Equation for a Falling Body;
+		let KE be given by KE = mv^2/2 where KE is an energy;
+		say "[t to the nearest 0.01s] later, this mass of [m] hits the floor at [v] with a kinetic energy of [KE].";
+		if the KE is greater than 50J:
+			say "[line break]This is not doing either the floor or your ears any favours."
+	
+	Test me with "get ball / drop it from 1m / get ball / drop it from 2m / get ball / drop it from 3m / get ball / drop it from 3.2m / get ball / drop it from 0m / get all / east / drop ball from 3m / drop feather from 3m".
+
+Note the way Inform is able to solve the conservation equation, which says the potential energy at the start equals the kinetic energy at the end, to find the velocity v: this involves taking a square root, but it all happens automatically. Square roots tend to cause rounding errors - so on Mars the cannon ball and feather actually land 0.02s apart, in the calculation above, despite Galileo. But no human observer would notice that discrepancy.
+

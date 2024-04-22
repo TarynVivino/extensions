@@ -1,0 +1,19 @@
+Example: ** Getting a drink
+Description: A house in which we're allowed to turn on the taps and get a drink of the running water, using a cup we find in the kitchen cabinet.
+
+	{*}"Getting a Drink"
+
+	Include Measured Liquid by Emily Short.
+
+	Include Modern Conveniences by Emily Short.
+
+	The Home Kitchen is a kitchen. The Little Bathroom is a bathroom. It is west of the Home Kitchen.
+
+	The cup is a fluid container. It is preferred for drinking.
+
+	When play begins:
+		let target be a random cabinet in the Home Kitchen;
+		move the cup to the target.
+	
+	Test me with "open cabinet / get cup / fill cup / turn on tap / fill cup / x cup / drink water / x cup / empty cup into sink / put cup in sink / turn off tap / x water / get cup / west / turn on water / fill cup / e / drink water / fill cup / turn on tap / fill cup / drink water / w / fill cup / empty cup in sink / e / put cup on counter / look".
+

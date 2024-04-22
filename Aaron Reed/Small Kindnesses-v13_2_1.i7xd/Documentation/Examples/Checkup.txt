@@ -1,0 +1,11 @@
+Example: * Checkup
+Description: A small example illustrating the extension's functionality.
+
+	{*}"Checkup"
+
+	Include Small Kindnesses by Aaron Reed.
+
+	Sidewalk is a room. The Waiting Room is inside from Sidewalk. The Dentist's Office is east of Waiting Room. A reclined chair is a fixed in place enterable supporter in Office. "You see a comfy chair here." The player wears a backpack. The backpack is open and openable. In the backpack is a magazine.
+
+	Test me with "look at sidewalk / in / e / exit / n / e / get in chair / w / go back / eat chair / sit on chair / use backpack".
+

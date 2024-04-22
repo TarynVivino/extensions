@@ -1,0 +1,65 @@
+Example: ** Around the Pond
+Description: A more complex example
+
+Pond rooms will have titles like "South of the Pond", which confuses Inform 7.  We have four rooms which should be called the
+same name when printed in ordinary sentences, which also confuses Inform 7.  Accordingly they're privately-named and we handle
+names manually.
+
+	{*}"Around the Pond"
+
+	The story author is "Nathanael Nerode".
+	The release number is 2.
+	Include Undo Output Control by Nathanael Nerode.
+	Include Title Case for Headings by Nathanael Nerode.
+	
+	After deciding the scope of an object (called character):
+		Place the location of the character in scope, but not its contents.
+
+	A pond room is a kind of room.
+	A pond room is always privately-named.
+	A pond room is always improper-named.
+	The printed name of a pond room is usually "grassy verge".
+
+	A pond room has some text called title.
+
+	Pond-Center is a pond room.
+	The printed name of Pond-Center is "pond".
+	The title of Pond-Center is "The Pond".
+	The description of Pond-Center is "The pond is still and calm.".
+	Understand "pond" as Pond-Center.
+	Instead of going to Pond-Center, say "[We]['re] not dressed for swimming."
+
+	After deciding the scope of an object (called character):
+		if the location of the character is a pond room:
+			Place Pond-Center in scope, but not its contents.
+
+	Pond-N, Pond-S, Pond-E, and Pond-W are pond rooms.
+	The title of Pond-N is "North of the Pond".
+	The title of Pond-S is "South of the Pond".
+	The title of Pond-E is "East of the Pond".
+	The title of Pond-W is "West of the Pond".
+
+	The description of Pond-N is "This is the grassy verge north of the pond."
+	The description of Pond-S is "This is the grassy verge south of the pond."
+	The description of Pond-E is "This is the grassy verge east of the pond."
+	The description of Pond-W is "This is the grassy verge west of the pond."
+
+	Understand "verge","grassy verge", "grassy", and "grass" as Pond-N.
+	Understand "verge","grassy verge", "grassy", and "grass" as Pond-S.
+	Understand "verge","grassy verge", "grassy", and "grass" as Pond-E.
+	Understand "verge","grassy verge", "grassy", and "grass" as Pond-W.
+
+	Pond-N is northeast of Pond-W.
+	Pond-S is southeast of Pond-W.
+	Pond-N is northwest of Pond-E.
+	Pond-S is southwest of Pond-E.
+
+	Pond-N is north of the Pond-Center.
+	Pond-S is south of the Pond-Center.
+	Pond-E is east of the Pond-Center.
+	Pond-W is west of the Pond-Center.
+	
+	The player is in Pond-N.
+	
+	test descriptions with "x verge / x pond / take grass / take pond"
+	

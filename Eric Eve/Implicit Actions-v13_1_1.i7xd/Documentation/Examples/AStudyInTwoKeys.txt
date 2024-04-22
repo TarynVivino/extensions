@@ -1,0 +1,45 @@
+Example: * A Study in Two Keys
+Description: A demonstration of the various kinds of implicit action defined in the Implicit Actions extension.
+
+This little game exhibits what Implicit Actions does straight out of the box, by offering examples of all the implicit actions it defines. The only extension-specific code in this game (beyond the Include statement) is "The matching key of the pine door is no-key", which means that we don't need a key to lock and unlock this door.
+
+	{*}"A Study in Two Keys"
+
+	Include Implicit Actions by Eric Eve.
+	
+	The Study is a Room. "A large wooden table stands to one side of the room, opposite a glass cabinet. An oak door leads south."
+
+	The chair is an enterable scenery supporter in the Study.
+	The player is on the chair.
+
+	The large wooden table is a scenery supporter in the Study.
+
+	The red box is a closed openable container. It is on the table.
+	In the red box is a key called the silver key.
+
+	A keyring called the gold keyring is on the table.
+
+	The glass cabinet is a closed locked openable lockable transparent scenery container. It is in the study.
+	The matching key of the glass cabinet is the silver key.
+	A key called the brass key is in the glass cabinet.
+
+	The oak door is a closed locked scenery door. It is south of the Study and north of the Hall.
+	The matching key of the oak door is the brass key.
+
+	The Hall is a Room. "This room is quite bare, but an oak door leads north, and a pine door east."
+
+	The pine door is a closed locked scenery door. It is east of the Hall and west of the Closet.
+	The matching key of the pine door is no-key.
+
+	The Closet is a Room. "This small closet is little more than a broom-cupboard (though there is not a broom in sight). A pine door leads out to the west."
+	Instead of exiting in the Closet, try going west.
+	
+	Test me with "s/unlock door with brass key/look in red box/unlock glass cabinet with silver key/unlock oak door with brass key/s/e/lock door/out/n/lock door/drop all/close red box/put silver key in red box/put brass key in cabinet/lock cabinet/drop silver key/sit on chair/take gold/s/put brass on gold/lock oak"
+
+When you've tried running this example, you might like to try it again with the following added, to see the difference in reporting style:
+
+	{*}when play begins:
+	now parenthesize implicit actions is false.
+
+
+

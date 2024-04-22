@@ -1,0 +1,9 @@
+	{*}"Something after all"
+
+	Include None at all available by Zed Lopez.
+
+	Lab is a room.
+	The box is a fixed in place container in Lab.
+	The player carries the pin.
+
+	Test me with "take all / drop pin / drop all".

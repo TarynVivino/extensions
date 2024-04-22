@@ -1,0 +1,71 @@
+Example: ** The Detective
+Description: Driving around the city in a car
+
+	{*}Include Regional Travel by Juhana Leinonen.
+	
+	Chapter Setup
+	
+	Understand "drive to [any room]" as traveling regionally to.
+	Understand "drive to [text]" as a mistake ("That's not a place you could drive to.").
+	
+	The can only travel to visited rooms rule response (A) is "That's not a place you could drive to."
+	
+	A room can be known or unknown. A room is usually unknown.
+	
+	The can only travel to visited rooms rule is not listed in any rulebook.
+	
+	Check traveling regionally to an unknown room (this is the can travel to unvisited but known rooms rule):
+		say "That's not a place you can drive to."
+	
+	Check traveling regionally to when the player is not in a vehicle (this is the can only travel in a vehicle rule):
+		say "You need to be in a car before you can drive anywhere." instead.
+	
+	Before traveling regionally to when the player is not in a vehicle and the player can see a vehicle (called the transportation method):
+		say "(first entering [the transportation method])[command clarification break]";
+		silently try entering the transportation method.
+	
+	Does the player mean traveling regionally to a known room: it is very likely.
+	
+	The car is a vehicle.
+	
+	A road is a kind of room.
+	
+	Check going when the player is in a vehicle:
+		if the room noun of the location is a room and the room noun of the location is not a road:
+			say "You can't drive there!" instead.
+	
+	Chapter Setting
+	
+	The Mansion is a room. Rule for printing the name of the mansion while asking which do you mean: say "inside the mansion". Understand "inside" as the mansion.
+	
+	A body is in the mansion. The description is "The corpse is clutching something in its hand."
+	
+	The hand is a part of the body. The description is "[if the business card is in the hand]There's a business card in the victim's hand.[otherwise]There's nothing there anymore.[end if]"
+	
+	The business card is in the hand. The description is "'Bob's Auto Repairs and Garage.'"
+	
+	After examining the business card:
+		now Bob's Garage is known.
+	
+	The Mansion driveway is a road. It is outside of the mansion.
+	
+	The car is a vehicle in the mansion driveway.
+	
+	The murder scene is a region. The mansion and mansion driveway is in the murder scene.
+	The travel entry point of the murder scene is the mansion driveway.
+	
+	Bob's Garage is a room. Understand "bob" and "auto" and "repairs" and "and" as Bob's Garage.
+	
+	Entrance to Garage is a road. It is outside of Bob's Garage.
+	
+	Maple Street is a road. "Bob's Auto Repairs and Garage is to the south."
+	Maple Street is north of Bob's Garage.
+	
+	The garage area is a region. Bob's Garage, Maple Street, and Entrance to Garage are in the garage area.
+	The travel entry point of the garage area is the Maple Street.
+	
+	Test me with "x body/x hand/read card/drive to bob's garage/out/drive to bob's garage/s/out/in".
+	
+
+
+

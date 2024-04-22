@@ -1,0 +1,28 @@
+Example: * East Side West Side
+Description: A bare minimum example of setting up Regional Travel
+
+In this example we set up the rooms in chapter 1 as we normally would and divide them into two regions. In chapter 2 we add travel entry points to both regions and allow traveling to "west bank" and "east bank" by making "bank" a synonym for the entry points.
+
+	{*}Include Regional Travel by Juhana Leinonen.
+
+	Chapter 1 - Setting up the world
+
+	The West Bank is a region. The East Bank is a region.
+
+	West end of the bridge is a room. Western Main Road is west of the West end of the bridge. Market Square is north of the Western Main Road. The Church is south of the Western Main Road.
+
+	East end of the bridge is east of West end of the bridge. Eastern Main Road is east of the East end of the bridge. The Inn is southeast of the Eastern Main Road. The Blacksmith is south of the Eastern Main Road.
+
+	West end of the bridge, Western Main Road, Market Square, and the Church are in the West Bank.
+	East end of the bridge, Eastern Main Road, the Inn and the Blacksmith are in the East Bank.
+
+
+	Chapter 2 - Travel entry points
+
+	The travel entry point of the West Bank is the West end of the bridge.
+	The travel entry point of the East Bank is the East end of the bridge.
+	Understand "bank" as the West end of the bridge. Understand "bank" as the East end of the bridge.
+
+	Test me with "e/e/s/travel to church/travel to foobar/travel to eastern main road/travel to blacksmith/travel to west bank/w/s/travel to blacksmith/e/travel to church/travel to east bank".
+
+

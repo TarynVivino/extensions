@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Helpful Functions",
+        "author": "Daniel Stelzer",
+        "version": "1.0.2"
+    }
+}

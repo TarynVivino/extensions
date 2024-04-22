@@ -1,0 +1,41 @@
+Example: * Guzzle and Gulp
+Description: Adding GULP and GUZZLE verbs alongside DRINK to allow the player to take different sizes of sip at will. GULP drinks a very large sip, while GUZZLE consumes all the liquid in a container in a single move. Demonstrates the use of sip size.
+
+	{*}"Guzzle and Gulp"
+
+	Include Measured Liquid by Emily Short.
+	
+	Lakeside is a room. The lake is a liquid lake in Lakeside. The liquid of the lake is water.
+	
+	The player carries a closed openable fluid container called a flask.
+	
+	Understand "gulp [something]" as gulping. Understand "gulp [a fluid container]" as gulping.
+	Gulping is an action applying to one thing.
+	
+	Carry out gulping:
+		let old sip size be the sip size;
+		now the sip size is 5.0 fl oz;
+		try drinking the noun;
+		now the sip size is the old sip size.
+	
+	Report drinking something when the sip size is greater than 2.0 fl oz:
+		say "[We] [take] a long drink of [the liquid of the noun]." instead.
+	
+	Understand "guzzle [something]" as guzzling. Understand "guzzle [a fluid container]" as guzzling. Guzzling is an action applying to one thing.
+	
+	Carry out guzzling:
+		let old sip size be the sip size;
+		now the sip size is the fluid content of the noun;
+		try drinking the noun;
+		now the sip size is the old sip size.
+		
+	To toss is a verb. To finish is a verb.
+	
+	Report drinking something when the sip size is greater than 5.0 fl oz and the noun is empty:
+		say "[We] [toss] back all the [liquid of the noun] at once." instead.
+	
+	Report drinking something when the sip size is greater than 2.0 fl oz and the noun is empty:
+		say "[We] [finish] off the [liquid of the noun] in one long swig." instead.
+	
+	Test me with "fill flask / sip flask / g / g / g / g / g / fill flask / gulp flask / g / g / fill flask / guzzle flask / g".
+

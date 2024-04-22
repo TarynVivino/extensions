@@ -1,0 +1,58 @@
+Example: ** The Lost Sock and the Lost Cheque
+Description: Illustrating how Hiding Under can be combined with Underside.
+
+This example combines elements of the Lost Cheque example above with the Lost Sock example from the Underside extension. Note how we make underside open by default to take full advantage of the two different mechanisms involved: now we can take the red ball after it rolls under the bed without having to look under the bed (because we know the red ball rolled there), but we have to look under the bed before we can take the odd sock. Note too that we can hide the cheque under the mat without giving it an underside, but (as we've defined things) we can't put anything under the mat. The combination of the two extensions thus allows us to define two kinds of under-hiding things in the same game - those that simply reveal what was hidden under them when we look under them, and those that we can also put things under.
+
+	{*}"The Lost sock and the Lost Cheque" by Eric Eve
+
+	Include Underside by Eric Eve.
+	Include Hiding Under by Eric Eve.
+
+	An underside is usually open.
+
+	Part 1 - Scenario
+
+	The Bedroom is a room. "There's little room in here for anything but the bed, the desk and a solitary chair."
+
+	The bed is an enterable scenery supporter in the Bedroom.
+
+	An underside called under#bed is part of the bed.
+
+	An odd sock is wearable. It is hidden under the bed.
+
+	The player is holding a red ball.
+
+	After dropping the red ball in the Bedroom:
+	move the red ball under the bed;
+	say "The red ball falls to the floor and rolls under the bed."
+
+	The chair is an enterable portable supporter in the Bedroom.
+	A red sock is on the chair.
+
+	An underside called under#chair is part of the chair.
+
+	The book is hidden under the chair.
+	The scarf is hidden under the chair.
+
+	The red mat is a portable enterable supporter in the Bedroom.
+	"A red mat lies on the floor."
+
+	The valuable cheque is hidden under the red mat.
+
+	To say find-hidden-under (the red mat - a thing):
+	now everything hidden under the red mat is carried by the player;
+	say "Under the mat you discover [a list of things hidden under the red mat], which you duly take."
+
+	To say previously-hidden-under (obj - a thing):
+	say "left behind on the floor"
+
+	Test me with "take sock/drop ball/take ball/take odd sock/look under bed/take odd sock/look under mat/put ball under mat/put ball under chair/take chair"
+
+
+
+
+
+
+
+
+

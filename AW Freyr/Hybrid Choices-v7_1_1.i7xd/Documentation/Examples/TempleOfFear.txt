@@ -1,0 +1,106 @@
+Example: *** Temple of Fear
+Description: A full, basic game demonstrating a lot of different features.
+
+Here is a full example of a game made with Hybrid Choices, in the style of Fighting Fantasy adventure books that some of you might be familiar with. This example doesn't include switching to parser modes, but assumes the whole game will be in CYOA.
+
+	{*}"Temple of Fear" by AW Freyr
+
+	Include Hybrid Choices by AW Freyr.
+
+	Chapter - Set Up
+
+	The current stamina is a number that varies. The current stamina is 20.
+	The initial stamina is a number that varies. The initial stamina is 20.
+
+	The skill is a number that varies. The skill is 10.
+
+	The luck is a number that varies. The luck is 10.
+
+
+	After looking for the first time:
+		now the left hand status line is "Stamina: [current stamina]/[initial stamina] Skill: [skill] Luck: [luck]";
+		now the right hand status line is "";
+		switch to cyoa at p1.
+
+	The sword is a thing. It is carried by the player.
+	A meal is a kind of thing. The player is carrying 4 meals.
+
+	The bronze key is a thing.
+
+	Chapter - Temple of Fear
+
+	The game world is a room.
+
+	P1 is a page.
+	"You have just slain the Troll of Bigness, and are ready to make your way into the Temple of Fear. It's just over the bridge to the north."
+
+	P2 is a page.
+	"[first time]You cross the bridge and find yourself in a huge forest. [only]The door to the Temple of Fear is north. There is a path through the forest to your left."
+	The cdesc is "Cross the bridge." It is for p1.
+
+	A page-toggle rule for p2:
+		now the cdesc of p2 is "Head back to the Temple of Fear."
+
+	p3 is a page.
+	It is flipped to by p2.
+
+	p4 is for p3.
+	"You check the door, but it appears to have a lock or something. Damn."
+	The cdesc is "Check the door.". It is a dead-end.
+
+	A page-switch rule for p4:
+		if the player is carrying the bronze key:
+			now the current page is p12.
+
+	p5 is for p3. It is one-off.
+	"You travel through the forest and eventually encounter a troll."
+	The cdesc is "Go to the forest.".
+
+	A choice-switch rule for p5:
+		if the player carries the bronze key:
+			rule fails.
+
+	p6 is for p5.
+	"You slay the troll and lose 4 stamina in the process as it clubs you."
+	The cdesc is "Kill the troll by stabbing it.".
+
+	A page-toggle rule for p6:
+		now the current stamina is current stamina - 4.
+
+	p7 is for p5.
+	"You outwit the troll and it dies from outwitting. You lose 1 luck because yes.".
+	The cdesc is "Outwit the troll.".
+
+	A page-toggle rule for p7:
+		now the luck is luck - 1.
+
+	p8 is for p5.
+	"You flash some serious skills and the troll's head explodes, killing it. You lose 1 skill because you are so tired now.".
+	The cdesc is "Intimidate it with mad skillz.".
+
+	A page-toggle rule for p8:
+		now the skill is skill - 1.
+
+	p9 is a page.
+	"OK, you've murdered the troll and now enter a clearing. There's a key here."
+	It is flipped to by p6, p7, p8.
+
+	p10 is for p9.
+	"You take the key. Now you can enter the Temple of Fear."
+	The cdesc is "Take key." It turns to p2.
+
+	A page-toggle rule for p10:
+		now the player carries the bronze key.
+
+	p11 is for p9.
+	"There's a totally unrelated trap you stumble onto and die."
+	The cdesc is "Fall for trap.".
+
+	A page-toggle rule for p11:
+		end the story.
+		
+	p12 is a page.
+	"You unlock the door and are greeted by a terrible temple full of mysteries, traps, and devious challenges."
+
+	A page-toggle rule for p12:
+		end the story saying "DLC required: Temple of Fear. Now only $10!"

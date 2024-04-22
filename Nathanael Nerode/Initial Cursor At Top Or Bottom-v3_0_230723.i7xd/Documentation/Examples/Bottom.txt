@@ -1,0 +1,12 @@
+Example: * Bottom
+Description: Cursor near bottom of screen
+
+	{*}"Bottom"
+	
+	Include Initial Cursor at Top or Bottom by Nathanael Nerode.
+	
+	before printing the banner text:
+		initialize the cursor to 8 lines above the bottom;
+		
+	Information is a room.  "screen height [semi-cooked screen height]; error [interpreter screen height error]; start line [interpreter start line]".
+

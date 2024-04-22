@@ -1,0 +1,42 @@
+Example: * Doors and doors
+Description: Writing paragraphs about doors to generate sentences such as "Exits include the white door and the black door. The black door is open."
+
+	{*}"Doors and doors"
+
+	Include Tailored Room Description by Emily Short.
+
+	The Jurassic Room is a room. The white door is a door. It is north of Jurassic and south of Cretaceous.
+
+	The black door is a door. It is south of the Jurassic and north of the Triassic.
+
+	The purple door and the grey door are doors. The purple door is south of the Triassic and north of the Museum Forecourt. The grey door is southwest of the Triassic and northeast of the Parking Lot.
+
+	Definition: a door is deeply dull: no.
+
+	Rule for writing a paragraph about a door:
+		let N be the number of mentionable doors;
+		let O be the number of mentionable open doors;
+		say "[if N is 1]The only door out is[otherwise]Exits include[end if] [the list of mentionable doors]. ";
+		if N is O
+		begin;
+			say "[all O of them are]open.";
+		otherwise if O is greater than 0;
+			say "[The list of open doors referenced by the current-paragraph] [if O is 1]is[otherwise]are[end if] open.";
+		otherwise;
+			say "[all N of them are]closed.";
+		end if.
+
+	To say all (N - a number) of them are:
+		if N is 0
+		begin;
+			say "None are ";
+		otherwise if N is 1;
+			say "[one of]It's [or]It is [purely at random]";
+		otherwise if N is 2;
+			say "[one of]Both of them are [or]Both are [or]They are both [or]They're both [purely at random]";
+		otherwise;
+			say "[one of]They are all [or]They're all [or]Every one of them is [or]All [N in words] are [purely at random]";
+		end if.
+
+	Test me with "open white door / look / open black door / look / n / close door / look / open door / s / s / open grey door / look / open purple door / look".
+

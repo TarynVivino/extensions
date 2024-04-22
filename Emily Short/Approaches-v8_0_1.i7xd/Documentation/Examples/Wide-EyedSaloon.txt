@@ -1,0 +1,24 @@
+Example: * Wide-Eyed Saloon
+Description: Demonstrating how to safely interrupt the player's travel with conditions other than locked doors.
+
+
+
+	{*}"Wide-Eyed Saloon"
+
+	
+	
+	Include Approaches by Emily Short.
+
+	Wide-Eyed Saloon is a room.
+
+	North of Wide-Eyed Saloon is a Dusty Street.
+
+	The Church is west of a Dusty Street.
+
+	Instead of going to the church when the player does not carry the hymnal:
+		say "[path-walked so far]Entry into the church is barred without a hymnal, unfortunately."
+	
+	The player carries the hymnal.
+
+	Test me with "n / w / go to Saloon / drop hymnal / go to church / west".
+

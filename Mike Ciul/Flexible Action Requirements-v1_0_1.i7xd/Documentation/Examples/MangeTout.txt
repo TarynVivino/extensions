@@ -1,0 +1,28 @@
+Example: * "Mange Tout"
+Description: A blancmange that can't be taken but can be eaten, and tennis fans who can't be touched but can be heard.
+
+	{*}"Mange Tout"
+	
+	Include Flexible Action Requirements by Mike Ciul.
+
+	Wimbledon Stadium is a room. A giant blancmange is a fixed in place edible thing in Wimbledon Stadium.
+
+	The fans are a plural-named person in Wimbledon.
+
+	Accessibility rule when the fans must be touched:
+		say "The fans are too far away.";
+		stop the action;
+
+	Instead of listening to the fans when the blancmange is off-stage:
+		say "A tremendous roar of jubilation washes over you.";
+		end the story finally saying "You have won the match."
+	
+	Instead of listening to the fans:
+		say "The crowd is hushed with terror and anticipation.";
+	
+	Eating is flexible about carrying the noun.
+	Listening is flexible about touching the noun.
+
+	Test me with "listen to fans/eat fans/take blancmange/eat blancmange/listen to fans"
+
+

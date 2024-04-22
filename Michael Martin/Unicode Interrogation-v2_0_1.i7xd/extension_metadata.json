@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Unicode Interrogation",
+        "author": "Michael Martin",
+        "version": "2.0.1"
+    }
+}

@@ -1,0 +1,59 @@
+Example: ** Cave-In
+Description: A randomly generated map.
+
+In this example, we'll generate a random map of ten rooms, and also add the possibility for the floor to collapse and new rooms to be created below the current location.
+
+	{*}"Cave-In"
+
+	Include Dynamic Rooms by Aaron Reed.
+
+	When play begins: say "Stunned, you brush yourself off and stand to your feet. It looks like you fell quite a way through that cave in. Let's hope you can find another way to the surface-- and that the floor is more solid on this level.".
+
+	Cave-In is a room. Daylit Passage is a room.
+
+	There are 15 dynamic rooms.
+
+	The viable cave directions list is a list of objects that varies. The viable cave directions list is {northeast, northwest, southeast}.
+
+	The cave room names list is a list of texts that varies. The cave room names list is {"Passage", "Cavern", "Tunnel", "Hallway", "Maze", "Scramble", "Jumble"}.
+
+	When play begins:
+		let current room be Cave-In;
+		let cave name be text;
+		let new room be Cave-In;
+		let dir be north;
+		while available dynamic rooms > 5:
+			now dir is entry ( a random number from 1 to the number of entries in the viable cave directions list ) in the viable cave directions list;
+			if the room dir from current room is a room, now current room is the room dir from current room;
+			now cave name is entry ( a random number from 1 to the number of entries in cave room names list ) in cave room names list;
+			now new room is a newly created room dir of current room with name cave name;
+			if a random chance of 1 in 3 succeeds, now current room is new room;
+		change up exit of current room to Daylit Passage.
+
+	Every turn when location is Daylit Passage: end the story finally.
+
+	fall count is a number that varies.
+
+	Every turn when we are going and a random chance of 1 in 4 succeeds:
+		if the room down from location is nowhere and the printed name of location is not "Pit" and available dynamic rooms > 0:
+			let collapse be a newly created room down from location with name "Pit";
+			say "Suddenly, the floor gives way underneath you and you fall, adding to your injuries!";
+			increase fall count by 1;
+			if fall count > 3:
+				say "[line break]The fall proves fatal!";
+				end the story saying "You have died.";
+			else:
+				try going down.
+		
+	Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
+
+	After looking:
+		let count of exits be the number of viable directions;
+		if the count of exits is 0:
+			say "The fresh sunlight shines on your face.";
+		else if the count of exits is 1:
+			say "From here, the only way out is to [a list of viable directions].";
+		else:
+			say "From here, the viable exits are to [a list of viable directions].";
+		continue the action.
+

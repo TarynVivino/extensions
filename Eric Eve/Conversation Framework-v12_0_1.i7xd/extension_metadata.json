@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Conversation Framework",
+        "author": "Eric Eve",
+        "version": "12.0.1"
+    }
+}

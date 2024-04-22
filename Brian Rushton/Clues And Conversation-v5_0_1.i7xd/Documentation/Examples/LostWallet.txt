@@ -1,0 +1,56 @@
+Example: ** Lost Wallet
+Description: Getting quips from things and other quips.
+
+	{*}"Lost Wallet"
+	
+	Include Clues and Conversation by Brian Rushton.
+
+	Street is a room.
+
+	The stranger is a man in Street. The description of a stranger is "He looks exactly like the opposite of Timothy Chalamet."
+	
+	When play begins:
+		say "A stranger in front of you drops his wallet!";
+		
+	The wallet is in Street. The description of the wallet is "A receptacle for money, which can be exchanged for goods and services."
+
+	Report taking the wallet:
+		deliver Hold On;
+	
+	Instead of dropping the wallet:
+		say "You need to get it to its owner!";
+
+	Instead of giving the wallet to stranger:
+		say "He's going to fast, and can't see you!"
+
+	Hold On is a quip. The target of Hold On is Stranger. The preview of Hold On is "Offer the wallet to the stranger."
+	
+	TargetResponse of Hold On is "'Hold on!' you shout.
+
+	You run up to the stranger, puffing. 'Is this yours?' you ask.
+
+	'Yeah, it is. Thanks so much!' he says. 'Here, take this twenty,' he adds, offering you a bill."
+
+	TargetSummary of Hold On is "You gave the man his wallet, and he offered you twenty bucks."
+
+	Report uttering Hold On to Stranger:
+		now the wallet is nowhere;
+		deliver Sure;
+		deliver Nah;
+		
+	Sure is a quip. The target of Sure is Stranger. The preview of Sure is "Accept the money."
+		
+	TargetResponse of Sure is "'Sure, thanks!' you say. You grab the bill and walk away."
+
+	Report uttering Sure to Stranger:
+		end the story finally saying "You've won, slightly richer than before"
+
+	Nah is a quip. The target of Nah is Stranger. The preview of Nah is "Reject the money."
+
+	TargetResponse of Nah is "'No thanks!' you say, and walk away."
+
+	Report uttering Nah to Stranger:
+		end the story finally saying "You've won, no richer than before"
+
+	Test me with "talk to stranger / t / take wallet / t / talk to stranger / say hold on / t / say sure"
+	

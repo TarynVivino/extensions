@@ -1,0 +1,13 @@
+Example: * Look Around You -
+
+	{*}"Give My Creation Life"
+
+	Include Extended Grammar by Aaron Reed.
+
+	The Laboratory is above the Operating Room. A slab is an enterable supporter in the Operating Room. A man called the Creature is on the slab. The player carries a raw steak. The oscillitron is a device in Operating Room. Instead of attacking the creature, say "It's alive!"
+
+	Test me with "descend / look around / observe the creature / activate oscillitron / sit down on the slab / hand steak to Creature / place steak on slab / kick Creature / upstairs"
+
+
+
+

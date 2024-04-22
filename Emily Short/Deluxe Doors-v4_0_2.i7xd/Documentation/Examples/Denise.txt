@@ -1,0 +1,52 @@
+Example: ** Denise
+Description: We have a door that can be locked on one side and latched on the other; and another character we can annoy by endless knocking.
+
+	{*}"Denise"
+
+	Include Deluxe Doors by Emily Short.
+
+	Porch is a room. "Here is your front porch, relatively tranquil because it is not your living room. Being inside has become more and more of a torture every day of late."
+
+	The house door is south of Porch. It is a lockable door. Through the house door is the Living Room. The initial appearance of the house door is "The door into the house [if open]stands open[otherwise]is firmly shut[end if]."
+
+	The player carries a silver key. The silver key unlocks the house door.
+
+	Instead of going inside in the Porch, try going south. Instead of exiting in the Living Room, try going north.
+
+	The porch door is a latched door. The porch door is north of Living Room. "The door to the porch [if open]is thrown invitingly wide[otherwise]is shut[end if]." Through the porch door is the Porch. The porch door is a half-door of the house door.
+
+	A brass knocker is part of the house door. The description is "The brass knocker scowls at you: the old witch has a ring clenched in her teeth. Her incisors look almost like vampire fangs." Understand "witch" or "old" or "ring" or "teet" or "incisors" or "vampire" or "fangs" as the brass knocker.
+
+	The description of the Living Room is "It's completely decorated by Denise, cleaned by Denise, and managed by Denise. The faintly bitter odor in the air is Denise's vetiver room scent."
+
+	Denise is a woman in the Living Room. "Denise herself is bent over her antique sewing machine, pumping hard at the pedals and muttering under her breath." [The sewing machine prop is left as an exercise to the reader.]
+
+	Every turn when the knocker is just-knocked and the location is the Porch and the porch door is closed:
+		say "'[one of]Coming[or]Just a minute[or]Hang on[or]AAAARGH[stopping]!' calls a muffled voice from within.";
+		let rude comment be "Forget your key[one of][or] again[stopping]?";
+		if the porch door is unlocked, now rude comment is "It was open! Why didn't you try opening it yourself?";
+		try Denise opening the porch door;
+		if the porch door is open, say "'[rude comment]' asks Denise[one of][or], a little ungraciously[or], looking frankly irritated[stopping]. [one of]Since you're not a guest, she doesn't bother staying at the door, but wanders back to what she was doing[or]Muttering, she goes back to her task[or]She sets her jaw angrily and retreats from the door[stopping].";
+
+	Every turn: now the knocker is not just-knocked.
+	
+	The knocker can be just-knocked.
+
+	Understand "knock [knocker]" or "knock on/with [knocker]" or "use [knocker]" as attacking.
+
+	Instead of attacking the knocker: say "You knock loudly with the brass knocker."; now the knocker is just-knocked.
+
+	Understand "knock on [something]" as knocking on. Knocking on is an action applying to one thing.
+
+	Instead of knocking on the house door, try attacking the knocker.
+
+	A thing can be soft or hard. A thing is usually hard. A person is usually soft. A wearable thing is usually soft.
+
+	Report knocking on something soft:
+		say "[The noun] [are] too soft for knocking to give any interesting effect." instead.
+
+	Report knocking on something:
+		say "You rap your knuckles against [the noun], to no effect."
+	
+	Test me with "x latch / open door / close door / knock on door / close door / lock door with key / knock on door / x knocker / x latch / in / x knocker / x latch / close door / x knocker / x latch / latch door / open door".
+

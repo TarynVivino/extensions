@@ -1,0 +1,200 @@
+Example: * Who tests the testers?
+
+	{*}"Unit Tests"
+	
+	Include Unit Tests by Zed Lopez.
+	
+	Use test automatically.
+	
+	Lab is a room.
+	
+	To decide what number is (m - a number) to the (n - a number):
+	if n < 0, decide on -1; [ -1 is designated error result ]
+	if n is zero, decide on 1; [ we're allowing 0 ** 0 == 1 ]
+	let result be m;
+	repeat with i running from 2 to n begin;
+		now result is result * m;
+	end repeat;
+	decide on result;
+	
+	a hat is a thing.
+	the player wears a sweater.
+	Conditional-tests is a unit test. "All conditionals all the time.".
+	
+	for testing conditional-tests:
+	if the player wears a hat, for "testing forced pass" pass;
+	else for "testing forced fail, so failing is correct)" fail;
+	for "player wears sweater (true thus should pass)" assert the player wears a sweater;
+	for "player wears hat (false thus should fail)" assert the player wears a hat;
+	for "player wears sweater (true thus should fail)" refute the player wears a sweater;
+	for "player wears hat (false thus should pass)" refute the player wears a hat;
+	
+	Power-test-assertion-truths is a unit test. "Power test: asserting truths, should pass".
+	Power-test-assertion-lies is a unit test. "Power test: asserting lies; should fail.".
+	Power-test-refutation-lies is a unit test. "Power test: refuting lies; should pass".
+	Power-test-refutation-truths is a unit test. "Power test: refuting truths; should fail".
+	
+	Numeric-comparison-assertion-truths is a unit test. "Numeric comparison asserting truths, should pass".
+	Numeric-comparison-refutation-lies is a unit test. "Numeric comparison refuting lies, should pass".
+	Numeric-comparison-assertion-lies is a unit test. "Numeric comparison asserting lies, should fail".
+	Numeric-comparison-refutation-truths is a unit test. "Numeric comparison refuting truths, should fail".
+	
+	Text-comparison-assertion-truths is a unit test. "Text comparison asserting truths, should pass".
+	Text-comparison-assertion-lies is a unit test. "Text comparison asserting lies, should fail".
+	Text-comparison-refutation-lies is a unit test. "Text comparison refuting lies, should pass".
+	Text-comparison-refutation-truths is a unit test. "Text comparison refuting truths, should fail".
+	
+	For testing power-test-assertion-truths:
+	for "3^2" assert 3 to the 2 is 9;
+	for "0^0" assert 0 to the 0 is 1;
+	for "2^-1" assert 2 to the -1 is -1;
+	for "0^-1" assert 0 to the -1 is -1;
+	for "0^111" assert 0 to the 111 is 0;
+	
+	For testing power-test-refutation-lies:
+	for "3^2" refute 3 to the 2 is 27;
+	for "0^0" refute 0 to the 0 is 0;
+	for "2^-1" refute 2 to the -1 is -2;
+	for "0^111" refute 0 to the 111 is 1;
+	
+	For testing power-test-assertion-lies:
+	for "3^2" assert 3 to the 2 is 27;
+	for "0^0" assert 0 to the 0 is 0;
+	for "2^-1" assert 2 to the -1 is -2;
+	for "0^111" assert 0 to the 111 is 1;
+	
+	For testing power-test-refutation-truths:
+	for "3^2" refute 3 to the 2 is 9;
+	for "0^0" refute 0 to the 0 is 1;
+	for "2^-1" refute 2 to the -1 is -1;
+	for "0^-1" refute 0 to the -1 is -1;
+	for "0^111" refute 0 to the 111 is 0;
+	
+	For testing numeric-comparison-assertion-truths:
+	for "5 > 3" assert 5 > 3;
+	for "0 > -1" assert 0 > -1;
+	for "-1 > -2" assert -1 > -2;
+	for "1 == 1" assert 1 == 1;
+	for "1 is 1" assert 1 is 1;
+	for "0 < 111" assert 0 < 111;
+	for "2 < 3" assert 2 < 3;
+	for "-2 < -1" assert -2 < -1;
+	for "3 > -3" assert 3 > -3;
+	
+	For testing numeric-comparison-refutation-truths:
+	for "5 > 3" refute 5 > 3;
+	for "0 > -1" refute 0 > -1;
+	for "-1 > -2" refute -1 > -2;
+	for "1 == 1" refute 1 == 1;
+	for "1 is 1" refute 1 is 1;
+	for "0 < 111" refute 0 < 111;
+	for "2 < 3" refute 2 < 3;
+	for "-2 < -1" refute -2 < -1;
+	for "3 > -3" refute 3 > -3;
+	
+	For testing numeric-comparison-assertion-lies:
+	for "2 < 1" assert 2 < 1;
+	for "2 < 2" assert 2 < 2;
+	for "2 < 0" assert 2 < 0;
+	for "2 < -2" assert 2 < -2;
+	for "3 > 3" assert 3 > 3;
+	for "3 > 4" assert 3 > 4;
+	for "0 > 3" assert 0 > 3;
+	for "0 > 0" assert 0 > 0;
+	for "0 < 0" assert 0 < 0;
+	for "-3 < -3" assert -3 < -3;
+	
+	For testing numeric-comparison-refutation-lies:
+	for "2 < 1" refute 2 < 1;
+	for "2 < 2" refute 2 < 2;
+	for "2 < 0" refute 2 < 0;
+	for "2 < -2" refute 2 < -2;
+	for "3 > 3" refute 3 > 3;
+	for "3 > 4" refute 3 > 4;
+	for "0 > 3" refute 0 > 3;
+	for "0 > 0" refute 0 > 0;
+	for "0 < 0" refute 0 < 0;
+	for "-3 < -3" refute -3 < -3;
+	
+	To say X: say "X";
+	To say X2: say "X";
+	To say Y: say "Y";
+	
+	To say lbrack: say bracket.
+	To say rbrack: say close bracket.
+	
+	For testing text-comparison-assertion-truths:
+	for "'X' is 'X'" assert "X" is "X";
+	for "'X' < 'Y'" assert "X" < "Y";
+	for "'Y' > 'X'" assert "Y" > "X";
+	for "[lbrack]X[rbrack] exactly matches X" assert "[X]" exactly matches "X";
+	for "[lbrack]X[rbrack] exactly matches [lbrack]X2[rbrack]" assert "[X]" exactly matches "[X2]";
+	for "[lbrack]X[rbrack] does not exactly match [lbrack]Y[rbrack]" assert "[X]" does not exactly match "[Y]";
+	for "'banana' rmatches '(an)+'" assert "banana" rmatches "(an)+";
+	let m0 be match 0;
+	let m1 be match 1;
+	for "match 0 exactly matches anan" assert m0 exactly matches "anan";
+	for "match 1 exactly matches an" assert m1 exactly matches "an";
+	
+	For testing text-comparison-refutation-truths:
+	for "1 is not 2" refute "1" is not "2";
+	for "'X' is 'X'" refute "X" is "X";
+	for "'X' < 'Y'" refute "X" < "Y";
+	for "'Y' > 'X'" refute "Y" > "X";
+	for "[lbrack]X[rbrack] exactly matches X" refute "[X]" exactly matches "X";
+	for "[lbrack]X[rbrack] exactly matches [lbrack]X2[rbrack]" refute "[X]" exactly matches "[X2]";
+	for "[lbrack]X[rbrack] does not exactly match [lbrack]Y[rbrack]" refute "[X]" does not exactly match "[Y]";
+	for "'banana' rmatches '(an)+'" refute "banana" rmatches "(an)+";
+	let m0 be match 0;
+	let m1 be match 1;
+	for "match 0 exactly matches anan" refute m0 exactly matches "anan";
+	for "match 1 exactly matches an" refute m1 exactly matches "an";
+	
+	For testing text-comparison-refutation-lies:
+	for "[lbrack]X[rbrack] does not exactly match [lbrack]X2[rbrack]" refute "[X]" does not exactly match "[X2]";
+	for "[lbrack]X[rbrack] exactly matches [lbrack]Y[rbrack]" refute "[X]" exactly matches "[Y]";
+	for "'A' > 'B'" refute "A" > "B";
+	for "'B' < 'A'" refute "B" < "A";
+	for "'A' > 'A'" refute "A" > "A";
+	for "'A' > 'A'" refute "A" > "A";
+	for "'B' is 'A'" refute "B" is "A";
+	
+	For testing text-comparison-assertion-lies:
+	for "[lbrack]X[rbrack] does not exactly match [lbrack]X2[rbrack]" assert "[X]" does not exactly match "[X2]";
+	for "[lbrack]X[rbrack] exactly matches [lbrack]Y[rbrack]" assert "[X]" exactly matches "[Y]";
+	for "'A' > 'B'" assert "A" > "B";
+	for "'B' < 'A'" assert "B" < "A";
+	for "'A' > 'A'" assert "A" > "A";
+	for "'A' > 'A'" assert "A" > "A";
+	for "'B' is 'A'" assert "B" is "A";
+	
+	[ A phrase to be tested ]
+	To say (T - a text) backwards:
+		let len be the number of characters in T + 1;
+		repeat with i running from 1 to the number of characters in T begin;
+		say character number len - i in T;
+		end repeat;
+	
+	Backwards-test is a unit test. "Saying text backwards"
+	
+	Text-scratch is initially "";
+	
+	For testing backwards-test:
+	let orig be "schmoop";
+	For "'schmoop' backwards" assert "[orig backwards]" exactly matches "poomhcs";
+	
+	empty-list is a list of numbers that varies.
+	empty-list is initially {}.
+	
+	Error-test is a unit test. "Detecting an error"
+	
+	For testing error-test:
+	for "can't get entry 0" assert "[test entry 0 of empty-list is 0]" reports an error;
+	
+	The player carries a rubber ducky.
+	
+	Rubber-ducky-test is a unit test. "Ducky possession".
+	
+	For testing rubber-ducky-test:
+	for "inv-test" assert "[test follow the print standard inventory rule]" rmatches "rubber ducky";
+

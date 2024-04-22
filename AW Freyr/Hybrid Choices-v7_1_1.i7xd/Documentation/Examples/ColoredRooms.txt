@@ -1,0 +1,50 @@
+Example: *** Colored Rooms
+Description: Implementing a fast travel system using a basic implementation of object choices.
+
+This example is a utilitarian example of how CYOA can fit into a mostly parser game. There are only  two page objects, but those two page objects are very powerful indeed and we can use them to bring up a menu of options. Importantly, these options are not preseeded, they are made dynamically. As the player explores the map, there are more places to travel to. This would be very difficult with pages alone.
+
+In a larger project, you'll want to restrict when the player travels, and what rooms the player can fast travel to. If we have more than 36 options, we'll need to expand the table.
+
+	{*}"Colored Rooms"
+
+	Include Hybrid Choices by AW Freyr.
+	
+	The white room is a room.
+	"There is a path west."
+	West is the black room.
+	The description of the black room is "There are paths west and east."
+
+	The yellow room is a room.
+	The description of the yellow room is "There are paths west and east."
+	East is the black room.
+	West is the red room.
+	The description of the red room is "There are paths west and east."
+
+	The green room is a room.
+	The description of the green room is "There is a path east."
+	East is the red room.
+
+	Travelling is an action applying to nothing.
+	Understand "travel" as travelling.
+
+	Carry out travelling:
+		repeat with X running through visited rooms:
+			if the player is not in X:
+				populate choice list with X;
+		switch to cyoa at ptravel.
+
+
+	ptravel is a page. It turns to pcancel.
+	"Where do you want to travel?"
+
+	pcancel is an end-page page.
+		The cdesc is "Nevermind."
+
+	Rule for choice-displaying a room (called N):
+		say "[N]." in title case.
+
+	General choose object rule for rooms (called N):
+		move the player to N, without printing a room description.
+
+	test me with "travel".
+

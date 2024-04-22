@@ -1,0 +1,29 @@
+Example: * Crantini
+Description: An example of liquids that can be mixed, producing new liquids.
+
+	{*}"Crantini"
+
+	Include Measured Liquid by Emily Short.
+
+	Table of Liquids (continued)
+	liquid	potable	flavor
+	cranberry juice	true	"It tastes deliciously tangy."
+	vodka	true	"It doesn't taste like much except alcohol."
+	crantini	true	"It's a feisty cranberry beverage."
+
+	Use mixed liquids.
+
+	Table of Liquid Mixtures (continued)
+	mix-list	result
+	{cranberry juice, vodka}	crantini
+
+	The Verandah is a room. The table is a supporter in the verandah. The table supports a cocktail glass, a bottle, and a pitcher. The cocktail glass, the bottle, and the pitcher are fluid containers.
+
+	The cocktail glass is preferred for drinking.
+
+	The fluid capacity of the cocktail glass is 4.0 fl oz.
+	The fluid capacity of the bottle is 33.8 fl oz. The fluid content of the bottle is 33.8 fl oz. The liquid of the bottle is vodka.
+	The fluid capacity of the pitcher is 28.0 fl oz. The fluid content of the pitcher is 10.0 fl oz. The liquid of the pitcher is cranberry juice.
+
+	Test me with "pour vodka in glass / drink vodka / fill glass / pour cranberry juice in glass / drink cranberry juice / drink vodka / pour cranberry juice in glass / drink crantini / pour cranberry juice in glass".
+

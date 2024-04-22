@@ -1,0 +1,67 @@
+Example: * Stress test
+Description: A large archive of edge cases and actual misunderstood newbie inputs. Not all of these are caught by Smarter Parser, but are included to help ensure the extension is not making things less clear (or for speed profiling thousands of regular expression calls).
+
+	{*}"Stress Test"
+
+	Include Smarter Parser by Aaron Reed.
+
+	Stage is a room. A sword is in Stage. A cat is a male animal in Stage. A cube is a fixed in place supporter in Stage. Understand "Molly" as cat. Bob is a man in Stage. An apple is in Stage.
+
+	East of Stage is Isolation Ward. North of Isolation Ward is Cell. The prisoner is a person in cell. A dog is an animal in cell. North of Cell is Foyer. Suzan and a lady barrister are women in Foyer. Mister Aleric Chesterworth and the Prime Minister are men in Foyer. The platform is a fixed in place supporter in Foyer. The bolt is part of the platform. The glass bowl is a transparent closed unopenable container. It is part of the platform. In the glass bowl is a screwdriver. The crowd is a backdrop in Foyer. An orange is in Foyer.
+			
+	The alcove is inside from Foyer. Spleenwards is a direction. The opposite of spleenwards is liverwurst. Liverwurst is a direction. The opposite of liverwurst is spleenwards. The kidney room is spleenwards from  the Foyer. Stage is east from the kidney room.
+
+	test punctuation with "? / get sword & cat / x cat; x sword: x cube? x me / ~wait / wait* / get (cat) / (get cat / * / ???look / !!?!! / look??go north / north???!".
+
+	Test examples with "who are you / hello / e / who are you / hello / n / who are you / hello / hello / n / who are you / who are you / hello / hello / hello / in / who are you / out / spleenwards / who are you / who are you / who are you".
+
+	Test standardize with "who is there / who's there / who i'm speaking to / who're you / I'll go north / who I've been talking to"
+
+	test where with "which way / can I go / what direction should I move in"
+
+	test confusion with "I'm confused / how can I play / what should I do"
+
+	test niceties with "please go north / can I jump / please go / please / please please / please please please look please wait please".
+
+	test interjections with "what in the hell / who the hell are you / take the freaking sword / the shit / you're the shit / this is balls / in the name of god run"
+
+	test frustration with "commit suicide / you're stupid / I hate this / screw you / go to hell / die in a fire / MORON / what in the hell is that?"
+
+	test words with "one two three four five / one two three four five six / one two three four five six seven / wait. wait. wait. wait. wait. / wait & wait & wait & xyzzy".
+
+	test who with "who are you? / who said that / who am i talking to / who've i been speaking with / who's there / whos talking / who is saying that".
+	
+	test whome with "who am I? / who am i supposed to be?"
+
+	test whereami with "where am i / look at the room / look around / search area / what is this place / look in room".
+
+	test questions with "what should i do / who is that man / where is the sword / why am I playing this / which sword should I choose / how do I solve this puzzle / do I have to go north?".
+
+	test intro with "i want to go north / I'm going north / I'm going to take sword / I'll wait / I'll try to wait / I'd like to listen / can I get the sword / try to listen / try listening / try going north / should I stop / let's go west / I think we should go west".
+
+	test assertions with "I am happy / I can do anything / I don't care about you / He's crazy / She is a bird / It is only natural / This is interesting / You have a problem / Your fly is unzipped".
+
+	test adverbs with "go carefully north / find fly / find lyre / look at lysander / look at Pigglywiggles / pet molly / give molly some cream / where is molly / golly this is fun / really / Really I mean it / This is awefully dangerous / casually pet the cat / think locally, not globally / run really fast / run really quickly / run carefully north".
+
+	test movewithin with "get closer to cat / move away from cat / stand next to cat / get in front of cat / go to cat / go over to cat / walk near the cat / move underneath cat / go farther away / get inside cat / climb up to cat / walk around cat".
+
+	test vague with "somebody listen / is anyone there / take everyone / nobody likes me / go anyplace / walk to somewhere / here".
+
+	test pointless with "anyway get cat / go north instead / very carefully attack cat / walk almost north / so just listen now / next try waiting / walk a little farther".
+
+	Understand "attack [something] with [something]" as targetting. Targetting is an action applying to two things. Carry out targetting: say "You target [the noun] with [the second noun]."
+
+	test failedwith with "get cat with my hands / get cat with patience / get cat using my brain / get cat using legs / get cat by using my hands / kill cat with sword / kill cat with the blunderbuss / attack cat with / attack cat burgler / attack cat with fence / attack cat with sword".
+
+	test surroundings with "look at ground / sit on floor / go left / climb above cat / touch ceiling / forward / look backward / examine sky"
+
+	test body with "take bob's hand / hit bob with my fist / get on my knees / slit wrists / kiss tongue / touch bob on his chest / cut bob's fingernails"
+	
+	test clothes with "take off shirt / remove underwear / untie shoes / tie tie / undo belt"
+
+	test possessives with "x suzan's orange / suzan's a weirdo / get orange's / get aleric's goat / examine suzan's barrister"
+
+	test newbies with "talkto cat / talk cat / smack cat / damn cat / wait for cat / call cat / stay here with cat / hello cat / bye / get apple, cat / say hi / yo / tell cat to ask me about the apple / cat, what seems to be the problem? / hit me, cat / Where is cat / I am ready to fight! / what next? / why not / who is cat / who is there / the voice outside bother me / please help me / who is around / what is in the room / what is it / what do you want me to do? / i have to go home / what do you mean / what happened / talk to cat / hmm / what apple / what is apple / who / enter / stand / leave\ / back / lay down / walk outside / go Stage / go Outdoors / move / right / leave room / leave Stage / leave Outdoors / jump across apple / walk apple / go to apple / goto apple / put the apple on the ground / examine the apple on the floor / find apple / look room / exit right / sit apple / lie on stage / lie on floor / lie on apple / approach apple / run east / go through door / use door / open doors / exit door / look left / sleep on apple / look behind apple / jump down / return / move apple /  go back / climb apple / walk away / sit / look outside / exit door / walk into door / exit apple / follow cat / help' / get appl / lsk s / take golden ap / wati / \asdf / ;apple / looka ta apple / gt apple / dfsdf / waiyt / help0 / 0 / 'exit' / goodbuy / get apepl / loook / udno / zlook / ook / poop / smile / ok / don't hesitate / laugh / commit suicide / choke and die from poison / explore / kill myself / lol / die / suicide / scream / pick nose / l33t hax0r skillz / shrug / hear / cool / for goodness sake give me my apple / say maybe I can eat it later / get ye flask / lick self / take a nap / ... / close my eyes / search ground / damn / okay / hi / kill me with apple / kill me / kill self / look apple / get that apple / use apple / listen apple / drop apple / make to to apple / raise apple / put the apple back / drop apple / info look / grab apple / drop apple / more / bring apple / swallow apple /  view apple / grab apple / stare apple / inspect apple / see apple / lift apple / hold apple / lay on apple / feel apple / put hand on apple / think of apple / lie down in apple / walk on apple / don apple / carry apple / use apple on cat / throw apple against the wall / take and go /  please take / listen more / listen then / take a lot / watch /  detailed instructions / what actions are there / what commands are available / I don't get it"
+
+	test all with "test punctuation / test standardize / test where / test confusion /test niceties / test interjections / test frustration / test words / test who / test whome / test whereami / test questions / test intro / test assertions / test adverbs / test movewithin / test vague / test pointless / test failedwith / test surroundings / test body / test newbies / test clothes / test possessives".
+

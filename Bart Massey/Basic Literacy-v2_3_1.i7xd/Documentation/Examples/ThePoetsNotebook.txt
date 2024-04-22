@@ -1,0 +1,19 @@
+Example: * The Poet's Notebook
+Description: A writable non erasable thing
+	
+	{*}"The Poet's Notebook" by "Andre Rodriguez"
+	
+	Include Basic Literacy by Bart Massey
+
+	When play begins: say "The Poet's bedroom is place where vulnerability and fragile emotions are encouraged. (Once you write something in his notebook, it is there for all eternity)."
+
+	The Poet's Bedroom is a room. "This is where the Poet sits down to think and reflect upon existence."
+	The desk is a fixed in place supporter in the Poet's Bedroom.
+	The Poet's Notebook is writable scenery on the desk. The description is "A notebook to transform thoughts and feelings into words. [if read text of the Poet's Notebook is not empty] [read text][end if]". Understand "notebook" as the Poet's Notebook.
+
+	To say the contents of the notebook: say "The notebook reads:"; silently try reading the notebook.
+	A writing tool called a pen is on the desk. The description is "A regular pen. Many stories have been written with this old friend."
+	White Ink is an erasing tool on the desk. The description is "Could this white ink erase something written on the notebook?"
+	Check an actor erasing the notebook  (this is the check erasing notebook rule): say "Not a chance, once you write something here there's no going back."
+
+

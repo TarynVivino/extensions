@@ -1,0 +1,33 @@
+Example: * The Only Room
+Description: A very short and entirely abstract game used for testing.
+
+	{*}"The Only Room" by AW Freyr
+	
+	Include Hybrid Choices by AW Freyr.
+		
+	The only room is a room.
+	
+	After looking for the first time:
+		switch to cyoa at p1.
+	
+	P1 is a page.
+	
+	P2 is a page. The cdesc is "P2". It is for P1.
+	
+	P3 is a page. The cdesc is "P3". It is for P2.
+	
+	P4 is a page. It is flipped to by P3.
+	"Whoa. Interesting.".
+	
+	P5 is a page. It is flipped to by P4.
+	"Damn man. That's crazy stuff."
+	
+	P6 is a page. The cdesc is "P6". It is for P5. It is a dead-end.
+	"You've encountered something and ran away."
+	
+	P7 is a page. The cdesc is "P7". It is for p5.
+	
+	P8 is a page. The cdesc is "P8". It is for p5. It is inactive.
+	"You aren't supposed to see this."
+
+

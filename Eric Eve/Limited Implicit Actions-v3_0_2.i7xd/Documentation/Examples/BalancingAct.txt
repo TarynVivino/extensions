@@ -1,0 +1,31 @@
+Example: * Balancing Act
+Description: Putting Limited Implicit Actions through its basic places.
+
+The following short example demonstrates most of what Limited Implicit Actions will do straight out of the box.
+
+	{*}"Balancing Act" by Eric Eve.
+
+	Include Limited Implicit Actions by Eric Eve.
+	
+	The Old Theatre is a room.
+	"Most of the seating has been stripped out, although the stage remains. The way out to the Prop Store lies east."
+
+	The stage is a scenery enterable supporter in the Theatre.
+
+	The wooden chair is a portable enterable supporter in the Theatre.
+	"A lone wooden chair sits facing the stage."
+
+	The Prop Store is east of the Theatre.
+	"The Prop Store has been stripped bare, apart from the cupboard set into one wall. The way back to the Theatre lies west."
+
+	The prop cupboard is a scenery openable closed container in the Prop Store.
+
+	The small stool is a portable enterable supporter in the prop cupboard.
+
+	A glass jar is a transparent openable closed container in the prop cupboard.
+
+	A small red ball is in the glass jar.
+
+	Test me with "put chair on stage/sit on chair/e/look in cupboard/take stool/take jar/x jar/take ball/close cupboard/drop jar/put jar in cupboard/put cupboard on stool/w/put stool on chair/sit on stool/e"
+
+

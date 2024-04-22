@@ -1,0 +1,17 @@
+Example: * Silence in the Library
+Description: A very small environment showing how the instruction rules fire in various orders depending on the initial configuration.
+
+	{*}"Silence in the Library"
+	
+	Include Tutorial Mode by Emily Short.
+	
+	The Infinite Library is a room. "This is an entire planet devoted to nothing but books. Judging from your nearly-equatorial position, you must be near the biography section. Off to the west, you can see a small shop."
+	
+	The Little Shop is west of the Infinite Library. "The shop sells an assortment of doodads and tourist trinkets for those who have recently been perusing the books. The main library is back to the east."
+	
+	The paperweight is a thing in the Little Shop. The description of the paperweight is "It is shaped like the face of William Shakespeare -- as he would look if troubled with severe indigestion."
+	
+	Test me with "look / west / l paperweight / jump / look at me / take paperweight / i".
+
+
+

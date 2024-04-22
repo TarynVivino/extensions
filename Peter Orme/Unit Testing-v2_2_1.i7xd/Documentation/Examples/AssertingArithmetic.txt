@@ -1,0 +1,29 @@
+Example: * Asserting Arithmetic
+Description: Using assertions to check we know how to do math operations.
+
+In this example we make an "assert" verb available to the player. Another option is just calling the asserts in a "when play begins" method. We don't really need an extension like this to test the standard built-in arithmetic of Inform7, but this illustrates the idea.
+
+	{*}"Asserting Arithmetic"
+
+	the demo is a room.
+
+	include Unit Testing by Peter Orme.
+
+	to perform asserts:
+		assert 3 + 3 is 6 saying "adding numbers";
+		assert 3 - 1 is 2 saying "subtracting numbers";
+		assert 1 * 4 is 4 saying "mutliplying numbers";
+		assert that 2 + 2 is 4;
+		assert 5 - 2 is 3;
+
+	asserting is an action out of world applying to nothing. Understand "assert" as asserting.
+
+	carry out asserting:
+		now the verbosity of the asserter is normal verbosity;
+		perform asserts;
+		report asserts using high verbosity.
+		
+	test me with "assert";
+	
+
+

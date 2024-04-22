@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Bit Ops",
+        "author": "Zed Lopez",
+        "version": "2.0.1"
+    }
+}

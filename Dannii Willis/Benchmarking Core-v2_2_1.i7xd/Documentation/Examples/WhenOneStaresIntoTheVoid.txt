@@ -1,0 +1,109 @@
+Example: * When one stares into the void
+Description: - testing for emptiness
+
+	{*}"When one stares into the void"
+
+	Include Benchmarking Core by Dannii Willis.
+	
+	The table is a supporter. The box is a container on the table. The action figure is in the box. There are 5 toy soldiers. There are 7 coins. There are 99 luftballoons.
+	
+	There-is-nothing is a test case.
+	The author is "Zed Lopez".
+	The description is "Testing container emptiness with ``there is nothing``".
+	
+	To run there-is-nothing (this is running there-is-nothing):
+	let x be 0;
+	if there is nothing in the box, increment x.
+	
+	The run phrase is running there-is-nothing.
+	
+	[ ... ]
+	
+	Looking for first thing held nothing is a test case.
+	The author is "Zed Lopez".
+	The description is "Testing container emptiness with ``the first thing held by the box is nothing``".
+	
+	To run looking for first thing held nothing (this is running Looking for first thing held nothing):
+	let x be 0;
+	if the first thing held by the box is nothing, increment x.
+	
+	The run phrase is running Looking for first thing held nothing.
+	
+	[ ... ]
+	
+	Include (-
+	[ CountHoldingsExceptParts obj;
+	return children(obj);
+	];
+	-)
+	
+	To decide what number is the/a/-- count of the/-- contents of the/a/an/-- (C - a container):
+	(- CountHoldingsExceptParts({C}) -)
+	
+	Looking for count of things contained is a test case.
+	The author is "Zed Lopez".
+	The description is "Testing container emptiness with ``I6 child -> sibling for loop``".
+	To run looking for count of contents (this is running Looking for count of contents):
+	let x be 0;
+	if the count of the contents of the box is zero, increment x.
+	
+	The run phrase is running Looking for count of contents.
+	
+	[ ... ]
+	
+	Include (-
+	[ HoldsNothing obj;
+	if (child(obj)) rfalse;
+	rtrue;
+	];
+	-);
+	
+	Definition: a container is xempty rather than non-xempty if the first thing held by it is nothing.
+	
+	Empty-by-definition is a test case.
+	To run Empty-by-definition (this is running Empty-by-definition):
+	let x be 0;
+	if the box is xempty, increment x.
+	
+	The run phrase is running Empty-by-definition.
+	
+	[ ... ]
+	
+	Definition: a container is devoid-of-content rather than non-devoid-of-content if I6 routine "HoldsNothing" says so (it has nothing in it).
+	
+	HoldsNothing-by-definition is a test case.
+	To run HoldsNothing-by-definition (this is running HoldsNothing-by-definition):
+	let x be 0;
+	if the box is devoid-of-content, increment x.
+	
+	The run phrase is running HoldsNothing-by-definition.
+	
+	[ ... ]
+	
+	To decide whether (C - a container) is void-like:
+		(- HoldsNothing({C}) -)
+	
+	HoldsNothing is a test case.
+	To run HoldsNothing (this is running HoldsNothing):
+	let x be 0;
+	if the box is void-like, increment x.
+	
+	The run phrase is running HoldsNothing.
+
+	Nothing-in is a test case.
+	To run Nothing-in (this is running Nothing-in):
+	let x be 0;
+	if nothing is in the box, increment x.
+	
+	The run phrase is running Nothing-in.
+
+	unless-something is a test case.
+	The author is "Zed Lopez".
+	The description is "Testing container emptiness with ``there is not something in it``".
+	
+	To run unless-something (this is running unless-something):
+	let x be 0;
+	unless there is something in the box, increment x.
+	
+	The run phrase is running unless-something.
+

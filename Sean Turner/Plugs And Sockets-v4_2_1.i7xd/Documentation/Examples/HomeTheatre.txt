@@ -1,0 +1,115 @@
+Example: ** Home Theatre
+Description: Plugging a variety of components with different connections together to watch a DVD.
+
+	{*}"Home Theatre" by Sean Turner
+
+	Include Plugs and Sockets by Sean Turner
+
+	Section 1 - New plug and socket kinds
+
+	An HDMI-plug is a kind of PS-plug. The PS-type of an HDMI-plug is "HDMI".
+	An HDMI-socket is a kind of PS-socket. The PS-type of an HDMI-socket is "HDMI".
+
+	A DVI-plug is a kind of PS-plug. The PS-type of a DVI-plug is "DVI".
+	A DVI-socket is a kind of PS-socket. The PS-type of a DVI-socket is "DVI".
+
+	A power-plug is a kind of PS-plug. The PS-type of a power-plug is "power". A power-plug has a truth state called searched state. The searched state of a power-plug is usually false.
+
+	A power-socket is a kind of PS-socket. The PS-type of a power-socket is "power".
+
+	A double-adapter is a kind of thing. Every double-adapter incorporates a power-plug and two power-sockets.
+
+	A hifi-gadget is a kind of thing. Every hifi-gadget incorporates a power-plug.
+
+	Section 2 - A few decisions
+
+	To decide if the (test-item - a thing) is powered:
+		repeat with item running through the power-plugs:
+			now the searched state of the item is false;
+		let forever be true;
+		while forever is true:
+			if the test-item is the power point:
+				decide yes;
+			let test-plug be a random power-plug which is part of the test-item;
+			if the test-plug is nothing, or the attachment of the test-plug is nothing:
+				decide no;
+			else:
+				if the searched state of the test-plug is true:
+					decide no;
+				now the searched state of the test-plug is true;
+				now the test-item is the holder of the attachment of the test-plug.
+
+	To decide if the audio is connected:
+		if the HDMI cable is inserted into the receiver, and the HDMI cable is inserted into the DVD player, and the holder of the attachment of the HDMI-IN socket is HDMI cable:
+			decide on true;
+		decide on false.
+
+	To decide if the video is connected:
+		if the video converter is inserted into the TV, and the video converter is inserted into the receiver, and the attachment of the HDMI-OUT socket is the green plug:
+			decide on true;
+		decide on false.
+
+	Section 3 - Scenario
+
+	The Home Theatre is a room. "This softly lit and richly carpeted homage to 1970's decor is the perfect place to relax and watch a movie. A store room is to the south."
+
+	A big screen TV is a hifi-gadget. It is here. "A huge 150cm Plasma TV dominates the north wall.". It is fixed in place.
+	The description is "Tastelessly huge. The TV is [if the TV is powered]on although nothing is showing.[else]off.".
+	Incorporated by it is a DVI-socket.
+
+	A power point is here. It is fixed in place. "Unfortunately the room has only one single power point tucked away in the corner farthest from the TV."
+	Incorporated by it is a power-socket.
+
+	Check plugging a PS-inserter into the power point (this is the power-point-too-far rule):
+		if the noun is fixed in place, say "The plug of [the noun] will not reach to [the power point]." instead;
+		if the noun is not the extension cord, say "It would be useless to plug [the noun] into [the power point] when it is so far from the TV." instead.
+
+	The power-point-too-far rule is listed last in the check plugging it into rulebook.
+
+	A Blu-ray DVD player is a hifi-gadget. It is here. The description is "A state of the art DVD player. In the player is a movie waiting to be watched. The DVD player is [if the DVD is powered]on and the movie is playing.[else]off."
+	Incorporated by it is an HDMI-socket.
+
+	A digital receiver is a hifi-gadget. It is here. It is fixed in place.
+	The description is "A complex switching mechanism routing various audio visual inputs to the TV and speakers. The speakers are hard-wired into the back of the receiver. On the back of the receiver are two HDMI sockets labeled HDMI-IN and HDMI-OUT.
+
+	The receiver is [if the receiver is powered]on and hums slightly.[else]off.".
+	Incorporated by the receiver is an HDMI-socket called the HDMI-OUT socket.
+	Incorporated by the receiver is an HDMI-socket called the HDMI-IN socket.
+
+	Some speakers are scenery. They are here.
+
+	The Store room is south of the Home Theatre.
+
+	An extension cord is here. The description is "5 metres of sturdy electrical cord.". The indefinite article is "an".
+	Incorporated by it is a power-plug and a power-socket.
+
+	A video converter cable is here. The description is "It converts from an HDMI source to a DVI destination - useful when only the video component of the signal is required. The male DVI plug is red and the male HDMI plug is green.".
+	Incorporated by the cable is a DVI-plug called the red plug.
+	Incorporated by the cable is an HDMI-plug called the green plug.
+
+	An HDMI cable is here. Incorporated by it are two HDMI-plugs. The indefinite article is "an". The description is "Connects two HDMI devices for video and sound. The two male connectors are indistinguishable.".
+
+	A cream double adapter is a double-adapter. It is here.
+	A white double adapter is a double-adapter. It is here.
+
+	Section 4 - Victory condition
+
+	Every turn:
+		let power flowing be true;
+		repeat with item running through hifi-gadgets:
+			unless the item is powered:
+				now power flowing is false;
+		if power flowing is true, and the audio is connected, and the video is connected:
+			say "Ahh. Now you can relax and watch the movie.";
+			end the story saying "You have won.";
+		else:
+			if the receiver is powered, and the DVD is powered, and the audio is connected:
+				say "You can hear the movie but you can't see any picture!".
+
+
+	Section 5 - Testing
+
+	test me with "s/get all/n/plug tv into white/plug dvd into white/plug white into cream/plug receiver into cream/plug cream into cord/plug cord into point/plug hdmi into receiver/plug hdmi into dvd/plug video into receiver/x green/x red/plug video into tv/unplug video from receiver/unplug hdmi from receiver/plug hdmi into hdmi-in/plug video into hdmi-out".
+
+	test errors with "plug tv into point/plug tv into receiver/s/get all/n/plug cord into point/s/plug hdmi into cream/unplug cord from point/plug cord into cord/unplug cord/plug tv into white/plug receiver into white/ plug cream into white/unplug tv/plug red plug into receiver/plug green plug into receiver/plug video cable into tv".
+

@@ -1,0 +1,137 @@
+Example: ** The Eye of Balinor
+Description: A Jewel Theft with plenty of locks and keys
+
+This example incorporates all the various example code snippets for doors and keys, and demonstrates how they work in action.
+
+	{*}"The Eye of Balinor" by Eric Eve.
+
+	Include Limited Implicit Actions by Eric Eve.
+	
+	The story headline is "A daring jewel theft"
+	
+	Use scoring.
+
+	Book 1 - World Model
+
+	A door is usually scenery.
+
+	Precondition for going through a closed openable door (called the obstructor):
+		carry out the implicitly opening activity with the obstructor;
+		if the obstructor is closed, stop the action.
+
+	A door can be key-tested. A door is usually not key-tested.
+
+	A container can be key-tested. A container is usually not key-tested.
+
+	Carry out unlocking something with something:
+			now the noun is key-tested.
+
+	Carry out locking something with something:
+			now the noun is key-tested.
+
+	Precondition for opening a closed locked key-tested thing when the matching key of the noun is touchable:
+		carry out the implicitly unlocking activity with the noun;
+		if the noun is locked, stop the action.
+
+	implicitly unlocking something is an activity.
+
+	Rule for implicitly unlocking something (called the obstructor):
+		let my-key be the matching key of the obstructor;
+		say "(first unlocking [the obstructor] with [the my-key])[command clarification break]";
+		silently try unlocking the obstructor with my-key.
+
+	Rule for implicitly opening a closed locked openable key-tested thing (called the obstructor):
+		let my-key be the matching key of the obstructor;
+		if my-key is not carried, continue the activity;
+		say "(first unlocking [the obstructor] with [the my-key], then opening [regarding the obstructor][them])
+		[command clarification break]";
+		silently try unlocking the obstructor with my-key;
+		silently try opening the obstructor.
+
+	Does the player mean locking a key-tested thing with the matching key of the noun: it is very likely.
+
+	Does the player mean unlocking a key-tested thing with the matching key of the noun: it is very likely.
+
+	Precondition for locking an open openable lockable thing with something:
+		say "(first closing [the noun])";
+		silently try closing the noun;
+		if the noun is open, stop the action.
+
+	Book 2 - Scenario
+
+	Part 1 - The Drive
+
+	The Drive is a room.
+	"The front door of the house you have come to burgle stands immediately to the south."
+
+	The doormat is an enterable supporter in the Drive.
+	"A doormat rests on the ground just by the front door."
+
+	Understand "mat" as the doormat.
+
+	Instead of looking under the doormat when the brass key is off-stage:
+	move the brass key to the player;
+	say "Under the mat you find a brass key, which you take."
+
+	The brass key is a thing.
+
+	After locking the front door with the brass key in the Drive when the huge diamond is carried:
+	increase the score by 10000;
+	say "You relock the front door and slip the brass key under the mat, and then turn to saunter triumphantly down the drive, the Eye of Balinor in the pocket of your dinner jacket.";
+	end the story finally saying "You have won".
+	
+	The front door is a closed lockable locked openable door.
+	It is north of the Hall and south of the Drive.
+
+	When play begins:
+	say "The Eye of Balinor is reputed to be the largest diamond ever found; if you can steal it you'll be the greatest jewel thief ever! But you must be careful to leave everything just as you found it -- apart from the diamond of course!"
+
+	The maximum score is 10000.
+
+	Part 2 - The Hall
+
+	The brass key unlocks the front door.
+
+	The Hall is a room.
+	"Many old paintings adorn the walls, but you scarcely afford them a glance. It's not paintings you have come to steal, after all. Doors lead off in various directions from here but the only ones that concern you are the study door (to the east) and the front door (to the north)."
+
+	The study#door is a closed openable door.
+	It is east of the Hall and west of the Study.
+	The printed name is "study door".
+	Understand "study" or "door" as the study#door.
+
+	After locking the front door with the brass key for the first time:
+	say "You lock the front door just to make sure you're not interrupted."
+
+	Part 3 - The Study
+
+	The Study is a room.
+	"You ignore the paintings, bookcases and fine old furniture that adorn this fine, oak-paneled study, and focus on the only things that matter to you right now: the safe next to the wall, the oak desk in the middle of the room, and the door out to the west."
+
+	The oak desk is a scenery supporter in the Study.
+	The description is "It's a fine old desk, with a single drawer."
+
+	The drawer is a closed openable lockable locked container. It is part of the oak desk.
+	The matching key is the small dull key.
+
+	The large silver key is in the drawer.
+
+	The pencil case is a closed openable container on the desk.
+
+	The small dull key is in the pencil case.
+
+	The safe is a closed openable locked lockable scenery container in the Study.
+	The description is "You recognize the make: it's a Securimax Ultra, a kind of safe that's unlocked with a large silver key."
+	The matching key is the large silver key.
+
+	Understand "securimax" or "ultra" as the safe.
+
+	The huge diamond is in the safe.
+	The description is "A gem this large can only be the famed Eye of Balinor, said to be worth more than the GDP of a small country!"
+
+	understand "gem", "jewel", "eye", "of" or "balinor" as the huge diamond.
+
+	Book 3 - Testing
+
+	Test me with "look under mat/unlock front door with key/s/lock front door/e/x safe/x desk/look in pencil case/unlock drawer with small key/look in drawer/unlock safe with silver key/look in safe/x diamond/take eye/lock safe/put silver in drawer/lock drawer/put small key in case/close case/w/n/lock door"
+

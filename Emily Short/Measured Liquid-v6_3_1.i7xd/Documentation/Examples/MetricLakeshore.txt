@@ -1,0 +1,15 @@
+Example: * Metric Lakeshore
+Description: As above, but in cubic centimeters. Note that this example will compile only if our settings panel is set to Glulx.
+
+	{*}"Metric Lakeshore"
+
+	Include Metric Units by Graham Nelson. Include Measured Liquid by Emily Short.
+
+	Lakeside is a room. Inside from Lakeside is a Shack.
+
+	The lake is a liquid lake in Lakeside. The liquid of the lake is water.
+
+	The player carries a graduated closed openable fluid container called a flask. The fluid capacity of the flask is 300 mL.
+
+	Test me with "swim / swim in flask / fill flask / x flask / close flask / drink from flask / x flask / in / swim / drink from flask / x flask / swim in the water".
+

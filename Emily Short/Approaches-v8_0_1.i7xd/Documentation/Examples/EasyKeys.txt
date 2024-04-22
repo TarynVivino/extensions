@@ -1,0 +1,36 @@
+Example: * Easy Keys
+Description: Demonstrating how to use Approaches with Locksmith to create doors that properly bar the player's travel.
+
+Approaches is designed to work together with Locksmith to produce sensible messages when the player stops in the middle of going somewhere because of a locked door. Conversely, if the player does have the correct keys, he will automatically unlock, open, and move through any doors that stand in his way, without special comment.
+
+The only trick to bear in mind here is that we must use the "sequential action" option; otherwise, Locksmith will print "(first unlocking the hut door)" sorts of messages at inappropriate points in our action reporting.
+
+So for example:
+
+	{*}"Easy Keys"
+
+	Include Locksmith by Emily Short.
+	Include Approaches by Emily Short.
+
+	Seamus' Hut is a room.
+
+	South of Seamus' Hut is the hut door. The hut door is a door. It is lockable and unlocked. The tiny key unlocks the hut door. The player carries the tiny key.
+
+	South of the hut door is an Open Field.
+
+	South of the open field is Woodland.
+
+	supercrediting is an action out of world.
+	understand "supercredits" as supercrediting.
+	carry out supercrediting: say the complete list of extension credits.
+
+	Test me with "s / lock door / s / drop key / go to Hut / go to woodland / get key / go to Hut".
+
+	Section Key knowledge (for use with Implicit Actions by Eric Eve)
+
+	The known-key of the hut door is the tiny key.
+
+	Section Sequential (for use with Locksmith by Emily Short)
+	
+	Use sequential action.
+

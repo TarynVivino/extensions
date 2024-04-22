@@ -1,0 +1,39 @@
+Example: * Pest Control
+Description: Dice in Action
+
+	"Pest Control" by David A Wheeler
+
+	Include Dice by David A Wheeler.
+
+	[Significants parts below are derived from the "Randomness" section example "Lanista 1"]
+
+	A person has a number called current hit points.
+
+	The Dragon's Lair is a room. "This is a beautiful airy room."
+	An animal called Malevilness the Red Dragon is here.
+	The description of Malevilness is "Malevilness the Red Dragon is taller than 3 men, and there's always room in his stomach for one more."
+
+	When play begins:
+		now the current hit points of the player is 5 d 8;
+		now the current hit points of Malevilness is 5 d 8;
+		now the left hand status line is "You: [current hit points of player]";
+		now the right hand status line is "Dragon: [current hit points of Malevilness]".
+
+	Instead of attacking someone:
+		let the damage be 3 d 6;
+		say "You attack [the noun], causing [damage] points of damage!";
+		decrease the current hit points of the noun by the damage;
+		if the current hit points of the noun is less than 0:
+			say "[line break][The noun] expires!";
+			now the noun is nowhere;
+			end the story finally;
+			stop the action;
+		let the enemy damage be 2 d 4;
+		say "[line break][The noun] attacks you, causing [enemy damage] points of damage!";
+		decrease the current hit points of the player by the enemy damage;
+		if the current hit points of the player is less than 0:
+			say "[line break]You expire!";
+			end the story.
+
+	Test me with "hit dragon / g / g / g".
+

@@ -1,0 +1,48 @@
+Example: ** Glasses
+Description: When putting items on the table, performs a group action on any glasses in the multiple object list, and passes the rest to normal multiple action handling.
+
+	{*} "Glasses" by bg with modifications by Matt Weiner
+	
+	Include Actions on Groups by Matt Weiner.
+	
+	Section 1 - Grouping Rules
+	
+	Putting something on something is a groupable action.
+	
+	Action on groups rule for putting something on the table when dealing with the list of glasses:
+		now every glass is on the table;
+		say "You haphazardly set every glass on the table."
+	
+	Action on groups rule for putting something on the table when dealing with a glass:
+		let G be a number;
+		let Extras be a list of things;
+		repeat with item running through the multiple object list:
+			if item is a glass:
+				increment G;
+				now the item is on the table;
+			otherwise:
+				add item to Extras;
+		say "You carefully set [if G is 1]one glass[otherwise][G in words] glasses[end if] on the table.";
+		if the number of entries in Extras is 0:
+			rule succeeds;
+		if the number of entries in Extras is 1:
+			let item be entry 1 in Extras;
+			clear the multiple object list;
+			if G > 0:
+				say "[line break][item]: [run paragraph on]";
+			try putting item on the table;
+			rule succeeds;
+		otherwise if the number of entries in Extras > 1:
+			prepare to act on Extras;
+			continue the action.
+	
+	Section 2 - Scenario
+			
+	A glass is a kind of thing.
+	The player carries a pitcher, six glasses, and a vase of flowers.
+	
+	Dining Area is a room.
+	A table is a supporter in Dining Area.
+	
+	Test me with "put two glasses on the table / look / put three glasses and the pitcher on the table / look / take all / put four glasses and the vase and the pitcher on the table / look / take all / put the vase and the pitcher and four glasses on the table / look / take all glasses / put all glasses on table / take all/ put all glasses and vase on table".
+

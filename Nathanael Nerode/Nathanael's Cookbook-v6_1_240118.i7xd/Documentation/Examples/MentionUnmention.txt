@@ -1,0 +1,23 @@
+Example: * Mention Unmention
+Description: controlling whether something is mentioned
+
+Check this out and carefully watch what's described when.
+
+	{*}"Mention Unmention"
+
+	To say mention (item - a thing):
+		now item is mentioned;
+
+	To say unmention (item - a thing):
+		now item is not mentioned;
+
+	A fruit is a kind of thing.
+	A banana is a fruit.  The description of the banana is "It's a banana."
+	An orange is a fruit.  The description of the orange is "It's an orange."
+	A kiwi is a fruit.  The description of the kiwi is "You didn't notice it at first, but that's definitely a kiwi.";
+
+	Fruit Room is a room.
+	"This is a room for displaying fruit, such as [a list of fruit].[unmention banana][unmention orange]";
+
+	The banana and the orange are in the fruit room.
+

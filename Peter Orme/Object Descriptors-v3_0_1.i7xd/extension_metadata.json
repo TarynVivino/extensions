@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Object Descriptors",
+        "author": "Peter Orme",
+        "version": "3.0.1"
+    }
+}

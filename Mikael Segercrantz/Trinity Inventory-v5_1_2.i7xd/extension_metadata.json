@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Trinity Inventory",
+        "author": "Mikael Segercrantz",
+        "version": "5.1.2"
+    }
+}

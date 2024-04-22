@@ -1,0 +1,29 @@
+Example: * Lamplighter Two
+Description: The same scenario, but with the addition of a portable flashlight and a battery-operated robot dog.
+
+	{*}"Lamplighter Two"
+
+	Include Power Sources by Emily Short.
+		
+	An electric light is a kind of device. Carry out switching on an electric light: now the noun is lit. Carry out switching off an electric light: now the noun is unlit.
+	
+	Salon is a room. A lamp is a fixed in place electric light in the Salon. "A lamp [if lit]shines brightly[otherwise]sits[end if] here." The lamp incorporates a PS-plug.
+	
+	The flashlight is an electric light carried by the player. It incorporates a battery compartment.
+	
+	The Salon contains a wall socket.
+	
+	When play begins:
+		let spot be a random wall socket in the Salon;
+		if spot is a wall socket:
+			silently try plugging the lamp into spot.
+	
+	The robot dog is a device in the Salon. The battery drain of the robot dog is 10.
+	
+	Every turn when the robot dog is switched on: say "The robot dog barks."
+	
+	The robot dog incorporates a battery compartment. The player carries one battery.
+	
+	Test me with "look / turn on lamp / look / unplug lamp / look / turn on lamp / plug in lamp / turn on lamp / unplug lamp / plug lamp into wall socket / turn on robot dog / open dog / put battery in dog / turn on dog / drop dog / i / z / open flashlight / put battery in flashlight / close battery compartment / turn on flashlight / i  / z / z / z / z / z / z / z / z ".
+	
+

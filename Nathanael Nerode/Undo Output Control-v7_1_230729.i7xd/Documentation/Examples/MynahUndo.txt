@@ -1,0 +1,41 @@
+Example: * Mynah Undo
+Description: Presents report rules that reproduce Inform's default output.
+
+	{*}"Mynah Undo"
+	
+	The story author is "Erik Temple".
+	Include Undo Output Control by Nathanael Nerode.
+	
+	Laboratory is a room. The pen, the vial, the bunsen burner, the beaker, the banana, and the viol are in Laboratory.
+	
+	Report undoing an action:
+		say "[bold type]";
+		say "[Location]" in upper case;
+		say "[roman type]";
+		say "[line break]";
+		say "[bracket]Previous turn undone.[close bracket][line break]";
+		rule succeeds.
+		
+	Report prevented undo:
+		say "The use of UNDO is forbidden in this game.";
+		rule succeeds.
+		
+	Report nothing to be undone failure:
+		say "[bracket]You can't [quotation mark]undo[quotation mark] what hasn't been done![close bracket][line break]";
+		rule succeeds.
+		
+	
+	Section (for Glulx only)
+	
+	Report interpreter undo failure:
+		say "[bracket]You cannot [quotation mark]undo[quotation mark] any further.[close bracket][line break]";
+		rule succeeds.
+	
+	
+	Section (for Z-machine only)
+	
+	Report interpreter undo failure:
+		say "[quotation mark]Undo[quotation mark] failed. [bracket]Not all interpreters provide it.[close bracket][line break]";
+		rule succeeds.
+
+

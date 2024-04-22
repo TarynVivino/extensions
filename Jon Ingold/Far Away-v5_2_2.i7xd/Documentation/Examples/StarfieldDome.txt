@@ -1,0 +1,72 @@
+Example: *** Starfield Dome
+Description: a more complicated example, with an NPC, and various entrypoints used.
+
+	{*}"The Starfield Dome"
+
+	Include Far Away by Jon Ingold.
+
+	Yourself can be flying. Yourself is not flying.
+
+	The Starfield Dome is a room. "A wide dome, offering a view of the heavens above. The stars are out in all their glory, beautiful and clear[if the glass dome is open]. The open dome gives you an unfiltered view, but with the wind you are shivering[end if][if the player is flying] and close enough to touch[otherwise] - down here on earth, everything's a bit too dark for comfort[end if]."
+
+	The glass dome is a distant transparent container in the Dome.  The glass dome is scenery. It has description "[if open]The glass of the dome has peeled back, to let in the wind and the light[otherwise]The dome is made of geodesic sections, and beyond it are the stars[end if]. A series of pylons form the supports of the dome, and in the apex of these is a small release button."	The glass dome can be open or closed.
+
+	[ The following details are part of the dome. They don't need to be separately declared 'distant' - they adopt this from the glass dome. ]
+
+	Some heavens are part of the glass dome. Understand "star", "stars", "heaven", "sky", "up" as the heavens. The description of the heavens is "A million stars, and twice that once you start looking closely. The major constellations are out in force, but have been lost amongst the minor interlopers of the night sky."
+
+	The small release button is part of the glass dome.
+
+	Instead of touching or pushing the button when the glass dome is open:
+		now the glass dome is closed;
+		say "The glass field closes back over. You hear Alf sigh sadly."
+	Instead of pushing the button when the glass dome is closed:
+		now the glass dome is open;
+		say "In a series of leaps and folds, the glass dome unfolds away to let in the night air."
+
+	Alf is a person in the dome. "Standing with his neck craned is good old Uncle Alf."  Persuasion rule: persuasion succeeds. Alf is carrying a bottle of Mercury's Liquor of Levity. The bottle has description "A curious liquor, made from the fermentation of fireflies." Understand "drink" as the bottle. The description of Alf is "Alf has followed you through thick and thin. Mostly thick. [if Alf is carrying the bottle]Bulging from his pocket is a bottle of liquor.[end if]". Instead of opening the bottle, say "It's got one of those sports-caps, so you can drink liquor straight off."
+
+	Instead of tasting or drinking the bottle when the player is flying:
+		say "Alf's expression is enough to stay your hand."
+
+	Instead of tasting or drinking the bottle:
+		now the player is flying;
+		say "You take a swig and feel the strangest sensation, a glow from your toes to the tips of your shoulderblades. It's distracting enough for you to miss the fact you're now floating in mid-air.";
+		the player comes down to earth in two turns from now;
+
+	At the time when the player comes down to earth:
+		now the player is not flying;
+		say "With a sickening rush the ground rises sharply upward. Alf watches as you crumple painfully. 'A night drinking that stuff, and you'll remember it in the morning,' he remarks."
+
+	After printing the name of the Starfield Dome when the player is flying, say " (you are flying)";
+
+	Report Alf trying examining the heavens: say "'They are gorgeous,' Alf ruminates, admiring the view."
+
+	[ The following rule removal allows giving to occur between people. We can also steal the bottle: ]
+
+	The block giving rule does nothing.
+
+	Report Alf trying giving the bottle to the player:
+		say "'Here you are. Hairs for your chest.' Alf passes the bottle over." instead.
+
+	Instead of taking the bottle when Alf is carrying the bottle:
+		move bottle to player;
+		say "With Alf's attention still taken by the stars, you slip the bottle from his pocket."
+
+	[ This rule prevents "Alf, enter stars" not to end up in the rather bland "Alf is unable to do that." ]
+
+	Before asking Alf to try entering the heavens, say "'I wish I could,' he says sadly. 'But there's only so much I can do.'" instead.
+
+	[ This is the rule that allows a flying player to touch the sky: ]
+
+	distant stuff rule for something (called the item) when the player is flying: if the item is not the heavens, rule succeeds.
+
+	[ This rule provides a custom message for trying to reach the stars while flying: ]
+
+	Before entering or going the heavens when the player is flying: say "The liquor's not that strong!" instead.
+
+	After giving the bottle to Alf when the glass dome is open:
+		end the story finally saying "'Thanks. That's better without the refraction.' Alf proceeds to swig half the bottle, and blur his vision of the stars that way instead.";
+
+	Test me with "x dome / enter stars / press button / x alf / alf, give me liquor / x bottle / drink bottle / press button / enter stars / give bottle to alf".
+

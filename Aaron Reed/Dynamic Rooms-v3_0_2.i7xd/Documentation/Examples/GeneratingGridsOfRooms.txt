@@ -1,0 +1,16 @@
+Example: *** Generating Grids of Rooms
+Description: Some utility code.
+
+This code is useful to produce large grids of interconnected rooms for testing purposes. Run this code to generate Inform 7 code instantiating an interconnected map of dimensions specified in the gridsize variable. Then copy and paste the output into another project to test map-related code.
+
+	{*}"Generating Grids of Rooms"
+
+	x is room.
+	gridsize is a number variable. gridsize is 8.
+
+	When play begins:
+		repeat with x running from 1 to gridsize * gridsize:
+			say "Room[x] is a room. [if the remainder after dividing x by gridsize is not 0]East is room[x + 1]. [end if][if x + gridsize <= gridsize * gridsize and the remainder after dividing x by gridsize is not 0]Southeast is room[x + gridsize + 1]. [end if][if x + gridsize <= gridsize * gridsize]South is room[x + gridsize]. [end if][if x + gridsize <= gridsize * gridsize and the remainder after dividing x - 1 by gridsize is not 0]Southwest is room[x + gridsize - 1]. [end if][line break]".
+			
+	
+

@@ -1,0 +1,15 @@
+Example: * "You can't speak"
+
+	{*}"Speechless" by Zed Lopez
+	
+	Lab is a room.
+	
+	Include Speechless by Zed Lopez.
+	
+	Gus is a person in the Lab.
+	
+	The red box is an openable container in the lab.
+	The blue box is an openable container in the lab.
+	
+	test me with "ask gus about blue box / tell gus about blue box / ask gus for blue box / gus, give me blue box / gus, examine blue box / say boo to gus / gal, give me blue box / blue box, examine gus / ask blue box about blue box / gus, open / gus, go / gus, give me box / gus, give me botox".
+

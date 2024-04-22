@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Notepad",
+        "author": "Jim Aikin",
+        "version": "3.0.2"
+    }
+}

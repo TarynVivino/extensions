@@ -1,0 +1,20 @@
+Example: * Simple Spelling Lab
+Description: A room with some spellable items and characters.
+
+	{*}"Simple Spelling Lab"
+	
+	Include Simple Spelling by Alice Grove.
+	
+	
+	A dictionary is a kind of thing.
+	
+	Spelling Lab is a room.
+
+	Donna Hopkins-Brown is a woman in Spelling Lab. Donna Hopkins-Brown carries 4 dictionaries.
+
+	An inspection table is a supporter in Spelling Lab. A perse purse is on the inspection table. A pale pail is on the inspection table. A piece of Pete's pizza is on the inspection table.
+	
+	The player carries a xyzzifier.
+	
+	
+	Test me with "spell / spell 1 / spell 2 / spell 3 / spell 4 / spell 5 / spell 6 / spell 7 / spell 8".

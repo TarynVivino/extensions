@@ -1,0 +1,57 @@
+Example: * Museum of Curiosities
+Description: Actions taking variable amounts of time.
+
+In this example we make each turn take 30 seconds by default, but change this for certain actions. Here we'll assume that taking or dropping something normally only takes 1 second, and that taking inventory takes 1 second, so we write additional carry out rules accordingly. Since various actions with the exhibits are forbidden altogether, we won't let attempting them take any time at all, or even any turns. Various objects take various lengths of time to examine (depending on the amount of detail to be absorbed), so we'll use "[n secs]" phrases in their descriptions to vary the length of time taken to look at them. Finally, we'll make the bag of crisps awkward to take the first time, and override the standard 1 second taking time with "[40 secs in all]".
+
+A test script is provided, but you may find it runs too fast for you to see what's going on. It may be more useful to enter commands manually, one at a time, and watch the status line to see the effect.
+
+	{*}"Museum of Curiosities" by Eric Eve
+
+	Include Variable Time Control by Eric Eve.
+
+	When play begins:
+	now the right hand status line is "  [turn count]/[sec-time]";
+	now seconds_per_turn is 30.
+
+	An exhibit is a kind of thing. An exhibit is usually scenery.
+
+	Instead of taking or pushing or pulling or touching or attacking an exhibit:
+	say "[no-time]The signs round the room strictly warn you to leave the exhibits alone."
+
+	Carry out taking something: take 1 second.
+	Carry out dropping something: take 1 second.
+	Carry out taking inventory: take 1 second.
+
+	The player carries a leaflet.
+	The description of the leaflet is "[60 secs]The leaflet describes some of the main exhibits in the museum and explains that they were donated by Sir Robin Lightfinger."
+
+	The Museum is a room.
+	"This large hall contains a number of fascinating exhibits, which signs dotted round the room strictly tell you not to touch on pain of a £1,000 fine. The exhibits include a stuffed dodo, Codex Sinaiticus and an unexploded bomb."
+
+	The signs are scenery in the Museum.
+	The description is "[5 secs]The signs warn that the penalty for interfering with the exhibits in any way is £1,000."
+
+	The stuffed dodo is an exhibit in the Museum.
+	The description is "[2 secs]It doesn't look very lively."
+
+	Codex Sinaiticus is a proper-named exhibit in the Museum.
+	The description is "[120 secs]It's one of the oldest surviving Greek manuscripts of the entire bible, containing both Old and New Testaments. You spend some time trying to read the Greek text."
+
+	The unexploded bomb is a proper-named exhibit in the Museum.
+	The description is "It's an unexploded bomb of World War II vintage, apparently dug up from a street in the East End in 1941 and never disposed of since."
+
+	Instead of listening to the unexploded bomb:
+	say "[2 secs]It seems to be ticking."
+
+	The bag of crisps is in the Museum.
+	"A discarded bag of crisps lies on the floor."
+
+	Understand "discarded" as the bag of crisps when the bag of crisps is not handled.
+
+	After taking the bag of crisps for the first time:
+	say "[40 secs in all]As you pick up the bag, some of the crisps spill out onto the floor, so you have to scrabble around picking them all up."
+
+	Test me with "take crisps/i/x leaflet/drop it/take it/take dodo/x signs/x codex/x bomb/listen to bomb/break bomb"
+
+
+

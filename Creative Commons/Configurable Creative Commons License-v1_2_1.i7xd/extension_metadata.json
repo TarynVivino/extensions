@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Configurable Creative Commons License",
+        "author": "Creative Commons",
+        "version": "1.2.1"
+    }
+}

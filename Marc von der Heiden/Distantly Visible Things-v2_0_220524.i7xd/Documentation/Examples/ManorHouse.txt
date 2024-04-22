@@ -1,0 +1,24 @@
+Example: * Manor House
+Description: Showing the standard behavior of the Distantly Visible Things extension
+
+	{*}"Manor House"
+	
+	Include Distantly Visible Things by Marc Von Der Heiden.
+	
+	End of Street is a room. "The road ends at the old manor house which dominates the landscape. The estate is surrounded by a metal fence, but right here a gate opens up to the north onto the property."
+	The gate is a scenery thing in End of street. The description is "Nicely ornamented, with the former owner's family crest at the top.". Understand "fence" and "crest" as the gate.
+		
+	Instead of touching the gate, say "Though it's a warm day, the metal feels somehow chilly.".
+	
+	The Huge estate is north of End of street. "You are standing on a lawn which would make every gardener happy. The manor house, three storeys tall, stands proudly in front of you. There's a fence around the lawn but a gate to the south leads to the street."
+	The lawn is a scenery thing in the estate. The description is "Perfectly trimmed!".
+	The mansion is a scenery thing in the estate. Understand "manor" or "house" or "building" as the mansion. The description of the mansion is "From up close, the number of cracks in the masonry make the deterioration of the building more than obvious.".
+
+	The mansion is distantly visible from End of street. The distant description of the mansion is "A beautiful building that dates back to the Victorian era.".
+	
+	The gate is distantly visible from the estate.
+	
+	test me with "x manor house / x gate / touch gate / n / x manor house / x gate / touch gate / x lawn / s / x lawn".
+	
+Notice how differently the house and the gate react to being examined from afar which is the consequence of one having a distant description and one having none (actually having one which is ""). The lawn, not being distantly visible anywhere, retains the usual behavior of the Standard Rules.
+

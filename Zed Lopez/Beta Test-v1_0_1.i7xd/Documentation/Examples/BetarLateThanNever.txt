@@ -1,0 +1,13 @@
+Example: * "Betar late than never"
+
+	{*}"Betar late than never"
+
+	Include Beta Test by Zed Lopez.
+	Use manual transcript start.
+	
+	When play begins: say "big opening number."
+	
+	Lab is a room.
+	
+	Test me with "* / * hated the opening number / quit".
+

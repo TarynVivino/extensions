@@ -1,0 +1,22 @@
+Example: * The Detective
+Description: Having a single clue with no specific target.
+
+	{*}"The Detective"
+	
+	Include Clues and Conversation by Brian Rushton.
+
+	The Study is a room. Parlor is north of the Study.
+
+	Watson is a man in the Parlor. The description of Watson is "Watson is interested in everything you have to say."
+
+	When play begins:
+		deliver Ash;
+		
+	Ash is a clue. The preview of Ash is "The ash was from a cigar manufactured in Greenland.".
+
+	The TargetResponse of Ash is "'This is a Greenland cigar', you shout.
+
+	'Hurrah!' says Watson."
+
+	Test me with "T / say Ash / N / say ash / T"
+	

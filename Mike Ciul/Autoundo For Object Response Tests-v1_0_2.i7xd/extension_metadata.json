@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Autoundo For Object Response Tests",
+        "author": "Mike Ciul",
+        "version": "1.0.2"
+    }
+}

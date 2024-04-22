@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Variable Time Control",
+        "author": "Nathanael Nerode",
+        "version": "1.0.240203"
+    }
+}

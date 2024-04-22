@@ -1,0 +1,28 @@
+Example: *** Psychic Examiner
+Description: Error messages with locations.
+
+	{*}"Psychic Examiner"
+	
+	Include Object Matching by Xavid.
+	Include Intriguing Snippets by Zed Lopez.
+	
+	Library is a room.
+	
+	Study is south of Library.
+	
+	A thing called a laser sword is here.
+
+	[ Sometimes it's useful to know information about various objects that might be referred to by a command to print better error messages. One approach, used in Remembering by Aaron Reed, adds "[any thing]" versions of relevant commands, but this has the downside that it can change the parsing of normal commands and add unnecessary ambiguity even when there is no error. With this approach, we can parse the command as normal and only consider other possibilities when an error has already occurred.
+
+	For example, we could use this to mention the location of objects that match the player's command but aren't present. ]
+
+	Rule for printing a parser error when the latest parser error is the can't see any such thing error:
+		if the snippet at 2 of length (the command length - 1) object-matches "[any thing]":
+			say "[regarding the matched object]You don't see [the matched object] here; your psychic intuition tells you that [it] is in the [location of the matched object].";
+		else:
+			say "You can't see any such thing."
+
+	[ Note that this simple version assumes the verb is one word long and the entire rest of the command is the noun; it will work for "examine sword" but not for "look at sword" or "give sword to Fred". For a somewhat more robust version, see Expanded Understanding by Xavid. ]
+
+	Test me with "x sword / x wombat / s / x sword".
+

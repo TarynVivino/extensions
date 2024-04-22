@@ -1,0 +1,24 @@
+Example: ** Noses
+Description: Subtitle of this example.
+
+Show how to easily prevent the extension from stepping on your toes.
+
+	{*}"Noses"
+
+	Include Smarter Parser by Aaron Reed.
+	Include Commonly Unimplemented by Aaron Reed.
+	
+	Stage is a room. Bob and Phil are people in Stage.
+	A nose is a kind of thing. A nose is part of every person.
+	
+	Nose poking is an action applying to one thing. Understand "poke [something]" as nose poking. Check nose poking: if noun is not a nose, instead say "Only for noses!". Carry out nose poking: say "Strangely satisfying."
+	
+	When play begins: release body part word "nose" from Smarter Parser.
+	
+	Table of Smarter Parser Messages (continued)
+	rule name	message
+	flexible stripping body parts rule	"[as the parser]You do not normally need to refer to parts of the body; except in the case of noses, which you can try to POKE.[as normal]"
+	
+	test me with "x phil's nose / pick phil's nose / punch phil in the nose / poke phil's cheek / poke my nose"
+	
+

@@ -1,0 +1,25 @@
+Example: * Which Rubber
+Description: Uses Scope Caching to prevent an infinite loop. Without it, the "After deciding the scope of the player" rule repeats forever.
+
+	{*}"Which Rubber"
+
+	Include Scope Caching by Mike Ciul.
+
+	Indoors is a room.
+
+	The front door is a door. It is west of Indoors and east of Outdoors.
+
+	Bob is a man in Outdoors.
+
+	There is a container called a pile of balls in Indoors. "There is a pile of rubber balls here." In the pile is a ball.
+
+	Understand "rubber" as a pile when the ball is not marked visible.
+	Understand "rubber" as a ball when the ball is marked visible.
+
+	The outdoor view is scenery. The description is "It's bright outside.";
+
+	After deciding the scope of the player when the location is Indoors and the front door is open:
+		place the outdoor view in scope.
+	
+	Test me with "rules/open door/get rubber/scopestat/scopestat bob"
+

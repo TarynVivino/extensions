@@ -1,0 +1,69 @@
+Example: ** I Love the Sound of Breaking Glass
+Description: This example shows how to rework the output for UNDO using "report undoing an action", as well as how to limit both the total number of UNDOs available and the number of consecutive UNDOs allowed.
+
+Limiting the total number of UNDOs available is simple. After undoing an action, we decrease the number of UNDOs available. Before undoing an action, we check to see whether there are any UNDOs left. However, this method will only work if the player is limited to one UNDO in a row; otherwise, the game state will be turned back another turn and Inform will "forget" that it had decremented the count. (One solution to this for Glulx games might be to write the number of UNDOs available to an external file, where the value can be tracked independently of the game state.)
+
+To limit the player to taking back just one turn, we use a global variable, "current turn undone". We set this variable to true in the "after undoing an action" rules, and then, if the player tries another UNDO, we can stop it with a "before undoing an action when current turn undone is true" rule. In the every turn rules, which run at the end of a normal turn, we reset the current turn undone variable to false, allowing the player to UNDO once again.
+
+Note that Inform saves the game state even for out-of-world actions, so if the player types SCORE and then UNDO, we only undo as far as the game state before SCORE was typed.
+
+	{*}"I Love the Sound of Breaking Glass"
+
+	The story author is "Erik Temple".
+	The release number is 3.
+	Include Undo Output Control by Nathanael Nerode.
+	
+	Report undoing an action:
+		say "[bracket]Previous turn undone.[close bracket][line break]";
+		try looking;
+		rule succeeds.
+	
+	Current turn undone is a truth state variable. Current turn undone is false.
+	
+	After undoing an action:
+		decrease UNDOs remaining by 1;
+		now current turn undone is true.
+		
+	Before undoing an action when UNDOs remaining is less than 1:
+		say "[bracket]You have used all of your allotted UNDOs![close bracket][line break]";
+		rule fails.
+	
+	Before undoing an action when current turn undone is true:
+		say "[bracket]More than one consecutive UNDO is disallowed.[close bracket][line break]";
+		rule fails.
+	
+	Every turn:
+		now current turn undone is false.
+		
+	UNDOs remaining is a number variable. UNDOs remaining is 3.
+	
+	When play begins:
+		say "Whew, there's a lot of glass in here! A kid like you could get in a lot of trouble in a place like this. Luckily, you've got [UNDOs remaining in words] chances to UNDO any problems you cause! Be careful, though, as you can only UNDO one turn in a row.";
+		now the right hand status line is "UNDOs left: [UNDOs remaining]"
+	
+	Laboratory is a room.
+	
+	A glasswork is a kind of thing. A beaker, a pipette, a test tube, and a graduated cylinder are glassworks in the Laboratory.
+	
+	Attacking a glasswork is reckless behavior. Dropping a glasswork is reckless behavior. Inserting a glasswork into is reckless behavior. Throwing a glasswork at is reckless behavior. Squeezing a glasswork is reckless behavior. Pushing a glasswork is reckless behavior. Pulling a glasswork is reckless behavior. Turning a glasswork is reckless behavior. Swinging a glasswork is reckless behavior. Rubbing a glasswork is reckless behavior. Cutting a glasswork is reckless behavior. Examining a glasswork is reckless behavior.
+	
+	Instead of reckless behavior:
+		say "The [noun] shatters into thousands of pieces.";
+		now the noun is nowhere;
+		if the pile of broken glass is in the Laboratory:
+			say "[line break]The pile of broken glass is now a bit higher.";
+		otherwise:
+			say "[line break]The pile of broken glass glints in the light.";
+			move the pile of broken glass to the Laboratory.
+	
+	A pile of broken glass is a thing. Instead of doing anything to the pile of glass, say "Looks dangerous, better keep away."
+	
+	At 9:05 am:
+		say "Without warning, your dad enters the lab. ";
+		if broken glass is in the Laboratory:
+			say "His eyes dart to the pile of broken glass at your feet.";
+			end the story finally saying "You are in deep trouble";
+		otherwise:
+			say "He looks at each of the glass containers in turn, then smiles when he realizes that you managed to stay in here alone for five whole minutes without breaking a single one.";
+			end the story finally saying "You have made your father proud"
+

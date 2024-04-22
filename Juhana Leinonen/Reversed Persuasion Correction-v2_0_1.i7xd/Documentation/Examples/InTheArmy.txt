@@ -1,0 +1,17 @@
+Example: * In the Army
+Description: A demonstration of the extension's functionality.
+
+	{*}"In the Army"
+
+	Include Reversed Persuasion Correction by Juhana Leinonen.
+
+	The Training camp is a room. Private Johnson, Private Smith, Private Stevens and Private Miller are men in the training camp.
+
+	Persuasion rule for asking people to try doing something: persuasion succeeds.
+
+	Instead of an actor jumping:
+		say "[The person asked] jumps.";
+		rule succeeds.
+
+	Test me with "johnson, jump/jump, johnson/private, jump/stevens/jump, private/miller".
+

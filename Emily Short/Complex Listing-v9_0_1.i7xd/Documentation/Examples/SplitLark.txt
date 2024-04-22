@@ -1,0 +1,26 @@
+Example: * Split Lark
+Description: Adding a delimiter so that items in a list can be set off from one another with dashes.
+
+Imagine we've gotten the (somewhat frightening) idea of writing a game about Emily Dickinson, in appropriate narrative style. Obviously, mere commas are not up to the task, so we add a new entry to the Table of List Style Assignments:
+
+	{*}"Split Lark"
+
+	Include Complex Listing by Emily Short.
+
+	Use the serial comma.
+
+	Table of List Style Assignments (continued)
+	list style	first delimiter	second delimiter	alternate second delimiter	indefinite name phrase	definite name phrase
+	dashed	" -- "	" -- and then "	" -- and -- "	"[a current listed object]"	"[the current listed object]"
+
+	Instead of taking inventory:
+		prepare a list of things carried by the player;
+		say "Your possessions are few and small -- in your hands [is-are a prepared list delimited in dashed style]."
+		
+	Definition: a thing is other if it is not the player.
+
+	The Grassy Field is a room. The player carries a pencil and a roll of music, food for two birds.
+	
+	Test me with "i / drop pencil / i / drop all / i".
+	
+Ideally we would also check to see whether the player was carrying anything before printing that "few and small" bit. But we leave it out here so that we can also see what Complex Listing does when it hits an empty list -- namely, print "nothing", just as the regular lister does.

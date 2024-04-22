@@ -1,0 +1,46 @@
+Example: * Another Day at the Office
+Description: Rule-based and manually awarded achievements
+
+	{*}"Another Day at the Office"
+	
+	Include Achievements by Juhana Leinonen.
+
+	Office is a room. "It's another boring afternoon in the office."
+
+	The desk is in the office. The inbox is on the desk. The memo is in the inbox.
+
+	A piece of gum is a thing.
+
+	The time of day is 4:57 PM.
+
+	Instead of looking under the desk for the first time:
+		say "Hey, someone stuck a piece of gum under the desk!";
+		now the player is carrying the piece of gum.
+		
+	After examining the memo:
+		say "It's from the boss. You forget it as soon as you've read it.";
+		award the "Diligent Employee" achievement.
+		
+	Table of Achievements
+	achievement	description	validation	awarded
+	"Desk Treasure"	"You found the piece of gum."	gum achievement rule	false
+	"Diligent Employee"	"You read the memo."	--	false
+	"Overtime"	"Stayed at work past 5 pm."	overtime achievement rule
+
+	This is the gum achievement rule:
+		if the player is carrying the piece of gum:
+			rule succeeds.
+			
+	This is the overtime achievement rule:
+		if the time of day is greater than 5:00 PM:
+			rule succeeds.
+
+	Instead of exiting:
+		say "Ok, that's enough for today.";
+		end the story finally.
+		
+	Test me with "read memo/look under desk/z/z/exit".
+
+
+
+

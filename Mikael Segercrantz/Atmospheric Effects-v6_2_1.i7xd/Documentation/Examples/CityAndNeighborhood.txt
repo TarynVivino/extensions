@@ -1,0 +1,62 @@
+Example: ** City and Neighborhood
+Description: A more complex example on using Atmospheric Effects on rooms and regions, with regions contained in other regions.
+
+	{*}"City and Neighborhood"
+
+	Include Version 6 of Atmospheric Effects by Mikael Segercrantz.
+
+	Tower Street North is a room. Tower Street South is a room. Tower Street Middle is a room.
+	Tower Street North is north of Tower Street Middle.
+	Tower Street Middle is north of Tower Street South.
+	The Tower Neighborhood is a region. Tower Street North, Tower Street South and Tower Street Middle are in the Tower Neighborhood.
+
+	Main Street West is a room. Main Street Middle is a room. Main Street East is a room.
+	Main Street West is west of Main Street Middle.
+	Main Street Middle is west of Main Street East.
+	The Main Neighborhood is a region. Main Street West, Main Street East and Main Street Middle are in the Main Neighborhood.
+
+	Madden Park is a room.
+	Madden Park is east of Main Street East.
+	Madden Park is west of Tower Street Middle.
+
+	The City is a region. Madden Park, the Main Neighborhood and the Tower Neighborhood are in the City.
+
+	The player is in Main Street West.
+
+	Table of Atmospheric Definition (continued)
+	loci			ignoring		subtable
+	Madden Park		ignore		Table of Madden Park Definition
+	Tower Neighborhood	ignore		Table of Tower Neighborhood Definition
+	City			do not ignore	Table of City Definition
+
+	Table of Madden Park Definition
+	during	initch	latch	aftcnt		curcnt		sctype	runtype		frtype		igtype		subtable
+	a scene	100	0	a number	a number	random	run forever	a further type	an ignoring type	Table of Park Sounds
+
+	Table of Park Sounds
+	used		message
+	a number	"Birds chirp off in the trees."
+	--		"The fountain unleashes a gush of water."
+	--		"A man sitting atop a lawn-mover is taking care of the grass."
+
+	Table of Tower Neighborhood Definition
+	during	initch	latch	aftcnt		curcnt		sctype	runtype		frtype		igtype		subtable
+	a scene	100	0	a number	a number	ordered	run forever	a further type	an ignoring type	Table of Tower Neighborhood Sounds
+
+	Table of Tower Neighborhood Sounds
+	used		message
+	a number	"You hear nothing but the peace and quiet of the Tower Neighborhood."
+	--		"Some small children run towards Madden Park."
+	--		"The neighborhood is quiet, and peace prevails."
+	--		"Some children enter the neighborhood from the park nearby."
+
+	Table of City Definition
+	during	initch	latch		aftcnt		curcnt		sctype		runtype		frtype		igtype		subtable
+	a scene	75	a number	a number	a number	fully random	run forever	a further type	an ignoring type		Table of City Noise
+
+	Table of City Noise
+	used		message
+	a number	"Many cars pass by, making for a loud noise level."
+	--		"A car screeches to a halt as a pedestrian carelessly walks onto the street."
+	--		"Sires can be heard in the distance, coming your way."
+

@@ -1,0 +1,15 @@
+Example: * Table of Stats
+
+	{*}"Table of Stats"
+	
+	Include Tabulate by Zed Lopez.
+	
+	Lab is a room.
+	
+	Table of Stats
+	name	x	y
+	"foo"	1	2
+	"bar"	5	9
+	
+	Test me with "tabulate table of stats / tabulate stats".
+

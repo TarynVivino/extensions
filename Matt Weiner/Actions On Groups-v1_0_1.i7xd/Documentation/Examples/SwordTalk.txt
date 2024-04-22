@@ -1,0 +1,58 @@
+Example: * Sword Talk
+Description: Allowing a response to "ask smith about swords" while blocking any other attempt to ask about multiple things.
+
+	{*}"Sword Talk" by Björn Paulsen with modifications by Matt Weiner
+	
+	Include Actions on Groups by Matt Weiner.
+	
+	Section 1 - Swords and the Ideal Sword
+	
+	A sword is a kind of thing.
+	
+	Understand "blade/edge/sword" as "[blade]".
+	Understand "[blade]" as sword.
+	
+	Definition: a thing is perfect if it is nowhere.
+	
+	The ideal sword is a sword.
+	Understand "blades/edges" as the ideal sword.
+	
+	Section 2 - Quizzing
+	
+	Understand the command "ask" as something new.
+	
+	Quizzing it about is an action applying to one thing and one visible thing.
+	Understand "ask [someone] about [things]" as quizzing it about.
+	
+	Does the player mean quizzing about a perfect thing: it is very likely.
+	
+	To decide what action name is the action-to-be: (- action_to_be -).
+	After deciding the scope of the player when the action-to-be is the quizzing it about action:
+		repeat with item running through things:
+			place item in scope.
+	
+	Section 3 - Setting Action on Groups for Quizzing
+	
+	Quizzing is groupable action.
+	Quizzing is group-only action.
+	
+	Action on groups for quizzing when dealing with the list of swords:
+		clear the multiple object list;
+		try quizzing the noun about the ideal sword.
+		
+	The can't use undesignated groups rule response (A) is "'Sorry, one question at a time!'"
+	
+	Section 4 - Scenario
+	
+	The swordsmith is a man. "The swordsmith wears a button that reads 'ASK me ABOUT swords, or about a particular sword!'" Understand "smith" as the swordsmith. The swordsmith wears a button. The description of the button is "'ASK me ABOUT swords, or about a particular sword!'"
+	
+	The rakish fop is a man. The fop holds a sword called the wicked needle.
+	The dolorous monk is a man. The monk carries a sword called the keen instrument of DEATH.
+	
+	After quizzing the swordsmith about the ideal sword, say "'Yes, swords are the best!'"
+	After quizzing the swordsmith about a sword (called blade), say "'Hmm, [the blade]... not my best work, to be honest.'"
+	
+	The forge is a room. All men are here. The player is the monk.
+	
+	Test me with "ask smith about sword/ask smith about my sword/ask smith about swords/ask smith about needle and instrument".
+	

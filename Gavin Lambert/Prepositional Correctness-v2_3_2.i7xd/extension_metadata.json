@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Prepositional Correctness",
+        "author": "Gavin Lambert",
+        "version": "2.3.2"
+    }
+}

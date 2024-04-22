@@ -1,0 +1,31 @@
+Example: * Tinitinitis
+Description: Scheduling, testing, and canceling activities.
+	
+	{*}"Tinitinitis"
+
+	Include Scheduled Activities by John Clemens.
+
+	The Concert Hall is a room.
+
+	A percussive instrument is a kind of thing. A percussive instrument can be ringing.  A percussive instrument has a number called duration. The duration of a percussive instrument is usually 5.
+
+	The cymbal is a percussive instrument in the concert hall.
+	The triangle is a percussive instrument in the concert hall. The duration of the triangle is 1.
+	
+	Striking is an action applying to one thing. Understand "strike [something]" as striking.
+	Report striking: say "You strike [the noun]."
+
+	Instead of striking a percussive instrument:
+		if the noun is ringing, say "You strike [the noun] again[if the noun is pending silencing], just in time[end if].";
+		otherwise say "You strike [the noun] and it starts ringing.";
+		now the noun is ringing;
+		cancel all scheduled silencing for the noun;
+		schedule silencing for the noun in duration of noun minutes.
+
+	Silencing something is an activity.
+	Rule for silencing something (called bell):
+		if the bell is ringing, say "[The bell] stops ringing.";
+		now the bell is not ringing.
+	
+	Test me with "strike cymbal / strike cymbal / strike triangle / strike triangle / z / z / z".
+

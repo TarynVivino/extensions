@@ -1,0 +1,24 @@
+Example: * Lamplighter
+Description: A very simple scenario with a wall-plugged lamp that lights when turned on.
+
+	{*}"Lamplighter"
+
+	Include Power Sources by Emily Short.
+
+	Salon is a room. A lamp is a device in the Salon. "A lamp [if lit]shines brightly[otherwise]sits[end if] here." The lamp incorporates a PS-plug.
+
+	The Salon contains a wall socket.
+
+	When play begins:
+		let spot be a random wall socket in the Salon;
+		if spot is a wall socket:
+			silently try plugging the lamp into spot.
+			
+	Carry out switching on the lamp:
+		now the lamp is lit.
+	
+	Carry out switching off the lamp:
+		now the lamp is unlit.
+
+	Test me with "look / turn on lamp / look / unplug lamp / look / turn on lamp / plug in lamp / turn on lamp / unplug lamp / plug lamp into wall socket".
+

@@ -1,0 +1,74 @@
+Example: ** Testing Area
+Description: A touching story about a lone cattle prod.
+
+	{*}"Testing Area"
+
+	Include Permission to Visit by Ron Newcomb. Use no scoring.
+	
+	Section 1 - as the story opens
+	
+	Area 51 is a region.
+	Roswell is a region.
+	HQ is a region.
+	The RV is a region.
+	
+	Silo 1 and a shady spot are rooms.
+	Silo 5 is a room in Area 51.
+	The general store is a room in Roswell. "Everyone in Roswell stops by this filled-to-bursting little store.  It's amazing anyone can find anything."
+	The office full of answers is a room in HQ. "Ah! Yes! It's all here! Aliens are involved!".
+	your RV is a room in the RV. "Looking out the window of your RV, you can see the town of Roswell and, in the distance, a couple of grain silos. [if office is visited]'Oh bother, where's that keycard? I need it as proof!'[otherwise]'How odd, to have grain silos in the desert,' you ponder.[end if]". Understand "home" as your RV.
+	
+	Mayor 'Shorty' Grein Mannie is a man in shady spot.   The gatekeeper of Roswell is Mayor Mannie.
+	The keycard is a thing in the store.  The gatekeeper of HQ is the keycard.
+	The player is in your RV. The gatekeeper of the RV is yourself.
+	
+	[ Intentionally creating "spot" as an animal, a room, and a thing.]
+	A dalmatian named Spot is an animal in silo 1.  Understand "dog" as the dalmatian.
+	A targeting spot missile is a thing in silo 5. It is not portable.
+	The printed name of shady spot is "shady spot behind silo 1".
+	
+	Shady spot is north of Silo 1. The general store is north of shady spot.
+	
+	Definition: a thing is inanimate if it is not a person.
+	Definition: a region is player-owned rather than other-owned if the player is the gatekeeper of it.
+	
+	First carry out taking inventory:
+		if the number of player-owned regions is not 0, say "You own [the list of player-owned regions].";
+		otherwise say "You don't own any real estate.  Even your apartment is rented."
+	
+	When play begins: now the left hand status line is "[the location of the player], within [the map region of the location of the player]"; say "You arrive in Roswell NV just as your TV blares the news, 'Roswell is now under martial law, as declared by its brand-new ruler, Mayor 'Shorty' Grein Mannie.  Checkpoints are setup around the town's entry points, and no one without explicit permission is allowed in.'[line break][line break]You're sure it's just a suggestion, though.[line break][line break]You must get into the main offices of Area 51 to find out what's really going on.".
+	
+	The agenda is a thing in your RV. The description of it is "People to visit: [a list of people which is not the player].[line break]Things to find: [a list of every inanimate thing not carried by the player].[line break]Places to travel: [a list of every unvisited room].[line break]Regions to explore: [a list of every region]."
+	
+	
+	Section 2 - a strange device
+	
+	The bizarre cattle prod is a thing in Silo 1. The description of the bizarre cattle prod is "There's a disclaimer sticker on it that reads, 'Warning: do not [bold type]touch[roman type] yourself with the mind-control prod.'".
+	
+	Understand "zap [someone]" as touching.
+	Persuasion for asking the dalmatian to try doing something when we have touched the dalmatian: rule succeeds.
+	Persuasion for asking the mayor to try doing something when we have touched the mayor: rule succeeds.
+	
+	Instead of touching:
+		if the noun is the dalmatian, say "You pet Spot, but it doesn't win him over.";
+		if the noun is the mayor, say "You shake hands with the mayor, but it doesn't win him over.";
+	
+	
+	Section 3 - a likely ordering of events
+	
+	Instead of touching someone when the prod is carried, say "[The noun] goes kinda glassy-eyed[if the noun is the mayor] and says, 'Yes, my leader. You may [bold type]take[roman type] Roswell, or any other region you desire'[end if]."
+	
+	Understand "take [any region]" as taking ownership when the player carries the cattle prod. Taking ownership is an action applying to one visible thing. Check an actor taking ownership HQ: say "Hm. A keycard-locked door keeps you out, and the mind-control prod doesn't seem to be much help with inanimate objects." instead. Check an actor taking ownership: if the actor is the gatekeeper of the noun, say "[Actor] already owns that." instead. Carry out an actor taking ownership: now the gatekeeper of the noun is the actor; say "[Actor] now owns [the noun].".
+	
+	Carry out travelling to when the location is the office: say "In your haste to leave, you accidentally drop the keycard!"; try silently dropping keycard.
+	
+	Instead of travelling to the office when the keycard is in the office: say "Curses! It's in the office! You've locked yourself out! What an unwinnable state of affairs!"
+	
+	Instead of touching yourself when the prod is carried: end the story saying "You go kinda glassy-eyed until a unnerved cop, three days later, orders you to drop the weapon."
+	
+	Test all with "test spot/go home/test me".
+	Test spot with "go home/visit spot/go home/go to spot/go home/find spot". [broken: FIND doesn't go to Target Spot Missile]
+	Test me with "take agenda/x agenda/go office/go store/visit silo 1/x prod/take prod/touch the dog/n/touch the mayor/take roswell/i/x agenda/take area 51/go to office/take hq/find keycard/take keycard/go to office/i/find RV/find keycard/x agenda/touch me".
+
+
+

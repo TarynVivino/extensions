@@ -1,0 +1,48 @@
+Example: * A Sense of Adventure
+Description: Letting the player know what will happen if he picks up nearby objects.
+
+Here we use the extension to the give the player a bit of clairvoyance. After moving to another room, we hypothetically try picking up every object in the location, then test whether the player would have died, won the game, or gained points. If so, we print an appropriate message.
+
+	{*}"A Sense of Adventure"
+	
+	Include Hypothetical Questions by Tara McGrew.
+	
+	Use scoring.
+	
+	The maximum score is 5.
+	
+	Hallway is a room. "This hall leads east and west. There's also a door to the south."
+	
+	Trophy Room is east of the hallway. "This room is absolutely jam-packed with trophies. The exit is to the west."
+	
+	A golden idol is in the trophy room. After taking the golden idol for the first time, increase score by 5.
+	
+	Danger Zone is west of the hallway. "This room is full of various hazards. If you know what's good for you, you'll leave to the east."
+	
+	A cursed idol is in the danger zone. After taking the cursed idol: say "As you pick up the idol, you feel an evil presence sucking the life force out of your body."; end the story.
+	
+	Winners' Lounge is south of the hallway. "This is where winners hang out. A door to the north leads back to the hallway."
+	
+	The Mask of Victory is here. "A strange mask is hanging on the wall here. A sign beneath it simply states: 'The Mask of Victory'." After taking the Mask of Victory, end the story finally.
+	
+	Report going:
+		hypothetically take everything and consider the player's fate rulebook;
+		if the outcome of the rulebook is:
+			-- the player dies outcome: say "You sense an ominous presence. Better be careful picking things up in here!";
+			-- the player wins outcome: say "You sense your victory is at hand!";
+			-- the player scores outcome: say "You sense a potential profit. Better grab everything you can!".
+	
+	To take everything:
+		repeat with X running through things in the location:
+			try taking X.
+	
+	Player's fate is a rulebook. The player's fate rulebook has outcomes player dies, player wins, player scores, and nothing noteworthy (success - the default).
+	
+	A player's fate rule when the story has ended finally: player wins.
+	
+	A player's fate rule when the story has ended: player dies.
+	
+	A player's fate rule when the score is greater than the last notified score: player scores.
+	
+	Test me with "w / e / e / get idol / w / s / get mask".
+

@@ -1,0 +1,15 @@
+Example: * Tiny and Large
+Description: An example of a room with an assortment of drawered furniture in it.
+
+	{*}"Tiny and Large"
+
+	Include Automated Drawers by Emily Short.
+
+	The Dollhouse is a room.
+
+	The large dresser is in the Dollhouse. Five vertical drawers are part of the dresser.
+
+	The tiny wooden table is in the Dollhouse. Two horizontal drawers are part of the tiny wooden table.
+
+	Test me with "open table / g / g / open dresser / g / g / g / open drawer / g".
+

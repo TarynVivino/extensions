@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Extended Debugging",
+        "author": "Erik Temple",
+        "version": "2.2.1"
+    }
+}

@@ -1,0 +1,164 @@
+Example: ** The Tribune's Report
+Description: A Sample Conversation
+
+Conversation Rules doesn't handle asking it about and telling it about, so we include rules in Part 1 to provide graceful handling for ASK ABOUT FOO and TELL ABOUT BAR where foo and bar don't correspond to any objects in the game. Other games may want to handle these commands differently, though this is quite a good default.
+
+
+	{*}"The Tribune's Report"
+
+	Part  1 - Conversation Model
+
+	Include Conversation Rules by Eric Eve.
+
+	Instead of asking someone about something:
+	follow the unknown quizzing rule of the noun.
+
+	Instead of telling someone about something:
+	follow the unknown informing rule of the noun.
+
+	Part 2 - Scenario
+
+	Chapter 1 - The Location
+
+	The Great Hall is a Room. "The strong morning sunlight filters in through the unglazed windows overlooking the Upper City and the Temple compound."
+
+	Some unglazed windows are scenery in the Great Hall.
+
+	Chapter 2 - Pilate
+
+	Section  1 - The Man
+
+	Pontius Pilate is a man in the Great Hall. "The governor is standing at the centre of the hall, frowning in thought." The description is "He's a stout, balding man, dressed in the tunic of the equestrian order." The quizzing table is the Table of Pilate's Answers. The informing table is the Table of Pilate's Remarks. The unknown quizzing rule is the Pilate's default-quiz-response rule. The unknown informing rule is the Pilate's default-inform-response rule.
+
+	Understand "man" or "governor" or "prefect" or "procurator" or "roman" or "stout" or "balding" as Pontius Pilate.
+
+	Section 2 - Greeting
+
+	After saying hello to Pontius Pilate:
+	say "'Good morning, your excellency,' you greet him.
+
+	'I don't know what's good about it, tribune,' Pilate grunts in reply.";
+	if the greeting type is explicit, follow the standard list suggested topics rule.
+
+	Section 3 - Conversation Topics
+	
+	Table of Pilate's Answers
+	subject		response rule			response table		suggest
+	Pilate		--					Table of Pilate Self	3
+	Caiaphas	caiaphas rule				--			1
+	jerusalem	jerusalem rule			--			1
+	emperor		--					Table of Caesar		-1
+
+	Table of Pilate's Remarks
+	subject		response rule			response table		suggest
+	jesus		--					Table of Jesus		2
+
+	Table of Pilate Self
+	response
+	"'How are you today, sir?' you enquire politely.
+
+	'Terrible,' he grunts. 'I slept badly, dreamed nastily, and woke up with a mouth tasting like a whore's armpit.'"
+	"'Do you like it in Judaea?' you ask.
+
+	'Caesarea's okay,' he replies, 'but Jerusalem is too hot, too crowded, and too dangerous[reveal jerusalem].'"
+	"'But things aren't going too badly for you here, are they sir?' you ask.
+
+	'No, not too badly,' he agrees. 'At least I still seem to be in favour with the Emperor[quiz emperor to 2].'"
+
+	This is the caiaphas rule:
+	say "'How is the High Priest these days?' you ask.
+
+	'As devious as ever,' Pilate tells you."
+
+	This is the jerusalem rule:
+	say "'What did you mean by Jerusalem being too dangerous?' you wonder. 'Surely there's nothing our two cohorts of auxiliaries can't deal with?'
+
+	Pilate lets out a heavy sigh. 'Nothing except a crowd of volatile Jews celebrating their Passover -- with all the undercurrents for revolutionary sentiment that implies.'"
+
+	Table of Jesus
+	response
+	"'I've just come from the Temple, sir,' you report, 'there was some scruffy Galilean called Jesus causing a disturbance there. The priests seemed quite upset by it all!'
+
+	'Did you arrest this Jesus fellow then?' Pilate demands.[convnode arrest-node][run paragraph on]"
+	"'This Jesus fellow seems to be some sort of prophet,' you tell him.
+
+	'Prophet!' Pilate almost spits the word. 'They're almost as bad as brigands round here, tribune, you mark my words! Charlatans the lot of them -- whipping up the people with false hopes of liberation. If this Jesus fellow is a prophet we should have him executed -- a crucifixion or two at the height of the festival should show these Jews who's in charge round here!'"
+
+	Table of Caesar
+	response
+	"'How is the Emperor?' you enquire, 'Is he still on Capri?'
+
+	'Last I heard,' Pilate nods."
+	"'And the Emperor's health?' you ask.
+
+	Pilate gives a little shudder, 'It is not always healthy to discuss Caesar's health, tribune,' he warns you."
+
+	This is the Pilate's default-quiz-response rule:
+	show the next response from the Table of Pilate's Default Quiz Responses.
+
+	This is the Pilate's default-inform-response rule:
+	show the next response from the Table of Pilate's Default Inform Responses.
+	
+	Table of Pilate's Default Quiz Responses
+	response
+	"The governor seems momentarily lost in thought, and apparently fails to hear your question."
+	"'We'll discuss that some other time, tribune,' Pilate tells you."
+	"The prefect mutters something under his breath, which you fail to catch."
+	"Pilate looks annoyed by your question, for some reason, and declines to answer."
+
+	Table of Pilate's Default Inform Responses
+	responses
+	"Pilate listens to what you have to say with feigned interest."
+	"'Indeed,' the governor remarks."
+	"Pilate frowns in evident impatience at your irrelevant remarks."
+
+	Table of Table Types (continued)
+	tabname				index	tabtype
+	Table of Pilate Self			0	stop-list
+	Table of Jesus				0	stop-list
+	Table of Pilate's Default Quiz Responses	0	shuffled-list
+	Table of Pilate's Default Inform Responses	0	shuffled-list
+	Table of Caesar				0	stop-list
+	
+	Section 4 - Objects referred to
+
+	Caiaphas is a familiar man.
+	Understand "high" or "priest" as Caiaphas.
+
+	Jesus is a familiar man. Understand "of nazareth" or "galilean" or "joshua" or "yeshua" as Jesus.
+
+	Jerusalem is a subject.
+
+	The Emperor is a familiar man. Understand "caesar" or "tiberius" or "princeps" as the Emperor.
+	
+	Section 5 - Conversation Node
+
+	The arrest rules is a rulebook.
+
+	The arrest-node is a Conversation Node. The suggestions are "say yes or no". The node rule is the arrest rules.
+
+	An arrest rule when saying no:
+	say "'No, sir, I'm afraid he managed to slip away,' you confess.
+
+	'Damn!' Pilate swears, 'We'll have to see if Caiaphas can track him down for us.'[convnode null-node]";
+	rule succeeds.
+
+	An arrest rule when saying yes:
+	say "'Yes, sir -- or at least we tried to, but the temple police got in our way and the wretched fellow managed to escape.'
+
+	'Damn!' Pilate swears. 'We'll have to see if Caiaphas can track him down for us.'[convnode null-node]";
+	rule succeeds.
+
+	The last arrest rule:
+	say "'Never mind that,' snaps Pilate. 'I asked you whether you arrested this Jesus fellow. Well -- did you?'";
+	rule succeeds.
+
+	Part  3 - Testing
+
+	test me with "talk to pilate/a emperor/a himself/g/a jerusalem/topics/t jesus/no/a caiaphas/a pilate/a emperor/g/topics/t jesus"
+
+
+
+
+
+

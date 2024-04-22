@@ -1,0 +1,13 @@
+Example: * Hello log
+Description: A minimal example. Just include and "debug", "warn" etc.
+
+	{*}"Hello logger"
+
+	Include Flexible Logger by Peter Orme.
+
+	There is a room.
+
+	When play begins:
+		debug "Hello log!";
+		warn "This is a warning.";
+

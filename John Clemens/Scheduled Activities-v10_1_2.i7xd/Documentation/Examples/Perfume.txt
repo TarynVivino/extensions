@@ -1,0 +1,37 @@
+Example: * Perfume
+Description: Using descriptions and rooms.
+
+	{*}"Perfume"
+
+	Include Scheduled Activities by John Clemens.
+
+	A room is either smelly or unscented. A room is usually unscented.
+	A thing is either smelly or unscented. A thing is usually unscented.
+
+	Instead of smelling a smelly room: say "A horrible perfume odor assaults your nostrils."
+	Instead of smelling a smelly thing, say "You can still smell the perfume on [the noun]."
+
+	Living room is a room. Study is west of the living room. Kitchen is east of the living room.
+	A rare book, a newspaper, and a sweater are in the study.
+
+	The perfume bottle is in the living room. The description is "A perfume spray bottle."
+
+	Dispersing something is an activity.
+	Rule for dispersing a room (called place):
+		if place is smelly and place is the location, say "The perfume haze finally clears.";
+		now place is unscented.
+	Rule for dispersing a thing (called item): now item is unscented.
+
+	Understand "spray [something]" as spraying. Spraying is an action applying to one carried thing.
+	Check spraying: if the noun is not the perfume, instead say "You can't spray that."
+	Carry out spraying:
+		cancel all scheduled dispersing for the location;
+		cancel all scheduled dispersing for everything enclosed by the location;
+		now the location is smelly;
+		now everything enclosed by the location is smelly;
+		schedule dispersing for the location in 2 turns;
+		schedule dispersing in 5 turns for everything enclosed by the location.
+	Report spraying: say "You spray the perfume into the air, leaving a noxious haze."
+	
+	Test me with "smell / spray perfume / smell /  w /smell book / spray perfume / smell / smell book / smell / smell book / e / smell / w / smell book".
+

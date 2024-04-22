@@ -1,0 +1,20 @@
+Example: * Lakeshore Swim
+Description: A lakeshore where the player can swim successfully.
+
+	{*}"Lakeshore Swim"
+
+	Include Measured Liquid by Emily Short.
+
+	Lakeside is a room. Inside from Lakeside is a Shack.
+
+	The lake is a liquid lake in Lakeside. The liquid of the lake is water.
+
+	The player carries a graduated closed openable fluid container called a flask. The fluid capacity of the flask is 10.0 fl oz.
+
+	The block swimming in liquid lakes rule is not listed in any rulebook.
+
+	Report swimming in the lake:
+		say "You go for a swim in the lake and come out much refreshed."
+
+	Test me with "swim".
+

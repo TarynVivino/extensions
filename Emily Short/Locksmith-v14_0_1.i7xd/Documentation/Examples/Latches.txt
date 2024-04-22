@@ -1,0 +1,44 @@
+Example: * Latches
+Description: Adding one lock in the game that is managed by latch rather than by a key.
+
+Suppose that most of the doors in our game are locked with normal keys, but one is the kind that simply latches. We can handle this with a specific before rule that fires prior to the more general before rules in Locksmith. We also want to treat LOCK X differently from LOCK X WITH..., so we will treat locking and locking keylessly with separate rules. Locking keylessly is the action invoked if the player types only LOCK X.
+
+	{*}"John Malkovich's Toilet"
+
+	Include Locksmith by Emily Short.
+
+	The Bathroom is a room.
+
+	The bathroom door is a door. It is north of the Bathroom and south of the Bedroom. It is lockable and locked.
+
+	Before unlocking keylessly the bathroom door:
+		if the bathroom door is unlocked, say "[The bathroom door] is already unlocked." instead;
+		try turning the latch instead.
+
+	Before locking keylessly the bathroom door:
+		if the bathroom door is locked, say "[The bathroom door] is already secure." instead;
+		try turning the latch instead.
+	
+	Before locking the bathroom door with something:
+		say "The bathroom door locks with a latch, not with a key." instead.
+	
+	Before unlocking the bathroom door with something:
+		say "The bathroom door locks with a latch, not with a key." instead.
+
+	The latch is part of the bathroom door. "A turnable tab that locks the door." Understand "knob" as the latch. The description of the bathroom door is "Uninteresting save for the latch."
+
+	Instead of turning the latch:
+		if the bathroom door is locked begin;
+			say "Click! You turn the latch, and the door is unlocked[if the door is open] and open[end if].";
+			now the bathroom door is unlocked;
+		otherwise;
+			say "Click! You turn the latch, and the door is locked[if the door is open], but open; the lock will catch as soon as you shut the door[end if].";
+			now the bathroom door is locked;
+		end if.
+
+	The little black oval door is a door. It is west of the Bathroom and east of Oblivion. It is lockable and locked. The description of the oval door is "It is in the wall of the shower area, and opens who knows where. You are sure it was not there yesterday."
+
+	The onyx key unlocks the oval door. It is in the Bedroom. "On the floor, jagged black in the square of sunlight, is [an onyx key]."
+
+	Test me with "x bathroom door / unlock oval door / unlock bathroom door / g / go through bathroom door / get key / lock bathroom door / close bathroom door / s / lock bathroom door with onyx key / w".
+

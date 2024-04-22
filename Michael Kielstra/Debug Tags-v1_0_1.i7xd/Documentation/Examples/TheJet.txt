@@ -1,0 +1,31 @@
+Example: * The Jet
+Description: A more complex example with priorities, urgency overriding, an assignee, and custom messages.
+
+We're implementing a fighter jet, but someone's linked the controls together strangely.  Plus, the missiles don't work.  The first of these problems is something we can fix right now, but the second's really more Iceman's responsability than ours, so we make a note.  The next time he runs our development copy of the game, he'll see we've assigned the guidance to him.
+
+Difficult-to-understand controls for complex machines are almost a tradition of IF, so we don't worry particularly about our ignition/self-destruct problem.  It shouldn't go out to the public, so we make it a STOPSHIP, but the only bug we're properly worried about is the complete lack of missile implementation.  To give this a higher priority, we create a new type of tag in case this kind of thing comes up in the future, and give it a more serious (numerically lower) priority.  We make the urgency threshold more serious as well, so only our new kind of tag causes the urgent message.
+
+Since we've now got a more concrete use for the urgent tags message, we give a more specific piece of text for it instead of the usual warning, and, just for quality-of-life and because we can, we tell the game to stop prefixing STOPSHIP tags with "STOPSHIP" and use "Doesn't work" instead.
+
+	{*}"The Jet"
+	
+	Include Debug Tags by Michael Kielstra.
+	
+	The F-35 is a room.  The ignition button is in the F-35.  The missile guidance control is in the F-35.  The self-destruct button is in the F-35.
+	
+	Instead of pushing the ignition button, try pushing the self-destruct button.
+	
+	Instead of pushing the self-destruct button, end the story saying "The jet blows up with you inside."
+	
+	An unimplemented object is a kind of debug tag.  The type of an unimplemented object is usually "UNIMPLEMENTED".  The priority of an unimplemented object is usually 1.
+		
+	PRESSING IGNITION ACTIVATES SELF-DESTRUCT is a STOPSHIP in the F-35.
+	CANNOT USE MISSILE GUIDANCE is an unimplemented object in the F-35.  The assignee is "Iceman".
+
+	The urgency threshold is 5.
+	
+	The urgent tags message is "Some F-35 systems not fully implemented."
+	
+	The type of a STOPSHIP is "Doesn't work"
+	
+	Test me with "push ignition".

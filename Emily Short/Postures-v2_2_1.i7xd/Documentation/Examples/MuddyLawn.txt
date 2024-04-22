@@ -1,0 +1,19 @@
+Example: * Muddy Lawn
+Description: A room where the player can't sit on the ground, plus a folding chair, a safer-to-sit-on driveway, and the ubiquitous guinea-pig Clark.
+
+	{*}"Muddy Lawn"
+
+	Include Postures by Emily Short.
+
+	Use posture visibility checks.
+
+	A chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.
+
+	The Muddy Lawn is a posture-unfriendly room. West of the Muddy Lawn is the Driveway.
+
+	Clark is a man in the Muddy Lawn. A persuasion rule: persuasion succeeds.
+
+	The Muddy Lawn contains a folding chair. The description of the folding chair is "Made of metal and plastic, and intended for outdoor use." The folding chair is a chair. The folding chair is portable.
+
+	Test me with "lie on chair / sit on chair / stand on chair / stand up / exit / sit down / look / stand up / lie down / sit on chair / west / east / Clark, sit on chair / Clark, stand / Clark, sit down / Clark, stand / Clark, lie down / Clark, stand / Clark, lie on chair / Clark, stand on chair / Clark, west / west / Clark, sit / sit / Clark, east / east / get chair / west / drop chair / sit down / get up / sit on chair".
+

@@ -1,0 +1,108 @@
+Example: * Family Reunion
+Description: Using Tables to give successions of responses to questions and NPC fidgets
+
+	{*}"Family Reunion"
+
+	Part 1 - Setup
+
+	Include List Controller by Eric Eve.
+
+	When play begins:
+	Now the description of yourself is "Trim and upright, with a proud Prussian bearing - too bad about the withered arm, though."
+
+	Part 2 - Scenario
+
+	The Royal Lounge is a room. "Opulent in its way, to your eye this room nevertheless has a slightly dingy, old-fashioned look, no doubt because the Queen is so opposed to the idea of change, but also perhaps because England is so backward-looking compared with your new dynamic Germany."
+
+	The window is scenery in the lounge. "It affords an excellent view of Windsor Great Park - or rather it would if the view were not largely obscured by the Prince of Wales."
+
+	Bertie is a man in the Lounge. "Bertie is standing with his back to the window."
+	Understand "prince" or "edward" or "of" or "wales" or "uncle" as Bertie.
+
+	Queen Victoria is a woman in the Lounge. "Queen Victoria is sitting glowering sternly at her oldest son." The description is "She's still dressed in the black mourning weeds she's worn ever since the Prince Consort died."
+
+	Part 3 - Queen Victoria's Conversation
+
+	Instead of asking Queen Victoria about a topic listed in the Table of Queen Conversation:
+		if there is a List Control entry,
+			show the next response from the List Control entry, with newlines;
+		otherwise say "[Response entry][paragraph break]".
+	
+	After asking Queen Victoria about something:
+		show the next response from Queen-Default, with newlines;
+		stop the action.
+
+	Understand "bertie" or "uncle" or "prince" as "[prince]".
+
+	Table of Queen Conversation
+	Topic		List Control	Response
+	"[prince]"	Queen-Bertie	--
+	"germany"	Queen-Germany	--
+	"weather"	--		"'What do you think of the weather today, grandma?' you ask.[paragraph break]'It is tolerable,' she replies."
+
+	Queen-Bertie is a stopping list controller.
+	The associated list is the Table of Queen's Bertie Responses.
+
+	Table of Queen's Bertie Responses
+	response
+	"'Isn't Uncle Bertie looking well?' you gush.
+
+	'He's put on too much weight,' the Queen demurs critically."
+	"'Are you keeping Bertie busy, grandma?' you enquire.
+
+	'Bertie spends far too much time gallivanting,' the Queen disapproves."
+	"'Don't you think Bertie will make a fine king one day, grandma?' you ask.
+
+	'Over my dead body!' she replies fiercely."
+	"Perhaps you have exhausted that topic for now."
+
+	Queen-Germany is a stopping list controller.
+	The associated list is the Table of Queen's Germany Responses
+
+	Table of Queen's Germany Responses
+	response
+	"'You should come and visit us in Germany, grandma,' you suggest.
+
+	'Yes, I am sure Vicky would be pleased to see me,' she nods."
+	"'Our two countries should become better friends, don't you think, grandma?' you propose.
+
+	'That was always my dear Albert's dearest wish,' she smiles."
+	"'Between us, Britain and Germany could rule the world!' you declare enthusiastically, 'What do you say, grandma?'
+
+	'Well!' she frowns, looking slightly alarmed."
+	"Bertie frowns and motions to you to keep quiet."
+
+	Queen-Default is a shuffled list controller.
+	The associated list is the Table of Queen's Default Responses
+
+	Table of Queen's Default Responses
+	response
+	"'We are not amused, Willi,' she replies sternly."
+	"'That is not something we are prepared to discuss,' she answers stiffly."
+	"'I am surprised you should raise such a matter at such a time!' she rebukes you."
+	"'No, we shall not discuss that!' she rules."
+
+	Part 4 - Bertie's Fidgeting
+	
+	Bertie-Fidget is a cyclic list controller.
+	The associated list is the Table of Bertie's Fidgets.
+
+	Table of Bertie's Fidgets
+	response
+	"Uncle Bertie clears his throat."
+	"Uncle Bertie shuffles from one foot to the other."
+	"The Prince of Wales manfully stifles a yawn."
+	"Bertie scratches his right ear."
+	"Bertie pats his jacket as if looking for a cigar, but then remembers himself just in time."
+	
+	Every turn when a random chance of 1 in 3 succeeds:
+		show the next response of Bertie-Fidget, with newlines.
+
+	Part 5 - Test
+
+	Test me with "x bertie/x queen/x window/ask queen about bertie/g/g/g/ask queen about weather/ask queen about love/ask queen about war/ask queen about germany/g/g/g/ask queen about William Gladstone/ask queen about Disraeli/ask queen about germany"
+
+
+
+
+

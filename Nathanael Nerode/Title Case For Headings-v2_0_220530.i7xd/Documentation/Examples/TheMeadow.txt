@@ -1,0 +1,18 @@
+Example: * The Meadow
+Description: But we want the title to be *The* Meadow.
+
+The title in the status line and room description will be "The Meadow".
+`take meadow` will still print "You would have to get out of the meadow first."
+
+Test with "take meadow / look / undo"
+
+	{*}"The Meadow"
+
+	Include Undo Output Control by Nathanael Nerode.
+	Include Title Case for Headings by Nathanael Nerode.
+
+	A meadow is a titled room.  "This is a meadow."
+	The title of the meadow is "The Meadow".
+
+	After deciding the scope of an object (called character):
+		Place the location of the character in scope, but not its contents.

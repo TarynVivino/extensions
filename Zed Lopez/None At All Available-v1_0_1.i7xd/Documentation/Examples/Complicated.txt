@@ -1,0 +1,49 @@
+	{*}"Untitled"
+	
+	The exclude people from take all rule is not listed in the for deciding whether all includes rules.
+	The exclude people from drop all rule is not listed in the for deciding whether all includes rules.
+	
+	For deciding whether all includes the player when taking or dropping or throwing or inserting or putting (this is the include player in doing something to all rule): it does.
+	For deciding whether all includes a person when taking or dropping or throwing or inserting or putting (this is the exclude NPCs from doing something to all rule): it does not.
+	
+	to decide which snippet is the command verb: (- ((verb_wordnum * 100) + 1) -) .
+	
+	Verbify relates one text to one verb.
+	The verb to verbify means the reversed verbify relation.
+	Verb take verbifies "take".
+	Verb drop verbifies "drop".
+	Verb get verbifies "get".
+	To pick up is a verb.
+	Verb pick up verbifies "pick".
+	To insert is a verb.
+	Verb insert verbifies "insert".
+	To throw is a verb.
+	Verb throw verbifies "throw".
+	
+	First multiple action processing rule (this is the anti-none available rule):
+	let l be the multiple object list;
+	if the player is listed in l begin;
+	  remove the player from l;
+	  alter the multiple object list to l;
+	    if the number of entries in l is 0 begin;
+	    let command be the substituted form of "[the command verb]";
+	    if the action name part of the current action is dropping action begin;
+	      if the number of things carried by the player is 0, say "[We] [aren't] carrying anything.";
+	      else say "[We] [can't] drop anything.";
+	    else if there is a verb (called v) that verbifies command begin;
+	      say "There [adapt verb are in story tense] nothing [here] to [infinitive of v].";
+	      else; say "There [adapt verb are in story tense] nothing [here] to do that with.";
+	    end if;
+	  end if;
+	 end if;
+	if the number of entries in l is 1, say "[entry 1 in l]: [run paragraph on]";
+	
+	Lab is a room.
+	
+	box is open openable fixed in place container in lab.
+	stool is scenery supporter in lab.
+	The scarf is wearable in the box.
+	the pocket is a container. It is part of the scarf.
+	the coin is in the pocket.
+	
+	test me with "drop all / put all / put all in box / put all in / put all on stool / put all on / insert all into /take scarf / take all / wear scarf / take all from pocket / drop all / remove all"

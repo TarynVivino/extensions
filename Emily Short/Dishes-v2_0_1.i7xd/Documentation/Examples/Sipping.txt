@@ -1,0 +1,21 @@
+Example: * Sipping
+Description: A bottle of hard cider and a glass and corkscrew to assist in drinking from it.
+
+	{*}"Sipping"
+	
+	Include Dishes by Emily Short.
+
+	The Kitchen is a room. The cabinet is a closed openable container in the kitchen. It is fixed in place.
+
+	The cabinet contains a glass and a corkscrew.
+
+	The player carries a corked bottle called a heavy bottle. The liquid of the heavy bottle is hard cider. The fluid content of the heavy bottle is 25.0 fl oz.
+
+	Table of Liquids (continued)
+	liquid	potable	flavor
+	hard cider	true	"It tastes deliciously tangy."
+
+	Understand "hard" or "cider" as the hard cider.
+
+	Test me with "i / drink cider / open cider / open cabinet / open cider / drink cider / pour cider in glass / drink cider / cork bottle / drink cider / g / g / g / g / g / drink bottle / i".
+

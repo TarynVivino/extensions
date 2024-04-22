@@ -1,0 +1,19 @@
+Example: * Vault
+Description: Demonstration of a simple skeleton key.
+
+	{*}"Vault"
+
+	Include Skeleton Keys by Emily Short.
+
+	The Vault is a room.
+
+	
+
+	The player carries a casket and a box. The casket is a closed locked container. The box is a closed locked container.
+
+	The player carries a silver key. Everything is unlocked by the silver key.
+
+
+
+	Test me with "unlock casket with silver / unlock box with silver key / open casket / i / lock casket with silver / close casket / lock casket with silver".
+

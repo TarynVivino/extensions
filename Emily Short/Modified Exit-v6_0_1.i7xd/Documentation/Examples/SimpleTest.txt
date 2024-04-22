@@ -1,0 +1,26 @@
+Example: * Simple Test
+Description: Test demonstrating the extension behavior.
+
+	{*}"Standing Test"
+
+	Include Modified Exit by Emily Short.
+
+	Use sequential action.
+
+	The Chamber is a room. The Chamber contains an enterable supporter called a sofa. The pillow is an enterable supporter on the sofa. North of the Chamber is the Barracks.
+
+	Clark is a man in the Chamber. A persuasion rule: persuasion succeeds.
+
+	The beanbag chair is an enterable container in the Chamber.
+
+	Instead of an actor going outside in the Chamber:
+		try the person asked going north;
+		rule succeeds. [The 'rule succeeds' bit tells Inform that this was a successful performance of going outside, rather than an unsuccessful one, so that telling Clark to go outside will generate the action (which it would anyway) but then not give the 'Clark can't do that' response afterward.]
+
+	Test me with "test one / test two / test three".
+	
+	Test one with "sit on sofa / get up / sit on pillow / exit pillow / exit sofa / out / s / stand up / sit in chair / get off chair / get out of chair / sit on sofa / s / n / s ";
+
+	Test two with "sit on chair / s / n / s / sit on chair / get chair / drop chair / sit on chair / get out of chair".
+
+	Test three with "Clark, sit on chair / Clark, north / n / Clark, s / s / Clark, sit on sofa / Clark, north / n / Clark, s / s / Clark, sit on sofa / Clark, stand up / Clark, stand up".

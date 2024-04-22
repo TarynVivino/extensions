@@ -1,0 +1,50 @@
+Example: * No0neman's Test
+Description: No0neman wanted to make sure that Alex would no longer be able to be referred to by the old gender, not even for a little while.
+
+	{*}"No0neman's Test"
+
+	Include Gender Options by Nathanael Nerode.
+
+	The starting room is a room.
+
+	The player is in the starting room. The player is not female. The player is not neuter.
+
+	Alex is a person. Alex is not male. Alex is not female.
+
+	Alex is in the starting room.
+
+	Feminizing is an action applying to one thing.
+
+	Masculinizing is an action applying to one thing.
+
+	Neuterizing is an action applying to one thing.
+
+	Understand "feminize [person]" as feminizing.
+
+	Understand "masculinize [person]" as masculinizing.
+
+	Understand "neuter [person]" as neuterizing.
+
+	Carry out feminizing:
+		now the noun is not neuter;
+		now the noun is not male;
+		now the noun is female;
+		set pronouns from the noun;
+		unset pronouns from the noun;
+
+	Carry out masculinizing:
+		now the noun is not neuter;
+		now the noun is not female;
+		now the noun is male;
+		set pronouns from the noun;
+		unset pronouns from the noun;
+
+	Carry out neuterizing:
+		now the noun is neuter;
+		now the noun is not female;
+		now the noun is not male;
+		set pronouns from the noun;
+		unset pronouns from the noun;
+
+	test unsetting with "masculinize alex / x him / x her / feminize alex / x him / x her"
+

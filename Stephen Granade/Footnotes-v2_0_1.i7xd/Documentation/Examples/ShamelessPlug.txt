@@ -1,0 +1,17 @@
+Example: * Shameless Plug
+Description: Adds a footnote to the description of one object in the game.
+
+	{*}"Shameless Plug"
+
+	Include Footnotes by Stephen Granade. Footnotes are on.
+
+	The Lab is a room. "Filled with all of the equipment that you need to trap neutral lithium atoms and cool them to just above absolute zero."
+
+	The carbon dioxide laser is in the Lab. "On one side of the lab is a carbon dioxide laser." The description is "It utilizes a flowing gas approach rather than a closed tube and is specially designed to be extremely stable[note laser-ref]." It is fixed in place. Understand "co2" as the laser.
+
+	Table of Footnotes (continued)
+	Name	Note
+	laser-ref	"K. M. O'Hara, S. R. Granade, M. E. Gehm, T. A. Savard, S. Bali, C. Freed, and J.E. Thomas, Ultrastable CO2 laser trapping of lithium fermions, Phys. Rev. Lett., vol. 82 (1999), pp. 4204."
+
+	Test me with "x laser / note 1".
+

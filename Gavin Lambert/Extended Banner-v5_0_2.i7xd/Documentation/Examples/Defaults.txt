@@ -1,0 +1,11 @@
+Example: * Defaults
+Description: A simple demonstration of the defaults.
+
+The default behaviour is exactly the same as if you hadn't even included the extension, so this is not especially interesting as an example, but it's useful for automated testing.  (Albeit with the caveat that intest ignores the release banner, so some manual comparison is still needed.)
+
+	{*}"Defaults" by Gavin Lambert
+
+	Include Extended Banner by Gavin Lambert.
+	
+	There is a room.
+

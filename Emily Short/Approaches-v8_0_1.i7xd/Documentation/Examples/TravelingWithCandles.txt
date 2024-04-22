@@ -1,0 +1,33 @@
+Example: ** Traveling with Candles
+Description: Movement in which the player is not allowed to enter a dark room unless some light source is found inside or the player himself carries a light source.
+
+This example is a little tricky in that we must invoke some of Inform's underlying machinery to check whether the room the player is about to enter in fact has a visible lightsource inside; otherwise, it is much the same as the previous example in setting special limits on the player's movement and printing the path description when necessary.
+
+	{*}"Traveling with Candles"
+
+	
+	
+	Include Approaches by Emily Short.
+	
+	The Living Room is a room. The Kitchen is north of the Living Room. The Basement is below the Kitchen. The Oubliette is south of the Basement.
+	
+	The Basement and the Oubliette are dark.
+	
+	Instead of going to a provisionally dark room (called danger spot) when the player does not enclose a lit thing:
+		say "[path-walked so far]It looks dark in [the danger spot], [if the number of entries in the path so far of the player is greater than 0]though, [end if]so you stop";
+		if the number of entries in the path so far of the player is greater than 0:
+			say ".[no line break]";
+		otherwise:
+			say "."
+	
+	The player carries a lit thing called a candle.
+	
+	To decide whether (place - a room) finds light inside:
+		(- ( OffersLight({place}) ) -)
+	
+	Definition: a room is internally lit if it finds light inside.
+	
+	Definition: a room is provisionally dark if it is not internally lit.
+	
+	Test me with "n / d / s / drop candle / go to Living Room / get candle / n / drop candle / s / go to living room / go to basement / get candle / go to living room / drop candle / go to oubliette".
+

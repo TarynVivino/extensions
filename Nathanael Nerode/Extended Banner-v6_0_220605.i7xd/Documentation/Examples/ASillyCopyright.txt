@@ -1,0 +1,18 @@
+Example: * A Silly Copyright
+Description: A bogus copyright and licence statement
+
+	{*}"A Silly Copyright"
+
+	Include Extended Banner by Nathanael Nerode.
+
+	Rule for printing the story copyright line:
+		say "Based on a true story originally written by Suspicious Badger in 1823.[line break]" instead.
+		
+	Before printing the story copyright line:
+		say "An anarchic kerfuffle.[line break]"
+		
+	After printing the story copyright line:
+		say "You can discuss this story in the forum at https://my.awesome.website/[line break]"
+
+	Badger Land is a room.
+

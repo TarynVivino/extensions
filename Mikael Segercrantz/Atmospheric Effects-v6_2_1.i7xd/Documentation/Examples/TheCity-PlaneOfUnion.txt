@@ -1,0 +1,269 @@
+Example: **** The City-Plane of Union
+Description: Showing how to use the Atmospheric Effects extension using as a setting the City-Plane of Union from the Epic Level Handbook for the latest edition of AD&D.
+
+	{*}"The City-Plane of Union"
+
+	Include Version 6 of Atmospheric Effects by Mikael Segercrantz.
+
+	Use full-length room descriptions and the serial comma.
+
+	Part 1 - Geography
+
+	Chapter 1(a) - Planar Gate
+
+	Planar Gate is a room.
+
+	Planar Gate Region is a region. The planar gate is in the planar gate region.
+
+	Chapter 1(b) - Temple Quarter
+
+	Northwest Temple Quarter is a room. South of northwest temple quarter is a room called Southwest Temple Quarter. East of southwest temple quarter is a room called East Temple Quarter. It is southeast of northwest temple quarter.
+
+	Temple Quarter Region is a region. Northwest temple quarter, southwest temple quarter and east temple quarter are in the temple quarter region.
+
+	Chapter 1(c) - Material Gate
+
+	Material Gate is a room.
+
+	Material Gate Region is a region. The material gate is in the material gate region.
+
+	Chapter 1(d) - Military Quarter
+
+	South Military Quarter is a room. North of south military quarter is a room called North Military Quarter.
+
+	Military Quarter Region is a region. North military quarter and south military quarter are in the military quarter region.
+
+	Chapter 1(e) - High Quarter
+
+	Southeast High Quarter is a room. Northwest of southeast high quarter is a room called Northwest High Quarter.
+
+	High Quarter Region is a region. Southeast high quarter and northwest high quarter are in the high quarter region.
+
+	Chapter 1(f) - Commerce Quarter
+
+	Northwest Commerce Quarter is a room. South of northwest commerce quarter is a room called Southwest Commerce Quarter. East of northwest commerce quarter is a room called Northeast Commerce Quarter. It is northeast of southwest commerce quarter. South of northeast commerce quarter is a room called Southeast Commerce Quarter. It is east of southwest commerce quarter and southeast of northwest commerce quarter.
+
+	Commerce Quarter Region is a region. Northwest commerce quarter, southwest commerce quarter, northeast commerce quarter and southeast commerce quarter are in the commerce quarter region.
+
+	Chapter 1(g) - Market Quarter
+
+	Northwest Market Quarter is a room. South of northwest market quarter is a room called Southwest Market Quarter. East of southwest market quarter is a room called South Market Quarter. It is southeast of northwest market quarter. North of south market quarter is a room called North Market Quarter. It is northeast of southwest market quarter and east of northwest market quarter. East of north market quarter is a room called Northeast Market Quarter. It is northeast of south market quarter. South of northeast market quarter is a room called Central Southeast Market Quarter. It is southeast of north market quarter and east of south market quarter. East of central southeast market quarter is a room called Southeast Market Quarter. It is southeast of northeast market quarter.
+
+	Market Quarter Region is a region. Northwest market quarter, southwest market quarter, north market quarter, south market quarter, northeast market quarter, central southeast market quarter and southeast market quarter are in the market quarter region.
+
+	Chapter 1(h) - Magic Quarter
+
+	West Magic Quarter is a room. East of west magic quarter is a room called East Magic Quarter.
+
+	Magic Quarter Region is a region. West magic quarter and east magic quarter are in the magic quarter region.
+
+	Chapter 1(i) - Perfumed Quarter
+
+	Southwest Perfumed Quarter is a room. East of southwest perfumed quarter is a room called Southeast Perfumed Quarter. North of southwest perfumed quarter is a room called North Perfumed Quarter. It is northwest of southeast perfumed quarter.
+
+	Perfumed Quarter Region is a region. Southwest perfumed quarter, southeast perfumed quarter and north perfumed quarter are in the perfumed quarter region.
+
+	Chapter 1(j) - Tavern Quarter
+
+	East Tavern Quarter is a room. West of east tavern quarter is a room called West Tavern Quarter.
+
+	Tavern Quarter Region is a region. East tavern quarter and west tavern quarter are in the tavern quarter region.
+
+	Chapter 1(k) - Guild Quarter
+
+	Southeast Guild Quarter is a room. Northwest of southeast guild quarter is a room called Northwest Guild Quarter.
+
+	Guild Quarter Region is a region. Southeast guild quarter and northwest guild quarter are in the guild quarter region.
+
+	Chapter 1(l) - Staircase Gate
+
+	Staircase Gate is a room.
+
+	Staircase Gate region is a region. Staircase gate is in the staircase gate region.
+
+	Chapter 1(m) - Bridges
+
+	Planar-Temple Bridge is a room. It is south of planar gate and north of northwest temple quarter.
+
+	Planar-Material Bridge is a room. It is north of planar gate and south of material gate.
+
+	Planar-Commerce Bridge is a room. It is northeast of planar gate and southwest of southwest commerce quarter.
+
+	Temple-Market Bridge is a room. It is northeast of east temple quarter and southwest of southwest market quarter.
+
+	Material-Military Bridge is a room. It is north of material gate and south of south military quarter.
+
+	Material-Commerce Bridge is a room. It is east of material gate and west of southwest commerce quarter.
+
+	Military-High Bridge is a room. It is northwest of north military quarter and southeast of southeast high quarter.
+
+	Military-Commerce Bridge is a room. It is southeast of south military quarter and northwest of northwest commerce quarter.
+
+	Commerce-Market Bridge is a room. It is south of southeast commerce quarter and north of northwest market quarter.
+
+	Market-Magic Bridge is a room. It is north of northeast market quarter and south of west magic quarter.
+
+	Commerce-Magic Bridge is a room. It is southeast of northeast commerce quarter and northwest of west magic quarter.
+
+	Magic-Perfumed Bridge is a room. It is northeast of east magic quarter and southwest of southwest perfumed quarter.
+
+	Magic-Staircase Bridge is a room. It is north of east magic quarter and south of staircase gate.
+
+	Commerce-Guild Bridge is a room. It is north of northeast commerce quarter and south of southeast guild quarter.
+
+	Guild-Tavern Bridge is a room. It is northeast of southeast guild quarter and southwest of west tavern quarter.
+
+	Tavern-Staircase Bridge is a room. It is southeast of west tavern quarter and northwest of staircase gate.
+
+	Tavern-Perfumed-Staircase Bridge is a room. It is east of east tavern quarter, north of staircase gate and west of north perfumed quarter.
+
+	Chapter 1(n) - The City-Plane
+
+	City-Plane of Union is a region. Planar-temple bridge, planar-commerce bridge, planar-material bridge, temple-market bridge, material-military bridge, material-commerce bridge, military-high bridge, military-commerce bridge, commerce-market bridge, market-magic bridge, commerce-magic bridge, magic-perfumed bridge, magic-staircase bridge, commerce-guild bridge, guild-tavern bridge, tavern-staircase bridge, tavern-perfumed-staircase bridge, planar gate region, material gate region, military quarter region, high quarter region, temple quarter region, commerce quarter region, market quarter region, magic quarter region, perfumed quarter region, tavern quarter region, guild quarter region and staircase gate region are in the city-plane of union.
+
+	Chapter 1(o) - Objects
+
+	A gushing fountain is in southwest commerce quarter. It is fixed in place.
+
+	Part 2 - Atmospherics
+
+	Chapter 2(a) - Full City-Plane
+
+	Table of City-Plane of Union Definition
+	during		initch	latch	aftcnt	curcnt	sctype		runtype		frtype		igtype		subtable
+	Arrival		100	33	1	0	ordered		run once	stopping		do not ignore	Table of Arrival Messages
+	Encounters	50	50	0	0	random		run forever	stopping		do not ignore	Table of Encounter Messages
+
+	Table of Arrival Messages
+	used	message
+	0	"The sudden bustling of activity as you enter the City-Plane of Union almost overwhelmes you."
+	0	"You are slowly, ever so slowly, getting used to the bustling of activities ."
+	0	"The bustling activities continue as usual, but you are getting more and more acclimatized to them."
+	0	"Suddenly, you realize you no longer notice anything unusal about all the activities going on around you."
+
+	Table of Encounter Messages
+	used	message
+	0	"A patrol of Union City guards stop to question people."
+	0	"In the distance, you can see a patrol of guards coming closer to you."
+	0	"You are stopped by a patrol of Union City guards and asked for your papers. You show the papers to them."
+	0	"A mercane is looking at you, squinting [if a random chance of 1 in 2 succeeds]his[otherwise]her[end if] eyes."
+
+	Chapter 2(b) - Specific things
+
+	Table of Gushing Fountain Definition
+	during	initch	latch	aftcnt	curcnt	sctype		runtype			frtype		igtype		subtable
+	--	100	100	0	0	random		run forever		stopping		do not ignore	Table of Gushing Fountain Messages
+
+	Table of Gushing Fountain Messages
+	used	message
+	0	"The fountain unleases a gush of water, at least 20 feet high."
+	0	"You hear a gurgling sound from the fountain, as it sucks in water from the pool."
+	0	"A glimmer of gold catches your eye, deep in the pool of the fountain."
+	0	"The constant stream of water from the fountain flies about the area as a gust of wind arrives."
+
+	Chapter 2(c) - The Stairway Gate
+
+	Table of Stairway Gate Definition
+	during	initch	latch	aftcnt	curcnt	sctype		runtype			frtype		igtype		subtable
+	--	100	50	2	0	random		run forever		stopping		do not ignore	Table of Stairway Gate Messages
+
+	Table of Stairway Gate Messages
+	used	message
+	0	"People come in and leave through the Stairway Gate to the Infinite Stairway."
+	0	"The bustling of people travelling through the Stairway Gate is awe-inspring."
+
+	Chapter 2(d) - Definition
+
+	Table of Atmospheric Definition (continued)
+	loci				ignoring			subtable
+	City-Plane of Union		do not ignore		Table of City-Plane of Union Definition
+	gushing fountain			do not ignore		Table of Gushing Fountain Definition
+	Staircase Gate			do not ignore		Table of Stairway Gate Definition
+
+	Part 3 - Scenes
+
+	Chapter 3(a) - Arrival
+
+	Arrival is a scene. Arrival begins when play begins. Arrival ends when the number of filled rows in the Table of Arrival Messages is 0.
+
+	Chapter 3(b) - Encounters
+
+	Encounters is a scene. Encounters begins when Arrival ends.
+
+	Part 4 - Modifications
+
+	Chapter 4(a) - Room
+
+	The description of a room is usually "[exit list]".
+
+	To say exit list:
+		let count be 0;
+		repeat with d running through directions:
+			let r be the room d from the location;
+			if r is a room, increase count by 1;
+		if the count is 0:
+			say "You appear to be trapped in here.";
+		otherwise:
+			if the count is 1:
+				say "From here, the only way is";
+			otherwise:
+				say "From here, the viable exits are";
+			let original be count;
+			repeat with d running through directions:
+				let r be the room d from the location;
+				if r is a room:
+					say " [d] to [r]";
+					decrease count by 1;
+					if count is 1:
+						if original is 2, say " and";
+						otherwise say "[optional comma] and";
+					otherwise:
+						if count is 0, say ".";
+						otherwise say ",".
+
+	To say optional comma:
+		if the serial comma option is active, say ",".
+
+	Chapter 4(b) - Status line
+
+	When play begins:
+		now the left hand status line is "[map region of the location]";
+		now the right hand status line is "[number of visited rooms]/[number of rooms]".
+
+	Part 5 - Starting and ending the game
+
+	Chapter 5(a) - Starting
+
+	When play begins:
+		say "What happenstance.
+
+	You have been trying to reach this place for the last few years, and suddenly, you find yourself here. 	In... The City-Plane of Union.
+
+	Now, you want to find out everything there is to know about the place. Thankfully, you've memorized the map of the place.[line break](To win, visit every room and see every message)[paragraph break]".
+
+	Chapter 5(b) - Ending
+
+	Every turn:
+		let total be 0;
+		repeat with n running from 1 to the number of rows in the Table of Atmospheric Definition:
+			choose row n in the table of Atmospheric Definition;
+			if there is a subtable entry:
+				let tbl be the subtable entry;
+				repeat with o running from 1 to the number of rows in tbl:
+					choose row o in tbl;
+					if there is a subtable entry:
+						if the sctype entry is ordered or the sctype entry is random:
+							let c be the curcnt entry;
+							let d be the number of filled rows in the subtable entry;
+							let f be d minus c;
+							if f is less than 0, now f is 0;
+							increase total by f;
+						otherwise:
+							let lbt be the subtable entry;
+							repeat with p running from 1 to the number of rows in lbt:
+								if there is a message entry:
+									if the used entry is 0, increase total by 1;
+		increase total by the number of rooms;
+		decrease total by the number of visited rooms;
+		if total is 0, end the story saying "You have visited all rooms and seen all messages".
+

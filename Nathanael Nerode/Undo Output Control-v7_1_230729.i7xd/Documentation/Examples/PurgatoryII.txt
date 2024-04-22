@@ -1,0 +1,49 @@
+Example: ** Purgatory II
+Description: As an additional enhancement, we make an automatic undo attempt after the player has died.
+
+	{*}"Purgatory II"
+
+	Include Undo Output Control by Nathanael Nerode.
+	
+	The story author is "Erik Temple".
+	The release number is 3.
+	
+	Black Room is a room. There is a bottle of poison in Black Room.
+	
+	Instead of drinking the bottle of poison:
+		now the printed name of the bottle is "empty bottle";
+		say "You drink down the poison in a single draught! That probably wasn't very smart.";
+		disable saving of undo state.
+	
+	Every turn when the printed name of the bottle is "empty bottle":
+		say "[one of]Your cheeks burn.[or]Your teeth hurt.[or]Your belly twists.[or]Your vision fades.[the end][stopping]"
+	
+	To say the end:
+		say "You have died.";
+		say "[bracket]...maybe you shouldn't have drunk the poison.  Attempting to undo to the moment just before you drank the poison.[close bracket][paragraph break]";
+		undo the current turn;
+		say "[bracket] Well, I guess that didn't work. [close bracket][paragraph break]";
+		end the story saying "You have died".
+	
+	Before undoing an action when save undo state is false:
+		say "[bracket]Attempting to undo to the moment just before you drank the poison.[close bracket][paragraph break]";
+		rule succeeds.
+	
+	Report undoing an action:
+		say "[bold type]";
+		say "[Location]" in title case;
+		say "[roman type]";
+		say "[line break]";
+		say "[bracket]Undone.[close bracket][line break]";
+		enable saving of undo state;
+		rule succeeds.
+		
+	Check saving the game when save undo state is false:
+		say "Maybe it would be best to UNDO your terrible mistake before saving. Are you sure you want to save now, while you're dying? ";
+		if the player consents:
+			continue the action;
+		otherwise:
+			rule fails.
+
+	test me with "look / drink poison / look / look / look"
+

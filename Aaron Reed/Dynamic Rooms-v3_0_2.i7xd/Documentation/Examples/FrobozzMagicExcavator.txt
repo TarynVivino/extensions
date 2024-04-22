@@ -1,0 +1,44 @@
+Example: * Frobozz Magic Excavator
+Description: Allow the player to create new rooms.
+
+Shows how to use positioned rooms, including simulating an implied spatial infrastructure (the maximum-map options prevent the player from digging east of or above the starting location, near a cliff) and creating a series of rooms within the cliff that the player can discover and connect to.
+
+	{*}"Frobozz Magic Excavator"
+
+	Include Dynamic Rooms by Aaron Reed.
+
+	Near the Cliff is a room. "Ah, a fresh cliff face to the west, just ready for new excavation!" There are 50 dynamic rooms. When play begins: locate Near the Cliff at xyz {10, 0, 0}. The maximum-map-x is 9. The minimum-map-x is 0. The maximum-map-z is 0.
+	
+	Anteroom is a room. Down from Anteroom is Treasure Chamber. Some precious jewels are in Treasure Chamber. "There are precious jewels here!" When play begins: locate Anteroom at xyz {8, -1, -3}; assign xyz coordinates based on Anteroom.
+
+	The player holds a Frobozz Magic Excavator. Instead of examining Excavator, say "Try DIG (a direction)." Instead of dropping Excavator, say "Better not, at least if you want your deposit back."
+
+	Understand "dig [a direction]" as excavating. Excavating is an action applying to one visible thing.
+
+	Check excavating:
+		let way be noun;
+		if the room way from location is a room, instead say "You've already excavated in that direction.";
+		if out of dynamic rooms, instead say "Your Frobozz Magic Excavator seems to be out of juice.";
+		if noun is inside or noun is outside, instead say "You can only tunnel up, down, or in a cardinal direction."
+	
+	Carry out excavating:
+		let ctr be available dynamic rooms;
+		let rm be a newly created positioned room noun of location with name "Cave";
+		say "You power up your Frobozz Magic Excavator";
+		if available dynamic rooms < ctr:
+			say " and tunnel out a passage to the [noun]. As you finish, the charge indicator drops to ([available dynamic rooms] out of [the number of dynamic rooms]).";
+		else if the rule failed:
+			say ", but the mass meter indicates insufficient stable rock in that direction to make an excavation.";
+		else:
+			say " and begin tunneling to the [noun], but soon break through into an open space."
+	
+	Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
+
+	After looking:
+		let count of exits be the number of viable directions;
+		if the count of exits is 0, say "There are no useful exits." instead;
+		if the count of exits is 1, say "From here, the only way out is to [a list of viable directions].";
+		otherwise say "From here, the viable exits are to [a list of viable directions]."
+	
+	test me with "dig e / dig u / dig w / w / dig w / w/ dig s / s / dig d / d / dig d / d / dig d / d / d / get jewels".
+

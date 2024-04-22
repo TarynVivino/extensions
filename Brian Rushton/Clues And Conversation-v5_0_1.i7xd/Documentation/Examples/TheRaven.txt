@@ -1,0 +1,25 @@
+Example: * The Raven
+Description: Having a single topic with a single target.
+
+	{*}"The Raven"
+	
+	Include Clues and Conversation by Brian Rushton.
+
+	The Study is a room.
+
+	Poe is a man in the Study. The description of Poe is "A man who seems to awaiting a pronouncement of eternal doom."
+
+	When play begins:
+		deliver Doom;
+		
+	Doom is a quip. The preview of Doom is "Nevermore".
+
+	The target of Doom is Poe. The TargetResponse of Doom is "'Nevermore', quoth you.
+
+	'No!' screams Poe."
+
+	Report uttering Doom to Poe:
+		end the story finally;
+
+	Test me with "I / talk to poe / T / say Doom"
+

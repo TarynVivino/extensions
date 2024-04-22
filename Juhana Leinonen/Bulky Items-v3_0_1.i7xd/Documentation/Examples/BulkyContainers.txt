@@ -1,0 +1,32 @@
+Example: ** Bulky Containers
+Description: Containers that become bulky when a bulky thing is inserted into them.
+
+	{*}"Bulky Containers"
+
+	Include Bulky Items by Juhana Leinonen
+
+	Living room is a room.
+
+	The sack is a container. The player carries the sack.
+
+	A television is in the living room. It is bulky.
+	A coffee table is in the living room. It is bulky.
+	A remote control is in the living room.
+	A tv guide is in the living room.
+
+	Check inserting something bulky into the sack when a bulky thing (called the previous occupant) is in the sack:
+			say "There's no room for [the noun] anymore when [the previous occupant] [are] in the sack." instead.
+	
+	After inserting something bulky into the sack:
+		now the sack is bulky;
+		continue the action.
+	
+	After taking something:
+		if the number of bulky things enclosed by the sack is 0:
+			now the sack is not bulky;
+		continue the action.
+
+
+	Test me with "get remote/i/put remote in sack/get tv guide/i/get television/i/put television in sack/get coffee table/put coffee table in sack/get tv guide/i".
+
+

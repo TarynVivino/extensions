@@ -1,0 +1,21 @@
+Example: * Directions and Doors
+Description: Allowing the player and his sidekick Clark to see into various rooms.
+
+	{*}"Changing Room"
+	
+	Include Facing by Emily Short.
+
+	The Changing Room is a room. The white door is north of the Changing Room and south of the Hallway. The white door is a door. Clark is a man in the changing room. A persuasion rule: persuasion succeeds. The closet door is west of the changing room and east of the Storage Closet. The closet door is a door. It is closed and locked.
+	
+	The sliding glass door is a door. It is southeast of the changing room and northwest of the Patio. It is transparent.
+	
+	Rule for distantly describing the hallway:
+		say "Off in the hallway, you make out a steady stream of auditioners coming and going; some looking tense, some relieved."
+		
+	Rule for distantly describing a room (called target) when the occluding door is closed and the occluding door is transparent:
+		let N be indexed text;
+		now N is "[the target]";
+		say "Through the glass of [the occluding door], you make out [N in lower case]."
+	
+	Test me with "look north / close white door / clark, look north / look east / Clark, look east / look west / Clark, look west / look southeast / open sliding door / se / look nw / close door / look nw".
+

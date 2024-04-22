@@ -1,0 +1,37 @@
+Example: ** The Jade Amphitheater
+Description: A replacement for the ordinary describing path rule to produce text output such as "You go to Crimson Chamber by way of Grooved Channel, Shallow Jade Amphitheater, Silver Filigree Prison and Mandarin Casket Room."
+
+Here we want to change both the individual pieces of the movement description (using only room names and not directions traveled) and the order in which this output is presented. Therefore, we need a new rule to write the player's described motion using just the room names, and also a new describing path rule to put the description together:
+
+	{*}"Jade Amphitheater"
+
+	Section 1 - Rules for Revising Output
+	
+	Include Approaches by Emily Short.
+	
+	The new creating a path history rule is listed instead of the creating a path history rule in the carry out going rules.
+	
+	Room sequence is a list of rooms that varies.
+	
+	Carry out going while the player is hurrying (this is the new creating a path history rule):
+		add the approach-heading to the path so far of the player;
+		add the approach-destination to the room sequence;
+	
+	Rule for describing path of the player:
+		let N be the number of entries in the room sequence;
+		say "[We] [go] [if the location is the noun]to[otherwise]toward[end if] [entry N of room sequence]";
+		if N is greater than 1:
+			truncate the room sequence to (N - 1) entries;
+			say " by way of [the room sequence]";
+		say ". [run paragraph on]";
+		clear the path-walked for the player;
+		now room sequence is { }.
+	
+	Section 2 - Scenario
+	
+	The Crimson Chamber is north of the Mandarin Casket Room. The Mandarin Casket Room is west of the Silver Filigree Prison. The Silver Filigree Prison is northwest of the Shallow Jade Amphitheater. The Shallow Jade Amphitheater is north of the Grooved Channel. Below the Grooved Channel is the Carved Basin.
+	
+	A room is usually proper-named.
+	
+	Test me with "s / e / se / s / d / go to the Crimson Chamber".
+

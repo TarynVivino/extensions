@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Initial Cursor At Top Or Bottom",
+        "author": "Nathanael Nerode",
+        "version": "3.0.230723"
+    }
+}

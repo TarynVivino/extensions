@@ -1,0 +1,24 @@
+Example: * Further Customization
+Description: Adjusting the copyright line in more depth.
+
+If you have something more complicated to say for your copyright statement, you can replace or adjust the "printing the story copyright line" activity:
+
+	{*}"Further Customization" by Gavin Lambert.
+	
+	Include Extended Banner by Gavin Lambert.
+
+	The story copyright string is "1823".
+	
+	Rule for printing the story copyright line:
+		say "Based on a true story originally written by Suspicious Badger in [story copyright string]." instead.
+		
+	Before printing the story copyright line:
+		say "An anarchic kerfuffle."
+		
+	After printing the story copyright line:
+		say "You can discuss this story in the forum at https://my.awesome.website/."
+
+	There is a room.
+
+Note that if you replace the default story copyright line rule then it won't print the story copyright string or story rights statement, but you can still use these in your own rule.
+

@@ -1,0 +1,57 @@
+Example: * Lamplighter Three
+Description: The flashlight again, but this time with a rechargeable battery and a battery charger that can restore it to full strength. We also use the "warning about the failure" activity to add a more interesting description when the flashlight is about to go out.
+
+Our battery charger is going to be a simple device that includes both a plug and a battery compartment.
+
+	{*}"Lamplighter Three"
+
+	Include Power Sources by Emily Short.
+
+	A light source is a kind of device. Carry out switching on a light source: now the noun is lit. Carry out switching off a light source: now the noun is unlit.
+
+	Salon is a room. A lamp is a fixed in place light source in the Salon. "A lamp [if lit]shines brightly[otherwise]sits[end if] here." The lamp incorporates a PS-plug.
+
+	The flashlight is a light source carried by the player. It incorporates a battery compartment. The player carries a rechargeable battery. The battery drain of the flashlight is 6.
+
+	The Salon contains a wall socket.
+
+	When play begins:
+		let spot be a random wall socket in the Salon;
+		if spot is a wall socket:
+			silently try plugging the lamp into spot.
+
+	The player carries a charger. The charger is a device. The charger incorporates a battery compartment. The charger incorporates a PS-plug. Understand "battery charger" as the charger.
+
+	Instead of examining the charger:
+		let cell be a random battery which is in a battery compartment which is part of the charger;
+		if cell is not a battery or charger is not wall-powered:
+			say "The light on the battery charger is off." instead;
+		otherwise if cell is not a rechargeable battery:
+			say "The light on the battery charger flashes a warning red." instead;
+		otherwise if the cell is fully charged:
+			say "The light on the battery charger glows green to indicate a full charge." instead;
+		otherwise:
+			say "The light on the battery charger glows red to indicate charging."
+
+	Carry out plugging the charger into a wall socket:
+		now the charger is in the location.
+
+	Carry out unplugging the charger:
+		now the player carries the charger.
+
+	Report inserting a battery into a battery compartment which is part of the charger:
+		say "You put [the noun] into [the second noun]. [run paragraph on]";
+		try examining the charger instead.
+
+	When play begins:
+		let target be a random battery compartment that is part of the charger;
+		now the target is open;
+		now the target is not openable.
+
+	Rule for warning about the failure of the flashlight:
+		if a random battery compartment which is part of the flashlight contains a	battery (called the power source):
+			let turns remaining be the charge of the power source divided by the battery drain of the flashlight;
+			if the turns remaining is 1:
+				say "The flashlight is getting appreciably dimmer."
+
+	Test me with "look / turn on lamp / look / unplug lamp / look / turn on lamp / plug in lamp / turn on lamp / unplug lamp / plug lamp into wall socket / i / open flashlight / put battery in flashlight / close battery compartment / turn on flashlight / i  / z / z / z / z / z / z / z / z / open flashlight / get battery / put battery in charger / x charger / unplug lamp / plug in charger / x charger / z / z / z / z / z /z / z / x charger / z / z / z / z / z / x charger / put battery in flashlight / turn on flashlight".

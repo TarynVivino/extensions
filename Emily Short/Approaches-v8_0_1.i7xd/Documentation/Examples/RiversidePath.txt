@@ -1,0 +1,38 @@
+Example: ** Riverside Path
+Description: A bicycle that the player can use to traverse multiple rooms at a time, when travel on foot is restricted to single-room movement.
+
+Suppose we want the player to be able to travel long distances at once only when riding on a vehicle: maybe it's part of a timed puzzle that the player can solve only after finding the bike, or maybe it's simply a gesture at realism.
+
+We're also going to allow the player to travel even to unvisited rooms in this scenario, so that he can go by bicycle to places he knows about but hasn't had time to explore on foot.
+
+Finally, because our travel is by vehicle, we're going to restrict the player to disallow riding through doors, so we calculate "the best route from the location to the noun" rather than "the best route from the location to the noun, using doors".
+
+	{*}"Riverside Path"
+
+	[ This example doesn't work if Implicit Actions by Eric Eve is included.]
+	
+	Include Approaches by Emily Short.
+	Include Rideable Vehicles by Graham Nelson.
+
+	Section 1 - Restricting travel to bike
+
+	Check approaching:
+		if the holder of the player is not vehicular and the noun is not adjacent, say "On foot you can only travel short distances at a time." instead.
+
+	Section 2 - Allowing travel to and through unvisited rooms
+
+	Understand "go to [any room]" or "go back to [any room]" or "return to [any room]" or "revisit [any room]"  as approaching.
+
+	The new approach heading finding rule is listed instead of the approach-heading selection rule in the approach-finding rules.
+
+	This is the new approach heading finding rule:
+		now approach-heading is the best route from the location to the noun.
+
+	Section 3 - The scenario
+
+	The Field is north of the Street. The Street is north of the Town Square. The Town Square is north of the Riverside Path.
+
+	The bicycle is a rideable vehicle in the Field.
+
+	Test me with "go to Riverside Path / get on bicycle / go to riverside path / get off bicycle / go to town square".
+

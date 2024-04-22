@@ -1,0 +1,11 @@
+Example: * Ignorance is Bliss
+Description: Test for don't know that word rule (from Unknown Word Error)
+	
+	{*}"Ignorance is Bliss"
+
+	Include Neutral Standard Responses by Nathanael Nerode.
+
+	The Conference Chamber is a room. In the Conference Chamber is a table. On the table is a treaty.
+
+	Test me with "examine non-proliferation treaty".
+

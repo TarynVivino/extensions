@@ -1,0 +1,19 @@
+Example: * The Lab
+Description: A basic example.
+
+We'd like to implement a chemistry lab, so we go ahead and create a lab and a lab bench.  Immediately, we have some great ideas, but we don't know quite what to do with them so we write them down to come back to later.  A quick test reveals a serious bug, but we want to keep putting the lab together so we note it down to fix later.  We make it a STOPSHIP so it has a higher priority, meaning that it will be printed first when we next run the game.
+
+	{*}"The Lab"
+	
+	Include Debug Tags by Michael Kielstra.
+
+	The Lab is a room.  The lab bench is in the Lab.  The chemical box is in the lab.  It is an openable open container.  The chemical phial is in the chemical box.
+
+	IMPLEMENT CHEMICAL MIXING/ALCHEMY SYSTEM is a TODO.
+	MAYBE ADD SOME PHENOLPHTHALEIN - I LOVE PHENOLPHTHALEIN is an IDEA.
+	
+	PLAYER CANNOT PUT PHIAL ON LAB BENCH is a STOPSHIP.
+		
+	Test me with "take phial / put chemical phial on lab bench".
+
+	

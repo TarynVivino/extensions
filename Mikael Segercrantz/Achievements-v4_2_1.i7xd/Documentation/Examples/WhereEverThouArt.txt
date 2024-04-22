@@ -1,0 +1,63 @@
+Example: ** Where ever thou art
+Description: Demonstrating the use of achievements, locations scored and items scored.
+
+	{*}"Where ever thou art"
+
+	Include Version 4 of Achievements by Mikael Segercrantz.
+
+Let's create the three rooms first.
+
+	The entrance hall is a room. The basement is a room. The dining hall is a room.
+
+Add a door and the connections:
+
+	A wooden door is a door. It is west of the entrance hall and east of the dining hall. It is closed and openable.
+
+	The basement is below the entrance hall.
+
+Add some treasure:
+
+	A baseball cap is a thing. Some crates are in the basement. They are fixed in place.
+
+	Instead of searching the crates for the first time:
+		now the baseball cap is in the basement;
+		say "Tucked behind crates of various things, you find a baseball cap!"
+	
+	After opening the wooden door, score the achievement with message "finding the way to the dining hall".
+
+And the tables:
+
+	Table of Achievements (continued)
+	used		points		message
+	0		10		"finding the way to the dining hall"
+
+	Table of Scored Places (continued)
+	used		points		loci
+	0		5		basement
+	0		5		dining hall
+
+	Table of Scored Objects (continued)
+	used		points		object
+	0		5		baseball cap
+
+	Table of Achievement Rankings (continued)
+	minimum	rank
+	0		"beginner"
+	10		"explorer"
+	20		"leader"
+	25		"master"
+
+Initialize status line:
+
+	When play begins:
+		now the right hand status line is "[score] out of [achievement maximum score]".
+
+Ending the game:
+
+	Every turn:
+		if the score is the achievement maximum score, end the story finally saying "You have won."
+
+And finally the testing command:
+
+	Test me with " open door / score / w / score / e / d / score / search crates / take cap ".
+

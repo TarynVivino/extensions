@@ -1,0 +1,24 @@
+Example: * Undropped
+Description: items that can't be restored to their original state by dropping them
+
+	{*}"Undropped"
+
+	Include Autoundo for Object Response Tests by Mike Ciul.
+
+	Test is a room.
+
+	The glass box is a transparent closed openable container in Test.
+
+	The piece of gum is a thing in Test.
+
+	Check dropping the gum:
+		say "It sticks to your fingers and won't let go.";
+		stop the action.
+	
+	After dropping the glass box:
+		say "It smashes into a million pieces.";
+		Now everything in the glass box is in the location;
+		remove the glass box from play.
+	
+	test me with "autoundo actions/analyze box/analyze gum/autoundo turns/analyze box/analyze gum/i/l/autoundo off/analyze box/analyze gum/i/l"
+

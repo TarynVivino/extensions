@@ -1,0 +1,14 @@
+Example: * A Simple Copyright
+Description: A copyright and license statement
+
+
+If you have something more complicated to say for your copyright statement, you can replace or adjust the "printing the story copyright line" activity:
+
+	{*}"A Simple Copyright"
+
+	Include Extended Banner by Nathanael Nerode.
+
+	The story copyright string is "2005-6".
+	The story rights statement is "Released under the Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License"
+
+	Test room is a room.

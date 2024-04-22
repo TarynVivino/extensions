@@ -1,0 +1,11 @@
+Example: * Ignorance is Bliss
+Description: A brief test of this extension.
+	
+	{*}"Ignorance is Bliss"
+
+	Include Unknown Word Error by Mike Ciul.
+
+	The Conference Chamber is a room. In the Conference Chamber is a table. On the table is a treaty.
+
+	Test me with "examine non-proliferation treaty".
+

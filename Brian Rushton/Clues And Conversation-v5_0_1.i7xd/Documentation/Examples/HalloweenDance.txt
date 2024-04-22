@@ -1,0 +1,183 @@
+Example: *** Halloween Dance
+Description: A complete game using this extension.
+
+	{*}"Halloween Dance"
+
+	Include Clues and Conversation by Brian Rushton.
+
+	Dance Hall is a room. The description of Dance Hall is "A school gymnasium with four or five pumpkins on the side and orange and black streamers hanging from the ceiling."
+
+	The pumpkins are scenery. The description of pumpkins is "The pumpkins have ghosts carved into them.". Understand "pumpkin" as pumpkins.
+
+	Ghosts is a quip. The preview of Ghosts is "'Do you believe in ghosts?'".
+
+	After examining the pumpkins for the first time:
+		deliver Ghosts;
+	
+	TargetResponse of Ghosts is "'Do you believe in ghosts?'[paragraph break]'Not really, why?'[paragraph break]'They say that a kid died in this gym 40 years ago at a Halloween party.'[paragraph break]'How did he die?'[paragraph break]'His costume caught on fire on a tiki torch against the wall. He tried to take it off, but his zipper was stuck. He ran out into the night to try and reach a pond but he didn't make it.'"
+	
+	The description of the player is "You're wearing a spooky ghost costume!";
+
+	The streamers are scenery. The description of the streamers is "The streamers are orange and black. A spider scurries across it and out of sight."
+
+	The pumpkins and streamers are in Dance Hall.
+
+	Fred is a man. Jane is a woman. Fred is in Dance Hall. Jane is in Dance Hall.
+
+	Dancing is an action applying to nothing.
+
+	Understand "dance" as dancing.
+
+	Instead of dancing:
+		say "You [one of]do the robot[or]break dance[or]do the macarena[or]bob your head[at random]."
+
+	The description of Fred is "A young man wearing a white suit with red splatters all over. He is standing next to a cooler with mist coming out of it."
+
+	The description of Jane is "A young woman wearing a simple frock covered with dozens of old... are those beepers? Like from the 90[']s?"
+
+	Boy is a quip. The preview of Boy is "'So, what do you know about Fred?'".
+	The target of Boy is Jane.
+
+	Girl is a quip. The preview of Girl is "'So, what do you know about Jane?'".
+	The target of Girl is Fred.
+
+	The cooler is in the  Dance Hall. The description of the cooler is "A small blue cooler with mist coming out of it."
+
+	Instead of taking the cooler:
+		say "That belongs to someone else."
+
+	Instead of opening the cooler:
+		say "That's already open."
+
+	Instead of looking in the cooler:
+		say "The boy says 'Hey, that's mine!'"
+
+	The brainpop is a thing. The description of brainpop is "A homemade popsicle with some kind of mush in it."
+
+	The costume is a thing. The description of costume is "A Phantom of the Schoolhouse costume, complete with gloves and mask." Understand "my costume" as costume. Understand "your costume" as costume. Understand "glove" as costume. Understand "mask" as costume. Understand "gloves" as costume.
+	The indefinite article of the costume is "your".
+	The player wears the costume.
+
+	After examining the costume for the first time:
+		deliver Phantom;
+
+	Instead of taking off costume:
+		say "You don't want to take that off now."
+
+	Instead of dropping costume:
+		say "You actually aren't wearing anything underneath. Better hold on to it."
+
+	Greeting is a quip. The preview of Greeting is "'Hi! My name is Gerald.'"
+
+	Compliment is a quip. The preview of Compliment is "'Wow, nice costume!'".
+
+	Uhh is a quip. The preview of Uhh is "'Actually, I'm not interested.'". The target of Uhh is Fred.
+	Okay is a quip. The preview of Okay is "'Why not?'". The target of Okay is Fred.
+
+	[These are temporary quips]
+
+	Report uttering something to someone:
+		remove Uhh;
+		remove Okay;
+
+	TargetResponse of Greeting is "'Hi, my name is Gerald.'
+
+	[if CurrentTarget is Fred]Fred says, 'Hi, my name is Fred!'[otherwise]Jane says, 'Hi, my name is Jane!'[end if]"
+
+	Report uttering Greeting to Fred:
+		deliver Boy;
+		
+	Report uttering Greeting to Jane:
+		deliver Girl;
+
+	TargetResponse of Compliment is "You say, 'Wow, nice costume!'
+
+	[if CurrentTarget is Fred]'Thanks! I'm a zombie ice cream man selling brainpops. You want one?'[otherwise]'Awww, you're sweet! I'm the Grim Beeper, reminding all technology that it will one day be obsolete.'[end if]"
+	
+	Report uttering Compliment to Fred:
+		deliver Uhh;
+		deliver Okay;
+
+	TargetResponse of Okay is "'Why not?'[paragraph break] He hands you a brainpop."
+	TargetResponse of Uhh is "'Actually, I'm not interested.'[paragraph break]He shrugs."
+
+	Report uttering Okay to Fred:
+		now the player is carrying the brainpop;
+
+	Instead of eating the brainpop:
+		say "Wow! That really hits the spot! The mush was strawberries.";
+		now the brainpop is nowhere.
+		
+	Strawberries is a quip. The printed name of Strawberries is "'Did you know Jane doesn't like strawberries?'". The target of Strawberries is Fred.
+
+	Instead of giving the brainpop to Jane:
+		say "She grimaces and says, 'No thanks, I don't like strawberry.'";
+		deliver Strawberries;
+
+	TargetResponse of Strawberries is "'Did you know Jane doesn't like strawberries?'
+
+	Fred's face blanches. He says, 'Aw, crap,' and hangs his head.";
+
+	TargetResponse of Girl is "'So, what do you know about Jane?'[paragraph break]He looks at Jane, then leans forward and whispers, 'Can you keep a secret? Jane has been my crush for two years now. I heard she likes walking dead, so I made this whole getup and these brainpops to impress her[if Strawberries is TargetGiven]. But apparently she hates strawberries...'[otherwise].'[end if]";
+	
+	Report uttering Girl to Fred:
+		deliver Crush;
+		deliver Lie;
+
+	TargetResponse of Boy is "'So, what do you know about Fred?'[paragraph break]She brightens up, peeking over at Fred. 'Can you keep a secret? I think Fred is the sweetest man at school. He's really into repairing old technology, so I made this costume for him.' She twirls to display her outfit. 'I love fixing old stuff too, That's how we met, in our Tech class.'";
+	
+	Report uttering Boy to Jane:
+		deliver Romance;
+
+	Phantom is a quip. The preview of Phantom is "'What do you think about my costume?'".
+
+	TargetResponse of Phantom is "'What do you think about my costume?'[paragraph break]'It's nice! What are you?'[paragraph break]'I'm the Phantom of the Schoolhouse.'[paragraph break]'Cool! I didn't think they let people wear masks anymore.' [CurrentTarget] hesitates for a moment. 'To be honest, I've been wondering if you even go to this school.'";
+		
+	Crush is a quip. The preview of Crush is "'So, I found out who Fred is interested in...'". The Target of Crush is Jane.
+
+	JaneKnows is a number that varies. JaneKnows is usually 0.
+
+	FredKnows is a number that varies. FredKnows is usually 0.
+
+	TargetResponse of Crush is "'So, I found out who Fred is interested in...'[paragraph break]'Really?'[paragraph break]'He told me he's had a crush on you for two years'.";
+	
+	Report uttering Crush to Jane:
+		now JaneKnows is 1;
+		if FredKnows is 1:
+			say "Jane turns to Fred and smiles. She walks over and draws him to the side. You see the two of them laughing together, and then Jane kisses Fred on the cheek and he blushes. Fred turns to you as they walk out together, and gives you a thumbs up.";
+			end the story finally saying "You had some fun, and got the rest of the brainpops.";
+		otherwise:
+			say "Jane beams from ear to ear, and keeps glancing at Fred.";
+		remove Lie;
+			
+	Romance is a quip. The preview of Romance is "'So, I found out who Jane is interested in...'" The target of Romance is Fred.
+
+	TargetResponse of Romance is "'So, I found out who Jane is interested in...'[paragraph break]He looks upset for a second. 'Who?'[paragraph break]'She said she's been into you ever since Tech class. She wore the beeper dress just for you.'";
+
+	Report uttering Romance to Fred:
+		now FredKnows is 1;
+		if JaneKnows is 1:
+			say "[paragraph break]Fred looks over at Jane, leaving the brainpops behind. He turns behind, and says, 'Hey, take the rest of them. I don't need them anymore.'[paragraph break]He walks up to Jane and starts pointing at her costume. You hear them laughing together. As they talk, his hand brushes hers, and she smiles. You turn away and enjoy your reward.";
+			end the story finally saying "You had some fun, and got the rest of the brainpops.";
+		otherwise:
+			say "Fred seems noticeably more cheerful.";
+
+	Lie is a quip. The preview of Lie is "Lie-'Fred told me he hates your guts.'". The target of Lie is Jane.
+		
+	TargetResponse of Lie is "'Fred told me hates your guts. He even put strawberry in those popsicles because he knows you hate it.'[paragraph break]Jane storms away, glaring at Fred. Fred looks at her, perplexed, then back at you. You ignore Fred, and look at the pumpkins instead. Oooh, nice ghost carving.";
+	
+	Report uttering Lie to Jane:
+		end the story finally saying "No one is happy now.";
+
+	When play begins:
+		deliver Greeting;
+		deliver Phantom;
+	
+	Report examining Fred:
+		deliver Compliment;
+		
+	Report examining Jane:
+		deliver Compliment;
+
+	Test me with "talk to Fred / x pumpkins / say ghosts to jane / x jane / x fred / t / say greeting to fred / say greeting to jane / say boy to jane / say girl to fred / t / say compliment to fred / talk to jane / say okay to fred / eat brainpop /  say uhh to fred / say ghosts to fred / say romance to fred  / say crush to jane"
+

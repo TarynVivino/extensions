@@ -1,0 +1,35 @@
+Example: ** Eating a Banana
+Description: A simple demonstration of item-invoking and how it might be implemented in a large project.
+
+	{*}"Eating a Banana" by AW Freyr
+
+	Include Hybrid Choices by AW Freyr.
+
+	A thing has an object called the item menu. The item menu is usually nothing.
+
+	Check item-invoking something:
+		if the item menu of the noun is not a page:
+			say "[The noun] [are] not very interesting." instead.
+
+	Carry out item-invoking something:
+		turn to item menu of the noun.
+
+	The block item-invoking rule is not listed in the report item-invoking rulebook.
+
+	The banana is a thing carried by the player. The item menu is b1.
+
+	b1 is a page. It is a dead-end.
+	"You eat the banana."
+
+	A page-toggle rule for b1:
+		now the banana is off-stage.
+
+	p1 is a page.
+	"You get the feeling there's no way out except eating a banana."
+
+	The blue room is a room.
+
+	After looking for the first time:
+		now the item-invoking disabled is false;
+		switch to cyoa at p1.
+

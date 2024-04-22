@@ -1,0 +1,85 @@
+Example: ** Alchemy
+Description: A demo game showing use of these basic actions.
+
+	{*}"Alchemy" by Nate Cull
+
+	[This is a demo game for Planner.]
+
+	The release number is 2.
+	The story creation year is 2006.
+	The story headline is "An Interactive Demonstration"
+
+	Include Basic Plans by Nate Cull.
+
+	The Laboratory is a room. The description of the Laboratory is "A chaos of glassware, dark sigils, spellcasting apparatus sprawled in disgusting confusion -- in other words, a perfectly normal research lab. A stone archway leads east and another south."
+
+	The Library is east of the Laboratory. The description of the Library is "The stony walls are racked with square miles of parchment volumes."
+
+	A curiously carved table is a supporter in the Library.
+
+	A rosewood bench is a supporter in the laboratory. "A rosewood bench, scarred and burned by years of incantations, fills half of the room."
+
+	An iron crucible is an open container on the rosewood bench. "Bob's crucible bubbles merrily on the bench."
+
+	A cupboard is a closed openable container in the laboratory. "A cupboard of great antiquity quietly blends into the corner shadows."
+
+	A plastic bag is a closed transparent portable openable container on the carved table.
+
+	A Chinese puzzle box is a locked lockable closed openable portable container in the plastic bag.
+
+	A pinch of ginger is a portable thing in the puzzle box.
+
+	A wicker basket is an open container in the cupboard.
+
+	An onion, a tomato, a stick of celery, a lemon and a banana are in the wicker basket.
+
+	Broth is a thing.
+
+	The basic putting things in containers rule does nothing when the desired relation is being-in and the desired param1 is broth and the desired param2 is the crucible.
+
+	Planning when the desired relation is being-in and the desired param1 is broth and the desired param2 is the crucible:
+		plan 1;
+		suggest being-in with the onion and the crucible;
+		suggest being-in with the celery and the crucible;
+		suggest being-in with the banana and the crucible;
+		suggest being-in with the ginger and the crucible;
+
+	To decide whether soup is brewing:
+		if the onion is not in the crucible, decide no;
+		if the celery is not in the crucible, decide no;
+		if the banana is not in the crucible, decide no;
+		if the ginger is not in the crucible, decide no;
+		decide yes;
+
+
+	Every turn when soup is brewing:
+		if the crucible is visible, say "The crucible simmers; the contents meld into a rich pungent vegetable broth.";
+		repeat with item running through things in the crucible begin;
+			now item is nowhere;
+		end repeat;
+	now broth is in the crucible;
+
+	The Alcove is a room.
+
+	The Alcove is south of the Laboratory. The description of the Alcove is "A tiny niche carved out of the stone, which opens out to the north."
+
+	A brass hook is a supporter in the Alcove. "Screwed into the stonework with grim determination is a shiny brass hook." The brass hook has carrying capacity 1.
+
+	A silver key is on the brass hook. The matching key of the Chinese puzzle box is the silver key.
+
+
+
+	Bob is a person in the laboratory. "The mighty wizard Bob potters around his domain."
+
+	The description of Bob is "Bob is carrying [if bob carries anything][list of things carried by bob][otherwise]nothing[end if]."
+
+	The basic dropping objects in rooms rule does nothing when the desired relation is being-in and the desired param1 is a person.
+
+	Every turn:
+		have Bob plan an action for being-in with broth and the crucible;
+
+	Rule for deciding the concealed possessions of Bob:
+		decide no;
+
+
+

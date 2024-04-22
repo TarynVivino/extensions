@@ -1,0 +1,15 @@
+Example: * Totally Normal Banner
+Description: Same as default banner
+
+Note: the "if story author is not blank" text substitution here uses a new pair of say-phrases from this extension which determine whether or not a piece of text is blank.
+
+	{*}"Totally Normal Banner"
+
+	Include Extended Banner by Nathanael Nerode.
+	The release number is 1.
+	
+	Rule for printing the banner text:
+		say "[bold type][story title][roman type][line break][extended story headline][if story author is not blank] by [story author][end if][line break]Release [release number] / Serial number [story serial number] / Inform 7 v[I7 version number][line break]" instead.
+
+	Test room is a room.
+

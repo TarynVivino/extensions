@@ -1,0 +1,28 @@
+Example: * Proper Places
+Description: Demonstrating how to change the names of rooms as printed in movement descriptions.
+
+There are two ways to make a room count as proper-named: to define it without an article, as we define Paris here; or to explicitly say that it is proper-named, as shown in the case of the Bois du Boulogne. Either way, the place name will be shown capitalized, whereas other location names will be printed in lower case during travel descriptions.
+
+As mentioned, we can override output with the rule for printing the name..., as well.
+
+	{*}"Proper Places"
+
+	
+	
+	Include Approaches by Emily Short.
+
+	Paris is a room.
+
+	West of Paris is the Bois du Boulogne. The Bois du Boulogne is proper-named.
+
+	South of Paris is an Unattended Pathway.
+
+	South of the Unattended Pathway is a Small Forbidding Hut.
+
+	Rule for printing the name of the small forbidding hut while the player is hurrying:
+		say "aforementioned unwelcoming hut"
+
+	South of the Small Forbidding Hut is the Empty Kitchen.
+
+	Test me with "w / e / s / s / s / go to bois".
+

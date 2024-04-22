@@ -1,0 +1,13 @@
+Example: * Back to the Hoverboard
+Description: Riding on a hoverboard.
+
+	{*}"Back to the Hoverboard"
+	
+	Include Rideable Vehicles by Gavin Lambert.
+	
+	Park is a room. Drive is north of Park.
+
+	The hoverboard is a rideable vehicle in Park. The bench is an enterable supporter in Park.
+
+	Test me with "sit on bench / stand on hoverboard / n / s / sit on bench / n".
+

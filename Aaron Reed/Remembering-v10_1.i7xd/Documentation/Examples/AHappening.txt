@@ -1,0 +1,50 @@
+Example: * A Happening
+Description: A more confusing example testing the more complex Glulx reporting capabilities.
+
+	{*}"A Happening"
+
+	Include Remembering by Aaron Reed.
+	
+	A room called Southwest Corner is south of a room called Northwest Corner. A room called Northeast Corner is east of Northwest Corner and north of Southeast Corner. Southeast Corner is east of Southwest Corner.
+	
+	Alice and Diana are women in Northwest Corner. Bob, Carl, and Earl are men in Southeast Corner. The pedestal is a fixed in place supporter in Northwest Corner. On the pedestal is an open transparent container called the glass bowl. The miniature train is an enterable vehicle in Southeast Corner. A birdcage, a jar of marmalade, and a mitten are in Northeast Corner. The birdcage is an openable closed transparent container. In the birdcage is a rosary. A weather vane, a jar of peanut butter, and a croquet mallet are in Southwest Corner.
+	
+	Every turn:
+		repeat with char running through people who are not the player:
+			let decision be a random number between 1 and 3;
+			if decision is 1:
+				let item be a random portable thing enclosed by location of char;
+				if item is a thing and char can see item:
+					if item is openable and item is closed and a random chance of 2 in 3 succeeds:
+						try char opening item;
+					otherwise if item is openable and item is open and a random chance of 2 in 3 succeeds:
+						try char closing item;
+					try char taking item;
+				otherwise:
+					now decision is 2;
+			if decision is 2:
+				let item be a random thing held by char;
+				if item is a thing:
+					let resting place be a random supporter enclosed by location of char;
+					if resting place is a supporter and char can see resting place:
+						try char putting item on resting place;
+					otherwise:
+						now resting place is a random open container enclosed by location of char;
+						if resting place is a container and char can see resting place:
+							try char inserting item into resting place;
+						otherwise:
+							try char dropping item;
+				otherwise:
+					now decision is 3;
+			if decision is 3:
+				if char is not enclosed by a vehicle and char can see a vehicle (called conveyance) which does not enclose a person who is not the player:
+					try char entering conveyance;
+				otherwise if char is enclosed by a vehicle and a random chance of 1 in 2 succeeds:
+					try char exiting;
+				let current space be location of char;
+				let next space be a random room which is adjacent to current space;
+				let way be best route from current space to next space;
+				try char going way.
+				
+	Test me with "n / z / e / z / s / z / w / x bowl / x marmalade / x mitten / x bob / x rosary / x diana"
+	

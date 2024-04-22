@@ -1,0 +1,31 @@
+Example: * Fear and Surprise
+Description: A brief demonstration of power.
+
+	{*}"Fear and Surprise"
+
+	Include Phrases for Tables with Topics by Ron Newcomb.
+
+	The cathedral is a room.  There is a woman called witch. The player is a witch.
+
+	The Spanish Inquisition is a scene. "'All witches know magic words!  Tell us, witch, what they are!'"
+	The Spanish Inquisition begins when play begins.
+	The Spanish Inquisition ends when the player's command includes a topic listed in the table of magic words.
+	When the Spanish Inquisition ends, say the response corresponding to a topic of the player's command from the table of magic words.
+
+	Table of magic words
+	topic		response
+	"xyzzy"	"Suddenly you pop out of existence!"
+	"plugh"	"In a swirl of feathers, you disappear!"
+
+	Understand "[text]" as a mistake ("'[fix topic understood]We know that [topic understood] is not a magic word! You cannot fool us, witch!'") when the Spanish Inquisition is happening and the player's command is not a topic listed in the table of magic words.
+
+	After reading a command when the player's command matches a topic listed in the table of magic words:
+		follow the scene changing rules;
+		replace the player's command with "x me";
+		move the player to the forest.
+
+	The forest is a room.
+
+	Test me with "no / foo / plugh / foo".
+
+

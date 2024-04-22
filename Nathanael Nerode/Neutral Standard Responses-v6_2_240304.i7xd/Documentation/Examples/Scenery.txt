@@ -1,0 +1,18 @@
+Example: *** Scenery
+Description: Regression test for line break issues with scenery responses
+
+	{*}"Scenery"
+
+	Include Neutral Standard Responses by Nathanael Nerode.
+
+	The House is a room.  "It's the house."
+
+	The banana is a thing.  [Kept offstage for testing.]
+
+	The furniture is a plural-named scenery thing in the house.  The description of the furniture is "The furniture is not meant to be used."
+
+	The decorations is a plural-named scenery thing in the house.  The description of the decorations is "Decorative."
+
+	test scenery with "take furniture/take furniture and decorations".
+	test cantsee with "take banana/take sdfh/take banana and furniture".
+

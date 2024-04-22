@@ -1,0 +1,61 @@
+Example: ** Football Practice
+Description: Defining a new implicit action.
+
+In this example we define a new action (kicking) and a new implicit action (dropping something). It's a bit dificult to kick something you're holding, so we make the kick action carry out an implicit drop if the thing to be kicked is currently carried.
+
+	{*}"Football Practice"
+
+	Include Implicit Actions by Eric Eve.
+
+	Part 1 - Define the Implicit Drop Activity
+
+	implicitly dropping something is an activity.
+	
+	rule for implicitly dropping something (called the held-thing) :
+	initialize the implicit action;
+	silently try dropping the held-thing;
+	finish the implicit action with participle "dropping" infinitive "drop" object "[the held-thing]" and condition (whether or not the held-thing is not carried).
+
+	Part 2 - The Kicking Action
+
+	kicking is an action applying to one thing.
+	Understand "kick [something]" as kicking.
+
+	Precondition for kicking something that is carried:
+	carry out the implicitly dropping activity with the noun;
+	if the noun is carried and implicit action attempted is true, stop the action.
+
+	Check kicking yourself:
+	say "You may feel like kicking yourself, but it wouldn[apostrophe]t actually do much good." instead.
+	
+	Check kicking the off-pitch ball:
+	say "It[apostrophe]s off the pitch now; you[apostrophe]ll need to pick it up and bring it back before you can take another shot at the goal." instead.
+
+	Carry out kicking the ball:
+	now the ball is off-pitch.
+
+	Report kicking the ball:
+	say "You give [the noun] a good kick, [one of]but it goes sailing wide of the goal[or]but it narrowly misses the goal[or]and it sails nicely between the goal-posts[as decreasingly likely outcomes]."
+
+	Part 3 - The Scenario
+
+	The Football Pitch is a room. "[if unvisited]It is a painfully cold morning this early in the day, but you wanted to come out and practice your kicking when there was absolutely no one else around to watch you make a fool of yourself. [end if]The pitch is deserted, and the goal is a couple of dozen yards away."
+
+	The goal is scenery in the Football Pitch. "It is just waiting there for you to kick a ball into it - if you can."
+	Understand "posts" or "goal-posts" as the goal.
+
+	The ball is in the Football Pitch. The ball can be in-play or off-pitch. It is in-play.
+
+	Carry out taking the ball: now the ball is in-play.
+	After taking the ball when the ball was off-pitch:
+	say "You pick up the ball and carry it back onto the pitch."
+
+	Rule for writing a paragraph about the in-play ball:
+	say "A ball rests at your feet, patiently awaiting a kick."
+
+	Rule for writing a paragraph about the off-pitch ball:
+			say "The ball is just off the pitch."
+
+	Test me with "kick ball/g/get ball/kick ball/get ball/kick ball."
+	
+

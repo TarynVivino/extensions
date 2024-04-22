@@ -1,0 +1,24 @@
+Example: * Potatoes for Victory
+
+	{*}"Potatoes for Victory"
+
+	Include Endgame by Zed Lopez.
+
+	Lab is a room.
+
+	The player carries the foil-jacketed potato.
+	The oven is an open container in the lab.
+
+	After inserting the potato into the oven: end the game.
+
+	Amusing is an action out of world.
+	Amusing is an endgame action.
+	Understand "amusing" as amusing when game over.
+	Carry out amusing: say "Try putting the potato in the oven."
+
+	when play begins:
+	now the standard endgame question rule response (A) is "You won! Would you like to Restore, Restart, Quit, or see Amusing things to have tried?";
+	now the endgame block disallowed actions rule response (A) is "Only Restore, Restart, Quit, or Amusing are available.";
+
+	test me with "x self / verify / put potato in oven / x self / look / verify / amusing / quit".
+

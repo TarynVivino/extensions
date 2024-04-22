@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Debug Tags",
+        "author": "Michael Kielstra",
+        "version": "1.0.1"
+    }
+}

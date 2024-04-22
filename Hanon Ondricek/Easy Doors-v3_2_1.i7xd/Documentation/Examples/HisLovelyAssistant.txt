@@ -1,0 +1,119 @@
+Example: **** His Lovely Assistant
+Description: Using Easy Doors to transport the player into an enterable container.
+
+	{*}"His Lovely Assistant"
+
+	Include Easy Doors by Hanon Ondricek.
+
+	Use scoring.
+
+	The Wicked Stage is a room.  "[one of]Here, elevated on the boards before a sold-out audience, Mumford the Magician has but one astounding trick left to perform.[or]The audience watches raptly, each member perched on the edge of their respective seat.[stopping]"
+
+	a magic trunk is a fixed in place, enterable, openable, closed, lit container in Wicked Stage.  The description is "It's big enough for a person to get into, but exceedingly heavy to carry around as you well know."  Understand "disappearing/box" as trunk.
+
+	a trap door is an easydoor in magic trunk.  It leads to Understage.  It is openable.  The dooraction is "You contort your body through the narrow square trap in the bottom of the trunk and the hole cut underneath it down through the stage floor."
+
+	After opening trap door:
+		say "You quietly open the trap door."
+
+	Instead of going down when the player is in magic trunk:
+		try entering trap door.
+
+	a concealed panel is an easydoor in Understage.  "Above your head you can see the concealed panel through the trap cut into the stage that the trunk is sitting on top of."   It leads to Wicked Stage.  It portals trap door.  Understand "trap" as concealed panel.
+
+	The printed name of Understage is "Beneath the Stage".
+
+	a scrap of newspaper clipping is in understage.  The description is "Hmn.  It's a slightly-charred newspaper article detailing the rash of stage magician's assistant murders that has been ravaging the community!  This looks like an important clue to the mystery!"
+	
+	Carry out taking scrap of newspaper for the first time:
+		increase the score by 1.
+
+	After closing concealed panel:
+		say "You close the panel with the slightly audible 'thunk' that Mumford is listening for."
+	
+	After entering concealed panel:
+		now the player is in magic trunk;
+		say "You twist your way flexibly back up through the stage into the trunk."
+	
+	Instead of going up in understage: try entering concealed panel.
+
+	To say response:
+		say "[line break]'[one of]Ooooooooh[or]Ahhhhhh[or]Ooh! Ahh[cycling]!' goes the audience."
+	
+	To say murmur:
+		say "The audience murmurs, perhaps a bit less astounded than they were before."
+	
+	The audience is scenery in Wicked Stage.  The description is "There are hundreds of people out there, even if you can't make out anyone specifically.  Any one of them could be the Magician's Assistant Murderer!  You hope you catch him soon so you can stop this whole undercover gig for Mumford."
+
+	Pre Magic is a scene.  Pre Magic begins when the turn count is 2.  Pre Magic ends when the player is in magic trunk.
+
+	When Pre Magic Begins:
+		say "Mumford holds up his hands, cutting off the applause from the previous trick.  'And now, for our spectacular finale.  I give you THE MAGIC DISAPPEARING BOX!'[response]";
+		if magic trunk is closed:
+			say "He flourishes his cape, and opens the trunk.";
+			now magic trunk is open.
+	
+	Every turn during Pre Magic:
+		say "[one of]Mumford offers a hand to assist you.  'And now, my lovely assistant will enter the mysterious mystery of THE DISAPPEARING BOX!'[response][or]'That's it, my lovely assistant,' Mumford says.  'Just step into THE MAGIC DISAPPEARING BOX!'[response][or]'Ha ha!  My lovely assistant fears THE MAGIC DISAPPEARING BOX!'[response][or]Mumford mutters under his breath, 'Just get in the box like we rehearsed it, okay?'  He flourishes and smiles for the audience to stall for you.[stopping][murmur]".
+	
+	Switcheroo is a scene.  Switcheroo begins when Pre Magic Ends.  Switcheroo ends when the player is in understage and concealed panel is closed.
+
+	To say magicwords:
+		say "'And now for [one of]some[or]some more[stopping] magic words!' Mumford bellows above.  '[one of]ABRACADABRA[OR]ALAKHAZAM[OR]HOCUS POCUS[OR]...erm MACARONI AND CHEESE[or]...and you will be AMAZED when you CANNOT SEE my LOVELY ASSISTANT!  Who [italic type]WILL HAVE VANISHED[roman type] from the MAGIC DISAPPEARING BOX[or]...UT-SHAY THE AGIC-MAY ANEL-PAY[or]I'm thinking I'll be in the market for a new Lovely Assistant soon,' Mumford ad-libs, no doubt waggling his eyebrows at the audience who chuckle appreciatively.  'BIBBITY BOBBITY[or]...um HAVA NAGILA[cycling]!'[response]"
+
+	When Switcheroo begins:
+		say "Mumford swirls his cape.  'And we say goodbye to my lovely assistant as we explore the mysteries of THE MAGICAL DISAPPEARING BOX!' he says, wiggling his fingers as you duck down in the trunk.[response]He closes the trunk lid and you hear him making a big show with the locks on the outside.";
+		now magic trunk is closed.
+	
+	Every turn during switcheroo:
+		if magic trunk is open:
+			now magic trunk is closed;
+			say "Mumford [one of]pushes the trunk closed again.[or]slams the trunk, almost taking one of your fingers with it.[or]resolutely pushes the trunk closed and holds it for a moment.[cycling]";
+		say "[magicwords]".
+
+	When switcheroo ends:
+		say "'And now...WATCH and be ASTOUNDED!' hollers Mumford from above."
+	
+	The audience can be amazed.
+	
+	The Show is a scene.  The Show begins when switcheroo ends.  The show ends when audience is amazed.
+
+	Instead of entering concealed panel during The Show:
+		say "You really not supposed to be in the box while Mumford is doing his stuff.";
+		stop the action.
+	
+	some fake scorpions are a thing.
+	
+	showcount is a number that varies.  showcount is 0.
+
+	Every turn during The Show:
+		increase showcount by 1;
+		if fake scorpions are not in magic trunk:
+			move fake scorpions to magic trunk;
+		say "[one of]'You all saw my Lovely Assistant locked securely inside THE DISAPPEARING BOX!' he announces.  But things ARE NOT ALWAYS WHAT THEY APPEAR!'[or]'If my Lovely Assistant were in the MAGICAL DISAPPEARING BOX, would I consider STABBING IT REPEATEDLY WITH THESE RAZOR SHARP SWORDS?'  (You hear metal clashing above.)[response][or]'Or would I pour this bucket of LIVE DEADLY SCORPIONS DIRECTLY INTO THE MAGICAL DISAPPEARING BOX?'  (You hear a pattering above.)[response][or]'Would I even consider SETTING THE MAGICAL DISAPPEARING BOX ON FIRE???'  (You hear a crackling whoosh of flash powder.)[response][or]I wouldn't do these things unless my Lovely Assistant HAD ACTUALLY DISAPPEARED!'  The audience applauds enthusiastically as he drops the front of the trunk to reveal that you are, indeed, not inside it.[stopping]";
+		if showcount is 5:
+			now the audience is amazed.
+	
+	When The Show ends:
+		say "You hear the trunk being hastily reassembled above, and Mumford continues.  'But THE MAGICAL DISAPPEARING BOX has a secret!  With more magic words...the mystery can be solved!  DUCK A LA RAHNGE!' he calls, which is your cue."
+	
+	The Reveal is a scene.  The reveal begins when The Show ends.  The reveal ends when the player is in magic trunk and magic trunk is open.
+
+	Every turn during the Reveal:
+		say "[one of]'I said DUCKALARAAAANGE!'[or]'Could my Lovely Assistant have suffered some type of TERRIBLE PERIL?' Mumford yells, and you can hear his foot tapping the trunk above.[or]'Hey!' he whispers harshly above.[or]'More magic words!' he cheefully announces.  'ET-GAY OR-YAY UTT-BAY ACK-BAY IN THE OX-BAY!'[cycling]"
+
+	When the Reveal ends:
+		say "Mumford drinks in the deafening applause for a minute, before deferring some to you.  'MY LOVELY ASSISTANT, LADIES AND GENTLEMAN!!!'  You take a graceful bow, understanding finally what it's like to be adored by hundreds of people.  But it is short-lived as there's a 'thoop' sound and a simultaneous gasp in the audience.  Mumford's eyes are wide as he realizes he's been shot with a poison crossbow!  The Killer is in the audience!  You yell for nobody to move as you retrieve your sidearm from where it was uncomfortably concealed in your skimpy outfit...";
+		end the story saying "You vow to avenge the Mystical Mumford the Magician!"
+	
+	The player wears a skimpy outfit.  The description of skimpy outfit is "It's a bit tighter and feathery-er than your normal uniform."
+
+	Instead of taking off skimpy outfit, say "Like this isn't humiliating enough."
+
+	The description of the player is "Yes, you are actually wearing feathers.  It's going to be a good long time before your cohorts stop giving you hell for this back at the station."
+
+	A person called The Amazing Mumford is in wicked stage.  The description is "He's been around the block a few times, and probably in his younger days was quite dashing in his cape and top hat."
+
+	test me with "z/enter box/open box/z/open trap/d/shut panel/x newspaper/take newspaper/up/z/enter panel/open box"
+	
+

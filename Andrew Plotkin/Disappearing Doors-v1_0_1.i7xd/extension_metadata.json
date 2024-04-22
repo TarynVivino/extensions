@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Disappearing Doors",
+        "author": "Andrew Plotkin",
+        "version": "1.0.1"
+    }
+}

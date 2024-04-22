@@ -1,0 +1,65 @@
+Example: ** Introductions
+Description: A system whereby both things and rooms can be given an "introduction", a tag line of text that is added the first time the player sees them in the room description if they are the main topic of a paragraph, or as an addendum to the object's description the first time it's examined. Introduction text can also be reviewed by the player with a THINK ABOUT command.
+
+	{*}"Introductions"
+
+	Include Tailored Room Description by Emily Short.
+
+	Section 1 - The Rules
+
+	A thing has some text called the introduction. The introduction of a thing is usually "".
+	A room has some text called the introduction. The introduction of a room is usually "".
+
+	Rule for writing a paragraph about an as-yet-unknown introduceable thing (called special-target):
+		carry out the writing a topic sentence about activity with the special-target;
+		introduce the special-target;
+		say paragraph break.
+
+	After examining an as-yet-unknown introduceable thing (called special-target):
+		introduce the special-target;
+		say paragraph break.
+
+	To introduce (special-target - an object):
+		now the special-target is introduced;
+		say "[introduction of the special-target]".
+
+	Definition: a thing is introduceable unless its introduction is "".
+	Definition: a room is introduceable unless its introduction is "".
+
+	A thing can be as-yet-unknown or introduced. A thing is usually as-yet-unknown.
+	A room can be as-yet-unknown or introduced. A room is usually as-yet-unknown.
+
+	The first time looking rule is listed after new object description rule in the carry out looking rules.
+
+	This is the first time looking rule:
+		if location is introduceable and the location is as-yet-unknown
+		begin;
+			introduce the location;
+			say paragraph break;
+		end if.
+
+	A description-concealing rule:
+		now every thing which is held by an as-yet-unknown introduceable person is not marked for listing.
+
+	Understand "think about [any introduceable introduced thing]" or "remember [any introduceable introduced thing]" as thinking about. Understand the commands "recall" or "consider" or "recollect" or "ponder" or "contemplate" as "remember".
+
+	Thinking about is an action applying to one visible thing.
+
+	Carry out thinking about:
+		introduce the noun;
+		say paragraph break.
+
+	Section 2 - The Scenario
+
+	The Maremma Breeding Ground is a room.
+
+	Logar is an animal in Maremma Breeding Ground. "Logar stands here, waiting for instructions."
+		The description is "A nine-month puppy, Logar is nonetheless a pretty sizable dog already."
+		The introduction is "He's your latest acquisition in a large collection of work dogs."
+
+	Logar carries a bone.
+		The description of the bone is "Pretty well chewed already."
+		The introduction of the bone is "That bone came out of a leg of lamb, but there's not much left on it."
+
+	Test me with "z / look / x logar / think about logar / x bone".
+

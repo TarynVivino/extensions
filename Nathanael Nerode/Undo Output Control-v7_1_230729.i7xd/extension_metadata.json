@@ -1,0 +1,8 @@
+{
+    "is": {
+        "type": "extension",
+        "title": "Undo Output Control",
+        "author": "Nathanael Nerode",
+        "version": "7.1.230729"
+    }
+}

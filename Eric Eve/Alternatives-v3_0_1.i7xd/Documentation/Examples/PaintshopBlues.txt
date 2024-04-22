@@ -1,0 +1,95 @@
+Example: * Paintshop Blues
+Description: Experimenting with the actions the player is prepared to perfom on differently coloured objects.
+
+This is something of a toy example, and there's nothing it does that couldn't be done some other (and often better) way in Inform; nonetheless it serves to illustrate how this extension can be used.
+
+
+Note once again what we must test "the colour of whatever" and not just "whatever" with these phrases. It would be pointless to have a clause like "when the noun is either red or blue" since this condition would not compile (and could not be met even if it did compile).
+
+Although this is a toy example it does illustrate one or two situations where this extension might be useful. For example we could have achieved the same effect as the "Instead of dropping rule" for the cup and plate above with:
+
+Definition: a thing is breakable if it is the china cup or if it is the china plate.
+
+Instead of dropping something breakable, say "But it might break if you drop it!"
+
+But this extension would save us the extra step of defining the breakable adjective, which might be useful if this were the only such case we wanted to catch.
+
+	{*}"Paintshop Blues" by Eric Eve
+
+	Book 1 - World Model
+
+	Include Alternatives by Eric Eve.
+
+	colour is a kind of value. The colours are red, orange, yellow, green, turquoise, blue, purple, black and white.
+
+	A chromatinon is a kind of thing. A chromatinon has a colour.
+
+	before printing the name of a chromatinon:
+	say "[colour of the item described] ";
+
+	Understand the colour property as describing a chromatinon.
+
+	Painting is an action applying to one thing and one colour.
+
+	Understand "paint [something] [colour]" as painting.
+
+	Check painting something when the noun is not a chromatinon:
+	say "I'm afraid that can't be recoloured." instead.
+
+	Check painting a chromatinon when the colour of the noun is the colour understood:
+	say "But [the noun] is already [the colour understood]!"
+
+	Carry out painting a chromatinon:
+	Now the colour of the noun is the colour understood.
+
+	Report painting a chromatinon:
+	say "Okay -- it's now [a noun]."
+
+	Book 2 - Scenario
+
+	Part 1 - Objects
+
+	The Experimental Paintshop is a room.
+	"This is where you can test the effect of colour on your highly colour-sensitive mind."
+
+	The ball is a blue chromatinon in the Experimental Paintshop.
+
+	The pencil is a black chromatinon in the Experimental Paintshop.
+
+	The pen is a red chromatinon in the Experimental Paintshop.
+
+	The table is a supporter in the Experimental Paintshop.
+
+	The china cup is an orange chromatinon on the table.
+
+	The china plate is a white chromatinon on the table.
+
+	Part 2 - Rules
+
+	After taking something when the noun is either the pencil or the pen:
+	say "You pick up a writing implement ([a noun], to be precise)."
+
+	After taking the ball when the colour of the ball is either blue or green:
+	say "You pick up [the ball]."
+
+	Instead of dropping something when the noun is either the china cup or the china plate:
+	say "But it might break if you drop it!"
+
+	After taking inventory when the number of things carried by the player is either 1 or 3 or 5:
+	say "You seem to be holding an odd number of things."
+
+	After taking inventory when the number of things carried by the player is neither 0 nor 1 nor 3 nor 5:
+	say "You are carrying an even number of objects."
+
+	Instead of dropping something when the colour of the noun is either turquoise or blue or purple:
+	say "But it's so pretty -- [the colour of the noun] is one of your favourite colours!"
+
+	Instead of taking something when the colour of the noun is either black or white:
+	say "But it's so plain!"
+
+	Before eating something when the colour of the noun is neither red nor orange nor green nor white:
+	say "Whoever heard of [colour of the noun] food? [A noun] can't possibly be edible!" instead.
+
+	Test me with "eat ball/take plate/paint plate red/eat plate/drop plate/take pencil/paint pencil orange/take pencil/i/take ball/drop ball/i/take pen/paint pen purple/eat pen/drop pen/i"
+
+

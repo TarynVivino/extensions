@@ -1,0 +1,50 @@
+Example: * Supposing and Establishing
+Description: Demonstrates suppositions and facts.
+
+	{*}"Become Aware"
+	
+	Include World Knowledge by Jeff Nyman.
+
+	Need for infinity stone is a knowledge subject.
+
+	Key exists for puzzle box is a supposition.
+
+	Time stone in box is a fact.
+
+	The Laboratory is a room.
+	
+	A rosewood bench is a supporter in the Laboratory.
+
+	An iron crucible is an open container on the rosewood bench.
+
+	A cupboard is a closed openable container in the Laboratory.
+
+	A wicker basket is an open container in the cupboard.
+
+	A silver key is in the wicker basket.
+	The matching key of the Chinese puzzle box is the silver key.
+
+	A Chinese puzzle box is a locked lockable closed openable portable container.
+
+	An infinity stone is a portable thing in the puzzle box.
+
+	The player is carrying a note.
+	
+	Before opening the Chinese puzzle box when the Chinese puzzle box is locked:
+		now the player is aware of key exists for puzzle box;
+		familiarize key exists for puzzle box.
+
+	Instead of examining the note:
+		say "It says: 'Silver Key in Basket'.";
+		now the silver key is familiar.
+	
+	After searching the cupboard for the second time:
+		now the Chinese puzzle box is in the cupboard;
+		familiarize the Chinese puzzle box;
+		say "Digging deeper, you find a Chinese puzzle box."
+
+	After opening the Chinese puzzle box:
+		if the infinity stone is seen:
+			now the player establishes time stone in box.
+			
+

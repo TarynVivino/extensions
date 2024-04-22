@@ -1,0 +1,26 @@
+Example: ** Tobacco
+Description: Passkeys that open more than one thing each.
+
+Here we explore having keys each of which unlocks several items:
+
+	{*}"Tobacco"
+	
+	Include Locksmith by Emily Short.
+	
+	The Hollow Tree is a room. Below the Hollow Tree is the Vast Hall. Northwest of the Vast Hall is a copper door. The copper door is a locked lockable door. Northwest of the copper door is the Copper Chamber. The Copper Chamber contains a chest and a small dog. The chest contains a large quantity of copper pence. The chest is lockable, closed, openable, and locked. The description of the small dog is "Its eyes are as big as teacups." The small dog is an animal. The copper key unlocks the copper door. It unlocks the chest. The copper key is a passkey. The description of the copper key is "On the head of the key is engraved a precisely delineated teapot."
+	
+	North of the Vast Hall is a silver door. The silver door is a locked lockable door. North of the silver door is the Silver Chamber. The Silver Chamber contains a sarcophagus and a medium dog. The sarcophagus contains a large quantity of silver pence. The sarcophagus is lockable, closed, openable, and locked. The description of the medium dog is "Its eyes are as big as millwheels." The medium dog is an animal. The silver key unlocks the silver door. It unlocks the sarcophagus. The silver key is a passkey. The description of the silver key is "On the head of the key is engraved a very small but detailed watermill."
+	
+	Northeast of the Vast Hall is a gold door. The gold door is a locked lockable door. North of the gold door is the Gold Chamber. The Gold Chamber contains a wardrobe and a large dog. The wardrobe contains a large quantity of gold coins. The wardrobe is lockable, closed, openable, and locked. The description of the large dog is "Its eyes are as big as towers, and turn round and round in its head like wheels." The large dog is an animal. The gold key unlocks the gold door. It unlocks the wardrobe. The gold key is a passkey. The description of the gold key is "On the head of the key is engraved a very small but detailed tower."
+	
+	The tinderbox is in the Vast Hall. The tinderbox contains the silver key, the gold key, and the copper key. The tinderbox is openable and closed.
+	
+	The player carries some chewing tobacco and an iron ring. The iron ring is a keychain. The description of the iron ring is "A ring to hold keys."
+	
+	Test me with "test one / test two".
+	
+
+	Test one with "d / n / i / get tinderbox / open tinderbox / i / nw / drop key / lock door / drop key / unlock chest / get copper key / unlock chest / put copper on ring / lock chest / drop ring / unlock chest".
+
+	Test two with "enter door / n / i / x silver / put silver on ring / x copper / unlock sarcophagus / x silver key".
+	

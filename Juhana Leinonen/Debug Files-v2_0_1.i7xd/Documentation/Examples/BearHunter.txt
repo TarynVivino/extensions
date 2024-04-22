@@ -1,0 +1,55 @@
+Example: * Bear Hunter
+Description: An example where some information of the game mechanics is saved to the debug file.
+
+After a test run the debug file might look something like this (except with brackets around the prompt numbers):
+
+<3>: Bear's hit points reduced to 6.
+
+<4>: Bear's hit points reduced to 3.
+
+<5>: Bear's hit points reduced to 1.
+
+<5>: The bear has a manic episode.
+
+<6>: Player's hit points reduced to 6.
+
+<6>: The bear is now depressed.
+
+<7>: Bear's hit points reduced to -3.
+
+	{*}Include Debug Files by Juhana Leinonen.
+
+	Use debug files.
+
+	The glacier is a room. A bipolar bear is a male animal in the glacier. The bipolar bear can be manical or depressed. The description of the bear is "The bipolar bear looks [if manical]like he's full of life[otherwise]quite depressed[end if]."
+
+	A person has a number called hit points. The hit points of a person is usually 10.
+
+	Every turn when a random chance of 1 in 3 succeeds:
+		if the bear is depressed:
+			now the bear is manical;
+			debug "The bear has a manic episode.";
+		otherwise:
+			now the bear is depressed;
+			debug "The bear is now depressed."
+
+	Instead of attacking the depressed bear:
+		say "You strike the bear with all your strength.";
+		decrease the hit points of the bear by a random number between 1 and 5;
+		debug "Bear's hit points reduced to [hit points of the bear].";
+		if the hit points of the bear is less than 1:
+			say "[line break]The mighty bipolar bear falls and you get another victory.";
+			end the story;
+		otherwise:
+			say "[line break]'Go ahead. Life's not worth it anyways,' the bear says."
+
+	Instead of attacking the manical bear:
+		say "'Oh no you don't!' the bear roars and slams you with his mighty white paw. 'There's nothing that could stop me today!'";
+		decrease the hit points of the player by a random number between 1 and 5;
+		debug "Player's hit points reduced to [hit points of the player].";
+		if the hit points of the player is less than 1:
+			say "[line break]The Great Bipolar Bear of the North proves to be stronger than you.";
+			end the story finally.
+
+	Test me with "x bear/attack bear/g/g/g/g/g".
+

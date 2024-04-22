@@ -1,0 +1,24 @@
+Example: ** Ownership
+Description: In which commands like EXAMINE JACK'S TIE are understood if Jack is wearing a tie, and otherwise not.
+
+The trick here is that we want to write
+
+Understand "[something related by reversed possession]'s" as a thing.
+
+but this won't work, because Inform can't glue a token to an additional following set of characters. If, however, we make the apostrophe go away, we can match "[something related by reversed possession] s" -- an odd phrase, but one which the player is unlikely to type on his own in any other context:
+
+Note, though, that this kind of gambit should really be used cautiously and with awareness of what else the game is doing. If there are cases where the player should be using apostrophes, we'll want to write more restrictive rules about when to strip them away.
+
+	{*}"Ownership"
+
+	Include Punctuation Removal by Emily Short.
+	
+	Understand "[something related by reversed possession] s" as a thing.
+
+	Jack wears a tie. Jack is in the Turret. The Turret is a room.
+
+	After reading a command:
+		remove apostrophes.
+	
+	Test me with "x jack's tie".
+
