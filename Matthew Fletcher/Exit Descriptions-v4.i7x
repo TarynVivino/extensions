@@ -8,15 +8,9 @@ The amount is 0.
 The num is a number variable.
 The num is 0.
 
-[The ExitListType is a number variable.
-The ExitListType is usually 0.]
-
 The ExitListTypeFlag is a truth state that varies. The ExitListTypeFlag is false.
 
 The ShowUnvistedRoomNamesFlag is a truth state that varies. The ShowUnvistedRoomNamesFlag is false.
-
-[The ShowUnvistedRoomNames is a number variable.
-The ShowUnvistedRoomNames is usually 0.]
 
 The ExitsMessage is some text that varies.
 The ExitsMessage is "Exits:".
