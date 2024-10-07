@@ -1,24 +1,29 @@
-Version 1 of Print Stage Detection by Taryn Michelle begins here.
+Version 2.0.3 of Print Stage Detection by Taryn Michelle begins here.
 
-"'Printing the name' rules make TWO passes over the same object when Inform needs to determine the appropriate article to print. This is a non-issue for many rules, but 'printing the name' rules with side effects may need to know which stage is currently being processed (article-choosing or name-printing), so that they can avoid double-execution of any side effects."
+"'Printing the name' rules make TWO passes over the same object when Inform needs to determine the appropriate article to print. This is a non-issue for many rules, but 'printing the name' rules with side effects may need to know which stage is currently being processed (article-choosing or name-printing), so that they can avoid double-execution of any side effects. Updated for compatability with Inform version 10.1.2"
 
 Section - I6 Code
+
+[Place global here in case any I7 rule tries to directly test "if name-printing is choosing articles"; otherwise an I6 compilation error occurs.]
+
+[! flag to signal when printing to array for article determination]
+Include (- Global article_choosing  =  false;  -) [after "Definitions.i6t"]. 
 
 [The PrefaceByArticle routine is copied from Printing.i6t and modified to set a global flag which will tell us when PSN__ (the routine that ends up invoking the 'printing the name' activity) is printing to a buffer (to determine what article to choose) or displaying output.]
 
 Include (- 
-Global short_name_case;
 
 [ PrefaceByArticle obj acode pluralise capitalise  i artform findout artval;
+	!print "*We're Alive*";
 	if ( article_choosing ) { ! prevent reentrant calls from also attempting to choose an article, thereby disrupting article-choosing for the original object. (This is okay -- they will get their turn to print as requested later on, during the name-printing stage for the original object.)
 		print (PSN__) obj; return;
 	}
 	if (obj provides articles) {
 		artval=(obj.&articles)-->(acode+short_name_case*LanguageCases);
 		if (capitalise)
-			print (Cap) artval, " ";
+			print (Cap) artval;
 		else
-			print (string) artval, " ";
+			print (string) artval;
 		if (pluralise) return;
 		print (PSN__) obj; return;
 	}
@@ -32,21 +37,18 @@ Global short_name_case;
 	artform = LanguageArticles
 		+ 3*WORDSIZE*LanguageContractionForms*(short_name_case + i*LanguageCases);
 
-	#Iftrue (LanguageContractionForms == 2);
-	if (artform-->acode ~= artform-->(acode+3)) findout = true;
-	#Endif; ! LanguageContractionForms
-	#Iftrue (LanguageContractionForms == 3);
-	if (artform-->acode ~= artform-->(acode+3)) findout = true;
-	if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
-	#Endif; ! LanguageContractionForms
-	#Iftrue (LanguageContractionForms == 4);
-	if (artform-->acode ~= artform-->(acode+3)) findout = true;
-	if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
-	if (artform-->(acode+6) ~= artform-->(acode+9)) findout = true;
-	#Endif; ! LanguageContractionForms
-	#Iftrue (LanguageContractionForms > 4);
-	findout = true;
-	#Endif; ! LanguageContractionForms
+	switch (LanguageContractionForms) {
+		2: 	if (artform-->acode ~= artform-->(acode+3)) findout = true;
+		3: 	
+			if (artform-->acode ~= artform-->(acode+3)) findout = true;
+			if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
+		4: 	
+			if (artform-->acode ~= artform-->(acode+3)) findout = true;
+			if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
+			if (artform-->(acode+6) ~= artform-->(acode+9)) findout = true;
+		default: 
+			findout = true;
+	}
 
 	#Ifdef TARGET_ZCODE;
 	if (standard_interpreter ~= 0 && findout) {
@@ -60,27 +62,37 @@ Global short_name_case;
 	}
 	#Ifnot; ! TARGET_GLULX
 	if (findout) {
+		!print "*article_choosing*";
 		article_choosing = true;
 		if (pluralise)
 			Glulx_PrintAnyToArray(StorageForShortName, 160, EnglishNumber, pluralise);
-		else
+		else {
+			!print "*PrintAnyToArray*";
 			Glulx_PrintAnyToArray(StorageForShortName, 160, PSN__, obj);
+			! print StorageForShortName;
+			! we don't need findout anymore
+			! We so need to generalize this
+			!for ( i = 0 : i < StorageForShortName->0 : i++ )
+			!{
+			!	print (char) StorageForShortName->(i + 1);
+			!}
+		}	
 		article_choosing = false;
 		acode = acode + 3*LanguageContraction(StorageForShortName);
+	}
+	else {
+		!print "*no findout*";
 	}
 	#Endif; ! TARGET_
 
 	Cap (artform-->acode, ~~capitalise); ! print article
 	if (pluralise) return;
 	print (PSN__) obj;
-]; -) instead of "Object Names II" in "Printing.i6t";
-
-[Place global here in case any I7 rule tries to directly test "if name-printing is choosing articles"; otherwise an I6 compilation error occurs.]
-Include (- Global article_choosing = false; ! flag to signal when printing to array for article determination -) after "Definitions.i6t". 
+]; -) replacing "PrefaceByArticle";
 
 Section - Adding pass-detection to the printing the name activity
 
-To decide whether name-printing is choosing articles:  (- ( article_choosing ) -).
+To decide whether name-printing is choosing articles:  (- ( article_choosing  ~= 0 ) -).
 
 A printing-stage is a kind of value.  The printing-stages are article-choosing and name-printing.
 To decide what printing-stage is the print-stage:
@@ -158,35 +170,34 @@ The section above mainly discussed various things to avoid in the article-choosi
 
 Example: ** Print Stage Demo - A simple demonstration of the two passes the printing the name activity makes when printing an object with an article, and the use of Print Stage Detection to deal with some issues that arise.
 
-	*: "Print Stage Demo" 
+	**: "Print Stage Demo" 
 
 	Include Print Stage Detection by Taryn Michelle.
 
-	A thing has a number called the look-examine-count. The look-examine-count of a thing is usually 0. [Set up some properties to track how many times things are printed]
+	A thing has a number called the look-examine-count. The look-examine-count of a thing is usually 0.
 	A thing has a number called the times-printed. The times-printed of a thing is usually 0.
 	A thing has a number called the examine-count. The examine-count of a thing is usually 0.
 	A thing has a number called the rule-count. The rule-count of a thing is usually 0.
 	A thing can be tracked. A thing is usually not tracked.
+	A thing can be grammatical or ungrammatical. A thing is usually grammatical. The awful quirkiness is ungrammatical.
 
-	Before printing the name of something (called the target): 	[Simple before-after printing rules with stage-checking]
+	Before printing the name of a grammatical thing (called the target):
 		if the print-stage is name-printing:
-			say "-->".
-		
-	After printing the name of something (called the target):
+			say "-->";
+
+	After printing the name of a grammatical  thing (called the target):
 		increase rule-count of the target by 1;
 		if the print-stage is name-printing:
 			say "<--";
 			increase times-printed of the target by 1.
 
-	Before printing the name of the awful quirkiness: 	[Don't apply stage-checking to one of our objects, to illustrate the difference]
-		say "-->";
-		rule succeeds.
-
+	Before printing the name of the awful quirkiness:
+		say "(";
+	
 	After printing the name of the awful quirkiness:
-		say "<--";
+		say ")";
 		increase rule-count of the quirkiness by 1;
 		increase times-printed of the quirkiness by 1;
-		rule succeeds.
 
 	The Chamber of Demonstration is a room. "[chamber-description]".
 
@@ -198,7 +209,7 @@ Example: ** Print Stage Demo - A simple demonstration of the two passes the prin
 	The awful quirkiness is scenery in the chamber. The quirkiness is tracked.
 
 	To say rule count of (target - a thing):
-		say "<[printed name of target]>"; [use printed name so as not to invoke 'printing the name' rules here and throw off our tracking counts]
+		say "<[printed name of target]>";
 		if the target is not tracked:
 			say " is not being tracked";
 		otherwise:
@@ -212,5 +223,5 @@ Example: ** Print Stage Demo - A simple demonstration of the two passes the prin
 	After examining a tracked thing (called the item):
 		increase the look-examine-count of the item by 1;
 		say "[rule count of item][line break]".
-		
+
 	Test me with "x articulated /  x quirkiness / look".
