@@ -1,4 +1,4 @@
-Version 2.0.241013 of Print Stage Detection by Taryn Michelle begins here.
+Version 2.0 of Print Stage Detection by Taryn Michelle begins here.
 
 "'Printing the name' rules make TWO passes over the same object when Inform needs to determine the appropriate article to print. This is a non-issue for many rules, but 'printing the name' rules with side effects may need to know which stage is currently being processed (article-choosing or name-printing), so that they can avoid double-execution of any side effects.  Updated for compatability with Inform version 10.1.2"
 
@@ -7,92 +7,103 @@ Section - I6 Code
 [Place global here in case any I7 rule tries to directly test "if name-printing is choosing articles"; otherwise an I6 compilation error occurs.]
 
 [! flag to signal when printing to array for article determination]
-Include (- Global article_choosing  =  false;  -) [after "Definitions.i6t"]. 
+[Include (- Global article_choosing = false; -) after "Definitions.i6t". ]
+
+article_choosing is a number that varies. article_choosing is 0;
 
 [The PrefaceByArticle routine is copied from Printing.i6t and modified to set a global flag which will tell us when PSN__ (the routine that ends up invoking the 'printing the name' activity) is printing to a buffer (to determine what article to choose) or displaying output.]
 
-Include (- 
+Include (-
 
-[ PrefaceByArticle obj acode pluralise capitalise  i artform findout artval;
+Global _article_choosing = (+ article_choosing +);
+
+[ PrefaceByArticle obj acode pluralise capitalise  i artform findout artval reentrant;
+	reentrant = _article_choosing; ! True if we're being invoked recursively from another PrefaceByArticle call during article-choosing
+    [ PrefaceByArticle obj acode pluralise capitalise  i artform findout artval;
 	!print "*We're Alive*";
 	if ( article_choosing ) { ! prevent reentrant calls from also attempting to choose an article, thereby disrupting article-choosing for the original object. (This is okay -- they will get their turn to print as requested later on, during the name-printing stage for the original object.)
 		print (PSN__) obj; return;
 	}
 	if (obj provides articles) {
-		artval=(obj.&articles)-->(acode+short_name_case*LanguageCases);
-		if (capitalise)
-			print (Cap) artval;
-		else
-			print (string) artval;
-		if (pluralise) return;
-		print (PSN__) obj; return;
-	}
+        artval=(obj.&articles)-->(acode+short_name_case*LanguageCases);
+        if (capitalise)
+            print (Cap) artval;
+        else
+            print (string) artval;
+        if (pluralise) return;
+        print (PSN__) obj; return;
+    }
 
-	i = GetGNAOfObject(obj);
-	if (pluralise) {
-		if (i < 3 || (i >= 6 && i < 9)) i = i + 3;
-	}
-	i = LanguageGNAsToArticles-->i;
+    i = GetGNAOfObject(obj);
+    if (pluralise) {
+        if (i < 3 || (i >= 6 && i < 9)) i = i + 3;
+    }
+    i = LanguageGNAsToArticles-->i;
 
-	artform = LanguageArticles
-		+ 3*WORDSIZE*LanguageContractionForms*(short_name_case + i*LanguageCases);
+    artform = LanguageArticles
+        + 3*WORDSIZE*LanguageContractionForms*(short_name_case + i*LanguageCases);
 
-	switch (LanguageContractionForms) {
-		2: 	if (artform-->acode ~= artform-->(acode+3)) findout = true;
-		3: 	
-			if (artform-->acode ~= artform-->(acode+3)) findout = true;
-			if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
-		4: 	
-			if (artform-->acode ~= artform-->(acode+3)) findout = true;
-			if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
-			if (artform-->(acode+6) ~= artform-->(acode+9)) findout = true;
-		default: 
-			findout = true;
-	}
+    switch (LanguageContractionForms) {
+    	2: if (artform-->acode ~= artform-->(acode+3)) findout = true;
+    	3: if (artform-->acode ~= artform-->(acode+3)) findout = true;
+	       if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
+		4: if (artform-->acode ~= artform-->(acode+3)) findout = true;
+    	   if (artform-->(acode+3) ~= artform-->(acode+6)) findout = true;
+    	   if (artform-->(acode+6) ~= artform-->(acode+9)) findout = true;
+		default: findout = true;
+    }
+    #Ifdef TARGET_ZCODE;
+    if (standard_interpreter ~= 0 && findout) {
+        StorageForShortName-->0 = 160;
+		_article_choosing = true;
+        @output_stream 3 StorageForShortName;
+		_article_choosing = reentrant; ! Clear flag only if this isn't a re-entrant call (i.e. all recursion is unwound)
+        if (pluralise) print (number) pluralise; else print (PSN__) obj;
+        @output_stream -3;
+        acode = acode + 3*LanguageContraction(StorageForShortName + 2);
+    }
+    #Ifnot; ! TARGET_GLULX
+    if (findout) {
+		_article_choosing = true;
+        if (pluralise)
+            Glulx_PrintAnyToArray(StorageForShortName, 160, EnglishNumber, pluralise);
+        else
+            Glulx_PrintAnyToArray(StorageForShortName, 160, PSN__, obj);
+		_article_choosing = reentrant; ! Clear flag only if this isn't a re-entrant call (i.e. all recursion is unwound)
+        acode = acode + 3*LanguageContraction(StorageForShortName);
+    }
+    #Endif; ! TARGET_
 
-	#Ifdef TARGET_ZCODE;
-	if (standard_interpreter ~= 0 && findout) {
-		StorageForShortName-->0 = 160;
-		@output_stream 3 StorageForShortName;
-		article_choosing = true;
-		if (pluralise) print (number) pluralise; else print (PSN__) obj;
-		article_choosing = false;
-		@output_stream -3;
-		acode = acode + 3*LanguageContraction(StorageForShortName + 2);
-	}
-	#Ifnot; ! TARGET_GLULX
-	if (findout) {
-		!print "*article_choosing*";
-		article_choosing = true;
-		if (pluralise)
-			Glulx_PrintAnyToArray(StorageForShortName, 160, EnglishNumber, pluralise);
-		else {
-			!print "*PrintAnyToArray*";
-			Glulx_PrintAnyToArray(StorageForShortName, 160, PSN__, obj);
-			! print StorageForShortName;
-			! we don't need findout anymore
-			! We so need to generalize this
-			!for ( i = 0 : i < StorageForShortName->0 : i++ )
-			!{
-			!	print (char) StorageForShortName->(i + 1);
-			!}
-		}	
-		article_choosing = false;
-		acode = acode + 3*LanguageContraction(StorageForShortName);
-	}
-	else {
-		!print "*no findout*";
-	}
-	#Endif; ! TARGET_
+    Cap (artform-->acode, ~~capitalise); ! print article
+    if (pluralise) return;
+    print (PSN__) obj;
+];-) replacing "PrefaceByArticle";
 
-	Cap (artform-->acode, ~~capitalise); ! print article
-	if (pluralise) return;
-	print (PSN__) obj;
-]; -) replacing "PrefaceByArticle";
+Include (-
+
+Global _article_choosing = (+ article_choosing +);
+
+[ PSN__ o;
+    if (o == 0) { LIST_WRITER_INTERNAL_RM('Y'); rtrue; }
+    switch (metaclass(o)) {
+		Routine:  print "<routine ", o, ">"; rtrue;
+		String:   print "<string ~", (string) o, "~>"; rtrue;
+		nothing:  print "<illegal object number ", o, ">"; rtrue;
+    }
+    RegardingSingleObject(o);
+    ! CarryOutActivity(PRINTING_THE_NAME_ACT, o);
+    ! Nearly all the problems here come about by way of After rules being triggered needlessly when Inform is only just in the process of figuring out what article to use
+    BeginActivity(PRINTING_THE_NAME_ACT, o);
+	ForActivity(PRINTING_THE_NAME_ACT, o); ! Throw away the return value as we never use it;
+    if ( _article_choosing ) ! Whatever may be printed up AFTER the object name has no effect on article-choosing, but there are plenty of ways to screw up by running after rules in this phase
+        AbandonActivity(PRINTING_THE_NAME_ACT, o); ! Cut the activity short.
+    else 
+	    EndActivity(PRINTING_THE_NAME_ACT, o); ! We're really printing stuff out now, so finish up with the after rules
+]; -) replacing "PSN__";
 
 Section - Adding pass-detection to the printing the name activity
 
-To decide whether name-printing is choosing articles:  (- ( article_choosing  ~= 0 ) -).
+To decide whether name-printing is choosing articles: (- ( article_choosing  ~= 0 ) -).
 
 A printing-stage is a kind of value.  The printing-stages are article-choosing and name-printing.
 To decide what printing-stage is the print-stage:
