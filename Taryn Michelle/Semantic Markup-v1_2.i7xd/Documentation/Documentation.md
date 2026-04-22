@@ -1,0 +1,5 @@
+Support for embedding semantic markup in the output.
+
+The goal is to completely separate the Inform story BACK END from a front-end player that handles all aspects of presentation, layout, graphics, video, sound, as well as player input. 
+
+The FRONT END will be fully capable of "producing" the story using one of its default modes, but adds a "Stage Manager" component and corresponding "Director" mode that affords full freedom in terms of layout decisions, multi-media effects, and interpretation of any "stage directions" (essentially hints) embedded in the story (which acts much like a screenplay). In the "stage director" role, you can tweak as little or as much as you like with respect to the default at any time, so a full-blown, time-consuming and potentially expensive, multi-media heavy effort isn't required to get an ImagineIF enhanced production up and running from a regular work of interactive fiction (or even simply straight-up narrative fiction). And just like the production of a stage play, you can make incremental changes and additions over time, all without modifying the underlying narrative ("screenplay"). 
